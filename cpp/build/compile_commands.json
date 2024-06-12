@@ -1,0 +1,20 @@
+[
+{
+  "directory": "/Users/roryschram/Documents/Work/masters/cpp/build",
+  "command": "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/c++ -I/Users/roryschram/Documents/Work/masters/cpp/include -g -arch arm64 -isysroot /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX13.3.sdk -o CMakeFiles/helloWorld.dir/src/Hello.cpp.o -c /Users/roryschram/Documents/Work/masters/cpp/src/Hello.cpp",
+  "file": "/Users/roryschram/Documents/Work/masters/cpp/src/Hello.cpp",
+  "output": "CMakeFiles/helloWorld.dir/src/Hello.cpp.o"
+},
+{
+  "directory": "/Users/roryschram/Documents/Work/masters/cpp/build",
+  "command": "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/c++ -I/Users/roryschram/Documents/Work/masters/cpp/include -g -arch arm64 -isysroot /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX13.3.sdk -o CMakeFiles/helloWorld.dir/src/World.cpp.o -c /Users/roryschram/Documents/Work/masters/cpp/src/World.cpp",
+  "file": "/Users/roryschram/Documents/Work/masters/cpp/src/World.cpp",
+  "output": "CMakeFiles/helloWorld.dir/src/World.cpp.o"
+},
+{
+  "directory": "/Users/roryschram/Documents/Work/masters/cpp/build",
+  "command": "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/c++ -I/Users/roryschram/Documents/Work/masters/cpp/include -g -arch arm64 -isysroot /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX13.3.sdk -o CMakeFiles/helloWorld.dir/src/main.cpp.o -c /Users/roryschram/Documents/Work/masters/cpp/src/main.cpp",
+  "file": "/Users/roryschram/Documents/Work/masters/cpp/src/main.cpp",
+  "output": "CMakeFiles/helloWorld.dir/src/main.cpp.o"
+}
+]
