@@ -40,12 +40,12 @@ end
 U2 = circshift(U,1024); % Line up Part C detection with Part B detection
 Z2 = U2.*V;
 
-%figure()
-%plot(abs(U2))
-%grid on
-%figure()
-%plot(abs(V))
-%grid on
+figure()
+plot(abs(U2))
+grid on
+figure()
+plot(abs(V))
+grid on
 
 %% Threshold detection of peaks for P1 Detection using mean noise floor
 mZ =0;
