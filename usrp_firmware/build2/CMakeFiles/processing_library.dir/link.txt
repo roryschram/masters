@@ -1,0 +1,2 @@
+/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/ar qc libprocessing_library.a CMakeFiles/processing_library.dir/src/processing/DSP.cpp.o CMakeFiles/processing_library.dir/src/processing/SFCW.cpp.o
+/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/ranlib libprocessing_library.a
