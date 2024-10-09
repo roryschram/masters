@@ -1,0 +1,134 @@
+{
+	"configurations" : 
+	[
+		{
+			"directories" : 
+			[
+				{
+					"build" : ".",
+					"childIndexes" : 
+					[
+						1
+					],
+					"hasInstallRule" : true,
+					"jsonFile" : "directory-.-Debug-f5ebdc15457944623624.json",
+					"minimumCMakeVersion" : 
+					{
+						"string" : "3.5.1"
+					},
+					"projectIndex" : 0,
+					"source" : ".",
+					"targetIndexes" : 
+					[
+						0,
+						1,
+						2,
+						3,
+						4,
+						5
+					]
+				},
+				{
+					"build" : "externals/HighFive",
+					"hasInstallRule" : true,
+					"jsonFile" : "directory-externals.HighFive-Debug-acddc55ea99d212bbc3a.json",
+					"minimumCMakeVersion" : 
+					{
+						"string" : "3.13"
+					},
+					"parentIndex" : 0,
+					"projectIndex" : 1,
+					"source" : "externals/HighFive"
+				}
+			],
+			"name" : "Debug",
+			"projects" : 
+			[
+				{
+					"childIndexes" : 
+					[
+						1
+					],
+					"directoryIndexes" : 
+					[
+						0
+					],
+					"name" : "N210_FIRMWARE",
+					"targetIndexes" : 
+					[
+						0,
+						1,
+						2,
+						3,
+						4,
+						5
+					]
+				},
+				{
+					"directoryIndexes" : 
+					[
+						1
+					],
+					"name" : "HighFive",
+					"parentIndex" : 0
+				}
+			],
+			"targets" : 
+			[
+				{
+					"directoryIndex" : 0,
+					"id" : "N210_FIRMWARE::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-N210_FIRMWARE-Debug-95f5902cc660596dcb13.json",
+					"name" : "N210_FIRMWARE",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 0,
+					"id" : "hardware_config::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-hardware_config-Debug-29020d4ae4a098d10fab.json",
+					"name" : "hardware_config",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 0,
+					"id" : "processing_library::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-processing_library-Debug-a6668bc4403e08136b1a.json",
+					"name" : "processing_library",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 0,
+					"id" : "storage_library::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-storage_library-Debug-ef176bc0954b84f01731.json",
+					"name" : "storage_library",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 0,
+					"id" : "test_types_library::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-test_types_library-Debug-a410a918f282498d6202.json",
+					"name" : "test_types_library",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 0,
+					"id" : "utility_library::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-utility_library-Debug-35fe5a65b8b6dc2086cc.json",
+					"name" : "utility_library",
+					"projectIndex" : 0
+				}
+			]
+		}
+	],
+	"kind" : "codemodel",
+	"paths" : 
+	{
+		"build" : "/Users/roryschram/Desktop/usrp_code/usrp_firmware/build",
+		"source" : "/Users/roryschram/Desktop/usrp_code/usrp_firmware"
+	},
+	"version" : 
+	{
+		"major" : 2,
+		"minor" : 7
+	}
+}
