@@ -175,12 +175,6 @@ std::vector<std::complex<double>> receive_vector(uhd::usrp::multi_usrp::sptr rx_
 /////////////////////////////////////////////////////////////////////
 
 
-
-
-
-
-
-
 int setup(int argc, char *argv[]){
     // for floating point printing
     std::cout << std::fixed << std::setprecision(4);
