@@ -1,3 +1,0 @@
-/Users/roryschram/Documents/Work/masters/cpp/build/CMakeFiles/helloWorld.dir
-/Users/roryschram/Documents/Work/masters/cpp/build/CMakeFiles/edit_cache.dir
-/Users/roryschram/Documents/Work/masters/cpp/build/CMakeFiles/rebuild_cache.dir
