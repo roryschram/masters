@@ -94,15 +94,10 @@ resampledData1 = resampledData.*exp((1i*2*pi*(-P2ioffset)*n)/(Start.nfft)); %Int
 [PLPValues,FCValues,RemainingP2,Data_CPE,FC_CPE] = DataHandling(resampledData,Start,SNR,Variance,L1pre,L1post,dataindex,RemainingP2);
 % plotFFT(superFrame,Rs);
 % plotFFT(resampledData1,Rs);
-
+surf(abs(PLPValues))
 
 %% Plot QAM plot
-figure()
-FEC_Frame = 1; % Error correction frame selection
-plot(DVBT2.rawQAM(FEC_Frame).TIBlock,'.')
-title('Raw DVB-T2 QAM Map')
-
-figure()
-FEC_Frame = 1; % Error correction frame selection
-plot(DVBT2.demodQAM(FEC_Frame).TIBlock,'.','MarkerSize',12)
-title('Demod-Remod DVB-T2 QAM Map')
+% figure()
+% FEC_Frame = 1; % Error correction frame selection
+% polar(transpose(DVBT2.DataMap(1,:)),'.','MarkerSize',12)
+% title('Demod-Remod DVB-T2 QAM Map')
