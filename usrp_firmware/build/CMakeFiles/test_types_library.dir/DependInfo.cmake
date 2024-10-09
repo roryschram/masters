@@ -8,10 +8,10 @@ set(CMAKE_DEPENDS_LANGUAGES
 
 # The set of dependency files which are needed:
 set(CMAKE_DEPENDS_DEPENDENCY_FILES
-  "/Users/roryschram/Desktop/usrp_code/usrp_firmware/src/test_types/SFCW_tests.cpp" "CMakeFiles/test_types_library.dir/src/test_types/SFCW_tests.cpp.o" "gcc" "CMakeFiles/test_types_library.dir/src/test_types/SFCW_tests.cpp.o.d"
-  "/Users/roryschram/Desktop/usrp_code/usrp_firmware/src/test_types/loopback.cpp" "CMakeFiles/test_types_library.dir/src/test_types/loopback.cpp.o" "gcc" "CMakeFiles/test_types_library.dir/src/test_types/loopback.cpp.o.d"
-  "/Users/roryschram/Desktop/usrp_code/usrp_firmware/src/test_types/receive_tests.cpp" "CMakeFiles/test_types_library.dir/src/test_types/receive_tests.cpp.o" "gcc" "CMakeFiles/test_types_library.dir/src/test_types/receive_tests.cpp.o.d"
-  "/Users/roryschram/Desktop/usrp_code/usrp_firmware/src/test_types/transmit_tests.cpp" "CMakeFiles/test_types_library.dir/src/test_types/transmit_tests.cpp.o" "gcc" "CMakeFiles/test_types_library.dir/src/test_types/transmit_tests.cpp.o.d"
+  "/Users/roryschram/Documents/Work/masters/usrp_firmware/src/test_types/SFCW_tests.cpp" "CMakeFiles/test_types_library.dir/src/test_types/SFCW_tests.cpp.o" "gcc" "CMakeFiles/test_types_library.dir/src/test_types/SFCW_tests.cpp.o.d"
+  "/Users/roryschram/Documents/Work/masters/usrp_firmware/src/test_types/loopback.cpp" "CMakeFiles/test_types_library.dir/src/test_types/loopback.cpp.o" "gcc" "CMakeFiles/test_types_library.dir/src/test_types/loopback.cpp.o.d"
+  "/Users/roryschram/Documents/Work/masters/usrp_firmware/src/test_types/receive_tests.cpp" "CMakeFiles/test_types_library.dir/src/test_types/receive_tests.cpp.o" "gcc" "CMakeFiles/test_types_library.dir/src/test_types/receive_tests.cpp.o.d"
+  "/Users/roryschram/Documents/Work/masters/usrp_firmware/src/test_types/transmit_tests.cpp" "CMakeFiles/test_types_library.dir/src/test_types/transmit_tests.cpp.o" "gcc" "CMakeFiles/test_types_library.dir/src/test_types/transmit_tests.cpp.o.d"
   )
 
 # Targets to which this target links which contain Fortran sources.
