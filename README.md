@@ -7,6 +7,7 @@
 </div>
 
 <h1 align="center">Single Pulse Classification Radar</h1>
+<h3 align="center">By Rory Schram</h3>
 
 <p align="center">
   <img alt="Github top language" src="https://img.shields.io/github/languages/top/{{github}}/{{}}?color=56BEB8">
