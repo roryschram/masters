@@ -42,7 +42,7 @@ def plot_complex_vector(real_parts, imaginary_parts):
 # Main script to read and plot the CSV data
 if __name__ == "__main__":
     # File path to the CSV file
-    filename = '/Users/roryschram/Desktop/usrp_code/usrp_firmware/build/received.csv'
+    filename = '/Users/roryschram/Documents/Work/masters/usrp_firmware/build/received.csv'
 
     # Read the CSV file
     real_parts, imaginary_parts = read_complex_vector_from_csv(filename)

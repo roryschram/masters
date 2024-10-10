@@ -1,2 +1,0 @@
-/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/ar qc libhardware_config.a CMakeFiles/hardware_config.dir/src/hardware/TX_config.cpp.o CMakeFiles/hardware_config.dir/src/hardware/RX_config.cpp.o CMakeFiles/hardware_config.dir/src/hardware/TX_Funcs.cpp.o CMakeFiles/hardware_config.dir/src/hardware/RX_Funcs.cpp.o
-/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/ranlib libhardware_config.a

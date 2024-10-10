@@ -6,7 +6,7 @@
     "REF_CLOCK": "internal",
     "RX_CLOCK": "mimo",
     "TX_ANTENNA": "TX/RX",
-    "RX_ANTENNA": "TX/RX",
+    "RX_ANTENNA": "RX2",
     "TEST_TYPE": "MAIN",
     "TX_FREQ":1e9,
     "RX_FREQ":1e9,
