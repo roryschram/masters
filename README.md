@@ -1,12 +1,12 @@
 <div align="center" id="top"> 
-  <img src="./.github/app.gif" alt="{{Single Pulse Classification Radar}}" />
+  <img src="./.github/app.gif" alt="{Single Pulse Classification Radar}" />
 
   &#xa0;
 
   <!-- <a href="https://{{app_url}}.netlify.app">Demo</a> -->
 </div>
 
-<h1 align="center">{{Single Pulse Classification Radar}}</h1>
+<h1 align="center">{Single Pulse Classification Radar}</h1>
 
 <p align="center">
   <img alt="Github top language" src="https://img.shields.io/github/languages/top/{{github}}/{{}}?color=56BEB8">
@@ -21,7 +21,7 @@
 <!-- Status -->
 
 <!-- <h4 align="center"> 
-	🚧  {{Single Pulse Classification Radar}} 🚀 Under construction...  🚧
+	🚧  {Single Pulse Classification Radar} 🚀 Under construction...  🚧
 </h4> 
 
 <hr> -->
