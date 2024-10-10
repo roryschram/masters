@@ -22,7 +22,7 @@
 #include <fstream>
 
 
-void saveComplexVectorToCSV(const std::vector<std::complex<double>>& vector, const std::string& filename) {
+void saveComplexVectorToCSV(const std::vector<std::complex<float>>& vector, const std::string& filename) {
     std::ofstream file(filename);
 
     if (file.is_open()) {
@@ -53,9 +53,9 @@ void saveComplexVectorToCSV(const std::vector<std::complex<double>>& vector, con
 
 
 
-void transmit_vector(uhd::usrp::multi_usrp::sptr tx_usrp, std::vector<std::complex<double>> buffers, uhd::time_spec_t time_now, double secondsInFuture){
+void transmit_vector(uhd::usrp::multi_usrp::sptr tx_usrp, std::vector<std::complex<float>> buffers, uhd::time_spec_t time_now, double secondsInFuture){
     //set up transmit streamer
-    uhd::stream_args_t stream_args("fc64","sc16");
+    uhd::stream_args_t stream_args("fc32","sc16");
     uhd::tx_streamer::sptr tx_stream = tx_usrp->get_tx_stream(stream_args);
         
     uhd::tx_metadata_t md;
@@ -69,7 +69,7 @@ void transmit_vector(uhd::usrp::multi_usrp::sptr tx_usrp, std::vector<std::compl
     size_t fullBufferLength=buffers.size();
 
     if(fullBufferLength<=maxTransmitSize){
-        std::vector<std::complex<double>*> pBuffs(1,&buffers.front());
+        std::vector<std::complex<float>*> pBuffs(1,&buffers.front());
         tx_stream->send(pBuffs,buffers.size(),md,10.0);
         md.end_of_burst=true;
         tx_stream->send("",0,md,10.0);
@@ -82,8 +82,8 @@ void transmit_vector(uhd::usrp::multi_usrp::sptr tx_usrp, std::vector<std::compl
             if(smallBufferSize>maxTransmitSize){
                 smallBufferSize=maxTransmitSize;
             }
-            std::vector<std::complex<double>> smallbuffer(buffers.begin()+numSent,buffers.begin()+numSent+smallBufferSize);
-            std::vector<std::complex<double>*> pBuffs(1,&smallbuffer.front());
+            std::vector<std::complex<float>> smallbuffer(buffers.begin()+numSent,buffers.begin()+numSent+smallBufferSize);
+            std::vector<std::complex<float>*> pBuffs(1,&smallbuffer.front());
             tx_stream->send(pBuffs,smallbuffer.size(),md,10.0);
             numSent+=smallBufferSize;
             md.has_time_spec=false; //dont want subsequent packets to wait
@@ -117,9 +117,9 @@ void transmit_vector(uhd::usrp::multi_usrp::sptr tx_usrp, std::vector<std::compl
 
 
 
-std::vector<std::complex<double>> receive_vector(uhd::usrp::multi_usrp::sptr rx_usrp,size_t numSamples,uhd::time_spec_t time_now, double secondsInFuture){
+std::vector<std::complex<float>> receive_vector(uhd::usrp::multi_usrp::sptr rx_usrp,size_t numSamples,uhd::time_spec_t time_now, double secondsInFuture){
     // these should be constants
-    std::string cpu_format="fc64"; // function of doubles
+    std::string cpu_format="fc32"; // function of doubles
     std::string wire_format="sc16"; // https://files.ettus.com/manual/structuhd_1_1stream__args__t.html#a0ba0e946d2f83f7ac085f4f4e2ce9578
         
     // create a receive streamer
@@ -128,14 +128,14 @@ std::vector<std::complex<double>> receive_vector(uhd::usrp::multi_usrp::sptr rx_
     size_t samps_per_buff=rx_stream->get_max_num_samps();
 
     // create totalVector
-    std::vector<std::complex<double>> entireSample;
+    std::vector<std::complex<float>> entireSample;
     entireSample.reserve(numSamples);
 
     // allocate buffers to receive with samples (one buffer per channel)
-    std::vector<std::complex<double>> sampleBuffer(samps_per_buff);
+    std::vector<std::complex<float>> sampleBuffer(samps_per_buff);
 
     // creating a pointer to sample buffer
-    std::complex<double>* psampleBuffer = &sampleBuffer[0];
+    std::complex<float>* psampleBuffer = &sampleBuffer[0];
 
 
     // setup streaming
@@ -273,20 +273,21 @@ int UHD_SAFE_MAIN(int argc, char *argv[]) {
 
 
     // Vector for transmit data
-    std::vector<std::complex<double>> transmitVector(CONFIG::NUM_SAMPS);
+    std::vector<std::complex<float>> transmitVector(CONFIG::NUM_SAMPS);
 
     // Parameters for the cosine wave
-    double frequency = 2000.0;     // Frequency of the cosine wave in Hz
-    double sampleRate = CONFIG::TX_RATE;  // Sampling rate in Hz
-    double amplitude = 0.3;     // Amplitude of the cosine wave
+    float frequency = 3000.0;     // Frequency of the cosine wave in Hz
+    float sampleRate = CONFIG::TX_RATE;  // Sampling rate in Hz
+    float amplitude = 0.3;     // Amplitude of the cosine wave
 
     // Fill the vector with real-valued cosine wave values
     for (int i = 0; i < CONFIG::NUM_SAMPS; ++i) {
-        double time = i / sampleRate;  // Time for the current sample
-        double realValue = amplitude * std::cos(2 * M_PI * frequency * time);
+        float time = i / sampleRate;  // Time for the current sample
+        float realValue = amplitude * std::sin(2 * M_PI * frequency * time);
+        //float realValue = amplitude * math.cos(2 * M_PI * frequency * time);
         
         // Set the complex value with real part as the cosine wave and imaginary part as 0
-        transmitVector[i] = std::complex<double>(realValue, 0.0);
+        transmitVector[i] = std::complex<float>(realValue, 0.0);
     }
 
 
@@ -301,7 +302,7 @@ int UHD_SAFE_MAIN(int argc, char *argv[]) {
 /////////////////////////////////////////////////////////////////////
 
     // Create receive vector
-    std::vector<std::complex<double>> received_data;
+    std::vector<std::complex<float>> received_data;
 
 
 /////////////////////////////////////////////////////////////////////

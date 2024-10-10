@@ -1,10 +1,12 @@
 import csv
 import matplotlib.pyplot as plt
+import numpy as np
 
 # Function to read the complex numbers from a CSV file
 def read_complex_vector_from_csv(filename):
     real_parts = []
     imaginary_parts = []
+    complex_data = []
 
     with open(filename, mode='r') as file:
         reader = csv.DictReader(file)
@@ -13,29 +15,68 @@ def read_complex_vector_from_csv(filename):
         for row in reader:
             real_parts.append(float(row['Real']))
             imaginary_parts.append(float(row['Imaginary']))
+            complex_data.append(float(row['Real']) + 1j*float(row['Imaginary']))
 
-    return real_parts, imaginary_parts
+    real_parts = real_parts - np.mean(real_parts)
+    imaginary_parts = imaginary_parts - np.mean(imaginary_parts)
+    complex_data = complex_data - np.mean(complex_data)
+
+
+
+    return real_parts, imaginary_parts, complex_data
 
 # Function to plot the complex numbers
-def plot_complex_vector(real_parts, imaginary_parts):
+def plot_complex_vector(real_parts, imaginary_parts, complex_data):
     # Plot real part
     plt.figure(figsize=(10, 5))
     
-    plt.subplot(2, 1, 1)
+    plt.subplot(4, 1, 1)
     plt.plot(real_parts, label='Real Part', color='blue')
     plt.title('Real and Imaginary Parts of Complex Vector')
     plt.ylabel('Real Part')
+    plt.xlabel('Sample Index')
     plt.grid(True)
     plt.legend()
 
     # Plot imaginary part
-    plt.subplot(2, 1, 2)
+    plt.subplot(4, 1, 2)
     plt.plot(imaginary_parts, label='Imaginary Part', color='red')
     plt.ylabel('Imaginary Part')
+    plt.xlabel('Sample Index')
     plt.grid(True)
     plt.legend()
 
+    theta = np.angle(complex_data)
+    corrected = complex_data * np.exp(-1j*theta)
+
+    plt.subplot(4, 1, 3)
+    plt.plot(np.real(corrected), label='Real Part', color='blue')
+    plt.title('Real and Imaginary Parts of Complex Vector')
+    plt.ylabel('Real Part')
     plt.xlabel('Sample Index')
+    plt.grid(True)
+    plt.legend()
+
+    # Plot imaginary part
+    plt.subplot(4, 1, 4)
+    plt.plot(np.imag(corrected), label='Imaginary Part', color='red')
+    plt.ylabel('Imaginary Part')
+    plt.xlabel('Sample Index')
+    plt.grid(True)
+    plt.legend()
+
+    plt.tight_layout()
+
+    plt.figure()
+    # Plot phase
+    plt.subplot(1, 1, 1)
+    plt.plot(np.angle(corrected))
+    plt.ylabel('Radians')
+    plt.xlabel('Sample Index')
+    plt.grid(True)
+    plt.legend()
+
+
     plt.tight_layout()
     plt.show()
 
@@ -45,7 +86,7 @@ if __name__ == "__main__":
     filename = '/Users/roryschram/Documents/Work/masters/usrp_firmware/build/received.csv'
 
     # Read the CSV file
-    real_parts, imaginary_parts = read_complex_vector_from_csv(filename)
+    real_parts, imaginary_parts, complex_data = read_complex_vector_from_csv(filename)
 
     # Plot the real and imaginary parts
-    plot_complex_vector(real_parts, imaginary_parts)
+    plot_complex_vector(real_parts, imaginary_parts, complex_data)
