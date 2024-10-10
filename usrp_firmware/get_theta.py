@@ -17,29 +17,11 @@ def read_complex_vector_from_csv(filename):
             imaginary_parts.append(float(row['Imaginary']))
             complex_data.append(float(row['Real']) + 1j*float(row['Imaginary']))
 
+    # real_parts = real_parts - np.mean(real_parts)
+    # imaginary_parts = imaginary_parts - np.mean(imaginary_parts)
+    # complex_data = complex_data - np.mean(complex_data)
+
     return real_parts, imaginary_parts, complex_data
-
-# Function to plot the complex numbers
-def plot_complex_vector(real_parts, imaginary_parts, complex_data, theta):
-    # Plot real part
-    plt.figure(figsize=(10, 5))
-    plt.title("Uncorrected Data")
-    plt.subplot(2, 1, 1)
-    plt.plot(real_parts, label='Real Part', color='blue')
-    plt.ylabel('Real Part')
-    plt.xlabel('Sample Index')
-
-    # Plot imaginary part
-    plt.subplot(2, 1, 2)
-    plt.plot(imaginary_parts, label='Imaginary Part', color='red')
-    plt.ylabel('Imaginary Part')
-    plt.xlabel('Sample Index')
-    plt.show()
-
-    corrected = complex_data * np.exp(-1j*theta)
-
-
-
 
 # Main script to read and plot the CSV data
 if __name__ == "__main__":
@@ -49,7 +31,6 @@ if __name__ == "__main__":
     # Read the CSV file
     real_parts, imaginary_parts, complex_data = read_complex_vector_from_csv(filename)
 
-    theta = np.load("phase_rotation.npy")
+    theta = np.angle(complex_data)
 
-    # Plot the real and imaginary parts
-    plot_complex_vector(real_parts, imaginary_parts, complex_data, theta)
+    np.save("phase_rotation.npy",theta)

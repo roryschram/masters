@@ -283,7 +283,7 @@ int UHD_SAFE_MAIN(int argc, char *argv[]) {
     // Fill the vector with real-valued cosine wave values
     for (int i = 0; i < CONFIG::NUM_SAMPS; ++i) {
         float time = i / sampleRate;  // Time for the current sample
-        float realValue = amplitude * std::sin(2 * M_PI * frequency * time);
+        float realValue = amplitude * std::cos(2 * M_PI * frequency * time);
         //float realValue = amplitude * math.cos(2 * M_PI * frequency * time);
         
         // Set the complex value with real part as the cosine wave and imaginary part as 0
