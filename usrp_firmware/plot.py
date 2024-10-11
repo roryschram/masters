@@ -20,35 +20,31 @@ def read_complex_vector_from_csv(filename):
     return real_parts, imaginary_parts, complex_data
 
 # Function to plot the complex numbers
-def plot_complex_vector(real_parts, imaginary_parts, complex_data, theta):
+def plot_complex_vector(real_parts, imaginary_parts, complex_data):
     # Plot real part
-
-    t = np.arange(0,len(complex_data),1/6250000)
-    data = np.array(complex_data)
-    corrected = data * np.exp(-1j*2*np.pi*21*t)
 
     plt.figure(figsize=(10, 5))
 
     plt.subplot(3, 1, 1)
     plt.title("Received Data")
-    plt.plot(np.real(corrected), label='Real Part', color='blue')
+    plt.plot(real_parts, label='Real Part', color='blue')
     plt.ylabel('Real Part')
     plt.xlabel('Sample Index')
 
     # Plot imaginary part
     plt.subplot(3, 1, 2)
-    plt.plot(np.imag(corrected), label='Imaginary Part', color='red')
+    plt.plot(imaginary_parts, label='Imaginary Part', color='red')
     plt.ylabel('Imaginary Part')
     plt.xlabel('Sample Index')
 
     # Compute the frequency bins
-    n = len(corrected)  # Number of samples
-    freq = np.fft.fftshift(np.fft.fftfreq(n, 1/6250000)) # Generate frequency bins
+    n = len(complex_data)  # Number of samples
+    freq = np.fft.fftshift(np.fft.fftfreq(n, 1/12500000)) # Generate frequency bins
 
 
     # Plot FFT
     plt.subplot(3, 1, 3)
-    plt.plot(freq,np.abs(np.fft.fftshift(np.fft.fft(corrected))), label='FFT', color='orange')
+    plt.plot(freq,np.abs(np.fft.fftshift(np.fft.fft(complex_data))), label='FFT', color='orange')
     plt.ylabel('Magnitude')
     plt.xlabel('Sample Index')
 
@@ -69,7 +65,5 @@ if __name__ == "__main__":
     # Read the CSV file
     real_parts, imaginary_parts, complex_data = read_complex_vector_from_csv(filename)
 
-    theta = np.load("phase_rotation.npy")
-
     # Plot the real and imaginary parts
-    plot_complex_vector(real_parts, imaginary_parts, complex_data, theta)
+    plot_complex_vector(real_parts, imaginary_parts, complex_data)

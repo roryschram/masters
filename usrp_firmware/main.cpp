@@ -227,7 +227,7 @@ int UHD_SAFE_MAIN(int argc, char *argv[]) {
     tx_usrp->set_clock_source(CONFIG::REF_CLOCK);
     tx_usrp->set_time_source("external");
     rx_usrp->set_clock_source(CONFIG::RX_CLOCK);
-    rx_usrp->set_time_source("mimo");
+    rx_usrp->set_time_source("external");
     std::cout<<"\nREF CLOCK SET AND RX CLOCK SET";
 
 
@@ -276,7 +276,7 @@ int UHD_SAFE_MAIN(int argc, char *argv[]) {
     std::vector<std::complex<float>> transmitVector(CONFIG::NUM_SAMPS);
 
     // Parameters for the cosine wave
-    float frequency = 3000.0;     // Frequency of the cosine wave in Hz
+    float frequency = 5000000.0;     // Frequency of the cosine wave in Hz
     float sampleRate = CONFIG::TX_RATE;  // Sampling rate in Hz
     float amplitude = 0.3;     // Amplitude of the cosine wave
 
