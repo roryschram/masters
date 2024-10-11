@@ -22,21 +22,41 @@ def read_complex_vector_from_csv(filename):
 # Function to plot the complex numbers
 def plot_complex_vector(real_parts, imaginary_parts, complex_data, theta):
     # Plot real part
+
+    t = np.arange(0,len(complex_data),1/6250000)
+    data = np.array(complex_data)
+    corrected = data * np.exp(-1j*2*np.pi*21*t)
+
     plt.figure(figsize=(10, 5))
-    plt.title("Uncorrected Data")
-    plt.subplot(2, 1, 1)
-    plt.plot(real_parts, label='Real Part', color='blue')
+
+    plt.subplot(3, 1, 1)
+    plt.title("Received Data")
+    plt.plot(np.real(corrected), label='Real Part', color='blue')
     plt.ylabel('Real Part')
     plt.xlabel('Sample Index')
 
     # Plot imaginary part
-    plt.subplot(2, 1, 2)
-    plt.plot(imaginary_parts, label='Imaginary Part', color='red')
+    plt.subplot(3, 1, 2)
+    plt.plot(np.imag(corrected), label='Imaginary Part', color='red')
     plt.ylabel('Imaginary Part')
     plt.xlabel('Sample Index')
+
+    # Compute the frequency bins
+    n = len(corrected)  # Number of samples
+    freq = np.fft.fftshift(np.fft.fftfreq(n, 1/6250000)) # Generate frequency bins
+
+
+    # Plot FFT
+    plt.subplot(3, 1, 3)
+    plt.plot(freq,np.abs(np.fft.fftshift(np.fft.fft(corrected))), label='FFT', color='orange')
+    plt.ylabel('Magnitude')
+    plt.xlabel('Sample Index')
+
+
+    plt.tight_layout()
     plt.show()
 
-    corrected = complex_data * np.exp(-1j*theta)
+    #corrected = complex_data * np.exp(-1j*theta)
 
 
 
