@@ -6,6 +6,7 @@
                 "${default}",
                 "${workspaceFolder}/usrp_firmware/inc",
                 "${workspaceFolder}/usrp_firmware/externals/HighFive/include",
+                "/usr",
                 "/opt/local/include/**"
             ],
             "defines": [],
@@ -14,7 +15,7 @@
             ],
             "compilerPath": "/usr/bin/g++",
             "cStandard": "c17",
-            "cppStandard": "c++17",
+            "cppStandard": "c++23",
             "intelliSenseMode": "${default}"
         }
     ],

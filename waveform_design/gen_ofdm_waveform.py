@@ -136,11 +136,11 @@ def addCP(OFDM_time):
 OFDM_withCP = addCP(OFDM_time)
 print ("Number of OFDM samples in time domain with CP: ", len(OFDM_withCP))
 
-np.save("original_OFDM_pulse",OFDM_withCP)
+np.save("waveform_design/waveforms/original_OFDM_pulse",OFDM_withCP)
 
 padded_OFDM_withCP = np.pad(OFDM_withCP, pad_width=200, mode='constant', constant_values=0+0j)
 
-np.save("padded_OFDM_pulse",OFDM_withCP)
+np.save("waveform_design/waveforms/padded_OFDM_pulse",OFDM_withCP)
 
 corrolation = np.correlate(padded_OFDM_withCP,OFDM_withCP)
 

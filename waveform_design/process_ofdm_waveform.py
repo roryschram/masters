@@ -84,57 +84,9 @@ H_exact = np.fft.fft(channelResponse, K)
 
 SNRdb = 25  # signal to noise-ratio in dB at the receiver 
 
-bits = np.random.binomial(n=1, p=0.5, size=(payloadBits_per_OFDM, ))
-print ("Bits count: ", len(bits))
-print ("First 20 bits: ", bits[:20])
-print ("Mean of bits (should be around 0.5): ", np.mean(bits))
 
 
-def SP(bits):
-    return bits.reshape((len(dataCarriers), mu))
-bits_SP = SP(bits)
-print ("First 5 bit groups")
-print (bits_SP[:5,:])
-
-def Mapping(bits):
-    return np.array([mapping_table[tuple(b)] for b in bits])
-QAM = Mapping(bits_SP)
-print ("First 5 QAM symbols and bits:")
-print (bits_SP[:5,:])
-print (QAM[:5])
-
-
-def OFDM_symbol(QAM_payload):
-    symbol = np.zeros(K, dtype=complex) # the overall K subcarriers
-    symbol[pilotCarriers] = pilotValue  # allocate the pilot subcarriers 
-    symbol[dataCarriers] = QAM_payload  # allocate the pilot subcarriers
-    return symbol
-OFDM_data = OFDM_symbol(QAM)
-print ("Number of OFDM carriers in frequency domain: ", len(OFDM_data))
-
-
-plt.plot(np.abs(OFDM_data))
-plt.title("OFDM Symbol in Discrete Freq. Domain")
-plt.xlabel('Carrier Index')
-plt.ylabel('$|X(w)|$')
-plt.grid(True)
-plt.show()
-
-
-
-
-
-def IDFT(OFDM_data):
-    return np.fft.ifft(OFDM_data)
-OFDM_time = IDFT(OFDM_data)
-print ("Number of OFDM samples in time-domain before CP: ", len(OFDM_time))
-
-
-def addCP(OFDM_time):
-    cp = OFDM_time[-CP:]               # take the last CP samples ...
-    return np.hstack([cp, OFDM_time])  # ... and add them to the beginning
-OFDM_withCP = addCP(OFDM_time)
-print ("Number of OFDM samples in time domain with CP: ", len(OFDM_withCP))
+np.load("")
 
 
 

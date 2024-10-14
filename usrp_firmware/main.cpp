@@ -14,11 +14,45 @@
 #include "test_types/receive_tests.hpp"
 #include "test_types/loopback.hpp"
 #include "test_types/SFCW_tests.hpp"
-#include "highfive/highfive.hpp"
 #include <iomanip>
 #include "processing/SFCW.hpp"
 #include "storage/storing.hpp"
 #include <fstream>
+
+
+
+
+std::vector<std::complex<float>> readComplexDataFromFile(const std::string& filename) {
+    std::vector<std::complex<float>> complexData;
+    std::ifstream file(filename, std::ios::binary);
+
+    if (!file) {
+        std::cerr << "Error opening file: " << filename << std::endl;
+        return complexData;
+    }
+
+    while (!file.eof()) {
+        float i, q;
+
+        // Read 32-bit float I (real part)
+        file.read(reinterpret_cast<char*>(&i), sizeof(float));
+
+        // Read 32-bit float Q (imaginary part)
+        file.read(reinterpret_cast<char*>(&q), sizeof(float));
+
+        // Ensure that both I and Q were read successfully
+        if (file.gcount() == sizeof(float)) {
+            complexData.emplace_back(i, q);  // Add to vector as std::complex<float>
+        }
+    }
+
+    file.close();
+    return complexData;
+}
+
+
+
+
 
 
 void saveComplexVectorToCSV(const std::vector<std::complex<float>>& vector, const std::string& filename) {
@@ -213,6 +247,23 @@ int UHD_SAFE_MAIN(int argc, char *argv[]) {
         return EXIT_FAILURE;
     }
 
+
+    std::string filename = "test_complex_data.dat";
+    std::vector<std::complex<float>> data = readComplexDataFromFile(filename);
+
+    // Output the data
+    for (const auto& sample : data) {
+        std::cout << sample << std::endl;
+    }
+
+
+
+
+
+
+
+    return EXIT_SUCCESS;
+
     // Create the args for the tx and rx usrp
     uhd::device_addr_t tx_usrp_args("addr="+CONFIG::SDR_IP_TX);
     uhd::device_addr_t rx_usrp_args("addr="+CONFIG::SDR_IP_RX);
@@ -351,7 +402,7 @@ int UHD_SAFE_MAIN(int argc, char *argv[]) {
     saveComplexVectorToCSV(transmitVector,"transmitted.csv");
 
 
-    return EXIT_SUCCESS;
+    //return EXIT_SUCCESS;
 
 
     // std::vector<std::complex<double>> receivedVector(CONFIG::NUM_SAMPS);
