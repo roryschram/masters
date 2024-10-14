@@ -1146,6 +1146,7 @@ CMakeFiles/hardware_config.dir/src/hardware/TX_config.cpp.o: \
   /opt/homebrew/include/boost/integer_traits.hpp \
   /opt/homebrew/include/boost/lexical_cast/detail/widest_char.hpp \
   /opt/homebrew/include/boost/container/container_fwd.hpp \
+  /opt/homebrew/include/boost/container/detail/workaround.hpp \
   /opt/homebrew/include/boost/container/detail/std_fwd.hpp \
   /opt/homebrew/include/boost/move/detail/std_ns_begin.hpp \
   /opt/homebrew/include/boost/move/detail/std_ns_end.hpp \
@@ -1442,6 +1443,10 @@ CMakeFiles/hardware_config.dir/src/hardware/TX_config.cpp.o: \
   /opt/homebrew/include/boost/mp11/integer_sequence.hpp \
   /opt/homebrew/include/boost/unordered/unordered_set_fwd.hpp \
   /opt/homebrew/include/boost/container_hash/hash_fwd.hpp \
+  /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX14.5.sdk/usr/include/c++/v1/__memory_resource/monotonic_buffer_resource.h \
+  /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX14.5.sdk/usr/include/c++/v1/__memory_resource/pool_options.h \
+  /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX14.5.sdk/usr/include/c++/v1/__memory_resource/synchronized_pool_resource.h \
+  /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX14.5.sdk/usr/include/c++/v1/__memory_resource/unsynchronized_pool_resource.h \
   /opt/homebrew/include/boost/container_hash/hash.hpp \
   /opt/homebrew/include/boost/container_hash/is_range.hpp \
   /opt/homebrew/include/boost/container_hash/is_contiguous_range.hpp \

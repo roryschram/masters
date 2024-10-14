@@ -507,7 +507,11 @@ CMakeFiles/hardware_config.dir/src/hardware/RX_Funcs.cpp.o: /Users/roryschram/Do
   /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX14.5.sdk/usr/include/c++/v1/__memory/uses_allocator_construction.h \
   /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX14.5.sdk/usr/include/c++/v1/__memory/voidify.h \
   /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX14.5.sdk/usr/include/c++/v1/__memory_resource/memory_resource.h \
+  /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX14.5.sdk/usr/include/c++/v1/__memory_resource/monotonic_buffer_resource.h \
   /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX14.5.sdk/usr/include/c++/v1/__memory_resource/polymorphic_allocator.h \
+  /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX14.5.sdk/usr/include/c++/v1/__memory_resource/pool_options.h \
+  /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX14.5.sdk/usr/include/c++/v1/__memory_resource/synchronized_pool_resource.h \
+  /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX14.5.sdk/usr/include/c++/v1/__memory_resource/unsynchronized_pool_resource.h \
   /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX14.5.sdk/usr/include/c++/v1/__mutex/lock_guard.h \
   /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX14.5.sdk/usr/include/c++/v1/__mutex/mutex.h \
   /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX14.5.sdk/usr/include/c++/v1/__mutex/tag_types.h \
@@ -973,6 +977,7 @@ CMakeFiles/hardware_config.dir/src/hardware/RX_Funcs.cpp.o: /Users/roryschram/Do
   /opt/homebrew/include/boost/config/workaround.hpp \
   /opt/homebrew/include/boost/container/container_fwd.hpp \
   /opt/homebrew/include/boost/container/detail/std_fwd.hpp \
+  /opt/homebrew/include/boost/container/detail/workaround.hpp \
   /opt/homebrew/include/boost/container_hash/detail/hash_integral.hpp \
   /opt/homebrew/include/boost/container_hash/detail/hash_mix.hpp \
   /opt/homebrew/include/boost/container_hash/detail/hash_range.hpp \
@@ -2438,7 +2443,11 @@ CMakeFiles/hardware_config.dir/src/hardware/RX_config.cpp.o: /Users/roryschram/D
   /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX14.5.sdk/usr/include/c++/v1/__memory/uses_allocator_construction.h \
   /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX14.5.sdk/usr/include/c++/v1/__memory/voidify.h \
   /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX14.5.sdk/usr/include/c++/v1/__memory_resource/memory_resource.h \
+  /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX14.5.sdk/usr/include/c++/v1/__memory_resource/monotonic_buffer_resource.h \
   /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX14.5.sdk/usr/include/c++/v1/__memory_resource/polymorphic_allocator.h \
+  /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX14.5.sdk/usr/include/c++/v1/__memory_resource/pool_options.h \
+  /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX14.5.sdk/usr/include/c++/v1/__memory_resource/synchronized_pool_resource.h \
+  /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX14.5.sdk/usr/include/c++/v1/__memory_resource/unsynchronized_pool_resource.h \
   /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX14.5.sdk/usr/include/c++/v1/__mutex/lock_guard.h \
   /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX14.5.sdk/usr/include/c++/v1/__mutex/mutex.h \
   /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX14.5.sdk/usr/include/c++/v1/__mutex/tag_types.h \
@@ -2909,6 +2918,7 @@ CMakeFiles/hardware_config.dir/src/hardware/RX_config.cpp.o: /Users/roryschram/D
   /opt/homebrew/include/boost/config/workaround.hpp \
   /opt/homebrew/include/boost/container/container_fwd.hpp \
   /opt/homebrew/include/boost/container/detail/std_fwd.hpp \
+  /opt/homebrew/include/boost/container/detail/workaround.hpp \
   /opt/homebrew/include/boost/container_hash/detail/hash_integral.hpp \
   /opt/homebrew/include/boost/container_hash/detail/hash_mix.hpp \
   /opt/homebrew/include/boost/container_hash/detail/hash_range.hpp \
@@ -4374,7 +4384,11 @@ CMakeFiles/hardware_config.dir/src/hardware/TX_Funcs.cpp.o: /Users/roryschram/Do
   /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX14.5.sdk/usr/include/c++/v1/__memory/uses_allocator_construction.h \
   /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX14.5.sdk/usr/include/c++/v1/__memory/voidify.h \
   /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX14.5.sdk/usr/include/c++/v1/__memory_resource/memory_resource.h \
+  /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX14.5.sdk/usr/include/c++/v1/__memory_resource/monotonic_buffer_resource.h \
   /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX14.5.sdk/usr/include/c++/v1/__memory_resource/polymorphic_allocator.h \
+  /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX14.5.sdk/usr/include/c++/v1/__memory_resource/pool_options.h \
+  /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX14.5.sdk/usr/include/c++/v1/__memory_resource/synchronized_pool_resource.h \
+  /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX14.5.sdk/usr/include/c++/v1/__memory_resource/unsynchronized_pool_resource.h \
   /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX14.5.sdk/usr/include/c++/v1/__mutex/lock_guard.h \
   /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX14.5.sdk/usr/include/c++/v1/__mutex/mutex.h \
   /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX14.5.sdk/usr/include/c++/v1/__mutex/tag_types.h \
@@ -4839,6 +4853,7 @@ CMakeFiles/hardware_config.dir/src/hardware/TX_Funcs.cpp.o: /Users/roryschram/Do
   /opt/homebrew/include/boost/config/workaround.hpp \
   /opt/homebrew/include/boost/container/container_fwd.hpp \
   /opt/homebrew/include/boost/container/detail/std_fwd.hpp \
+  /opt/homebrew/include/boost/container/detail/workaround.hpp \
   /opt/homebrew/include/boost/container_hash/detail/hash_integral.hpp \
   /opt/homebrew/include/boost/container_hash/detail/hash_mix.hpp \
   /opt/homebrew/include/boost/container_hash/detail/hash_range.hpp \
@@ -6320,7 +6335,11 @@ CMakeFiles/hardware_config.dir/src/hardware/TX_config.cpp.o: /Users/roryschram/D
   /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX14.5.sdk/usr/include/c++/v1/__memory/uses_allocator_construction.h \
   /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX14.5.sdk/usr/include/c++/v1/__memory/voidify.h \
   /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX14.5.sdk/usr/include/c++/v1/__memory_resource/memory_resource.h \
+  /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX14.5.sdk/usr/include/c++/v1/__memory_resource/monotonic_buffer_resource.h \
   /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX14.5.sdk/usr/include/c++/v1/__memory_resource/polymorphic_allocator.h \
+  /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX14.5.sdk/usr/include/c++/v1/__memory_resource/pool_options.h \
+  /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX14.5.sdk/usr/include/c++/v1/__memory_resource/synchronized_pool_resource.h \
+  /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX14.5.sdk/usr/include/c++/v1/__memory_resource/unsynchronized_pool_resource.h \
   /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX14.5.sdk/usr/include/c++/v1/__mutex/lock_guard.h \
   /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX14.5.sdk/usr/include/c++/v1/__mutex/mutex.h \
   /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX14.5.sdk/usr/include/c++/v1/__mutex/tag_types.h \
@@ -6797,6 +6816,7 @@ CMakeFiles/hardware_config.dir/src/hardware/TX_config.cpp.o: /Users/roryschram/D
   /opt/homebrew/include/boost/config/workaround.hpp \
   /opt/homebrew/include/boost/container/container_fwd.hpp \
   /opt/homebrew/include/boost/container/detail/std_fwd.hpp \
+  /opt/homebrew/include/boost/container/detail/workaround.hpp \
   /opt/homebrew/include/boost/container_hash/detail/hash_integral.hpp \
   /opt/homebrew/include/boost/container_hash/detail/hash_mix.hpp \
   /opt/homebrew/include/boost/container_hash/detail/hash_range.hpp \
@@ -8332,6 +8352,14 @@ CMakeFiles/hardware_config.dir/src/hardware/TX_config.cpp.o: /Users/roryschram/D
 
 /opt/homebrew/include/boost/preprocessor/repetition/detail/limits/for_256.hpp:
 
+/opt/homebrew/include/boost/preprocessor/repetition/detail/for.hpp:
+
+/opt/homebrew/include/boost/preprocessor/repeat.hpp:
+
+/opt/homebrew/include/boost/preprocessor/seq/enum.hpp:
+
+/opt/homebrew/include/boost/preprocessor/punctuation/comma_if.hpp:
+
 /opt/homebrew/include/boost/preprocessor/variadic/limits/elem_64.hpp:
 
 /opt/homebrew/include/boost/preprocessor/logical/bitor.hpp:
@@ -8660,8 +8688,6 @@ CMakeFiles/hardware_config.dir/src/hardware/TX_config.cpp.o: /Users/roryschram/D
 
 /opt/homebrew/include/boost/mpl/logical.hpp:
 
-/opt/homebrew/include/boost/mpl/limits/arity.hpp:
-
 /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX14.5.sdk/usr/include/c++/v1/__algorithm/three_way_comp_ref_type.h:
 
 /opt/homebrew/include/boost/mpl/iterator_tags.hpp:
@@ -8925,6 +8951,8 @@ CMakeFiles/hardware_config.dir/src/hardware/TX_config.cpp.o: /Users/roryschram/D
 /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX14.5.sdk/usr/include/c++/v1/__iterator/reverse_iterator.h:
 
 /opt/homebrew/include/boost/mpl/aux_/config/eti.hpp:
+
+/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX14.5.sdk/usr/include/c++/v1/__memory_resource/unsynchronized_pool_resource.h:
 
 /opt/homebrew/include/boost/mpl/apply.hpp:
 
@@ -9508,6 +9536,8 @@ CMakeFiles/hardware_config.dir/src/hardware/TX_config.cpp.o: /Users/roryschram/D
 
 /opt/homebrew/include/boost/multi_index/detail/restore_wstrict_aliasing.hpp:
 
+/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX14.5.sdk/usr/include/c++/v1/__memory_resource/synchronized_pool_resource.h:
+
 /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX14.5.sdk/usr/include/sys/_types/_intptr_t.h:
 
 /opt/homebrew/include/boost/mpl/aux_/config/msvc.hpp:
@@ -10054,8 +10084,6 @@ CMakeFiles/hardware_config.dir/src/hardware/TX_config.cpp.o: /Users/roryschram/D
 
 /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX14.5.sdk/usr/include/c++/v1/__type_traits/is_standard_layout.h:
 
-/opt/homebrew/include/boost/preprocessor/repetition/detail/for.hpp:
-
 /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX14.5.sdk/usr/include/c++/v1/__type_traits/is_polymorphic.h:
 
 /opt/homebrew/include/boost/config/stdlib/libcpp.hpp:
@@ -10240,6 +10268,8 @@ CMakeFiles/hardware_config.dir/src/hardware/TX_config.cpp.o: /Users/roryschram/D
 
 /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX14.5.sdk/usr/include/c++/v1/__type_traits/apply_cv.h:
 
+/opt/homebrew/include/boost/container/detail/workaround.hpp:
+
 /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX14.5.sdk/usr/include/c++/v1/__type_traits/add_rvalue_reference.h:
 
 /opt/homebrew/include/boost/system/detail/config.hpp:
@@ -10385,6 +10415,8 @@ CMakeFiles/hardware_config.dir/src/hardware/TX_config.cpp.o: /Users/roryschram/D
 /opt/homebrew/include/boost/lexical_cast/detail/is_character.hpp:
 
 /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX14.5.sdk/usr/include/c++/v1/__memory_resource/polymorphic_allocator.h:
+
+/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX14.5.sdk/usr/include/c++/v1/__memory_resource/monotonic_buffer_resource.h:
 
 /opt/homebrew/include/boost/mpl/bool.hpp:
 
@@ -11300,6 +11332,8 @@ CMakeFiles/hardware_config.dir/src/hardware/TX_config.cpp.o: /Users/roryschram/D
 
 /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX14.5.sdk/usr/include/c++/v1/__algorithm/ranges_move.h:
 
+/opt/homebrew/include/boost/mpl/limits/arity.hpp:
+
 /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX14.5.sdk/usr/include/c++/v1/functional:
 
 /opt/homebrew/include/boost/multi_index/detail/index_node_base.hpp:
@@ -11592,8 +11626,6 @@ CMakeFiles/hardware_config.dir/src/hardware/TX_config.cpp.o: /Users/roryschram/D
 
 /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX14.5.sdk/usr/include/c++/v1/__algorithm/includes.h:
 
-/opt/homebrew/include/boost/preprocessor/repeat.hpp:
-
 /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX14.5.sdk/usr/include/c++/v1/__algorithm/ranges_push_heap.h:
 
 /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX14.5.sdk/usr/include/c++/v1/__algorithm/ranges_min_element.h:
@@ -11686,6 +11718,8 @@ CMakeFiles/hardware_config.dir/src/hardware/TX_config.cpp.o: /Users/roryschram/D
 
 /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX14.5.sdk/usr/include/c++/v1/__type_traits/is_base_of.h:
 
+/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX14.5.sdk/usr/include/c++/v1/__memory_resource/pool_options.h:
+
 /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX14.5.sdk/usr/include/c++/v1/__type_traits/is_nothrow_move_assignable.h:
 
 /opt/homebrew/include/boost/date_time/special_defs.hpp:
@@ -11771,10 +11805,6 @@ CMakeFiles/hardware_config.dir/src/hardware/TX_config.cpp.o: /Users/roryschram/D
 /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX14.5.sdk/usr/include/c++/v1/__functional/binder2nd.h:
 
 /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX14.5.sdk/usr/include/c++/v1/__algorithm/copy_move_common.h:
-
-/opt/homebrew/include/boost/preprocessor/seq/enum.hpp:
-
-/opt/homebrew/include/boost/preprocessor/punctuation/comma_if.hpp:
 
 /opt/homebrew/include/boost/pending/detail/property.hpp:
 

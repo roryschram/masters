@@ -14,8 +14,7 @@
 #include "test_types/receive_tests.hpp"
 #include "test_types/loopback.hpp"
 #include "test_types/SFCW_tests.hpp"
-#include <hdf5.h>
-#include <highfive/highfive.hpp>
+#include "highfive/highfive.hpp"
 #include <iomanip>
 #include "processing/SFCW.hpp"
 #include "storage/storing.hpp"
