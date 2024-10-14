@@ -276,7 +276,7 @@ int UHD_SAFE_MAIN(int argc, char *argv[]) {
     std::vector<std::complex<float>> transmitVector(CONFIG::NUM_SAMPS);
 
     // Parameters for the cosine wave
-    float frequency = 1000000.0;     // Frequency of the cosine wave in Hz
+    float frequency = 10000.0;     // Frequency of the cosine wave in Hz
     float sampleRate = CONFIG::TX_RATE;  // Sampling rate in Hz
     float amplitude = 0.3;     // Amplitude of the cosine wave
 
@@ -287,7 +287,7 @@ int UHD_SAFE_MAIN(int argc, char *argv[]) {
         //float realValue = amplitude * math.cos(2 * M_PI * frequency * time);
         
         // Set the complex value with real part as the cosine wave and imaginary part as 0
-        transmitVector[i] = std::complex<float>(realValue, 0.0);
+        transmitVector[i] = std::complex<float>(realValue, realValue);
     }
 
 

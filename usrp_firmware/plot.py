@@ -4,7 +4,7 @@ import numpy as np
 # Function to read the complex numbers from a CSV file
 def read_complex_vector_from_csv(filename):
     # Read the CSV file using numpy, with "Real" and "Imaginary" as the two columns
-    data = np.genfromtxt(filename, delimiter=',', names=['Real', 'Imaginary'])
+    data = np.genfromtxt(filename, delimiter=',', names=['Real', 'Imaginary'],skip_header=True)
 
     # Create an array of complex numbers: Real + Imaginary * 1j
     complex_array = data['Real'] + 1j * data['Imaginary']
@@ -13,7 +13,10 @@ def read_complex_vector_from_csv(filename):
 
 # Function to plot the complex numbers
 def plot_complex_vector(complex_data):
-    # Plot real part
+    
+    complex_data = complex_data - np.mean(complex_data)
+    #Plot real part
+    print(complex_data)
 
     plt.figure(figsize=(10, 5))
 
@@ -48,13 +51,13 @@ def plot_complex_vector(complex_data):
     plt.tight_layout()
 
 
-    #complex_data = complex_data * np.exp(-1j*2*np.pi*1000)
+    complex_data = complex_data * np.exp(-1j*2*np.pi*0.429)
 
 
     plt.figure(figsize=(10, 5))
 
     plt.subplot(4, 1, 1)
-    plt.title("Received Data Coprrected")
+    plt.title("Received Data Corrected")
     plt.plot(np.real(complex_data), label='Real Part', color='blue')
     plt.ylabel('Real Part')
     plt.xlabel('Sample Index')
@@ -83,6 +86,21 @@ def plot_complex_vector(complex_data):
     plt.xlabel('Sample Index')
     plt.tight_layout()
 
+
+    plt.figure(figsize=(10, 5))
+
+    fft = np.abs(np.fft.fftshift(np.fft.fft(complex_data)))
+
+    for i in range(0,len(complex_data),1):
+        if fft[i] < 40:
+            complex_data[i] = 0+0j
+
+    # Plot FFT
+    plt.subplot(1, 1, 1)
+    plt.scatter(np.real(complex_data),np.imag(complex_data))
+    plt.ylabel('Magnitude')
+    plt.xlabel('Sample Index')
+    plt.tight_layout()
 
     
     
