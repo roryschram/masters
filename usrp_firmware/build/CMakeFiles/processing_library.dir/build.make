@@ -83,33 +83,17 @@ CMakeFiles/processing_library.dir/src/processing/DSP.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling CXX source to assembly CMakeFiles/processing_library.dir/src/processing/DSP.cpp.s"
 	/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /Users/roryschram/Documents/Work/masters/usrp_firmware/src/processing/DSP.cpp -o CMakeFiles/processing_library.dir/src/processing/DSP.cpp.s
 
-CMakeFiles/processing_library.dir/src/processing/SFCW.cpp.o: CMakeFiles/processing_library.dir/flags.make
-CMakeFiles/processing_library.dir/src/processing/SFCW.cpp.o: /Users/roryschram/Documents/Work/masters/usrp_firmware/src/processing/SFCW.cpp
-CMakeFiles/processing_library.dir/src/processing/SFCW.cpp.o: CMakeFiles/processing_library.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/Users/roryschram/Documents/Work/masters/usrp_firmware/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Building CXX object CMakeFiles/processing_library.dir/src/processing/SFCW.cpp.o"
-	/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/processing_library.dir/src/processing/SFCW.cpp.o -MF CMakeFiles/processing_library.dir/src/processing/SFCW.cpp.o.d -o CMakeFiles/processing_library.dir/src/processing/SFCW.cpp.o -c /Users/roryschram/Documents/Work/masters/usrp_firmware/src/processing/SFCW.cpp
-
-CMakeFiles/processing_library.dir/src/processing/SFCW.cpp.i: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing CXX source to CMakeFiles/processing_library.dir/src/processing/SFCW.cpp.i"
-	/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /Users/roryschram/Documents/Work/masters/usrp_firmware/src/processing/SFCW.cpp > CMakeFiles/processing_library.dir/src/processing/SFCW.cpp.i
-
-CMakeFiles/processing_library.dir/src/processing/SFCW.cpp.s: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling CXX source to assembly CMakeFiles/processing_library.dir/src/processing/SFCW.cpp.s"
-	/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /Users/roryschram/Documents/Work/masters/usrp_firmware/src/processing/SFCW.cpp -o CMakeFiles/processing_library.dir/src/processing/SFCW.cpp.s
-
 # Object files for target processing_library
 processing_library_OBJECTS = \
-"CMakeFiles/processing_library.dir/src/processing/DSP.cpp.o" \
-"CMakeFiles/processing_library.dir/src/processing/SFCW.cpp.o"
+"CMakeFiles/processing_library.dir/src/processing/DSP.cpp.o"
 
 # External object files for target processing_library
 processing_library_EXTERNAL_OBJECTS =
 
 libprocessing_library.a: CMakeFiles/processing_library.dir/src/processing/DSP.cpp.o
-libprocessing_library.a: CMakeFiles/processing_library.dir/src/processing/SFCW.cpp.o
 libprocessing_library.a: CMakeFiles/processing_library.dir/build.make
 libprocessing_library.a: CMakeFiles/processing_library.dir/link.txt
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --bold --progress-dir=/Users/roryschram/Documents/Work/masters/usrp_firmware/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_3) "Linking CXX static library libprocessing_library.a"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --bold --progress-dir=/Users/roryschram/Documents/Work/masters/usrp_firmware/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Linking CXX static library libprocessing_library.a"
 	$(CMAKE_COMMAND) -P CMakeFiles/processing_library.dir/cmake_clean_target.cmake
 	$(CMAKE_COMMAND) -E cmake_link_script CMakeFiles/processing_library.dir/link.txt --verbose=$(VERBOSE)
 

@@ -97,8 +97,6 @@ N210_FIRMWARE: libtest_types_library.a
 N210_FIRMWARE: libhardware_config.a
 N210_FIRMWARE: libutility_library.a
 N210_FIRMWARE: libprocessing_library.a
-N210_FIRMWARE: libstorage_library.a
-N210_FIRMWARE: /opt/homebrew/lib/libhdf5.310.4.0.dylib
 N210_FIRMWARE: CMakeFiles/N210_FIRMWARE.dir/link.txt
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --bold --progress-dir=/Users/roryschram/Documents/Work/masters/usrp_firmware/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Linking CXX executable N210_FIRMWARE"
 	$(CMAKE_COMMAND) -E cmake_link_script CMakeFiles/N210_FIRMWARE.dir/link.txt --verbose=$(VERBOSE)

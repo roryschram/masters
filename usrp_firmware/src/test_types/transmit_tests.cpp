@@ -2,7 +2,6 @@
 #include "utilities/config_constants.hpp"
 #include "utilities/config_reader.hpp"
 #include <uhd/usrp/multi_usrp.hpp>
-#include "utilities/utilities.hpp"
 #include "test_types/transmit_tests.hpp"
 #include "hardware/TX_config.hpp"
 #include "hardware/TX_Funcs.hpp"

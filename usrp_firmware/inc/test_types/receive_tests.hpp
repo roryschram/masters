@@ -1,5 +1,4 @@
 #include <uhd/usrp/multi_usrp.hpp>
-#include "utilities/utilities.hpp"
 
 namespace tests{
 

@@ -154,21 +154,6 @@ CMAKE_PROJECT_HOMEPAGE_URL:STATIC=
 //Value Computed by CMake
 CMAKE_PROJECT_NAME:STATIC=N210_FIRMWARE
 
-//Value Computed by CMake
-CMAKE_PROJECT_VERSION:STATIC=3.0.0
-
-//Value Computed by CMake
-CMAKE_PROJECT_VERSION_MAJOR:STATIC=3
-
-//Value Computed by CMake
-CMAKE_PROJECT_VERSION_MINOR:STATIC=0
-
-//Value Computed by CMake
-CMAKE_PROJECT_VERSION_PATCH:STATIC=0
-
-//Value Computed by CMake
-CMAKE_PROJECT_VERSION_TWEAK:STATIC=
-
 //Path to a program.
 CMAKE_RANLIB:FILEPATH=/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/ranlib
 
@@ -233,74 +218,6 @@ CMAKE_TAPI:FILEPATH=/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeD
 // during the make.  This is useful for debugging only. With Visual
 // Studio IDE projects all commands are done without /nologo.
 CMAKE_VERBOSE_MAKEFILE:BOOL=FALSE
-
-//HDF5 file differencing tool.
-HDF5_DIFF_EXECUTABLE:FILEPATH=/opt/homebrew/bin/h5diff
-
-//The directory containing a CMake configuration file for HDF5.
-HDF5_DIR:PATH=/opt/homebrew/lib/cmake/hdf5
-
-//Build documentation
-HIGHFIVE_BUILD_DOCS:BOOL=OFF
-
-//Compile examples
-HIGHFIVE_EXAMPLES:BOOL=OFF
-
-//Find and link with HDF5.
-HIGHFIVE_FIND_HDF5:BOOL=ON
-
-//Enable bounds check for STL.
-HIGHFIVE_GLIBCXX_ASSERTIONS:BOOL=OFF
-
-//Print readable compiler errors w/ C++20 concepts
-HIGHFIVE_HAS_CONCEPTS:BOOL=OFF
-
-//Enable additional friend declarations. Certain compiler require
-// this On, others Off.
-HIGHFIVE_HAS_FRIEND_DECLARATIONS:BOOL=OFF
-
-//Convert warnings to errors.
-HIGHFIVE_HAS_WERROR:BOOL=OFF
-
-//Maximum number of compiler errors.
-HIGHFIVE_MAX_ERRORS:STRING=0
-
-//Enable a group of sanitizers, requires compiler support. Supported:
-// 'address' and 'undefined'.
-HIGHFIVE_SANITIZER:STRING=OFF
-
-//Enable Boost testing
-HIGHFIVE_TEST_BOOST:BOOL=OFF
-
-//Enable Eigen testing
-HIGHFIVE_TEST_EIGEN:BOOL=OFF
-
-//Enable half-precision floats
-HIGHFIVE_TEST_HALF_FLOAT:BOOL=OFF
-
-//Enable OpenCV testing
-HIGHFIVE_TEST_OPENCV:BOOL=OFF
-
-//Enable std::span testing, requires C++20
-HIGHFIVE_TEST_SPAN:BOOL=OFF
-
-//Enable xtensor testing
-HIGHFIVE_TEST_XTENSOR:BOOL=OFF
-
-//Compile unit-tests
-HIGHFIVE_UNIT_TESTS:BOOL=OFF
-
-//Set logging level to verbose.
-HIGHFIVE_VERBOSE:BOOL=OFF
-
-//Value Computed by CMake
-HighFive_BINARY_DIR:STATIC=/Users/roryschram/Documents/Work/masters/usrp_firmware/build/externals/HighFive
-
-//Value Computed by CMake
-HighFive_IS_TOP_LEVEL:STATIC=OFF
-
-//Value Computed by CMake
-HighFive_SOURCE_DIR:STATIC=/Users/roryschram/Documents/Work/masters/usrp_firmware/externals/HighFive
 
 //Value Computed by CMake
 N210_FIRMWARE_BINARY_DIR:STATIC=/Users/roryschram/Documents/Work/masters/usrp_firmware/build
@@ -433,7 +350,7 @@ CMAKE_MODULE_LINKER_FLAGS_RELWITHDEBINFO-ADVANCED:INTERNAL=1
 //ADVANCED property for variable: CMAKE_NM
 CMAKE_NM-ADVANCED:INTERNAL=1
 //number of local generators
-CMAKE_NUMBER_OF_MAKEFILES:INTERNAL=2
+CMAKE_NUMBER_OF_MAKEFILES:INTERNAL=1
 //ADVANCED property for variable: CMAKE_OBJCOPY
 CMAKE_OBJCOPY-ADVANCED:INTERNAL=1
 //ADVANCED property for variable: CMAKE_OBJDUMP
@@ -480,16 +397,8 @@ CMAKE_UNAME:INTERNAL=/usr/bin/uname
 CMAKE_VERBOSE_MAKEFILE-ADVANCED:INTERNAL=1
 //Details about finding Boost
 FIND_PACKAGE_MESSAGE_DETAILS_Boost:INTERNAL=[/opt/homebrew/lib/cmake/Boost-1.86.0/BoostConfig.cmake][c ][v1.86.0()]
-//Details about finding HDF5
-FIND_PACKAGE_MESSAGE_DETAILS_HDF5:INTERNAL=[hdf5-shared][/opt/homebrew/include][c ][v1.14.4()]
 //Details about finding UHD
 FIND_PACKAGE_MESSAGE_DETAILS_UHD:INTERNAL=[/opt/local/lib/libuhd.dylib][/opt/local/include][v(4.1.0)]
-//ADVANCED property for variable: HDF5_DIFF_EXECUTABLE
-HDF5_DIFF_EXECUTABLE-ADVANCED:INTERNAL=1
-//ADVANCED property for variable: HIGHFIVE_HAS_FRIEND_DECLARATIONS
-HIGHFIVE_HAS_FRIEND_DECLARATIONS-ADVANCED:INTERNAL=1
-//ADVANCED property for variable: HIGHFIVE_SANITIZER
-HIGHFIVE_SANITIZER-ADVANCED:INTERNAL=1
 PC_UHD_CFLAGS:INTERNAL=
 PC_UHD_CFLAGS_I:INTERNAL=
 PC_UHD_CFLAGS_OTHER:INTERNAL=

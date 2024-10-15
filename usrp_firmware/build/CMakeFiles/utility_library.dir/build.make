@@ -83,33 +83,17 @@ CMakeFiles/utility_library.dir/src/utilities/config_reader.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling CXX source to assembly CMakeFiles/utility_library.dir/src/utilities/config_reader.cpp.s"
 	/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /Users/roryschram/Documents/Work/masters/usrp_firmware/src/utilities/config_reader.cpp -o CMakeFiles/utility_library.dir/src/utilities/config_reader.cpp.s
 
-CMakeFiles/utility_library.dir/src/utilities/utilities.cpp.o: CMakeFiles/utility_library.dir/flags.make
-CMakeFiles/utility_library.dir/src/utilities/utilities.cpp.o: /Users/roryschram/Documents/Work/masters/usrp_firmware/src/utilities/utilities.cpp
-CMakeFiles/utility_library.dir/src/utilities/utilities.cpp.o: CMakeFiles/utility_library.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/Users/roryschram/Documents/Work/masters/usrp_firmware/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Building CXX object CMakeFiles/utility_library.dir/src/utilities/utilities.cpp.o"
-	/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/utility_library.dir/src/utilities/utilities.cpp.o -MF CMakeFiles/utility_library.dir/src/utilities/utilities.cpp.o.d -o CMakeFiles/utility_library.dir/src/utilities/utilities.cpp.o -c /Users/roryschram/Documents/Work/masters/usrp_firmware/src/utilities/utilities.cpp
-
-CMakeFiles/utility_library.dir/src/utilities/utilities.cpp.i: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing CXX source to CMakeFiles/utility_library.dir/src/utilities/utilities.cpp.i"
-	/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /Users/roryschram/Documents/Work/masters/usrp_firmware/src/utilities/utilities.cpp > CMakeFiles/utility_library.dir/src/utilities/utilities.cpp.i
-
-CMakeFiles/utility_library.dir/src/utilities/utilities.cpp.s: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling CXX source to assembly CMakeFiles/utility_library.dir/src/utilities/utilities.cpp.s"
-	/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /Users/roryschram/Documents/Work/masters/usrp_firmware/src/utilities/utilities.cpp -o CMakeFiles/utility_library.dir/src/utilities/utilities.cpp.s
-
 # Object files for target utility_library
 utility_library_OBJECTS = \
-"CMakeFiles/utility_library.dir/src/utilities/config_reader.cpp.o" \
-"CMakeFiles/utility_library.dir/src/utilities/utilities.cpp.o"
+"CMakeFiles/utility_library.dir/src/utilities/config_reader.cpp.o"
 
 # External object files for target utility_library
 utility_library_EXTERNAL_OBJECTS =
 
 libutility_library.a: CMakeFiles/utility_library.dir/src/utilities/config_reader.cpp.o
-libutility_library.a: CMakeFiles/utility_library.dir/src/utilities/utilities.cpp.o
 libutility_library.a: CMakeFiles/utility_library.dir/build.make
 libutility_library.a: CMakeFiles/utility_library.dir/link.txt
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --bold --progress-dir=/Users/roryschram/Documents/Work/masters/usrp_firmware/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_3) "Linking CXX static library libutility_library.a"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --bold --progress-dir=/Users/roryschram/Documents/Work/masters/usrp_firmware/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Linking CXX static library libutility_library.a"
 	$(CMAKE_COMMAND) -P CMakeFiles/utility_library.dir/cmake_clean_target.cmake
 	$(CMAKE_COMMAND) -E cmake_link_script CMakeFiles/utility_library.dir/link.txt --verbose=$(VERBOSE)
 

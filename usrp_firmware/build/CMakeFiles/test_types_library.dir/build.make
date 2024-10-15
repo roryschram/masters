@@ -97,51 +97,19 @@ CMakeFiles/test_types_library.dir/src/test_types/receive_tests.cpp.s: cmake_forc
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling CXX source to assembly CMakeFiles/test_types_library.dir/src/test_types/receive_tests.cpp.s"
 	/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /Users/roryschram/Documents/Work/masters/usrp_firmware/src/test_types/receive_tests.cpp -o CMakeFiles/test_types_library.dir/src/test_types/receive_tests.cpp.s
 
-CMakeFiles/test_types_library.dir/src/test_types/loopback.cpp.o: CMakeFiles/test_types_library.dir/flags.make
-CMakeFiles/test_types_library.dir/src/test_types/loopback.cpp.o: /Users/roryschram/Documents/Work/masters/usrp_firmware/src/test_types/loopback.cpp
-CMakeFiles/test_types_library.dir/src/test_types/loopback.cpp.o: CMakeFiles/test_types_library.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/Users/roryschram/Documents/Work/masters/usrp_firmware/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_3) "Building CXX object CMakeFiles/test_types_library.dir/src/test_types/loopback.cpp.o"
-	/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/test_types_library.dir/src/test_types/loopback.cpp.o -MF CMakeFiles/test_types_library.dir/src/test_types/loopback.cpp.o.d -o CMakeFiles/test_types_library.dir/src/test_types/loopback.cpp.o -c /Users/roryschram/Documents/Work/masters/usrp_firmware/src/test_types/loopback.cpp
-
-CMakeFiles/test_types_library.dir/src/test_types/loopback.cpp.i: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing CXX source to CMakeFiles/test_types_library.dir/src/test_types/loopback.cpp.i"
-	/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /Users/roryschram/Documents/Work/masters/usrp_firmware/src/test_types/loopback.cpp > CMakeFiles/test_types_library.dir/src/test_types/loopback.cpp.i
-
-CMakeFiles/test_types_library.dir/src/test_types/loopback.cpp.s: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling CXX source to assembly CMakeFiles/test_types_library.dir/src/test_types/loopback.cpp.s"
-	/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /Users/roryschram/Documents/Work/masters/usrp_firmware/src/test_types/loopback.cpp -o CMakeFiles/test_types_library.dir/src/test_types/loopback.cpp.s
-
-CMakeFiles/test_types_library.dir/src/test_types/SFCW_tests.cpp.o: CMakeFiles/test_types_library.dir/flags.make
-CMakeFiles/test_types_library.dir/src/test_types/SFCW_tests.cpp.o: /Users/roryschram/Documents/Work/masters/usrp_firmware/src/test_types/SFCW_tests.cpp
-CMakeFiles/test_types_library.dir/src/test_types/SFCW_tests.cpp.o: CMakeFiles/test_types_library.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/Users/roryschram/Documents/Work/masters/usrp_firmware/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_4) "Building CXX object CMakeFiles/test_types_library.dir/src/test_types/SFCW_tests.cpp.o"
-	/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/test_types_library.dir/src/test_types/SFCW_tests.cpp.o -MF CMakeFiles/test_types_library.dir/src/test_types/SFCW_tests.cpp.o.d -o CMakeFiles/test_types_library.dir/src/test_types/SFCW_tests.cpp.o -c /Users/roryschram/Documents/Work/masters/usrp_firmware/src/test_types/SFCW_tests.cpp
-
-CMakeFiles/test_types_library.dir/src/test_types/SFCW_tests.cpp.i: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing CXX source to CMakeFiles/test_types_library.dir/src/test_types/SFCW_tests.cpp.i"
-	/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /Users/roryschram/Documents/Work/masters/usrp_firmware/src/test_types/SFCW_tests.cpp > CMakeFiles/test_types_library.dir/src/test_types/SFCW_tests.cpp.i
-
-CMakeFiles/test_types_library.dir/src/test_types/SFCW_tests.cpp.s: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling CXX source to assembly CMakeFiles/test_types_library.dir/src/test_types/SFCW_tests.cpp.s"
-	/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /Users/roryschram/Documents/Work/masters/usrp_firmware/src/test_types/SFCW_tests.cpp -o CMakeFiles/test_types_library.dir/src/test_types/SFCW_tests.cpp.s
-
 # Object files for target test_types_library
 test_types_library_OBJECTS = \
 "CMakeFiles/test_types_library.dir/src/test_types/transmit_tests.cpp.o" \
-"CMakeFiles/test_types_library.dir/src/test_types/receive_tests.cpp.o" \
-"CMakeFiles/test_types_library.dir/src/test_types/loopback.cpp.o" \
-"CMakeFiles/test_types_library.dir/src/test_types/SFCW_tests.cpp.o"
+"CMakeFiles/test_types_library.dir/src/test_types/receive_tests.cpp.o"
 
 # External object files for target test_types_library
 test_types_library_EXTERNAL_OBJECTS =
 
 libtest_types_library.a: CMakeFiles/test_types_library.dir/src/test_types/transmit_tests.cpp.o
 libtest_types_library.a: CMakeFiles/test_types_library.dir/src/test_types/receive_tests.cpp.o
-libtest_types_library.a: CMakeFiles/test_types_library.dir/src/test_types/loopback.cpp.o
-libtest_types_library.a: CMakeFiles/test_types_library.dir/src/test_types/SFCW_tests.cpp.o
 libtest_types_library.a: CMakeFiles/test_types_library.dir/build.make
 libtest_types_library.a: CMakeFiles/test_types_library.dir/link.txt
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --bold --progress-dir=/Users/roryschram/Documents/Work/masters/usrp_firmware/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_5) "Linking CXX static library libtest_types_library.a"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --bold --progress-dir=/Users/roryschram/Documents/Work/masters/usrp_firmware/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_3) "Linking CXX static library libtest_types_library.a"
 	$(CMAKE_COMMAND) -P CMakeFiles/test_types_library.dir/cmake_clean_target.cmake
 	$(CMAKE_COMMAND) -E cmake_link_script CMakeFiles/test_types_library.dir/link.txt --verbose=$(VERBOSE)
 

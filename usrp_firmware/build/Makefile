@@ -85,51 +85,6 @@ rebuild_cache:
 rebuild_cache/fast: rebuild_cache
 .PHONY : rebuild_cache/fast
 
-# Special rule for the target list_install_components
-list_install_components:
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --cyan "Available install components are: \"Unspecified\""
-.PHONY : list_install_components
-
-# Special rule for the target list_install_components
-list_install_components/fast: list_install_components
-.PHONY : list_install_components/fast
-
-# Special rule for the target install
-install: preinstall
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --cyan "Install the project..."
-	/opt/homebrew/Cellar/cmake/3.30.2/bin/cmake -P cmake_install.cmake
-.PHONY : install
-
-# Special rule for the target install
-install/fast: preinstall/fast
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --cyan "Install the project..."
-	/opt/homebrew/Cellar/cmake/3.30.2/bin/cmake -P cmake_install.cmake
-.PHONY : install/fast
-
-# Special rule for the target install/local
-install/local: preinstall
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --cyan "Installing only the local directory..."
-	/opt/homebrew/Cellar/cmake/3.30.2/bin/cmake -DCMAKE_INSTALL_LOCAL_ONLY=1 -P cmake_install.cmake
-.PHONY : install/local
-
-# Special rule for the target install/local
-install/local/fast: preinstall/fast
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --cyan "Installing only the local directory..."
-	/opt/homebrew/Cellar/cmake/3.30.2/bin/cmake -DCMAKE_INSTALL_LOCAL_ONLY=1 -P cmake_install.cmake
-.PHONY : install/local/fast
-
-# Special rule for the target install/strip
-install/strip: preinstall
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --cyan "Installing the project stripped..."
-	/opt/homebrew/Cellar/cmake/3.30.2/bin/cmake -DCMAKE_INSTALL_DO_STRIP=1 -P cmake_install.cmake
-.PHONY : install/strip
-
-# Special rule for the target install/strip
-install/strip/fast: preinstall/fast
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --cyan "Installing the project stripped..."
-	/opt/homebrew/Cellar/cmake/3.30.2/bin/cmake -DCMAKE_INSTALL_DO_STRIP=1 -P cmake_install.cmake
-.PHONY : install/strip/fast
-
 # The main all target
 all: cmake_check_build_system
 	$(CMAKE_COMMAND) -E cmake_progress_start /Users/roryschram/Documents/Work/masters/usrp_firmware/build/CMakeFiles /Users/roryschram/Documents/Work/masters/usrp_firmware/build//CMakeFiles/progress.marks
@@ -212,19 +167,6 @@ processing_library: cmake_check_build_system
 processing_library/fast:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/processing_library.dir/build.make CMakeFiles/processing_library.dir/build
 .PHONY : processing_library/fast
-
-#=============================================================================
-# Target rules for targets named storage_library
-
-# Build rule for target.
-storage_library: cmake_check_build_system
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 storage_library
-.PHONY : storage_library
-
-# fast build rule for target.
-storage_library/fast:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/storage_library.dir/build.make CMakeFiles/storage_library.dir/build
-.PHONY : storage_library/fast
 
 #=============================================================================
 # Target rules for targets named N210_FIRMWARE
@@ -383,102 +325,6 @@ src/processing/DSP.cpp.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/processing_library.dir/build.make CMakeFiles/processing_library.dir/src/processing/DSP.cpp.s
 .PHONY : src/processing/DSP.cpp.s
 
-src/processing/SFCW.o: src/processing/SFCW.cpp.o
-.PHONY : src/processing/SFCW.o
-
-# target to build an object file
-src/processing/SFCW.cpp.o:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/processing_library.dir/build.make CMakeFiles/processing_library.dir/src/processing/SFCW.cpp.o
-.PHONY : src/processing/SFCW.cpp.o
-
-src/processing/SFCW.i: src/processing/SFCW.cpp.i
-.PHONY : src/processing/SFCW.i
-
-# target to preprocess a source file
-src/processing/SFCW.cpp.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/processing_library.dir/build.make CMakeFiles/processing_library.dir/src/processing/SFCW.cpp.i
-.PHONY : src/processing/SFCW.cpp.i
-
-src/processing/SFCW.s: src/processing/SFCW.cpp.s
-.PHONY : src/processing/SFCW.s
-
-# target to generate assembly for a file
-src/processing/SFCW.cpp.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/processing_library.dir/build.make CMakeFiles/processing_library.dir/src/processing/SFCW.cpp.s
-.PHONY : src/processing/SFCW.cpp.s
-
-src/storage/storing.o: src/storage/storing.cpp.o
-.PHONY : src/storage/storing.o
-
-# target to build an object file
-src/storage/storing.cpp.o:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/storage_library.dir/build.make CMakeFiles/storage_library.dir/src/storage/storing.cpp.o
-.PHONY : src/storage/storing.cpp.o
-
-src/storage/storing.i: src/storage/storing.cpp.i
-.PHONY : src/storage/storing.i
-
-# target to preprocess a source file
-src/storage/storing.cpp.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/storage_library.dir/build.make CMakeFiles/storage_library.dir/src/storage/storing.cpp.i
-.PHONY : src/storage/storing.cpp.i
-
-src/storage/storing.s: src/storage/storing.cpp.s
-.PHONY : src/storage/storing.s
-
-# target to generate assembly for a file
-src/storage/storing.cpp.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/storage_library.dir/build.make CMakeFiles/storage_library.dir/src/storage/storing.cpp.s
-.PHONY : src/storage/storing.cpp.s
-
-src/test_types/SFCW_tests.o: src/test_types/SFCW_tests.cpp.o
-.PHONY : src/test_types/SFCW_tests.o
-
-# target to build an object file
-src/test_types/SFCW_tests.cpp.o:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/test_types_library.dir/build.make CMakeFiles/test_types_library.dir/src/test_types/SFCW_tests.cpp.o
-.PHONY : src/test_types/SFCW_tests.cpp.o
-
-src/test_types/SFCW_tests.i: src/test_types/SFCW_tests.cpp.i
-.PHONY : src/test_types/SFCW_tests.i
-
-# target to preprocess a source file
-src/test_types/SFCW_tests.cpp.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/test_types_library.dir/build.make CMakeFiles/test_types_library.dir/src/test_types/SFCW_tests.cpp.i
-.PHONY : src/test_types/SFCW_tests.cpp.i
-
-src/test_types/SFCW_tests.s: src/test_types/SFCW_tests.cpp.s
-.PHONY : src/test_types/SFCW_tests.s
-
-# target to generate assembly for a file
-src/test_types/SFCW_tests.cpp.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/test_types_library.dir/build.make CMakeFiles/test_types_library.dir/src/test_types/SFCW_tests.cpp.s
-.PHONY : src/test_types/SFCW_tests.cpp.s
-
-src/test_types/loopback.o: src/test_types/loopback.cpp.o
-.PHONY : src/test_types/loopback.o
-
-# target to build an object file
-src/test_types/loopback.cpp.o:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/test_types_library.dir/build.make CMakeFiles/test_types_library.dir/src/test_types/loopback.cpp.o
-.PHONY : src/test_types/loopback.cpp.o
-
-src/test_types/loopback.i: src/test_types/loopback.cpp.i
-.PHONY : src/test_types/loopback.i
-
-# target to preprocess a source file
-src/test_types/loopback.cpp.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/test_types_library.dir/build.make CMakeFiles/test_types_library.dir/src/test_types/loopback.cpp.i
-.PHONY : src/test_types/loopback.cpp.i
-
-src/test_types/loopback.s: src/test_types/loopback.cpp.s
-.PHONY : src/test_types/loopback.s
-
-# target to generate assembly for a file
-src/test_types/loopback.cpp.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/test_types_library.dir/build.make CMakeFiles/test_types_library.dir/src/test_types/loopback.cpp.s
-.PHONY : src/test_types/loopback.cpp.s
-
 src/test_types/receive_tests.o: src/test_types/receive_tests.cpp.o
 .PHONY : src/test_types/receive_tests.o
 
@@ -551,30 +397,6 @@ src/utilities/config_reader.cpp.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/utility_library.dir/build.make CMakeFiles/utility_library.dir/src/utilities/config_reader.cpp.s
 .PHONY : src/utilities/config_reader.cpp.s
 
-src/utilities/utilities.o: src/utilities/utilities.cpp.o
-.PHONY : src/utilities/utilities.o
-
-# target to build an object file
-src/utilities/utilities.cpp.o:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/utility_library.dir/build.make CMakeFiles/utility_library.dir/src/utilities/utilities.cpp.o
-.PHONY : src/utilities/utilities.cpp.o
-
-src/utilities/utilities.i: src/utilities/utilities.cpp.i
-.PHONY : src/utilities/utilities.i
-
-# target to preprocess a source file
-src/utilities/utilities.cpp.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/utility_library.dir/build.make CMakeFiles/utility_library.dir/src/utilities/utilities.cpp.i
-.PHONY : src/utilities/utilities.cpp.i
-
-src/utilities/utilities.s: src/utilities/utilities.cpp.s
-.PHONY : src/utilities/utilities.s
-
-# target to generate assembly for a file
-src/utilities/utilities.cpp.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/utility_library.dir/build.make CMakeFiles/utility_library.dir/src/utilities/utilities.cpp.s
-.PHONY : src/utilities/utilities.cpp.s
-
 # Help Target
 help:
 	@echo "The following are some of the valid targets for this Makefile:"
@@ -582,15 +404,10 @@ help:
 	@echo "... clean"
 	@echo "... depend"
 	@echo "... edit_cache"
-	@echo "... install"
-	@echo "... install/local"
-	@echo "... install/strip"
-	@echo "... list_install_components"
 	@echo "... rebuild_cache"
 	@echo "... N210_FIRMWARE"
 	@echo "... hardware_config"
 	@echo "... processing_library"
-	@echo "... storage_library"
 	@echo "... test_types_library"
 	@echo "... utility_library"
 	@echo "... main.o"
@@ -611,18 +428,6 @@ help:
 	@echo "... src/processing/DSP.o"
 	@echo "... src/processing/DSP.i"
 	@echo "... src/processing/DSP.s"
-	@echo "... src/processing/SFCW.o"
-	@echo "... src/processing/SFCW.i"
-	@echo "... src/processing/SFCW.s"
-	@echo "... src/storage/storing.o"
-	@echo "... src/storage/storing.i"
-	@echo "... src/storage/storing.s"
-	@echo "... src/test_types/SFCW_tests.o"
-	@echo "... src/test_types/SFCW_tests.i"
-	@echo "... src/test_types/SFCW_tests.s"
-	@echo "... src/test_types/loopback.o"
-	@echo "... src/test_types/loopback.i"
-	@echo "... src/test_types/loopback.s"
 	@echo "... src/test_types/receive_tests.o"
 	@echo "... src/test_types/receive_tests.i"
 	@echo "... src/test_types/receive_tests.s"
@@ -632,9 +437,6 @@ help:
 	@echo "... src/utilities/config_reader.o"
 	@echo "... src/utilities/config_reader.i"
 	@echo "... src/utilities/config_reader.s"
-	@echo "... src/utilities/utilities.o"
-	@echo "... src/utilities/utilities.i"
-	@echo "... src/utilities/utilities.s"
 .PHONY : help
 
 

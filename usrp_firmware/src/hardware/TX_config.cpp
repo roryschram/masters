@@ -1,7 +1,6 @@
 #include "hardware/TX_config.hpp"
 #include <uhd/usrp/multi_usrp.hpp>
 #include "utilities/config_reader.hpp"
-#include "utilities/utilities.hpp"
 #include "utilities/config_constants.hpp"
 
 namespace TX{

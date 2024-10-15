@@ -1,8 +1,4 @@
 file(REMOVE_RECURSE
-  "CMakeFiles/test_types_library.dir/src/test_types/SFCW_tests.cpp.o"
-  "CMakeFiles/test_types_library.dir/src/test_types/SFCW_tests.cpp.o.d"
-  "CMakeFiles/test_types_library.dir/src/test_types/loopback.cpp.o"
-  "CMakeFiles/test_types_library.dir/src/test_types/loopback.cpp.o.d"
   "CMakeFiles/test_types_library.dir/src/test_types/receive_tests.cpp.o"
   "CMakeFiles/test_types_library.dir/src/test_types/receive_tests.cpp.o.d"
   "CMakeFiles/test_types_library.dir/src/test_types/transmit_tests.cpp.o"

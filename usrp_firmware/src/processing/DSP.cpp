@@ -1,6 +1,5 @@
 
 #include "processing/DSP.hpp"
-#include "processing/SFCW.hpp"
 #include <iostream>
 #include <vector>
 #include <complex>

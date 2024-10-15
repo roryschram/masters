@@ -1933,8 +1933,4 @@ CMakeFiles/hardware_config.dir/src/hardware/RX_config.cpp.o: \
   /opt/local/include/uhd/utils/pimpl.hpp \
   /opt/local/include/uhd/usrp/subdev_spec.hpp \
   /Users/roryschram/Documents/Work/masters/usrp_firmware/inc/utilities/config_reader.hpp \
-  /Users/roryschram/Documents/Work/masters/usrp_firmware/inc/utilities/config_constants.hpp \
-  /Users/roryschram/Documents/Work/masters/usrp_firmware/inc/processing/SFCW.hpp \
-  /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX14.5.sdk/usr/include/c++/v1/queue \
-  /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX14.5.sdk/usr/include/c++/v1/deque \
-  /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX14.5.sdk/usr/include/c++/v1/condition_variable
+  /Users/roryschram/Documents/Work/masters/usrp_firmware/inc/utilities/config_constants.hpp

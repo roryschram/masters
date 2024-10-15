@@ -85,6 +85,7 @@ Hest = channelEstimate(OFDM_demod)
 
 def equalize(OFDM_demod, Hest):
     return OFDM_demod / Hest
+    #return OFDM_demod   
 equalized_Hest = equalize(OFDM_demod, Hest)
 
 

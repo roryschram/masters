@@ -2,7 +2,6 @@
 #define CONFIG_READER_HPP
 #include <string>
 #include "utilities/config_constants.hpp"
-#include "processing/SFCW.hpp"
 
 /// @brief CONFIG Namespace used for retrieving and saving config parameters
 namespace CONFIG{
@@ -31,17 +30,6 @@ namespace CONFIG{
     extern double RX_BW;
     extern double RX_GAIN;
 
-    /// @brief parameters extracted for the waveform based on the config 
-    namespace waveform{
-        extern DSP::SFCW::DEMODULATION_TYPE demod_type; 
-        extern double deltaF;
-        extern double deltaT;
-        extern double sampsPerF;
-        extern int Num_steps;
-        extern int N_delay; // the number of samples before we can start using that data for processing
-        extern std::string experimentFileName;
-    } 
-    
 
     ////////////////// Vars
     extern bool configRead;

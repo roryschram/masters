@@ -7,16 +7,11 @@
 #include <iostream>
 #include "utilities/config_constants.hpp"
 #include "utilities/config_reader.hpp"
-#include "utilities/utilities.hpp"
 #include "hardware/TX_config.hpp"
 #include "hardware/RX_config.hpp"
 #include "test_types/transmit_tests.hpp"
 #include "test_types/receive_tests.hpp"
-#include "test_types/loopback.hpp"
-#include "test_types/SFCW_tests.hpp"
 #include <iomanip>
-#include "processing/SFCW.hpp"
-#include "storage/storing.hpp"
 #include <fstream>
 
 

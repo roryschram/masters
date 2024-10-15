@@ -35,15 +35,7 @@ namespace CONFIG{
     double SFCW_MAX_RANGE;
     double SFCW_IF;
     int SFCW_NUM_SWEEPS; 
-    namespace waveform{
-        DSP::SFCW::DEMODULATION_TYPE demod_type;
-        double deltaF;
-        double deltaT;
-        double sampsPerF;
-        int Num_steps;
-        int N_delay;
-        std::string experimentFileName;
-    } 
+
     //local
     bool configRead=false;
     bool configValid=false;
