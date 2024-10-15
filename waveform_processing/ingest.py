@@ -15,10 +15,13 @@ def read_complex_data_from_dat(filename):
     return complex_data
 
 # Get received usrp data
-received_data = read_complex_data_from_dat("waveform_processing/received.dat")
+received_data = read_complex_data_from_dat("waveform_processing/received_data/received.dat")
 
 # Get the original pulse
-transmitted_data = np.load("waveform_processing/original_OFDM_pulse.npy")
+transmitted_data = np.load("waveform_generation/generated_data/padded_OFDM_pulse.npy")
+
+plt.plot(np.abs(transmitted_data))
+plt.show()
 
 corrolation = np.correlate(received_data,transmitted_data)
 
@@ -27,6 +30,9 @@ pos_start_frame = np.argmax(np.abs(corrolation))
 print(pos_start_frame)
 
 symbol = received_data[pos_start_frame:pos_start_frame+80]
+
+plt.plot(np.abs(symbol))
+plt.show()
 
 np.save("waveform_processing/symbol.npy",symbol)
 

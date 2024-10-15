@@ -49,6 +49,9 @@ demapping_table = {v : k for k, v in mapping_table.items()}
 
 OFDM_RX = np.load("waveform_processing/symbol.npy")
 
+plt.plot(OFDM_RX)
+plt.show()
+
 def removeCP(signal):
     return signal[CP:(CP+K)]
 OFDM_RX_noCP = removeCP(OFDM_RX)
@@ -124,7 +127,7 @@ plt.ylabel("Imaginary Part (Q)")
 plt.show()
 
 
-bits = np.load("waveform_processing/bits.npy")
+bits = np.load("waveform_generation/generated_data/bits.npy")
 
 
 def PS(bits):

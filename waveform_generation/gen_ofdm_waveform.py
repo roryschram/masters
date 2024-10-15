@@ -85,7 +85,7 @@ H_exact = np.fft.fft(channelResponse, K)
 SNRdb = 25  # signal to noise-ratio in dB at the receiver 
 
 bits = np.random.binomial(n=1, p=0.5, size=(payloadBits_per_OFDM, ))
-np.save("waveform_processing/bits.npy",bits)
+np.save("waveform_generation/generated_data/bits.npy",bits)
 print ("Bits count: ", len(bits))
 print ("First 20 bits: ", bits[:20])
 print ("Mean of bits (should be around 0.5): ", np.mean(bits))
@@ -137,21 +137,23 @@ def addCP(OFDM_time):
 OFDM_withCP = addCP(OFDM_time)
 print ("Number of OFDM samples in time domain with CP: ", len(OFDM_withCP))
 
-np.save("waveform_design/waveforms/original_OFDM_pulse",OFDM_withCP)
+plt.plot(OFDM_withCP)
+plt.show()
+
+np.save("waveform_generation/generated_data/original_OFDM_pulse.npy",OFDM_withCP)
 
 padded_OFDM_withCP = np.pad(OFDM_withCP, pad_width=200, mode='constant', constant_values=0+0j)
 
-np.save("waveform_design/waveforms/padded_OFDM_pulse",OFDM_withCP)
+np.save("waveform_generation/generated_data/padded_OFDM_pulse.npy",OFDM_withCP)
 
 # Open a .dat file in binary write mode
-with open('waveform_design/waveforms/padded_OFDM_pulse.dat', 'wb') as f:
+with open('waveform_generation/generated_data/padded_OFDM_pulse.dat', 'wb') as f:
     for sample in padded_OFDM_withCP:
         # Write the real part (I) as 32-bit float
         f.write(np.float32(sample.real).tobytes())
         # Write the imaginary part (Q) as 32-bit float
         f.write(np.float32(sample.imag).tobytes())
 
-print("Data has been written to test_complex_data.dat")
 
 
 
