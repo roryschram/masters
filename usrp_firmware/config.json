@@ -17,6 +17,6 @@
     "TX_GAIN":0,
     "RX_GAIN":0,
     "OUTPUT_FILE":"temp",
-    "NUM_SAMPS":50e3,
+    "NUM_SAMPS":580,
     "VERBOSE":false
   }

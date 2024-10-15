@@ -50,6 +50,28 @@ std::vector<std::complex<float>> readComplexDataFromFile(const std::string& file
     return complexData;
 }
 
+void saveComplexDataToFile(const std::string& filename, const std::vector<std::complex<float>>& complexData) {
+    std::ofstream file(filename, std::ios::binary);
+
+    if (!file) {
+        std::cerr << "Error opening file for writing: " << filename << std::endl;
+        return;
+    }
+
+    for (const auto& sample : complexData) {
+        float real_part = sample.real();  // Extract real part (I)
+        float imag_part = sample.imag();  // Extract imaginary part (Q)
+
+        // Write real part (I) as 32-bit float
+        file.write(reinterpret_cast<const char*>(&real_part), sizeof(float));
+
+        // Write imaginary part (Q) as 32-bit float
+        file.write(reinterpret_cast<const char*>(&imag_part), sizeof(float));
+    }
+
+    file.close();
+}
+
 
 
 
@@ -248,21 +270,6 @@ int UHD_SAFE_MAIN(int argc, char *argv[]) {
     }
 
 
-    std::string filename = "test_complex_data.dat";
-    std::vector<std::complex<float>> data = readComplexDataFromFile(filename);
-
-    // Output the data
-    for (const auto& sample : data) {
-        std::cout << sample << std::endl;
-    }
-
-
-
-
-
-
-
-    return EXIT_SUCCESS;
 
     // Create the args for the tx and rx usrp
     uhd::device_addr_t tx_usrp_args("addr="+CONFIG::SDR_IP_TX);
@@ -322,23 +329,33 @@ int UHD_SAFE_MAIN(int argc, char *argv[]) {
 
 
 
-    // Vector for transmit data
-    std::vector<std::complex<float>> transmitVector(CONFIG::NUM_SAMPS);
+    // // Vector for transmit data
+    // std::vector<std::complex<float>> transmitVector(CONFIG::NUM_SAMPS);
 
-    // Parameters for the cosine wave
-    float frequency = 10000.0;     // Frequency of the cosine wave in Hz
-    float sampleRate = CONFIG::TX_RATE;  // Sampling rate in Hz
-    float amplitude = 0.3;     // Amplitude of the cosine wave
+    // // Parameters for the cosine wave
+    // float frequency = 10000.0;     // Frequency of the cosine wave in Hz
+    // float sampleRate = CONFIG::TX_RATE;  // Sampling rate in Hz
+    // float amplitude = 0.3;     // Amplitude of the cosine wave
 
-    // Fill the vector with real-valued cosine wave values
-    for (int i = 0; i < CONFIG::NUM_SAMPS; ++i) {
-        float time = i / sampleRate;  // Time for the current sample
-        float realValue = amplitude * std::cos(2 * M_PI * frequency * time);
-        //float realValue = amplitude * math.cos(2 * M_PI * frequency * time);
+    // // Fill the vector with real-valued cosine wave values
+    // for (int i = 0; i < CONFIG::NUM_SAMPS; ++i) {
+    //     float time = i / sampleRate;  // Time for the current sample
+    //     float realValue = amplitude * std::cos(2 * M_PI * frequency * time);
+    //     //float realValue = amplitude * math.cos(2 * M_PI * frequency * time);
         
-        // Set the complex value with real part as the cosine wave and imaginary part as 0
-        transmitVector[i] = std::complex<float>(realValue, realValue);
-    }
+    //     // Set the complex value with real part as the cosine wave and imaginary part as 0
+    //     transmitVector[i] = std::complex<float>(realValue, realValue);
+    // }
+
+
+    std::string filename = "padded_OFDM_pulse.dat";
+    std::vector<std::complex<float>> transmitVector = readComplexDataFromFile(filename);
+
+    // // Output the data
+    // for (const auto& sample : transmitVector) {
+    //     std::cout << sample << std::endl;
+    // }
+
 
 
 /////////////////////////////////////////////////////////////////////
@@ -377,7 +394,7 @@ int UHD_SAFE_MAIN(int argc, char *argv[]) {
 
     std::thread receive_thread([&]() {
         rx_usrp->set_time_unknown_pps(uhd::time_spec_t(0.0));
-        received_data = receive_vector(rx_usrp,CONFIG::NUM_SAMPS+10000,time_now,1.0);
+        received_data = receive_vector(rx_usrp,CONFIG::NUM_SAMPS,time_now,1.0);
     });
 
 
@@ -398,11 +415,10 @@ int UHD_SAFE_MAIN(int argc, char *argv[]) {
     // std::cout<<"\nFrac time of transmit first sample: "<<txMetaData.time_spec.get_full_secs() + txMetaData.time_spec.get_frac_secs();
     // std::cout<<"\n"<<rxMetaData.to_pp_string(false);
 
-    saveComplexVectorToCSV(received_data,"received.csv");
-    saveComplexVectorToCSV(transmitVector,"transmitted.csv");
+    saveComplexDataToFile("../../waveform_processing/received.dat",received_data);
 
 
-    //return EXIT_SUCCESS;
+    return EXIT_SUCCESS;
 
 
     // std::vector<std::complex<double>> receivedVector(CONFIG::NUM_SAMPS);

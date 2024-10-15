@@ -2,30 +2,12 @@ import numpy as np
 import matplotlib.pyplot as plt
 import scipy
 
-
-def read_complex_data_from_dat(filename):
-    # Read the binary data
-    with open(filename, 'rb') as f:
-        data = f.read()
-
-    # Convert the binary data to an array of 32-bit floats
-    float_data = np.frombuffer(data, dtype=np.float32)
-
-    # Reshape the data into pairs of (I, Q) values
-    complex_data = float_data[0::2] + 1j * float_data[1::2]
-
-    return complex_data
-
-
-
-
 K = 64 # number of OFDM subcarriers
 
 CP = K//4  # length of the cyclic prefix: 25% of the block
 
 P = 8 # number of pilot carriers per OFDM block
 pilotValue = 3+3j # The known value each pilot transmits
-
 
 allCarriers = np.arange(K)  # indices of all subcarriers ([0, 1, ... K-1])
 
@@ -37,21 +19,6 @@ P = P+1
 
 # data carriers are all remaining carriers
 dataCarriers = np.delete(allCarriers, pilotCarriers)
-
-print ("allCarriers:   %s" % allCarriers)
-print ("pilotCarriers: %s" % pilotCarriers)
-print ("dataCarriers:  %s" % dataCarriers)
-plt.plot(pilotCarriers, np.zeros_like(pilotCarriers), 'bo', label='pilot')
-plt.plot(dataCarriers, np.zeros_like(dataCarriers), 'ro', label='data')
-
-plt.title("Symbol Scheme for OFDM Signal")
-plt.xlabel("Carrier Index")
-plt.grid()
-plt.tight_layout()
-plt.legend()
-plt.show()
-
-
 
 mu = 4 # bits per symbol (i.e. 16QAM)
 payloadBits_per_OFDM = len(dataCarriers)*mu  # number of payload bits per OFDM symbol
@@ -74,54 +41,13 @@ mapping_table = {
     (1,1,1,0) :  1+3j,
     (1,1,1,1) :  1+1j
 }
-for b3 in [0, 1]:
-    for b2 in [0, 1]:
-        for b1 in [0, 1]:
-            for b0 in [0, 1]:
-                B = (b3, b2, b1, b0)
-                Q = mapping_table[B]
-                plt.plot(Q.real, Q.imag, 'bo')
-                plt.text(Q.real, Q.imag+0.2, "".join(str(x) for x in B), ha='center')
-
-
-plt.title("16 QAM Constellation with Grey-Mapping")
-plt.xlabel("Real Part (I)")
-plt.ylabel("Imaginary Part (Q)")
-plt.ylim(-4,4)
-plt.xlim(-4,4)
-plt.grid()
-plt.show()
 
 demapping_table = {v : k for k, v in mapping_table.items()}
 
-channelResponse = np.array([1, 0, 0.3+0.3j])  # the impulse response of the wireless channel
-H_exact = np.fft.fft(channelResponse, K)
-#plt.plot(allCarriers, abs(H_exact))
-
-SNRdb = 25  # signal to noise-ratio in dB at the receiver 
 
 
 
-np.load("")
-
-
-
-
-def channel(signal):
-    convolved = np.convolve(signal, channelResponse)
-    signal_power = np.mean(abs(convolved**2))
-    sigma2 = signal_power * 10**(-SNRdb/10)  # calculate noise power based on signal power and SNR
-    
-    print ("RX Signal power: %.4f. Noise power: %.4f" % (signal_power, sigma2))
-    
-    # Generate complex noise with given variance
-    noise = np.sqrt(sigma2/2) * (np.random.randn(*convolved.shape)+1j*np.random.randn(*convolved.shape))
-    return convolved + noise
-
-
-# Example usage
-OFDM_RX = read_complex_data_from_dat("waveform_design/received.dat")
-
+OFDM_RX = np.load("waveform_processing/symbol.npy")
 
 def removeCP(signal):
     return signal[CP:(CP+K)]
@@ -144,7 +70,6 @@ def channelEstimate(OFDM_demod):
     Hest_phase = scipy.interpolate.interp1d(pilotCarriers, np.angle(Hest_at_pilots), kind='linear')(allCarriers)
     Hest = Hest_abs * np.exp(1j*Hest_phase)
     
-    plt.plot(allCarriers, abs(H_exact), label='Correct Channel')
     plt.stem(pilotCarriers, abs(Hest_at_pilots), label='Pilot estimates')
     plt.plot(allCarriers, abs(Hest), label='Estimated channel via interpolation')
     plt.grid(True); plt.xlabel('Carrier index'); plt.ylabel('$|H(f)|$'); plt.legend(fontsize=10)
@@ -199,9 +124,14 @@ plt.ylabel("Imaginary Part (Q)")
 plt.show()
 
 
+bits = np.load("waveform_processing/bits.npy")
+
+
 def PS(bits):
     return bits.reshape((-1,))
 bits_est = PS(PS_est)
 print ("Obtained Bit error rate: ", np.sum(abs(bits-bits_est))/len(bits))
+
+
 
 
