@@ -17,6 +17,7 @@ def read_complex_data_from_dat(filename):
 # Get received usrp data
 received_data = read_complex_data_from_dat("waveform_processing/received_data/received.dat")
 
+
 # Get the original pulse
 transmitted_data = np.load("waveform_generation/generated_data/padded_OFDM_pulse.npy")
 

@@ -76,7 +76,6 @@ def channelEstimate(OFDM_demod):
     plt.stem(pilotCarriers, abs(Hest_at_pilots), label='Pilot estimates')
     plt.plot(allCarriers, abs(Hest), label='Estimated channel via interpolation')
     plt.grid(True); plt.xlabel('Carrier index'); plt.ylabel('$|H(f)|$'); plt.legend(fontsize=10)
-    plt.ylim(0,2)
     plt.show()
     
     return Hest
