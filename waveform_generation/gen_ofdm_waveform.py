@@ -149,14 +149,9 @@ np.save("waveform_generation/generated_data/padded_OFDM_pulse.npy",OFDM_withCP)
 # Open a .dat file in binary write mode
 with open('waveform_generation/generated_data/padded_OFDM_pulse.dat', 'wb') as f:
     for sample in padded_OFDM_withCP:
-        # Write the real part (I) as 32-bit float
-        f.write(np.float32(sample.real).tobytes())
-        # Write the imaginary part (Q) as 32-bit float
-        f.write(np.float32(sample.imag).tobytes())
+        # Write the real part (I) as 64-bit double
+        f.write(np.double(sample.real).tobytes())
+        # Write the imaginary part (Q) as 64-bit double
+        f.write(np.double(sample.imag).tobytes())
 
 
-
-
-# corrolation = np.correlate(padded_OFDM_withCP,OFDM_withCP)
-# plt.plot(np.abs(corrolation))
-# plt.show()

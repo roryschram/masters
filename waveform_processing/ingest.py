@@ -7,10 +7,10 @@ def read_complex_data_from_dat(filename):
         data = f.read()
 
     # Convert the binary data to an array of 32-bit floats
-    float_data = np.frombuffer(data, dtype=np.float32)
+    double_data = np.frombuffer(data, dtype=np.double)
 
     # Reshape the data into pairs of (I, Q) values
-    complex_data = float_data[0::2] + 1j * float_data[1::2]
+    complex_data = double_data[0::2] + 1j * double_data[1::2]
 
     return complex_data
 
