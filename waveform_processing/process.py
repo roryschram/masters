@@ -49,8 +49,8 @@ demapping_table = {v : k for k, v in mapping_table.items()}
 
 OFDM_RX = np.load("waveform_processing/symbol.npy")
 
-plt.plot(OFDM_RX)
-plt.show()
+# plt.plot(OFDM_RX)
+# plt.show()
 
 def removeCP(signal):
     return signal[CP:(CP+K)]
@@ -75,6 +75,7 @@ def channelEstimate(OFDM_demod):
     
     plt.stem(pilotCarriers, abs(Hest_at_pilots), label='Pilot estimates')
     plt.plot(allCarriers, abs(Hest), label='Estimated channel via interpolation')
+    plt.title("Channel estimation based on pilots")
     plt.grid(True); plt.xlabel('Carrier index'); plt.ylabel('$|H(f)|$'); plt.legend(fontsize=10)
     plt.show()
     
@@ -92,11 +93,11 @@ equalized_Hest = equalize(OFDM_demod, Hest)
 def get_payload(equalized):
     return equalized[dataCarriers]
 QAM_est = get_payload(equalized_Hest)
-plt.plot(QAM_est.real, QAM_est.imag, 'bo')
-plt.title("Received Constelation")
-plt.xlabel("Real Part (I)")
-plt.ylabel("Imaginary Part (Q)")
-plt.show()
+# plt.plot(QAM_est.real, QAM_est.imag, 'bo')
+# plt.title("Received Constelation")
+# plt.xlabel("Real Part (I)")
+# plt.ylabel("Imaginary Part (Q)")
+# plt.show()
 
 
 

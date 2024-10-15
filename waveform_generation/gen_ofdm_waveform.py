@@ -155,3 +155,12 @@ with open('waveform_generation/generated_data/padded_OFDM_pulse.dat', 'wb') as f
         f.write(np.double(sample.imag).tobytes())
 
 
+# Save .dat in build folder of cpp project
+with open('usrp_firmware/build/padded_OFDM_pulse.dat', 'wb') as f:
+    for sample in padded_OFDM_withCP:
+        # Write the real part (I) as 64-bit double
+        f.write(np.double(sample.real).tobytes())
+        # Write the imaginary part (Q) as 64-bit double
+        f.write(np.double(sample.imag).tobytes())
+
+
