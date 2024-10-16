@@ -1,6 +1,7 @@
 import numpy as np
 import matplotlib.pyplot as plt
 import scipy
+import scipy.interpolate
 
 K = 64 # number of OFDM subcarriers
 
@@ -43,7 +44,6 @@ mapping_table = {
 }
 
 demapping_table = {v : k for k, v in mapping_table.items()}
-
 
 
 
