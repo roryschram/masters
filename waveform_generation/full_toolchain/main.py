@@ -3,11 +3,11 @@ import matplotlib.pyplot as plt
 import scipy
 
 
-K = 32768 # number of OFDM subcarriers
+K = 1024 # number of OFDM subcarriers
 
 CP = K//4  # length of the cyclic prefix: 25% of the block
 
-P = 4096 # number of pilot carriers per OFDM block
+P = 128 # number of pilot carriers per OFDM block
 pilotValue = 3+3j # The known value each pilot transmits
 
 
@@ -129,7 +129,7 @@ print ("Number of OFDM samples in time domain with CP: ", len(OFDM_withCP))
 
 
 def channel(signal):
-    convolved = np.convolve(signal, channelResponse)
+    convolved = np.convolve(signal, channelResponse,mode="same")
     signal_power = np.mean(abs(convolved**2))
     sigma2 = signal_power * 10**(-SNRdb/10)  # calculate noise power based on signal power and SNR
     
@@ -138,8 +138,13 @@ def channel(signal):
     # Generate complex noise with given variance
     noise = np.sqrt(sigma2/2) * (np.random.randn(*convolved.shape)+1j*np.random.randn(*convolved.shape))
     return convolved + noise
+
+
 OFDM_TX = OFDM_withCP
 OFDM_RX = channel(OFDM_TX)
+
+
+
 plt.figure(figsize=(8,2))
 plt.plot(abs(OFDM_TX), label='TX signal')
 plt.plot(abs(OFDM_RX), label='RX signal')
@@ -154,18 +159,30 @@ def removeCP(signal):
 OFDM_RX_noCP = removeCP(OFDM_RX)
 
 
+
+
 def DFT(OFDM_RX):
     return np.fft.fft(OFDM_RX)
 OFDM_demod = DFT(OFDM_RX_noCP)
 
 
 def channelEstimate(OFDM_demod):
-    pilots = OFDM_demod[pilotCarriers]  # extract the pilot values from the RX signal
-    Hest_at_pilots = pilots / pilotValue # divide by the transmitted pilot values
+    # pilots = OFDM_demod[pilotCarriers]  # extract the pilot values from the RX signal
+    # Hest_at_pilots = pilots / pilotValue # divide by the transmitted pilot values
     
     # Perform interpolation between the pilot carriers to get an estimate
     # of the channel in the data carriers. Here, we interpolate absolute value and phase 
     # separately
+    
+    # Hest_abs = scipy.interpolate.interp1d(pilotCarriers, abs(Hest_at_pilots), kind='linear')(allCarriers)
+    # Hest_phase = scipy.interpolate.interp1d(pilotCarriers, np.angle(Hest_at_pilots), kind='linear')(allCarriers)
+    # Hest = Hest_abs * np.exp(1j*Hest_phase)
+    
+    
+    pilots = OFDM_demod[allCarriers]  # extract the pilot values from the RX signal
+    Hest_at_pilots = pilots / OFDM_data # divide by the transmitted pilot values
+    
+    
     Hest_abs = scipy.interpolate.interp1d(pilotCarriers, abs(Hest_at_pilots), kind='linear')(allCarriers)
     Hest_phase = scipy.interpolate.interp1d(pilotCarriers, np.angle(Hest_at_pilots), kind='linear')(allCarriers)
     Hest = Hest_abs * np.exp(1j*Hest_phase)
@@ -178,6 +195,7 @@ def channelEstimate(OFDM_demod):
     
     return Hest
 Hest = channelEstimate(OFDM_demod)
+
 
 
 
