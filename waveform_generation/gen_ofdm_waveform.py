@@ -3,11 +3,11 @@ import matplotlib.pyplot as plt
 import scipy
 
 
-K = 64 # number of OFDM subcarriers
+K = 256 # number of OFDM subcarriers
 
 CP = K//4  # length of the cyclic prefix: 25% of the block
 
-P = 8 # number of pilot carriers per OFDM block
+P = 32 # number of pilot carriers per OFDM block
 pilotValue = 3+3j # The known value each pilot transmits
 
 
@@ -97,6 +97,8 @@ bits_SP = SP(bits)
 print ("First 5 bit groups")
 print (bits_SP[:5,:])
 
+
+
 def Mapping(bits):
     return np.array([mapping_table[tuple(b)] for b in bits])
 QAM = Mapping(bits_SP)
@@ -137,8 +139,6 @@ def addCP(OFDM_time):
 OFDM_withCP = addCP(OFDM_time)
 print ("Number of OFDM samples in time domain with CP: ", len(OFDM_withCP))
 
-plt.plot(OFDM_withCP)
-plt.show()
 
 np.save("waveform_generation/generated_data/original_OFDM_pulse.npy",OFDM_withCP)
 
@@ -164,3 +164,5 @@ with open('usrp_firmware/build/padded_OFDM_pulse.dat', 'wb') as f:
         f.write(np.double(sample.imag).tobytes())
 
 
+plt.plot(padded_OFDM_withCP)
+plt.show()

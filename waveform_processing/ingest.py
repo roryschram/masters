@@ -17,6 +17,13 @@ def read_complex_data_from_dat(filename):
 # Get received usrp data
 received_data = read_complex_data_from_dat("waveform_processing/received_data/received.dat")
 
+received_data = received_data[255:]
+
+received_data = received_data - np.mean(received_data)
+
+for i in range(0,100,1):
+    received_data[i] = 0.0 + 0.0j
+
 
 # Get the original pulse
 transmitted_data = np.load("waveform_generation/generated_data/padded_OFDM_pulse.npy")
@@ -30,14 +37,28 @@ pos_start_frame = np.argmax(np.abs(corrolation))
 
 print(pos_start_frame)
 
-received_data = received_data - np.mean(received_data)
-symbol = received_data[pos_start_frame:pos_start_frame+80]
+#received_data = received_data - np.mean(received_data)
+symbol = received_data[pos_start_frame:pos_start_frame+320]
 
 
 # plt.plot(np.abs(symbol))
 # plt.show()
 
 np.save("waveform_processing/symbol.npy",symbol)
+
+plt.plot(np.abs(np.fft.fftshift(np.fft.fft(received_data))))
+plt.title("Received signal fft")
+plt.xlabel("Samples")
+plt.ylabel("|received|")
+plt.show()
+
+
+plt.plot(np.real(received_data))
+plt.plot(np.imag(received_data))
+plt.title("Received signal")
+plt.xlabel("Samples")
+plt.ylabel("|received|")
+plt.show()
 
 plt.plot(np.abs(corrolation))
 plt.plot(pos_start_frame,np.abs(corrolation[pos_start_frame]),"ro")
