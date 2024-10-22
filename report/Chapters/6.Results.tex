@@ -1,0 +1,86 @@
+% ----------------------------------------------------
+% Results
+% ----------------------------------------------------
+\documentclass[class=report,11pt,crop=false]{standalone}
+\input{../Style/ChapterStyle.tex}
+\input{../FrontMatter/Glossary.tex}
+\begin{document}
+% ----------------------------------------------------
+\chapter{Results \label{ch:results}}
+This section outlines the results of the experiments performed that are outlined in section \ref{ch:methodology}. Discussion and analysis of results will not form part of this chapter, but rather the raw data captured will be presented for all the important tests that took place.
+
+\section{Same Room Test}
+The results of the same room test can be seen below in figure \ref{fig:sameroomtestwithwhipantenna}.
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.9\linewidth]{../Images/Graphs/SameRoomTestGraph.png}
+    \caption{Same Room Test with Whip Antenna}
+    \label{fig:sameroomtestwithwhipantenna}
+\end{figure}
+
+
+
+
+
+\newpage
+
+\section{100m Test}
+The results of the 100m test can be seen below in figure \ref{fig:100mtestwithwhipantenna}.
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.9\linewidth]{../Images/Graphs/100mTestGraph.png}
+    \caption{100m Test with Whip Antenna}
+    \label{fig:100mtestwithwhipantenna}
+\end{figure}
+
+
+\section{300m Test}
+The results of the 300m test can be seen below in figure \ref{fig:300mtestwithwhipantenna}.
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.9\linewidth]{../Images/Graphs/300mTestGraph.png}
+    \caption{300m Test with Whip Antenna}
+    \label{fig:300mtestwithwhipantenna}
+\end{figure}
+
+\section{500m Test}
+The results of the 500m test can be seen below in figure \ref{fig:500mtestwithwhipantenna}.
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.9\linewidth]{../Images/Graphs/500mTestGraph.png}
+    \caption{500m Test with Whip Antenna}
+    \label{fig:500mtestwithwhipantenna}
+\end{figure}
+
+
+\section{20km Test}
+The results of the 20km test can be seen below in figure \ref{fig:20kmtestwithwhipandyagiantenna}.
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.9\linewidth]{../Images/Graphs/20kmTestGraph.png}
+    \caption{20km Test with Whip and Yagi Antenna}
+    \label{fig:20kmtestwithwhipandyagiantenna}
+\end{figure}
+
+\section{Average RSSI Values with Distance}
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.9\linewidth]{../Images/Graphs/averageRSSIGraph.png}
+    \caption{Average RSSI Value of Transmissions for Various Test Distances}
+    \label{fig:averagerssivaluesfortests}
+\end{figure}
+
+
+
+% ----------------------------------------------------
+\ifstandalone
+\bibliography{../Bibliography/References}
+\printnoidxglossary[type=\acronymtype,nonumberlist]
+\fi
+\end{document}
+% ----------------------------------------------------

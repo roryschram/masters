@@ -1,0 +1,52 @@
+% ----------------------------------------------------
+% Discussion
+% ----------------------------------------------------
+\documentclass[class=report,11pt,crop=false]{standalone}
+\input{../Style/ChapterStyle.tex}
+\input{../FrontMatter/Glossary.tex}
+\begin{document}
+% ----------------------------------------------------
+\chapter{Discussion \label{ch:discussion}}
+This discussion is where I discuss my findings that have been presented in chapter \ref{ch:results}. I discuss and analyse all the results that have been captured in the data capture process outlined in chapter \ref{ch:methodology}. Starting first with the average RSSI values over all the distances tested in the shorter-range tests.
+\section{RSSI Values with Distance}
+The first important aspect that was noticed from the results of the testing process was how the distance between the transmission and receiver module affected the overall RSSI values for the system. To properly illustrate this, attention must be drawn to figure \ref{fig:averagerssivaluesfortests} which highlights the average RSSI values for each of the shorter-range tests. The average RSSI value was determined from all 60 modes that were tested during each of the short-range tests, and the results were plotted for each test. This graph clearly shows how there is a decrease in RSSI values as the distance between the transmitter and receiver increases. This is to be expected, due to the fact that signals that are propagating through space lose power as the distance they travel increases, therefore making it harder to receive a transmitted signal the further the receiving apparatus is away from the transmitter. Another interesting thing to note about the data displayed in figure \ref{fig:averagerssivaluesfortests} is the large jump in RSSI values from the initial same-room test to the rugby field tests. One factor that may affect the results here, is interference caused by the transmitters not being high enough off of the ground from the Fresnel zones above zone 1 to not interfere. This is something that could be investigated further.
+
+\section{Overall Testing Performance}
+Referring back to figures \ref{fig:sameroomtestwithwhipantenna}, \ref{fig:100mtestwithwhipantenna}, \ref{fig:300mtestwithwhipantenna}, \ref{fig:500mtestwithwhipantenna}, and \ref{fig:20kmtestwithwhipandyagiantenna} one can see that for almost every single one of the tests performed, there is almost always an increase in the RSSI values of the received packets of data, as the bandwidth of the LoRa transmission is increased. This is interesting to note as it seems to indicate that having a higher bandwidth will always be preferable to a lower bandwidth for transmissions using the LoRa protocol. After initially doing the shorter-range tests, I made this assumption that always having a higher bandwidth is better, however, this turned out to be a little bit premature. If one takes a look at figure \ref{fig:20kmtestwithwhipandyagiantenna}, which shows the performance of the system over a larger distance of 20km, and compares it to the data shown in figures \ref{fig:sameroomtestwithwhipantenna}, \ref{fig:100mtestwithwhipantenna}, \ref{fig:300mtestwithwhipantenna}, and \ref{fig:500mtestwithwhipantenna}, which show the shorter range tests, it is noted that for many of the shorter range tests, the mode that don't work are the lower bandwidth modes, whereas for the longer range test, generally, the modes that didn't work were the higher bandwidth modes. The exception to this is the lower bandwidth modes for the spreading factor 12 long-range test. One of the possible reasons for this could be interference. During the testing of the long-range transmissions, LoRa transmissions were picked up on modes 50 and 53, with a higher RSSI value than the transmissions from my circuit, indicating to me that there could potentially be another stronger transmitter that was operating at that specific frequency, causing interference with my testing procedure. An example of the interference data received on modes 50 and 53 can be seen in the appendix, section \ref{appendix:longrangetestinterferance}. Other than this, there seems to be a relationship between transmission distance and bandwidth; and the implementation of the LoRa protocol should aim to use lower bandwidths as the transmission distances increase since there seems to be more stable performance from the lower bandwidths at larger distances. This could also be an indication that the higher spreading factors make for more stable transmissions at larger distances. Increasing the spreading factor didn't seem to improve the RSSI values of the received packets of data however, and in some cases increasing the spreading factor actually seemed to have a negative effect on the received packet's RSSI values. However, for most of the testing, increasing the spreading factor neither improved nor worsened the RSSI value of the received packets. 
+
+\section{Determining the Optimal Packet Structure}\label{sec:optimalpacketstructure}
+One of the most important aspects of performing the tests that were performed, apart from determining the best LoRa parameters, was to determine the optimal data structure for sending the recorded sensor data across a LoRa link. One of the methods in which I was interested in doing this, was by splitting up the full data packet and then sending the data in smaller chunks over multiple LoRa transmisssions. After careful examination of table \ref{tab:simulationofpreamblepayloadandpackettime}, which shows the preamble, payload, and packet times for a payload of size 61 bytes, it was determined that splitting up the data almost always did not make much sense, as it was not efficient to do so. The only case in which splitting up the data makes sense is when the user needs extra long-range communication, at the cost of having a lower update rate. This is because as can be seen in the table, each LoRa transmission has an overhead in that there is a preamble that is sent at the beginning of each transmission of data. Having this overhead means that even with the best LoRa parameters, it does not make sense to break the data up into smaller sections, because every time this is done, the extra overhead that is added to the overall transmission of the packet makes it much more efficient to just send the entire packet in one transmission.
+
+\section{Determining the Optimal LoRa Parameters}
+In order to determine the best LoRa transmission parameters, the user's needs must be taken into account. In the case of this project, which was to design a transmission system for a radiosonde module, the update frequency at which data is transmitted from the radiosonde module to the base station needs to be taken into account. Since most radiosonde modules operating today send data once per second, this was the goal for this project. If this 1-second update rate has to be followed, then, referring to table \ref{tab:simulationofpreamblepayloadandpackettime}, it can be seen that there are only 24 modes that are able to deliver this performance for a packet of size 61 bytes. If an update rate of one packet of data for every 10 seconds is followed, then there are 51 available modes that can satisfy this requirement. In my opinion, the best LoRa parameters for a radiosonde module would allow for the following behaviour.
+\begin{enumerate}
+    \item \textbf{Long Distance Communication}: Since the radiosonde module has to operate at distances up to 100km, the distance must be prioritised with regard to the choice of parameters.
+    \item \textbf{Closest Possible Update Rate to 1Hz}: Since 1Hz is the update rate that most commercial radiosonde modules work at, parameters must be chosen that get as close to this number as possible.
+    \item \textbf{Stability}: Parameters must be chosen that provide the most stable performance, with no dropped packets.
+    \item \textbf{Signal Strength}: The highest possible RSSI values must be aimed for with regard to the LoRa transmissions, which is an indication of the signal strength.
+\end{enumerate}
+
+So with everything previously mentioned, the optimal LoRa parameters will be a combination of a lower bandwidth value, with a higher spreading factor value (since it looks like the higher spreading factors work better at larger distances), while balancing all of these parameters to allows for an update rate that is as close to 1Hz as possible. With all that being said, from the testing and analysis performed, the best LoRa parameters for my system were as follows in table \ref{tab:optimalvalues} below.
+
+\begin{table}[H]
+\centering
+\begin{tabular}{|c|c|}
+\hline
+\textbf{Parameter} & \textbf{Value} \\ \hline
+Spreading Factor & 11 \\ \hline
+Bandwidth & 62.5kHz \\ \hline
+Coding Rate & 4/5 \\ \hline
+Transmit Power & 20dBm \\ \hline
+\end{tabular}
+\caption{Optimal Values Determined}
+\label{tab:optimalvalues}
+\end{table}
+It is of particular note that the coding rate and output power were set constant during the testings process, and I am just including them here for completeness sake. With the above parameters, an average RSSI value of -118.35dBm was achieved for the 20km long-range test, and referring to table \ref{tab:simulationofpreamblepayloadandpackettime}, a full packet of data would take 2957.31ms to send, allowing for an update of data every 3 seconds. these parameters seem to be a good balance between all the available parameters to give the best performance over long distances.
+
+% ----------------------------------------------------
+\ifstandalone
+\bibliography{../Bibliography/References}
+\printnoidxglossary[type=\acronymtype,nonumberlist]
+\fi
+\end{document}
+% ----------------------------------------------------

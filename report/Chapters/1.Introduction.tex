@@ -1,0 +1,69 @@
+% ----------------------------------------------------
+% Introduction
+% ----------------------------------------------------
+\documentclass[class=report,11pt,crop=false]{standalone}
+\input{../Style/ChapterStyle.tex}
+\input{../FrontMatter/Glossary.tex}
+\begin{document}
+% ----------------------------------------------------
+\chapter{Introduction}\label{ch:Introduction}
+%\epigraph{Everyday we wake up in a world of infinite possibility. %Therefore boredom cannot exist.}%
+%    {\emph{---Daniel Jones}}
+%\vspace{0.5cm}
+% ----------------------------------------------------
+This is cool day every day, humans take it for granted that they have
+constantly up-to-date weather readings and predictions for the foreseeable future. Not often do humans stop and ask themselves exactly how these weather predictions are made, or how meteorologists study weather patterns to help determine future weather from current readings. This field of study is often hidden from sight, and yet it plays such a vital role in society today as humans know it. Countless industries rely on up-to-date weather and predictions in their everyday business operations, for example, the shipping industry, airline industry, transportation industry, and agriculture industry. Many of these industries are vitally important for the global economy, and therefore one can see why it is important to have accurate weather models. But how exactly do meteorologists refine their weather models, how do they ensure accurate predictions, and how do they do this every day with almost no delay? Well, one of the tools in their arsenal is the humble weather balloon.
+
+\section{Background}
+A weather balloon consists of a latex balloon, usually filled with helium, and a measurement device attached via a hanging rope called a radiosonde. The radiosonde is the telemetry device that records data readings and transmits them back to a ground station for processing and is what this report will be focusing on. The most common readings for a radiosonde to measure are altitude, pressure, temperature, relative humidity, wind (both wind speed and wind direction), cosmic ray readings and geographical position (latitude/longitude).
+
+These radiosondes are designed to be disposable due to the nature of the weather balloon flight paths making them unobtainable after they have been launched, leading to many radiosonde devices never getting recovered. This makes it imperative that the radiosonde modules are as cheap as possible because, with the number of radiosondes launched every day, the costs of operation can very quickly add up.
+
+Radiosonde measurement devices around the globe are launched twice per day at 00.00 and 12.00 UTC \cite{dabberdt_shellhorn_cole_paukkunen_horhammer_antikainen_2023}. This provides a consistent stream of data for numeric weather models. Every day, roughly 1800 radiosondes are launched around the globe from about 900 base stations \cite{how_many_weather_balloons_are_out_there_hundreds_it_turns_out_2023}. Some of the locations of these base stations can be seen in figure \ref{fig:base_stations} below.
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.7\linewidth]{../Images/base_stations.png}
+    \caption{Radiosonde Base Stations Around The Globe \cite{dabberdt_shellhorn_cole_paukkunen_horhammer_antikainen_2023}}
+    \label{fig:base_stations}
+\end{figure}
+
+Currently, many radiosondes utilise the \gls{fm} communication protocol within the 400 MHz frequency spectrum \cite{ITURec}. This paper aims to explore the use of the popular and cheap \gls{lora} communication protocol as an alternative to the current systems of communication being used with radiosonde devices.
+
+
+\section{Problem Statement}
+Scientists around the world use hundreds of radiosonde modules per day, with most of them going to waste since many radiosondes are not recovered after they have been launched. This means that there is a large demand for cheaper radiosonde modules to save on expenses, and allow for more radiosonde launches, which would improve weather predictions and research capabilities. One of the ways in which the radiosonde modules could be made cheaper is by designing them with off-the-shelf components that are widely available. One of the biggest challenges with a radiosonde module is the transmission of the recorded data back to a base station. Doing this with off-the-shelf components can be difficult. Therefore, it is important to investigate the viability of alternative communication protocols, such as the Lora protocol, for use in the real-world application of radiosonde modules.
+
+
+\section{Objectives}
+The main aim of this project was to explore the use of the LoRa communication system for the purpose of radiosonde communication between the radiosonde module itself and a base station. The extent to which the LoRa-based communication system can be utilised will be determined based on the results of tests performed with existing devices to determine the optimal Lora settings for long-distance communication. To achieve this objective, a surrounding sensing system will be designed and built which will form the basis for the data to be sent from the radiosonde unit to the base station.
+
+\section{System Requirements}
+The conditions within which this theoretical device will be operating are very harsh. The device will be operating at high altitudes which brings with it very cold temperatures and low pressures. The system requirements are laid out in table \ref{tab:requirements} below. \\
+
+\begin{table}[H]
+\centering
+\begin{tabular}{|c|c|lll}
+\cline{1-2}
+\textbf{Requirement}  & \textbf{Value}      &  &  &  \\ \cline{1-2}
+Transmission Bitrate  & 1200 - 4800 bps     &  &  &  \\ \cline{1-2}
+Transmission Range    & At least 100 km     &  &  &  \\ \cline{1-2}
+Transmission Altitude & At most 35 to 38 km &  &  &  \\ \cline{1-2}
+System Temperature    & -90 \textdegree C and above     &  &  &  \\ \cline{1-2}
+\end{tabular}
+\caption{System Requirements}
+\label{tab:requirements}
+\end{table}
+
+\section{Scope and Limitations}
+The scope of this project mainly focuses on the LoRa communication protocol itself, and determining the viability of using the LoRa communication protocol for radiosonde devices. The viability can only be determined by creating a mock radiosonde system to determine the capabilities of the communication protocol. Therefore, the scope of the project also includes the design on implementation of the radiosonde system, whereby an array of sensors will be experimented with, to create useful data to be transmitted by the LoRa-based communication system.
+
+
+
+% ----------------------------------------------------
+\ifstandalone
+\bibliography{Bibliography/References}
+\printnoidxglossary[type=\acronymtype,nonumberlist]
+\fi
+\end{document}
+% ----------------------------------------------------
