@@ -1,8 +1,8 @@
-PWD /Users/roryschram/Desktop/report/main
+PWD /Users/roryschram/Documents/Work/masters/report/main
 INPUT /usr/local/texlive/2024/texmf.cnf
 INPUT /usr/local/texlive/2024/texmf-dist/web2c/texmf.cnf
 INPUT /usr/local/texlive/2024/texmf-var/web2c/pdftex/pdflatex.fmt
-INPUT /Users/roryschram/Desktop/report/main/Main.tex
+INPUT /Users/roryschram/Documents/Work/masters/report/main/Main.tex
 OUTPUT Main.log
 INPUT /usr/local/texlive/2024/texmf-dist/tex/latex/base/report.cls
 INPUT /usr/local/texlive/2024/texmf-dist/tex/latex/base/report.cls
