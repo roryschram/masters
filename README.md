@@ -4,13 +4,13 @@
 <br />
 <div align="center">
   <a href="https://github.com/roryschram/masters">
-    <img src="images/logo.png" alt="Logo" width="80" height="80">
+    <img src="logo.jpg" alt="Logo" width="80" height="51">
   </a>
 
-<h3 align="center">project_title</h3>
+<h3 align="center">Single Pulse Classification Radar Based on an OFDM Waveform</h3>
 
   <p align="center">
-    project_description
+    This Github page outlines my masters project which started in April of 2024. This Github repo. contains all associated files which may have been used in the research process.
     <br />
     <a href="https://github.com/roryschram/masters"><strong>Explore the docs »</strong></a>
     <br />
