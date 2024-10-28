@@ -1,17 +1,22 @@
 import numpy as np
 import matplotlib.pyplot as plt
 
-# Parameters for the sweep
+# Parameters
 f_start = 0             # Start frequency in Hz
-f_end = 1e6             # End frequency in Hz (1 MHz)
-duration = 0.001            # Duration of the sweep in seconds
-sample_rate = 12.5e6      # Sampling rate in Hz (50 MHz)
+f_end = 250e3             # End frequency in Hz (1 MHz)
+sample_rate = 25e6      # Sampling rate in Hz (50 MHz)
+num_samples = 10000    # Number of samples for the chirp signal
 
-# Time vector based on the sample rate and duration
-t = np.linspace(0, duration, int(sample_rate * duration))
+# Time vector based on the sample rate and number of samples
+t = np.arange(num_samples) / sample_rate
 
-# Generate the sweep signal
-sweep_signal = np.sin(2 * np.pi * (f_start + (f_end - f_start) * t / duration) * t)
+# Generate the chirp signal
+# Linear frequency sweep from f_start to f_end over the length of the signal
+sweep_signal = np.sin(2 * np.pi * (f_start + (f_end - f_start) * t / t[-1]) * t)
+
+frequencies = np.fft.fftfreq(num_samples, d=1/sample_rate)
+plt.plot(frequencies,np.abs(np.fft.fft(sweep_signal)))
+plt.show()
 
 padded_sweep_signal = np.pad(sweep_signal, pad_width=200, mode='constant', constant_values=0)
 
@@ -39,17 +44,3 @@ np.save("chirp_toolchain/sweep_signal.npy",sweep_signal)
 np.save("chirp_toolchain/padded_sweep_signal.npy",padded_sweep_signal)
 
 
-
-# # Read the binary data
-# with open("transmitted_data/transmit.dat", 'rb') as f:
-#     data = f.read()
-    
-#     # Convert the binary data to an array of 32-bit floats
-#     double_data = np.frombuffer(data, dtype=np.double)
-    
-#     # Reshape the data into pairs of (I, Q) values
-#     complex_data = double_data[0::2] + 1j * double_data[1::2]
-
-# plt.plot(np.real(complex_data))
-# plt.plot(np.imag(complex_data))
-# plt.show()
