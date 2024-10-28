@@ -17,7 +17,7 @@ def read_complex_data_from_dat(filename):
 # Get received usrp data
 received_data = read_complex_data_from_dat("waveform_processing/received_data/received.dat")
 
-received_data = received_data[255:]
+#received_data = received_data[255:]
 
 received_data = received_data - np.mean(received_data)
 

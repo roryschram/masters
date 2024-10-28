@@ -84,6 +84,14 @@ def channelEstimate(OFDM_demod):
     return Hest
 Hest = channelEstimate(OFDM_demod)
 
+#np.save("waveform_processing/channel_estimations/loopback_channel_est.npy",Hest)
+
+original_channel_est = np.load("waveform_processing/channel_estimations/loopback_channel_est.npy")
+matched_filter_out = np.correlate(Hest,original_channel_est,mode='full')
+
+plt.plot(matched_filter_out)
+plt.show()
+
 
 def equalize(OFDM_demod, Hest):
     return OFDM_demod / Hest
