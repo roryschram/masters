@@ -2,10 +2,13 @@ import h5py
 import numpy as np
 
 
-with h5py.File("database/database.hdf5", "r") as f:
-    print(f.keys())
+with h5py.File("database/database.h5", "a") as f:
+    group = f["group"]
 
-    # dset = f['mydataset']
-    
-    # for i in dset:
-    #     print(i)
+    randomData = np.random.rand(1000000)
+
+    group.create_dataset("random_data1", data=randomData)
+
+
+
+
