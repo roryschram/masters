@@ -13,14 +13,24 @@ with open("received_data/receive.dat", 'rb') as f:
     complex_data = double_data[0::2] + 1j * double_data[1::2]
 
 
+
+# freqs = np.fft.fftfreq(len(complex_data),1/50e6)
+# plt.plot(freqs,np.abs(np.fft.fft(complex_data)))
+# plt.show()
+
+
+complex_data = complex_data-np.mean(complex_data)
+for i in range(0,50,1):
+    complex_data[i] = 0 + 0j
+
+
 plt.plot(np.real(complex_data),label="Real Part")
 plt.plot(np.imag(complex_data),label="Imag Part")
 plt.legend()
 plt.show()
 
 sweep_signal = np.load("chirp_toolchain/sweep_signal.npy")
-
-corrolation = 20*np.log(np.abs(np.correlate(complex_data,sweep_signal)))
+corrolation = np.abs(np.correlate(complex_data,sweep_signal))
 
 pos_start_frame = np.argmax(np.abs(corrolation))
 

@@ -1,24 +1,40 @@
 import numpy as np
 import matplotlib.pyplot as plt
 
-# Parameters
-f_start = 0             # Start frequency in Hz
-f_end = 250e3             # End frequency in Hz (1 MHz)
-sample_rate = 25e6      # Sampling rate in Hz (50 MHz)
-num_samples = 10000    # Number of samples for the chirp signal
 
-# Time vector based on the sample rate and number of samples
-t = np.arange(num_samples) / sample_rate
 
-# Generate the chirp signal
-# Linear frequency sweep from f_start to f_end over the length of the signal
-sweep_signal = np.sin(2 * np.pi * (f_start + (f_end - f_start) * t / t[-1]) * t)
+# chirp
+#
+# Generate a frequency sweep from low to high over time.
+# Waveform description is based on number of samples.
+#
+# Inputs
+#  fs_Hz: float, sample rate of chirp signal.
+#  rep_Hz: float, repetitions per second of chirp.
+#  f0_Hz: float, start (lower) frequency in Hz of chirp.
+#  f1_Hz: float, stop (upper) frequency in Hz of chirp.
+#  phase_rad: float, phase in radians at waveform start, default is 0.
+#
+# Output
+#  Time domain chirp waveform of length numnSamples.
 
-frequencies = np.fft.fftfreq(num_samples, d=1/sample_rate)
-plt.plot(frequencies,np.abs(np.fft.fft(sweep_signal)))
-plt.show()
+def chirp(fs_Hz, rep_Hz, f0_Hz, f1_Hz, periods=1, phase_rad=0):
 
-padded_sweep_signal = np.pad(sweep_signal, pad_width=200, mode='constant', constant_values=0)
+    T_s = 1 / rep_Hz # Period of chirp in seconds.
+    c = (f1_Hz - f0_Hz) / T_s # Chirp rate in Hz/s.
+    n = int(fs_Hz / rep_Hz) # Samples per repetition.
+    t_s = np.linspace(0, T_s, n) # Chirp sample times.
+
+    # Phase, phi_Hz, is integral of frequency, f(t) = ct + f0.
+    phi_Hz = (c * t_s**2) / 2 + (f0_Hz * t_s) # Instantaneous phase.
+    phi_rad = 2 * np.pi * phi_Hz # Convert to radians.
+    phi_rad += phase_rad # Offset by user-specified initial phase.
+    return np.tile(np.exp(1j * phi_rad), periods) # Complex I/Q.
+
+sweep_signal = chirp(50e6,20000,-5e6,5e6)
+
+padded_sweep_signal = np.pad(sweep_signal, pad_width=(1000,0), mode="constant", constant_values=0+0j)
+#padded_sweep_signal = sweep_signal
 
 print(len(sweep_signal))
 
@@ -27,9 +43,25 @@ plt.plot(np.real(padded_sweep_signal),label="Real Part")  # Adjust the portion a
 plt.plot(np.imag(padded_sweep_signal),label="Imag Part") 
 plt.xlabel("Time (s)")
 plt.ylabel("Amplitude")
-plt.title("1 MHz Sweep Signal (Sampled at 50 MHz)")
+plt.title("Sweep signal")
 plt.legend()
 plt.show()
+
+
+freqs = np.fft.fftfreq(len(sweep_signal),1/50e6)
+
+# Plot the generated sweep signal (showing only a portion for clarity)
+plt.plot((np.fft.fft(sweep_signal))) # Adjust the portion as needed
+plt.xlabel("Freq (Hz)")
+plt.ylabel("|padded_sweep_signal|")
+plt.title("FFT of sweep signal")
+plt.legend()
+plt.show()
+
+
+
+
+
 
 # Open a .dat file in binary write mode
 with open("transmitted_data/transmit.dat", 'wb') as f:

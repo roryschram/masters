@@ -15,7 +15,7 @@ def read_complex_data_from_dat(filename):
     return complex_data
 
 # Get received usrp data
-received_data = read_complex_data_from_dat("waveform_processing/received_data/received.dat")
+received_data = read_complex_data_from_dat("received_data/receive.dat")
 
 #received_data = received_data[255:]
 
@@ -46,7 +46,7 @@ symbol = received_data[pos_start_frame:pos_start_frame+320]
 
 np.save("waveform_processing/symbol.npy",symbol)
 
-plt.plot(np.abs(np.fft.fftshift(np.fft.fft(received_data))))
+plt.plot(20*np.log(np.abs(np.fft.fftshift(np.fft.fft(received_data)))))
 plt.title("Received signal fft")
 plt.xlabel("Samples")
 plt.ylabel("|received|")

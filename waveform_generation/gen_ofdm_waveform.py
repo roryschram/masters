@@ -85,7 +85,11 @@ H_exact = np.fft.fft(channelResponse, K)
 SNRdb = 25  # signal to noise-ratio in dB at the receiver 
 
 bits = np.random.binomial(n=1, p=0.5, size=(payloadBits_per_OFDM, ))
+
+
 np.save("waveform_generation/generated_data/bits.npy",bits)
+
+
 print ("Bits count: ", len(bits))
 print ("First 20 bits: ", bits[:20])
 print ("Mean of bits (should be around 0.5): ", np.mean(bits))
@@ -142,6 +146,7 @@ print ("Number of OFDM samples in time domain with CP: ", len(OFDM_withCP))
 
 np.save("waveform_generation/generated_data/original_OFDM_pulse.npy",OFDM_withCP)
 
+
 padded_OFDM_withCP = np.pad(OFDM_withCP, pad_width=200, mode='constant', constant_values=0+0j)
 
 np.save("waveform_generation/generated_data/padded_OFDM_pulse.npy",OFDM_withCP)
@@ -156,7 +161,7 @@ with open('waveform_generation/generated_data/padded_OFDM_pulse.dat', 'wb') as f
 
 
 # Save .dat in build folder of cpp project
-with open('usrp_firmware/build/padded_OFDM_pulse.dat', 'wb') as f:
+with open('transmitted_data/transmit.dat', 'wb') as f:
     for sample in padded_OFDM_withCP:
         # Write the real part (I) as 64-bit double
         f.write(np.double(sample.real).tobytes())
