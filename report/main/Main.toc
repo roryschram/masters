@@ -1,7 +1,7 @@
 \babel@toc {english}{}\relax 
-\contentsline {chapter}{List of Figures}{viii}{chapter*.5}%
-\contentsline {chapter}{List of Tables}{ix}{chapter*.6}%
-\contentsline {chapter}{Acronyms}{x}{section*.7}%
+\contentsline {chapter}{List of Figures}{vi}{chapter*.5}%
+\contentsline {chapter}{List of Tables}{vii}{chapter*.6}%
+\contentsline {chapter}{Acronyms}{viii}{section*.7}%
 \contentsline {chapter}{\numberline {1}Introduction}{1}{chapter.1}%
 \contentsline {section}{\numberline {1.1}Background}{1}{section.1.1}%
 \contentsline {section}{\numberline {1.2}Problem Statement}{1}{section.1.2}%
@@ -14,6 +14,7 @@
 \contentsline {subsection}{\numberline {2.1.2}RADAR Basics}{3}{subsection.2.1.2}%
 \contentsline {section}{\numberline {2.2}OFDM}{4}{section.2.2}%
 \contentsline {subsection}{\numberline {2.2.1}Brief OFDM History}{4}{subsection.2.2.1}%
+\contentsline {subsubsection}{\numberline {2.2.1.1}FDM}{4}{subsubsection.2.2.1.1}%
 \contentsline {subsection}{\numberline {2.2.2}OFDM Basics}{4}{subsection.2.2.2}%
 \contentsline {section}{\numberline {2.3}Fresnel Zones}{5}{section.2.3}%
 \contentsline {section}{\numberline {2.4}LoRa Theory of Operation}{5}{section.2.4}%

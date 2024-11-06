@@ -33,7 +33,7 @@ major countries of the world to develop technologies which could detect these ho
 
 
 \subsection{RADAR Basics}
-The fundamental operation of RADAR systems relies on three physical fundamental properties of the universe 
+The fundamental operation of a simple single pulse RADAR system relies on three physical fundamental properties of the universe 
 \cite{christian_wolff_physical_2024} which are listed below:
 \begin{enumerate}
     \item \textbf{Reflection of electromagnetic waves}: This rule describes how a radio wave will be reflected 
@@ -53,17 +53,27 @@ by the radar system can be determined.
 
 Since RADAR utilizes the electromagnetic spectrum, there are distinct advantages concerning the use of RADAR 
 systems \cite{christian_wolff_physical_2024}. The main advantage is that, unlike humans, RADAR systems can 
-operate day and night, 24/7, over far distances, in good or bad weather. Compared to human eyes, this is much better.
-
+operate day and night, 24/7, over far distances, in good or bad weather. Compared to human eyes, this is much better. 
+The above example of a RADAR system is that of a simple single pulse RADAR. In the next section I want to outline the 
+other type of RADAR system that I might use in my OFDM system, a pulsed RADAR system.
 
 
 \section{OFDM}
 \subsection{Brief OFDM History}
-\cite{weinstein_history_2009}
+The idea of OFDM transmission techniques has been around for many years, however, it was never implemented in communication channels until the appearance of mass market applications coincided with the availability of efficient software and electronic technologies \cite{weinstein_history_2009}. Before OFDM however, there was \gls{fdm}.
+
+\subsubsection{FDM}
+FDM system innovation was built out of necessity by telegraph companies hoping to increase the amount of users that could utilize their transmission lines so as to increase profits from their systems \cite{weinstein_history_2009}. Transmission companies needed a method to have multiple messages being sent on the same transmission line at one time. Other methods had been used such as \gls{tdm}, and \gls{tdma}. These methods were however limited by burst speed which was itself limited by inter-symbol interference. Around the 1920s, FDM became the main carrier system for telephone companies. The first major company to deploy the system was \gls{att}.
+
+
+
+
+
+
 \subsection{OFDM Basics}
 \gls{ofdm} is a method of data transmission that breaks information into bit chunks that are sent 
 in parallel over multiple channels \cite{wright_what_nodate}. The OFDM transmission scheme builds 
-upon \gls{fdm} where multiple channels are created over a specific bandwidth, and bits of information are 
+upon FDM where multiple channels are created over a specific bandwidth, and bits of information are 
 sent on each channel in parallel. The main difference between FDM and OFDM is therefore the orthogonality of 
 the OFDM signal. Pictured below in figure \ref{fig:ofdmandfdmwaveforms} is an OFDM, and FDM based waveform. 
 As can be seen, all the peaks of the OFDM waveform have zero interference with any other part of the signal, 
