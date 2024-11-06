@@ -1,8 +1,8 @@
-PWD /Users/roryschram/Desktop/report/Chapters
+PWD /Users/roryschram/Documents/Work/masters/report/Chapters
 INPUT /usr/local/texlive/2024/texmf.cnf
 INPUT /usr/local/texlive/2024/texmf-dist/web2c/texmf.cnf
 INPUT /usr/local/texlive/2024/texmf-var/web2c/pdftex/pdflatex.fmt
-INPUT /Users/roryschram/Desktop/report/Chapters/1.Introduction.tex
+INPUT /Users/roryschram/Documents/Work/masters/report/Chapters/1.Introduction.tex
 OUTPUT 1.Introduction.log
 INPUT /usr/local/texlive/2024/texmf-dist/tex/latex/standalone/standalone.cls
 INPUT /usr/local/texlive/2024/texmf-dist/tex/latex/standalone/standalone.cls

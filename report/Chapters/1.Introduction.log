@@ -1,10 +1,10 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.26 (TeX Live 2024) (preloaded format=pdflatex 2024.4.24)  22 OCT 2024 11:39
+This is pdfTeX, Version 3.141592653-2.6-1.40.26 (TeX Live 2024) (preloaded format=pdflatex 2024.4.24)  6 NOV 2024 10:22
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
  %&-line parsing enabled.
-**/Users/roryschram/Desktop/report/Chapters/1.Introduction.tex
-(/Users/roryschram/Desktop/report/Chapters/1.Introduction.tex
+**/Users/roryschram/Documents/Work/masters/report/Chapters/1.Introduction.tex
+(/Users/roryschram/Documents/Work/masters/report/Chapters/1.Introduction.tex
 LaTeX2e <2023-11-01> patch level 1
 L3 programming layer <2024-02-20>
 (/usr/local/texlive/2024/texmf-dist/tex/latex/standalone/standalone.cls
@@ -1254,12 +1254,12 @@ Package rerunfilecheck Info: File `1.Introduction.out' has not changed.
  ) 
 Here is how much of TeX's memory you used:
  54986 strings out of 474116
- 1226436 string characters out of 5743682
+ 1226481 string characters out of 5743682
  1937187 words of memory out of 5000000
  76388 multiletter control sequences out of 15000+600000
  603864 words of font info for 112 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 114i,11n,120p,2481b,1231s stack positions out of 10000i,1000n,20000p,200000b,200000s
+ 114i,11n,120p,2496b,1231s stack positions out of 10000i,1000n,20000p,200000b,200000s
 </usr/local/texlive/2024/texmf-dist/fonts/type1/public/lm/lmbx10.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/lm/lmbx12.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/lm/lmr10.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/lm/lmri10.pfb>
 Output written on 1.Introduction.pdf (5 pages, 447180 bytes).
 PDF statistics:
