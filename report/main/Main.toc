@@ -1,95 +1,96 @@
 \babel@toc {english}{}\relax 
 \contentsline {chapter}{List of Figures}{viii}{chapter*.5}%
-\contentsline {chapter}{List of Tables}{x}{chapter*.6}%
-\contentsline {chapter}{Acronyms}{xi}{section*.7}%
+\contentsline {chapter}{List of Tables}{ix}{chapter*.6}%
+\contentsline {chapter}{Acronyms}{x}{section*.7}%
 \contentsline {chapter}{\numberline {1}Introduction}{1}{chapter.1}%
 \contentsline {section}{\numberline {1.1}Background}{1}{section.1.1}%
-\contentsline {section}{\numberline {1.2}Problem Statement}{2}{section.1.2}%
-\contentsline {section}{\numberline {1.3}Objectives}{2}{section.1.3}%
+\contentsline {section}{\numberline {1.2}Problem Statement}{1}{section.1.2}%
+\contentsline {section}{\numberline {1.3}Objectives}{1}{section.1.3}%
 \contentsline {section}{\numberline {1.4}System Requirements}{2}{section.1.4}%
-\contentsline {section}{\numberline {1.5}Scope and Limitations}{3}{section.1.5}%
-\contentsline {chapter}{\numberline {2}Literatures Review}{4}{chapter.2}%
-\contentsline {section}{\numberline {2.1}Background}{4}{section.2.1}%
-\contentsline {section}{\numberline {2.2}LoRa Communication Standard}{4}{section.2.2}%
-\contentsline {section}{\numberline {2.3}LoRa History}{4}{section.2.3}%
-\contentsline {section}{\numberline {2.4}LoRa for Weather Balloons}{5}{section.2.4}%
-\contentsline {section}{\numberline {2.5}Fresnel Zones}{5}{section.2.5}%
-\contentsline {section}{\numberline {2.6}LoRa Theory of Operation}{6}{section.2.6}%
-\contentsline {subsection}{\numberline {2.6.1}Frequency Shift Keying}{6}{subsection.2.6.1}%
-\contentsline {subsection}{\numberline {2.6.2}The Chirp}{8}{subsection.2.6.2}%
-\contentsline {subsection}{\numberline {2.6.3}Bandwidth}{10}{subsection.2.6.3}%
-\contentsline {subsection}{\numberline {2.6.4}Spreading Factor}{10}{subsection.2.6.4}%
-\contentsline {subsection}{\numberline {2.6.5}LoRa Data Packets}{11}{subsection.2.6.5}%
-\contentsline {subsection}{\numberline {2.6.6}LoRa Transmission Parameters}{12}{subsection.2.6.6}%
-\contentsline {subsubsection}{\numberline {2.6.6.1}Symbol Rate and Symbol Time}{12}{subsubsection.2.6.6.1}%
-\contentsline {subsubsection}{\numberline {2.6.6.2}Preamble Time}{13}{subsubsection.2.6.6.2}%
-\contentsline {subsubsection}{\numberline {2.6.6.3}Payload Time}{13}{subsubsection.2.6.6.3}%
-\contentsline {subsubsection}{\numberline {2.6.6.4}Packet Time}{13}{subsubsection.2.6.6.4}%
-\contentsline {section}{\numberline {2.7}Critique of Literature}{14}{section.2.7}%
-\contentsline {chapter}{\numberline {3}System Design }{15}{chapter.3}%
-\contentsline {section}{\numberline {3.1}Requirement Analysis}{15}{section.3.1}%
-\contentsline {subsection}{\numberline {3.1.1}Overall System Requirements}{15}{subsection.3.1.1}%
-\contentsline {subsection}{\numberline {3.1.2}Overall System Specifications}{15}{subsection.3.1.2}%
-\contentsline {subsection}{\numberline {3.1.3}Overall System Acceptance Test Protocols}{16}{subsection.3.1.3}%
-\contentsline {section}{\numberline {3.2}Modules and Sub-modules}{16}{section.3.2}%
-\contentsline {section}{\numberline {3.3}Transmission Module Component Selection}{17}{section.3.3}%
-\contentsline {subsection}{\numberline {3.3.1}Microcontroller Unit}{17}{subsection.3.3.1}%
-\contentsline {subsection}{\numberline {3.3.2}Sensor Module}{20}{subsection.3.3.2}%
-\contentsline {subsection}{\numberline {3.3.3}LoRa Module}{22}{subsection.3.3.3}%
-\contentsline {subsection}{\numberline {3.3.4}Display and Control Module}{24}{subsection.3.3.4}%
-\contentsline {subsection}{\numberline {3.3.5}Power Circuitry}{25}{subsection.3.3.5}%
-\contentsline {section}{\numberline {3.4}Receive Module Component Selection}{26}{section.3.4}%
-\contentsline {subsection}{\numberline {3.4.1}The Microcontroller Unit}{27}{subsection.3.4.1}%
-\contentsline {subsection}{\numberline {3.4.2}LoRa Module}{28}{subsection.3.4.2}%
-\contentsline {subsection}{\numberline {3.4.3}Display and Control Module}{28}{subsection.3.4.3}%
-\contentsline {section}{\numberline {3.5}Hardware Interface Design}{28}{section.3.5}%
-\contentsline {subsection}{\numberline {3.5.1}Transmission Module Interface Design}{28}{subsection.3.5.1}%
-\contentsline {subsection}{\numberline {3.5.2}Receive Module Interface Design}{32}{subsection.3.5.2}%
-\contentsline {subsection}{\numberline {3.5.3}Implementation of Transmission Circuit Design}{34}{subsection.3.5.3}%
-\contentsline {subsection}{\numberline {3.5.4}Implementation of Receiver Circuit Design}{35}{subsection.3.5.4}%
-\contentsline {section}{\numberline {3.6}Software Design}{36}{section.3.6}%
-\contentsline {subsection}{\numberline {3.6.1}Software Design and Implementation for Transmission Circuit}{36}{subsection.3.6.1}%
-\contentsline {subsubsection}{\numberline {3.6.1.1}Reading GPS Data}{39}{subsubsection.3.6.1.1}%
-\contentsline {subsubsection}{\numberline {3.6.1.2}Reading Temperature, Pressure, and Humidity Data}{39}{subsubsection.3.6.1.2}%
-\contentsline {subsubsection}{\numberline {3.6.1.3}Calculating Altitude}{39}{subsubsection.3.6.1.3}%
-\contentsline {subsubsection}{\numberline {3.6.1.4}Construction of Data Packet}{40}{subsubsection.3.6.1.4}%
-\contentsline {subsubsection}{\numberline {3.6.1.5}Transmitting Data}{40}{subsubsection.3.6.1.5}%
-\contentsline {subsubsection}{\numberline {3.6.1.6}Handling Mode Changes}{40}{subsubsection.3.6.1.6}%
-\contentsline {subsection}{\numberline {3.6.2}Software Design and Implementation for Receiver Circuit}{41}{subsection.3.6.2}%
-\contentsline {subsubsection}{\numberline {3.6.2.1}Receiver Interface with LoRa Module}{43}{subsubsection.3.6.2.1}%
-\contentsline {subsubsection}{\numberline {3.6.2.2}Handling Mode Changes}{43}{subsubsection.3.6.2.2}%
-\contentsline {section}{\numberline {3.7}PCB Design}{43}{section.3.7}%
-\contentsline {chapter}{\numberline {4}Validation and Simulation }{45}{chapter.4}%
-\contentsline {section}{\numberline {4.1}Validation}{45}{section.4.1}%
-\contentsline {subsection}{\numberline {4.1.1}Transmitter Validation}{45}{subsection.4.1.1}%
-\contentsline {subsubsection}{\numberline {4.1.1.1}Power Module}{45}{subsubsection.4.1.1.1}%
-\contentsline {subsubsection}{\numberline {4.1.1.2}Microcontroller}{45}{subsubsection.4.1.1.2}%
-\contentsline {subsubsection}{\numberline {4.1.1.3}Sensor Modules}{45}{subsubsection.4.1.1.3}%
-\contentsline {subsubsection}{\numberline {4.1.1.4}LoRa module and Display and Control Module}{46}{subsubsection.4.1.1.4}%
-\contentsline {subsection}{\numberline {4.1.2}Receiver Validation}{47}{subsection.4.1.2}%
-\contentsline {section}{\numberline {4.2}Simulation}{48}{section.4.2}%
-\contentsline {chapter}{\numberline {5}Methodology }{52}{chapter.5}%
-\contentsline {section}{\numberline {5.1}Research Design and Approach}{52}{section.5.1}%
-\contentsline {section}{\numberline {5.2}Data Collection}{54}{section.5.2}%
-\contentsline {section}{\numberline {5.3}Shorter Range Tests}{56}{section.5.3}%
-\contentsline {section}{\numberline {5.4}Long-Range Test}{57}{section.5.4}%
-\contentsline {chapter}{\numberline {6}Results }{60}{chapter.6}%
-\contentsline {section}{\numberline {6.1}Same Room Test}{60}{section.6.1}%
-\contentsline {section}{\numberline {6.2}100m Test}{61}{section.6.2}%
-\contentsline {section}{\numberline {6.3}300m Test}{61}{section.6.3}%
-\contentsline {section}{\numberline {6.4}500m Test}{62}{section.6.4}%
-\contentsline {section}{\numberline {6.5}20km Test}{62}{section.6.5}%
-\contentsline {section}{\numberline {6.6}Average RSSI Values with Distance}{63}{section.6.6}%
-\contentsline {chapter}{\numberline {7}Discussion }{64}{chapter.7}%
-\contentsline {section}{\numberline {7.1}RSSI Values with Distance}{64}{section.7.1}%
-\contentsline {section}{\numberline {7.2}Overall Testing Performance}{64}{section.7.2}%
-\contentsline {section}{\numberline {7.3}Determining the Optimal Packet Structure}{65}{section.7.3}%
-\contentsline {section}{\numberline {7.4}Determining the Optimal LoRa Parameters}{65}{section.7.4}%
-\contentsline {chapter}{\numberline {8}Conclusion and Recommendations}{67}{chapter.8}%
-\contentsline {chapter}{Bibliography}{69}{chapter*.71}%
-\contentsline {chapter}{\numberline {9}Appendix }{71}{chapter.9}%
-\contentsline {section}{\numberline {9.1}Full Transmitter Circuit Schematic}{71}{section.9.1}%
-\contentsline {section}{\numberline {9.2}Full Receiver Circuit Schematic}{72}{section.9.2}%
-\contentsline {section}{\numberline {9.3}Long Range Test Interference}{73}{section.9.3}%
-\contentsline {section}{\numberline {9.4}GitHub Link}{73}{section.9.4}%
-\contentsline {section}{\numberline {9.5}Ethics Clearance}{74}{section.9.5}%
+\contentsline {section}{\numberline {1.5}Scope and Limitations}{2}{section.1.5}%
+\contentsline {chapter}{\numberline {2}Literature Review}{3}{chapter.2}%
+\contentsline {section}{\numberline {2.1}RADAR}{3}{section.2.1}%
+\contentsline {subsection}{\numberline {2.1.1}Brief RADAR History}{3}{subsection.2.1.1}%
+\contentsline {subsection}{\numberline {2.1.2}RADAR Basics}{3}{subsection.2.1.2}%
+\contentsline {section}{\numberline {2.2}OFDM}{4}{section.2.2}%
+\contentsline {subsection}{\numberline {2.2.1}Brief OFDM History}{4}{subsection.2.2.1}%
+\contentsline {subsection}{\numberline {2.2.2}OFDM Basics}{4}{subsection.2.2.2}%
+\contentsline {section}{\numberline {2.3}Fresnel Zones}{5}{section.2.3}%
+\contentsline {section}{\numberline {2.4}LoRa Theory of Operation}{5}{section.2.4}%
+\contentsline {subsection}{\numberline {2.4.1}Frequency Shift Keying}{5}{subsection.2.4.1}%
+\contentsline {subsection}{\numberline {2.4.2}The Chirp}{5}{subsection.2.4.2}%
+\contentsline {subsection}{\numberline {2.4.3}Bandwidth}{5}{subsection.2.4.3}%
+\contentsline {subsection}{\numberline {2.4.4}Spreading Factor}{5}{subsection.2.4.4}%
+\contentsline {subsection}{\numberline {2.4.5}LoRa Data Packets}{5}{subsection.2.4.5}%
+\contentsline {subsection}{\numberline {2.4.6}LoRa Transmission Parameters}{5}{subsection.2.4.6}%
+\contentsline {subsubsection}{\numberline {2.4.6.1}Symbol Rate and Symbol Time}{5}{subsubsection.2.4.6.1}%
+\contentsline {subsubsection}{\numberline {2.4.6.2}Preamble Time}{5}{subsubsection.2.4.6.2}%
+\contentsline {subsubsection}{\numberline {2.4.6.3}Payload Time}{5}{subsubsection.2.4.6.3}%
+\contentsline {subsubsection}{\numberline {2.4.6.4}Packet Time}{5}{subsubsection.2.4.6.4}%
+\contentsline {section}{\numberline {2.5}Critique of Literature}{5}{section.2.5}%
+\contentsline {chapter}{\numberline {3}System Design }{6}{chapter.3}%
+\contentsline {section}{\numberline {3.1}Requirement Analysis}{8}{section.3.1}%
+\contentsline {subsection}{\numberline {3.1.1}Overall System Requirements}{8}{subsection.3.1.1}%
+\contentsline {subsection}{\numberline {3.1.2}Overall System Specifications}{8}{subsection.3.1.2}%
+\contentsline {section}{\numberline {3.2}Modules and Sub-modules}{8}{section.3.2}%
+\contentsline {section}{\numberline {3.3}Transmission Module Component Selection}{8}{section.3.3}%
+\contentsline {subsection}{\numberline {3.3.1}Microcontroller Unit}{8}{subsection.3.3.1}%
+\contentsline {subsection}{\numberline {3.3.2}Sensor Module}{8}{subsection.3.3.2}%
+\contentsline {subsection}{\numberline {3.3.3}LoRa Module}{8}{subsection.3.3.3}%
+\contentsline {subsection}{\numberline {3.3.4}Display and Control Module}{8}{subsection.3.3.4}%
+\contentsline {subsection}{\numberline {3.3.5}Power Circuitry}{8}{subsection.3.3.5}%
+\contentsline {section}{\numberline {3.4}Receive Module Component Selection}{8}{section.3.4}%
+\contentsline {subsection}{\numberline {3.4.1}The Microcontroller Unit}{8}{subsection.3.4.1}%
+\contentsline {subsection}{\numberline {3.4.2}LoRa Module}{8}{subsection.3.4.2}%
+\contentsline {subsection}{\numberline {3.4.3}Display and Control Module}{8}{subsection.3.4.3}%
+\contentsline {section}{\numberline {3.5}Hardware Interface Design}{8}{section.3.5}%
+\contentsline {subsection}{\numberline {3.5.1}Transmission Module Interface Design}{8}{subsection.3.5.1}%
+\contentsline {subsection}{\numberline {3.5.2}Receive Module Interface Design}{8}{subsection.3.5.2}%
+\contentsline {subsection}{\numberline {3.5.3}Implementation of Transmission Circuit Design}{8}{subsection.3.5.3}%
+\contentsline {subsection}{\numberline {3.5.4}Implementation of Receiver Circuit Design}{8}{subsection.3.5.4}%
+\contentsline {section}{\numberline {3.6}Software Design}{8}{section.3.6}%
+\contentsline {subsection}{\numberline {3.6.1}Software Design and Implementation for Transmission Circuit}{8}{subsection.3.6.1}%
+\contentsline {subsubsection}{\numberline {3.6.1.1}Reading GPS Data}{8}{subsubsection.3.6.1.1}%
+\contentsline {subsubsection}{\numberline {3.6.1.2}Reading Temperature, Pressure, and Humidity Data}{8}{subsubsection.3.6.1.2}%
+\contentsline {subsubsection}{\numberline {3.6.1.3}Calculating Altitude}{8}{subsubsection.3.6.1.3}%
+\contentsline {subsubsection}{\numberline {3.6.1.4}Construction of Data Packet}{8}{subsubsection.3.6.1.4}%
+\contentsline {subsubsection}{\numberline {3.6.1.5}Transmitting Data}{8}{subsubsection.3.6.1.5}%
+\contentsline {subsubsection}{\numberline {3.6.1.6}Handling Mode Changes}{8}{subsubsection.3.6.1.6}%
+\contentsline {subsection}{\numberline {3.6.2}Software Design and Implementation for Receiver Circuit}{8}{subsection.3.6.2}%
+\contentsline {subsubsection}{\numberline {3.6.2.1}Receiver Interface with LoRa Module}{8}{subsubsection.3.6.2.1}%
+\contentsline {subsubsection}{\numberline {3.6.2.2}Handling Mode Changes}{8}{subsubsection.3.6.2.2}%
+\contentsline {section}{\numberline {3.7}PCB Design}{8}{section.3.7}%
+\contentsline {chapter}{\numberline {4}Validation and Simulation }{9}{chapter.4}%
+\contentsline {section}{\numberline {4.1}Validation}{9}{section.4.1}%
+\contentsline {subsection}{\numberline {4.1.1}Transmitter Validation}{9}{subsection.4.1.1}%
+\contentsline {subsubsection}{\numberline {4.1.1.1}Power Module}{9}{subsubsection.4.1.1.1}%
+\contentsline {subsubsection}{\numberline {4.1.1.2}Microcontroller}{9}{subsubsection.4.1.1.2}%
+\contentsline {subsubsection}{\numberline {4.1.1.3}Sensor Modules}{9}{subsubsection.4.1.1.3}%
+\contentsline {subsubsection}{\numberline {4.1.1.4}LoRa module and Display and Control Module}{9}{subsubsection.4.1.1.4}%
+\contentsline {subsection}{\numberline {4.1.2}Receiver Validation}{9}{subsection.4.1.2}%
+\contentsline {section}{\numberline {4.2}Simulation}{9}{section.4.2}%
+\contentsline {chapter}{\numberline {5}Methodology }{10}{chapter.5}%
+\contentsline {section}{\numberline {5.1}Research Design and Approach}{10}{section.5.1}%
+\contentsline {section}{\numberline {5.2}Data Collection}{10}{section.5.2}%
+\contentsline {section}{\numberline {5.3}Shorter Range Tests}{10}{section.5.3}%
+\contentsline {section}{\numberline {5.4}Long-Range Test}{10}{section.5.4}%
+\contentsline {chapter}{\numberline {6}Results }{11}{chapter.6}%
+\contentsline {section}{\numberline {6.1}Same Room Test}{11}{section.6.1}%
+\contentsline {section}{\numberline {6.2}100m Test}{11}{section.6.2}%
+\contentsline {section}{\numberline {6.3}300m Test}{11}{section.6.3}%
+\contentsline {section}{\numberline {6.4}500m Test}{11}{section.6.4}%
+\contentsline {section}{\numberline {6.5}20km Test}{11}{section.6.5}%
+\contentsline {section}{\numberline {6.6}Average RSSI Values with Distance}{11}{section.6.6}%
+\contentsline {chapter}{\numberline {7}Discussion }{12}{chapter.7}%
+\contentsline {section}{\numberline {7.1}RSSI Values with Distance}{12}{section.7.1}%
+\contentsline {section}{\numberline {7.2}Overall Testing Performance}{12}{section.7.2}%
+\contentsline {section}{\numberline {7.3}Determining the Optimal Packet Structure}{12}{section.7.3}%
+\contentsline {section}{\numberline {7.4}Determining the Optimal LoRa Parameters}{12}{section.7.4}%
+\contentsline {chapter}{\numberline {8}Conclusion and Recommendations}{13}{chapter.8}%
+\contentsline {chapter}{Bibliography}{14}{chapter*.10}%
+\contentsline {chapter}{\numberline {9}Appendix }{15}{chapter.9}%
+\contentsline {section}{\numberline {9.1}Full Transmitter Circuit Schematic}{15}{section.9.1}%
+\contentsline {section}{\numberline {9.2}Full Receiver Circuit Schematic}{15}{section.9.2}%
+\contentsline {section}{\numberline {9.3}Long Range Test Interference}{15}{section.9.3}%
+\contentsline {section}{\numberline {9.4}GitHub Link}{15}{section.9.4}%
+\contentsline {section}{\numberline {9.5}Ethics Clearance}{15}{section.9.5}%

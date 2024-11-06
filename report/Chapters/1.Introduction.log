@@ -1,10 +1,10 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.26 (TeX Live 2024) (preloaded format=pdflatex 2024.4.24)  22 OCT 2024 11:39
+This is pdfTeX, Version 3.141592653-2.6-1.40.26 (TeX Live 2024) (preloaded format=pdflatex 2024.4.24)  4 NOV 2024 11:55
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
  %&-line parsing enabled.
-**/Users/roryschram/Desktop/report/Chapters/1.Introduction.tex
-(/Users/roryschram/Desktop/report/Chapters/1.Introduction.tex
+**/Users/roryschram/Documents/Work/masters/report/Chapters/1.Introduction.tex
+(/Users/roryschram/Documents/Work/masters/report/Chapters/1.Introduction.tex
 LaTeX2e <2023-11-01> patch level 1
 L3 programming layer <2024-02-20>
 (/usr/local/texlive/2024/texmf-dist/tex/latex/standalone/standalone.cls
@@ -1182,66 +1182,52 @@ Package caption Info: supertabular package is loaded.
 Package caption Info: End \AtBeginDocument code.
 
 Chapter 1.
-<../Images/base_stations.png, id=42, 818.05624pt x 433.62pt>
-File: ../Images/base_stations.png Graphic file (type png)
-<use ../Images/base_stations.png>
-Package pdftex.def Info: ../Images/base_stations.png  used on input line 26.
-(pdftex.def)             Requested size: 338.58632pt x 179.47255pt.
 [1
 
 
-{/usr/local/texlive/2024/texmf-var/fonts/map/pdftex/updmap/pdftex.map}{/usr/local/texlive/2024/texmf-dist/fonts/enc/dvips/lm/lm-ec.enc}]
-Underfull \hbox (badness 10000) in paragraph at lines 42--43
-
- []
-
-[2 <../Images/base_stations.png>]
-LaTeX Font Info:    Trying to load font information for OT1+lmr on input line 46.
+{/usr/local/texlive/2024/texmf-var/fonts/map/pdftex/updmap/pdftex.map}{/usr/local/texlive/2024/texmf-dist/fonts/enc/dvips/lm/lm-ec.enc}] (./1.Introduction.bbl [2]
+LaTeX Font Info:    Trying to load font information for OT1+lmr on input line 25.
  (/usr/local/texlive/2024/texmf-dist/tex/latex/lm/ot1lmr.fd
 File: ot1lmr.fd 2015/05/01 v1.6.1 Font defs for Latin Modern
 )
-LaTeX Font Info:    Trying to load font information for OML+lmm on input line 46.
+LaTeX Font Info:    Trying to load font information for OML+lmm on input line 25.
  (/usr/local/texlive/2024/texmf-dist/tex/latex/lm/omllmm.fd
 File: omllmm.fd 2015/05/01 v1.6.1 Font defs for Latin Modern
 )
-LaTeX Font Info:    Trying to load font information for OMS+lmsy on input line 46.
+LaTeX Font Info:    Trying to load font information for OMS+lmsy on input line 25.
  (/usr/local/texlive/2024/texmf-dist/tex/latex/lm/omslmsy.fd
 File: omslmsy.fd 2015/05/01 v1.6.1 Font defs for Latin Modern
 )
-LaTeX Font Info:    Trying to load font information for OMX+lmex on input line 46.
+LaTeX Font Info:    Trying to load font information for OMX+lmex on input line 25.
  (/usr/local/texlive/2024/texmf-dist/tex/latex/lm/omxlmex.fd
 File: omxlmex.fd 2015/05/01 v1.6.1 Font defs for Latin Modern
 )
 LaTeX Font Info:    External font `lmex10' loaded for size
-(Font)              <10.95> on input line 46.
+(Font)              <10.95> on input line 25.
 LaTeX Font Info:    External font `lmex10' loaded for size
-(Font)              <8> on input line 46.
+(Font)              <8> on input line 25.
 LaTeX Font Info:    External font `lmex10' loaded for size
-(Font)              <6> on input line 46.
-LaTeX Font Info:    Trying to load font information for U+msa on input line 46.
+(Font)              <6> on input line 25.
+LaTeX Font Info:    Trying to load font information for U+msa on input line 25.
  (/usr/local/texlive/2024/texmf-dist/tex/latex/amsfonts/umsa.fd
 File: umsa.fd 2013/01/14 v3.01 AMS symbols A
 ) (/usr/local/texlive/2024/texmf-dist/tex/latex/microtype/mt-msa.cfg
 File: mt-msa.cfg 2006/02/04 v1.1 microtype config. file: AMS symbols (a) (RS)
 )
-LaTeX Font Info:    Trying to load font information for U+msb on input line 46.
+LaTeX Font Info:    Trying to load font information for U+msb on input line 25.
  (/usr/local/texlive/2024/texmf-dist/tex/latex/amsfonts/umsb.fd
 File: umsb.fd 2013/01/14 v3.01 AMS symbols B
 ) (/usr/local/texlive/2024/texmf-dist/tex/latex/microtype/mt-msb.cfg
 File: mt-msb.cfg 2005/06/01 v1.0 microtype config. file: AMS symbols (b) (RS)
 )
-LaTeX Font Info:    Trying to load font information for U+rsfs on input line 46.
+LaTeX Font Info:    Trying to load font information for U+rsfs on input line 25.
  (/usr/local/texlive/2024/texmf-dist/tex/latex/jknapltx/ursfs.fd
 File: ursfs.fd 1998/03/24 rsfs font definition file (jk)
-)
-LaTeX Font Info:    Trying to load font information for TS1+lmr on input line 52.
- (/usr/local/texlive/2024/texmf-dist/tex/latex/lm/ts1lmr.fd
-File: ts1lmr.fd 2015/05/01 v1.6.1 Font defs for Latin Modern
-) (./1.Introduction.bbl [3{/usr/local/texlive/2024/texmf-dist/fonts/enc/dvips/lm/lm-ts1.enc}])
+))
 Using TeX to sort glossary entries---this may take a while
-[4
+[3
 
-] [5
+] [4
 
 
 ] (./1.Introduction.aux)
@@ -1250,21 +1236,21 @@ LaTeX2e <2023-11-01> patch level 1
 L3 programming layer <2024-02-20>
  ***********
 Package rerunfilecheck Info: File `1.Introduction.out' has not changed.
-(rerunfilecheck)             Checksum: 0325B5F6300A147B5791113587FB5301;958.
+(rerunfilecheck)             Checksum: FDDD3D6B41EA528B021FBC8E3CDB9944;958.
  ) 
 Here is how much of TeX's memory you used:
- 54986 strings out of 474116
- 1226436 string characters out of 5743682
- 1937187 words of memory out of 5000000
- 76388 multiletter control sequences out of 15000+600000
- 603864 words of font info for 112 fonts, out of 8000000 for 9000
+ 55026 strings out of 474116
+ 1226637 string characters out of 5743682
+ 1938187 words of memory out of 5000000
+ 76449 multiletter control sequences out of 15000+600000
+ 602871 words of font info for 103 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 114i,11n,120p,2481b,1231s stack positions out of 10000i,1000n,20000p,200000b,200000s
+ 114i,11n,120p,2496b,1143s stack positions out of 10000i,1000n,20000p,200000b,200000s
 </usr/local/texlive/2024/texmf-dist/fonts/type1/public/lm/lmbx10.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/lm/lmbx12.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/lm/lmr10.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/lm/lmri10.pfb>
-Output written on 1.Introduction.pdf (5 pages, 447180 bytes).
+Output written on 1.Introduction.pdf (4 pages, 108672 bytes).
 PDF statistics:
- 119 PDF objects out of 1000 (max. 8388607)
- 99 compressed objects within 1 object stream
+ 103 PDF objects out of 1000 (max. 8388607)
+ 88 compressed objects within 1 object stream
  22 named destinations out of 1000 (max. 500000)
- 26706 words of extra memory for PDF output out of 29859 (max. 10000000)
+ 24653 words of extra memory for PDF output out of 24883 (max. 10000000)
 

@@ -1,23 +1,10 @@
 \babel@toc {english}{}\relax 
 \addvspace {10\p@ }
-\contentsline {table}{\numberline {1.1}{\ignorespaces System Requirements}}{3}{table.caption.10}%
 \addvspace {10\p@ }
 \addvspace {10\p@ }
-\contentsline {table}{\numberline {3.1}{\ignorespaces Arduino Uno Specifications \cite {uno_r3_|_arduino_documentation_2023} \cite {how_much_power_an_arduino_uses_2023}}}{18}{table.caption.23}%
-\contentsline {table}{\numberline {3.2}{\ignorespaces ESP32 Wroom 32D Specifications \cite {esp32_pinout_reference:_which_gpio_pins_should_you_use?_2018} \cite {insight_into_esp32_sleep_modes_their_power_consumption_2023}}}{19}{table.caption.24}%
-\contentsline {table}{\numberline {3.3}{\ignorespaces STM32F411 Specifications \cite {STM32F411}}}{19}{table.caption.25}%
-\contentsline {table}{\numberline {3.4}{\ignorespaces STM32F411 Specifications}}{21}{table.caption.27}%
-\contentsline {table}{\numberline {3.5}{\ignorespaces BME280 Specifications \cite {BME280}}}{22}{table.caption.28}%
-\contentsline {table}{\numberline {3.6}{\ignorespaces SX1278 Specifications \cite {SX1278}}}{23}{table.caption.30}%
-\contentsline {table}{\numberline {3.7}{\ignorespaces Table showing the power and physical characteristics of the power circuit}}{26}{table.caption.35}%
-\addvspace {10\p@ }
-\contentsline {table}{\numberline {4.1}{\ignorespaces Simulation of symbol rate and time and low data rate optimisation flag}}{49}{table.4.1}%
-\contentsline {table}{\numberline {4.2}{\ignorespaces Simulation of preamble, payload, and packet time}}{51}{table.4.2}%
-\addvspace {10\p@ }
-\contentsline {table}{\numberline {5.1}{\ignorespaces Various parameters and their options available for the SX1278 LoRa module}}{52}{table.caption.56}%
-\contentsline {table}{\numberline {5.2}{\ignorespaces Different testing modes and their corresponding LoRa parameter permutations}}{53}{table.caption.57}%
 \addvspace {10\p@ }
 \addvspace {10\p@ }
-\contentsline {table}{\numberline {7.1}{\ignorespaces Optimal Values Determined}}{66}{table.caption.70}%
+\addvspace {10\p@ }
+\addvspace {10\p@ }
 \addvspace {10\p@ }
 \addvspace {10\p@ }

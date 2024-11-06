@@ -1,3 +1,6 @@
 {
-    "cmake.sourceDirectory": "/Users/roryschram/Documents/Work/masters/usrp_firmware"
+    "cmake.sourceDirectory": "/Users/roryschram/Documents/Work/masters/usrp_firmware",
+    "cSpell.enableFiletypes": [
+        "!latex"
+    ]
 }
