@@ -11,54 +11,53 @@
 %    {\emph{---Daniel Jones}}
 %\vspace{0.5cm}
 % ----------------------------------------------------
-This is cool day every day, humans take it for granted that they have
-constantly up-to-date weather readings and predictions for the foreseeable future. Not often do humans stop and ask themselves exactly how these weather predictions are made, or how meteorologists study weather patterns to help determine future weather from current readings. This field of study is often hidden from sight, and yet it plays such a vital role in society today as humans know it. Countless industries rely on up-to-date weather and predictions in their everyday business operations, for example, the shipping industry, airline industry, transportation industry, and agriculture industry. Many of these industries are vitally important for the global economy, and therefore one can see why it is important to have accurate weather models. But how exactly do meteorologists refine their weather models, how do they ensure accurate predictions, and how do they do this every day with almost no delay? Well, one of the tools in their arsenal is the humble weather balloon.
+This report outlines a novel use of the \gls{ofdm} modulation technique as the backbone of the waveform for a \gls{radar} 
+system as an aid to object classification. Some research into OFDM and RADAR as a whole is presented, followed by the design 
+of the transmission system and the waveform itself, and then validation of the system is outlined, finally, tests are performed 
+to determine the realistic performance of the system as a whole at classifying objects. In this introduction chapter, some 
+background information is presented, followed by a problem statement, objectives, system requirements, and scope and limitations.
 
 \section{Background}
-A weather balloon consists of a latex balloon, usually filled with helium, and a measurement device attached via a hanging rope called a radiosonde. The radiosonde is the telemetry device that records data readings and transmits them back to a ground station for processing and is what this report will be focusing on. The most common readings for a radiosonde to measure are altitude, pressure, temperature, relative humidity, wind (both wind speed and wind direction), cosmic ray readings and geographical position (latitude/longitude).
+RADAR technology has unlocked the ability for humans to be able to see the world around us with a new perspective. 
+This ability to be able to see objects and more specifically, to see information such as position and velocity about 
+these objects has helped with the development of devices and services that are of paramount importance to society. 
+All the current use cases of RADAR do however lack the ability to determine exactly what object is being seen by the 
+overall RADAR system. That is where the use of the OFDM waveform in a RADAR system becomes useful.
 
-These radiosondes are designed to be disposable due to the nature of the weather balloon flight paths making them unobtainable after they have been launched, leading to many radiosonde devices never getting recovered. This makes it imperative that the radiosonde modules are as cheap as possible because, with the number of radiosondes launched every day, the costs of operation can very quickly add up.
-
-Radiosonde measurement devices around the globe are launched twice per day at 00.00 and 12.00 UTC \cite{dabberdt_shellhorn_cole_paukkunen_horhammer_antikainen_2023}. This provides a consistent stream of data for numeric weather models. Every day, roughly 1800 radiosondes are launched around the globe from about 900 base stations \cite{how_many_weather_balloons_are_out_there_hundreds_it_turns_out_2023}. Some of the locations of these base stations can be seen in figure \ref{fig:base_stations} below.
-
-\begin{figure}[H]
-    \centering
-    \includegraphics[width=0.7\linewidth]{../Images/base_stations.png}
-    \caption{Radiosonde Base Stations Around The Globe \cite{dabberdt_shellhorn_cole_paukkunen_horhammer_antikainen_2023}}
-    \label{fig:base_stations}
-\end{figure}
-
-Currently, many radiosondes utilise the \gls{fm} communication protocol within the 400 MHz frequency spectrum \cite{ITURec}. This paper aims to explore the use of the popular and cheap \gls{lora} communication protocol as an alternative to the current systems of communication being used with radiosonde devices.
 
 
 \section{Problem Statement}
-Scientists around the world use hundreds of radiosonde modules per day, with most of them going to waste since many radiosondes are not recovered after they have been launched. This means that there is a large demand for cheaper radiosonde modules to save on expenses, and allow for more radiosonde launches, which would improve weather predictions and research capabilities. One of the ways in which the radiosonde modules could be made cheaper is by designing them with off-the-shelf components that are widely available. One of the biggest challenges with a radiosonde module is the transmission of the recorded data back to a base station. Doing this with off-the-shelf components can be difficult. Therefore, it is important to investigate the viability of alternative communication protocols, such as the Lora protocol, for use in the real-world application of radiosonde modules.
-
+Current RADAR technology works very well when determining the distance and direction of an object, however, it does 
+not cope well with specific object classification tasks. One of the reasons for this is that current RADAR utilize 
+either a pulse, continuous wave, or chirp waveform, which does not allow for object detection through statistical 
+analysis due to the simple nature of the waveform. This is a drawback of using RADAR systems, since if object 
+classification is desired, then a combination of radar and some other technology such as cameras would have to 
+be used which increases the cost and complexity of the system as a whole.
 
 \section{Objectives}
-The main aim of this project was to explore the use of the LoRa communication system for the purpose of radiosonde communication between the radiosonde module itself and a base station. The extent to which the LoRa-based communication system can be utilised will be determined based on the results of tests performed with existing devices to determine the optimal Lora settings for long-distance communication. To achieve this objective, a surrounding sensing system will be designed and built which will form the basis for the data to be sent from the radiosonde unit to the base station.
+The goal of this project is to build a RADAR system that can simultaneously act as a normal RADAR which can determine 
+the distance and direction of an object, as well as classify the specific object that it is looking at when compared 
+to other example objects. The aim is to implement an OFDM based waveform into a RADAR system that would give the 
+flexibility to analyze the returned signal statistically and determine what exactly the object is. The goal is 
+to make a non-realtime system, that can distinguish between three different objects.
+
 
 \section{System Requirements}
-The conditions within which this theoretical device will be operating are very harsh. The device will be operating at high altitudes which brings with it very cold temperatures and low pressures. The system requirements are laid out in table \ref{tab:requirements} below. \\
+Since this system is very experimental in nature, the requirements are quite broad as of writing this, at the 
+beginning of the project \colorbox{BurntOrange}{OBVIOUSLY NEED TO CHANGE THIS EVENTUALLY}. The system needs to 
+perform the following tasks.
 
-\begin{table}[H]
-\centering
-\begin{tabular}{|c|c|lll}
-\cline{1-2}
-\textbf{Requirement}  & \textbf{Value}      &  &  &  \\ \cline{1-2}
-Transmission Bitrate  & 1200 - 4800 bps     &  &  &  \\ \cline{1-2}
-Transmission Range    & At least 100 km     &  &  &  \\ \cline{1-2}
-Transmission Altitude & At most 35 to 38 km &  &  &  \\ \cline{1-2}
-System Temperature    & -90 \textdegree C and above     &  &  &  \\ \cline{1-2}
-\end{tabular}
-\caption{System Requirements}
-\label{tab:requirements}
-\end{table}
+\begin{enumerate}
+    \item Be able to operate as a normal RADAR. This entails determining range, azimuth, and elevation. 
+    \item Be able to classify between three separate reflectors/scatterers.
+\end{enumerate}
 
 \section{Scope and Limitations}
-The scope of this project mainly focuses on the LoRa communication protocol itself, and determining the viability of using the LoRa communication protocol for radiosonde devices. The viability can only be determined by creating a mock radiosonde system to determine the capabilities of the communication protocol. Therefore, the scope of the project also includes the design on implementation of the radiosonde system, whereby an array of sensors will be experimented with, to create useful data to be transmitted by the LoRa-based communication system.
-
-
+The scope of this project has been set to not include design of RADAR hardware specifically. This is because 
+design of RADAR hardware is a complex task that would probably encompass an entire masters project in and of 
+itself. Therefore, the RADAR hardware portion of the project will be handled by a \gls{sdr}. This extrapolates 
+the complec RADAR hardware design aspect away from the project and allows me to focus on the data collection and 
+processing aspect of the project.
 
 % ----------------------------------------------------
 \ifstandalone

@@ -1,10 +1,10 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.26 (TeX Live 2024) (preloaded format=pdflatex 2024.4.24)  22 OCT 2024 11:33
+This is pdfTeX, Version 3.141592653-2.6-1.40.26 (TeX Live 2024) (preloaded format=pdflatex 2024.4.24)  4 NOV 2024 12:15
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
  %&-line parsing enabled.
-**/Users/roryschram/Desktop/EEE4022S_SCHROR002/Chapters/5.Methodology.tex
-(/Users/roryschram/Desktop/EEE4022S_SCHROR002/Chapters/5.Methodology.tex
+**/Users/roryschram/Documents/Work/masters/report/Chapters/5.Methodology.tex
+(/Users/roryschram/Documents/Work/masters/report/Chapters/5.Methodology.tex
 LaTeX2e <2023-11-01> patch level 1
 L3 programming layer <2024-02-20>
 (/usr/local/texlive/2024/texmf-dist/tex/latex/standalone/standalone.cls
@@ -1182,140 +1182,54 @@ Package caption Info: supertabular package is loaded.
 Package caption Info: End \AtBeginDocument code.
 
 Chapter 1.
-LaTeX Font Info:    Trying to load font information for OT1+lmr on input line 17.
-(/usr/local/texlive/2024/texmf-dist/tex/latex/lm/ot1lmr.fd
+(./5.Methodology.bbl [1
+
+
+{/usr/local/texlive/2024/texmf-var/fonts/map/pdftex/updmap/pdftex.map}{/usr/local/texlive/2024/texmf-dist/fonts/enc/dvips/lm/lm-ec.enc}]
+LaTeX Font Info:    Trying to load font information for OT1+lmr on input line 25.
+ (/usr/local/texlive/2024/texmf-dist/tex/latex/lm/ot1lmr.fd
 File: ot1lmr.fd 2015/05/01 v1.6.1 Font defs for Latin Modern
 )
-LaTeX Font Info:    Trying to load font information for OML+lmm on input line 17.
+LaTeX Font Info:    Trying to load font information for OML+lmm on input line 25.
  (/usr/local/texlive/2024/texmf-dist/tex/latex/lm/omllmm.fd
 File: omllmm.fd 2015/05/01 v1.6.1 Font defs for Latin Modern
 )
-LaTeX Font Info:    Trying to load font information for OMS+lmsy on input line 17.
+LaTeX Font Info:    Trying to load font information for OMS+lmsy on input line 25.
  (/usr/local/texlive/2024/texmf-dist/tex/latex/lm/omslmsy.fd
 File: omslmsy.fd 2015/05/01 v1.6.1 Font defs for Latin Modern
 )
-LaTeX Font Info:    Trying to load font information for OMX+lmex on input line 17.
+LaTeX Font Info:    Trying to load font information for OMX+lmex on input line 25.
  (/usr/local/texlive/2024/texmf-dist/tex/latex/lm/omxlmex.fd
 File: omxlmex.fd 2015/05/01 v1.6.1 Font defs for Latin Modern
 )
 LaTeX Font Info:    External font `lmex10' loaded for size
-(Font)              <10.95> on input line 17.
+(Font)              <10.95> on input line 25.
 LaTeX Font Info:    External font `lmex10' loaded for size
-(Font)              <8> on input line 17.
+(Font)              <8> on input line 25.
 LaTeX Font Info:    External font `lmex10' loaded for size
-(Font)              <6> on input line 17.
-LaTeX Font Info:    Trying to load font information for U+msa on input line 17.
+(Font)              <6> on input line 25.
+LaTeX Font Info:    Trying to load font information for U+msa on input line 25.
  (/usr/local/texlive/2024/texmf-dist/tex/latex/amsfonts/umsa.fd
 File: umsa.fd 2013/01/14 v3.01 AMS symbols A
 ) (/usr/local/texlive/2024/texmf-dist/tex/latex/microtype/mt-msa.cfg
 File: mt-msa.cfg 2006/02/04 v1.1 microtype config. file: AMS symbols (a) (RS)
 )
-LaTeX Font Info:    Trying to load font information for U+msb on input line 17.
+LaTeX Font Info:    Trying to load font information for U+msb on input line 25.
  (/usr/local/texlive/2024/texmf-dist/tex/latex/amsfonts/umsb.fd
 File: umsb.fd 2013/01/14 v3.01 AMS symbols B
 ) (/usr/local/texlive/2024/texmf-dist/tex/latex/microtype/mt-msb.cfg
 File: mt-msb.cfg 2005/06/01 v1.0 microtype config. file: AMS symbols (b) (RS)
 )
-LaTeX Font Info:    Trying to load font information for U+rsfs on input line 17.
+LaTeX Font Info:    Trying to load font information for U+rsfs on input line 25.
  (/usr/local/texlive/2024/texmf-dist/tex/latex/jknapltx/ursfs.fd
 File: ursfs.fd 1998/03/24 rsfs font definition file (jk)
-) [1
+)) [2
 
+]
 
-{/usr/local/texlive/2024/texmf-var/fonts/map/pdftex/updmap/pdftex.map}{/usr/local/texlive/2024/texmf-dist/fonts/enc/dvips/lm/lm-ec.enc}{/usr/local/texlive/2024/texmf-dist/fonts/enc/dvips/lm/lm-rm.enc}{/usr/local/texlive/2024/texmf-dist/fonts/enc/dvips/lm/lm-mathsy.enc}]
+Package glossaries Warning: Empty glossary for \printnoidxglossary[type={main}]. Rerun may be required (or you may have forgotten to use commands like \gls) on input line 28.
 
-LaTeX Warning: Reference `ch:systemdesign' on page 2 undefined on input line 73.
-
-[2]
-
-LaTeX Warning: Reference `lst:sensormodulevalidation' on page 3 undefined on input line 75.
-
-
-LaTeX Warning: Reference `sec:optimalpacketstructure' on page 3 undefined on input line 75.
-
-<../Images/dataCollectionDiagram.png, id=54, 1349.04pt x 517.935pt>
-File: ../Images/dataCollectionDiagram.png Graphic file (type png)
-<use ../Images/dataCollectionDiagram.png>
-Package pdftex.def Info: ../Images/dataCollectionDiagram.png  used on input line 93.
-(pdftex.def)             Requested size: 290.22107pt x 111.41707pt.
-[3]
-LaTeX Font Info:    External font `lmex10' loaded for size
-(Font)              <9> on input line 100.
-LaTeX Font Info:    External font `lmex10' loaded for size
-(Font)              <5> on input line 100.
- [4 <../Images/dataCollectionDiagram.png>]
-<../Images/shortRangeTests/100mTestGoogleEarth.png, id=89, 329.23pt x 589.20125pt>
-File: ../Images/shortRangeTests/100mTestGoogleEarth.png Graphic file (type png)
-<use ../Images/shortRangeTests/100mTestGoogleEarth.png>
-Package pdftex.def Info: ../Images/shortRangeTests/100mTestGoogleEarth.png  used on input line 124.
-(pdftex.def)             Requested size: 145.11053pt x 259.69887pt.
-<../Images/shortRangeTests/300mTestGoogleEarth.png, id=90, 329.23pt x 589.20125pt>
-File: ../Images/shortRangeTests/300mTestGoogleEarth.png Graphic file (type png)
-<use ../Images/shortRangeTests/300mTestGoogleEarth.png>
-Package pdftex.def Info: ../Images/shortRangeTests/300mTestGoogleEarth.png  used on input line 130.
-(pdftex.def)             Requested size: 145.11053pt x 259.69887pt.
-<../Images/shortRangeTests/500mTestGoogleEarth.png, id=91, 329.23pt x 589.20125pt>
-File: ../Images/shortRangeTests/500mTestGoogleEarth.png Graphic file (type png)
-<use ../Images/shortRangeTests/500mTestGoogleEarth.png>
-Package pdftex.def Info: ../Images/shortRangeTests/500mTestGoogleEarth.png  used on input line 136.
-(pdftex.def)             Requested size: 145.11053pt x 259.69887pt.
-
-
-Package caption Warning: Ambiguous sub-caption(s), use \nextfloat on input line 141.
-See the caption package documentation for explanation.
-
-<../Images/shortRangeTests/shortRange2.jpg, id=94, 4047.12pt x 3035.34pt>
-File: ../Images/shortRangeTests/shortRange2.jpg Graphic file (type jpg)
-<use ../Images/shortRangeTests/shortRange2.jpg>
-Package pdftex.def Info: ../Images/shortRangeTests/shortRange2.jpg  used on input line 150.
-(pdftex.def)             Requested size: 241.84843pt x 181.37149pt.
-<../Images/shortRangeTests/shortRange3.jpeg, id=95, 963.6pt x 1284.8pt>
-File: ../Images/shortRangeTests/shortRange3.jpeg Graphic file (type jpg)
-<use ../Images/shortRangeTests/shortRange3.jpeg>
-Package pdftex.def Info: ../Images/shortRangeTests/shortRange3.jpeg  used on input line 156.
-(pdftex.def)             Requested size: 169.29684pt x 225.72557pt.
-
-Package caption Warning: Ambiguous sub-caption(s), use \nextfloat on input line 160.
-See the caption package documentation for explanation.
-
-[5 <../Images/shortRangeTests/100mTestGoogleEarth.png> <../Images/shortRangeTests/300mTestGoogleEarth.png> <../Images/shortRangeTests/500mTestGoogleEarth.png>]
-<../Images/longRangeTestGoogleEarth.png, id=107, 707.64375pt x 396.48125pt>
-File: ../Images/longRangeTestGoogleEarth.png Graphic file (type png)
-<use ../Images/longRangeTestGoogleEarth.png>
-Package pdftex.def Info: ../Images/longRangeTestGoogleEarth.png  used on input line 171.
-(pdftex.def)             Requested size: 314.40001pt x 176.15228pt.
- [6 <../Images/shortRangeTests/shortRange2.jpg> <../Images/shortRangeTests/shortRange3.jpeg>]
-
-LaTeX Warning: Reference `eq:fresnelzoneradius' on page 7 undefined on input line 176.
-
-<../Images/longRangeTest/longRange5.jpeg, id=114, 3011.25pt x 2641.87pt>
-File: ../Images/longRangeTest/longRange5.jpeg Graphic file (type jpg)
-<use ../Images/longRangeTest/longRange5.jpeg>
-Package pdftex.def Info: ../Images/longRangeTest/longRange5.jpeg  used on input line 180.
-(pdftex.def)             Requested size: 290.22107pt x 254.6083pt.
-<../Images/longRangeTest/longRange1.jpg, id=116, 4047.12pt x 3035.34pt>
-File: ../Images/longRangeTest/longRange1.jpg Graphic file (type jpg)
-<use ../Images/longRangeTest/longRange1.jpg>
-Package pdftex.def Info: ../Images/longRangeTest/longRange1.jpg  used on input line 190.
-(pdftex.def)             Requested size: 193.47578pt x 145.10646pt.
-<../Images/longRangeTest/longRange3.jpg, id=117, 4047.12pt x 3035.34pt>
-File: ../Images/longRangeTest/longRange3.jpg Graphic file (type jpg)
-<use ../Images/longRangeTest/longRange3.jpg>
-Package pdftex.def Info: ../Images/longRangeTest/longRange3.jpg  used on input line 196.
-(pdftex.def)             Requested size: 193.47578pt x 145.10646pt.
-
-Package caption Warning: Ambiguous sub-caption(s), use \nextfloat on input line 200.
-See the caption package documentation for explanation.
-
-[7 <../Images/longRangeTestGoogleEarth.png> <../Images/longRangeTest/longRange5.jpeg>] (./5.Methodology.bbl [8 <../Images/longRangeTest/longRange1.jpg> <../Images/longRangeTest/longRange3.jpg>]
-
-LaTeX Warning: Empty `thebibliography' environment on input line 23.
-
-)
-Using TeX to sort glossary entries---this may take a while
-[9
-
-] [10
+[3
 
 
 ] (./5.Methodology.aux)
@@ -1323,26 +1237,22 @@ Using TeX to sort glossary entries---this may take a while
 LaTeX2e <2023-11-01> patch level 1
 L3 programming layer <2024-02-20>
  ***********
-
-
-LaTeX Warning: There were undefined references.
-
 Package rerunfilecheck Info: File `5.Methodology.out' has not changed.
-(rerunfilecheck)             Checksum: CAF42F2F9D564AB17EECCCE16B04F4A6;917.
+(rerunfilecheck)             Checksum: 9F055A4061E94646BCF0EE00C8378E63;916.
  ) 
 Here is how much of TeX's memory you used:
- 55156 strings out of 474116
- 1230716 string characters out of 5743682
- 1969187 words of memory out of 5000000
- 76479 multiletter control sequences out of 15000+600000
- 621618 words of font info for 152 fonts, out of 8000000 for 9000
+ 54957 strings out of 474116
+ 1225496 string characters out of 5743682
+ 1929187 words of memory out of 5000000
+ 76427 multiletter control sequences out of 15000+600000
+ 593956 words of font info for 83 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 114i,12n,120p,2492b,1236s stack positions out of 10000i,1000n,20000p,200000b,200000s
-</usr/local/texlive/2024/texmf-dist/fonts/type1/public/lm/lmbx10.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/lm/lmbx12.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/lm/lmr10.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/lm/lmr6.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/lm/lmr8.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/lm/lmr9.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/lm/lmsy10.pfb>
-Output written on 5.Methodology.pdf (10 pages, 22974837 bytes).
+ 114i,5n,120p,2495b,1087s stack positions out of 10000i,1000n,20000p,200000b,200000s
+</usr/local/texlive/2024/texmf-dist/fonts/type1/public/lm/lmbx12.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/lm/lmr10.pfb>
+Output written on 5.Methodology.pdf (3 pages, 58293 bytes).
 PDF statistics:
- 188 PDF objects out of 1000 (max. 8388607)
- 144 compressed objects within 2 object streams
- 42 named destinations out of 1000 (max. 500000)
- 34935 words of extra memory for PDF output out of 35830 (max. 10000000)
+ 72 PDF objects out of 1000 (max. 8388607)
+ 62 compressed objects within 1 object stream
+ 13 named destinations out of 1000 (max. 500000)
+ 20549 words of extra memory for PDF output out of 20736 (max. 10000000)
 

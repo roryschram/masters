@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.26 (TeX Live 2024) (preloaded format=pdflatex 2024.4.24)  22 OCT 2024 11:44
+This is pdfTeX, Version 3.141592653-2.6-1.40.26 (TeX Live 2024) (preloaded format=pdflatex 2024.4.24)  4 NOV 2024 15:28
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -1186,7 +1186,7 @@ Package: ltcaption 2021/01/08 v1.4c longtable captions (AR)
 Package caption Info: supertabular package is loaded.
 Package caption Info: End \AtBeginDocument code.
  (../FrontMatter/1.Title.tex
-<../FrontMatter/UCT_logo.png, id=384, 1554.80875pt x 1578.89874pt>
+<../FrontMatter/UCT_logo.png, id=388, 1554.80875pt x 1578.89874pt>
 File: ../FrontMatter/UCT_logo.png Graphic file (type png)
 <use ../FrontMatter/UCT_logo.png>
 Package pdftex.def Info: ../FrontMatter/UCT_logo.png  used on input line 14.
@@ -1194,7 +1194,7 @@ Package pdftex.def Info: ../FrontMatter/UCT_logo.png  used on input line 14.
 ) (../FrontMatter/2.Declaration.tex [1
 
 {/usr/local/texlive/2024/texmf-var/fonts/map/pdftex/updmap/pdftex.map}{/usr/local/texlive/2024/texmf-dist/fonts/enc/dvips/lm/lm-ec.enc} <../FrontMatter/UCT_logo.png>]
-<../Images/signiture.png, id=394, 193.72375pt x 112.42pt>
+<../Images/signiture.png, id=398, 193.72375pt x 112.42pt>
 File: ../Images/signiture.png Graphic file (type png)
 <use ../Images/signiture.png>
 Package pdftex.def Info: ../Images/signiture.png  used on input line 21.
@@ -1259,471 +1259,96 @@ File: ursfs.fd 1998/03/24 rsfs font definition file (jk)
 \tf@toc=\write5
 \openout5 = `Main.toc'.
 
- [7] (./Main.lof [8
-
-])
+ [7] (./Main.lof)
 \tf@lof=\write6
 \openout6 = `Main.lof'.
 
- [9] (./Main.lot)
+ [8
+
+] (./Main.lot)
 \tf@lot=\write7
 \openout7 = `Main.lot'.
 
 
 Using TeX to sort glossary entries---this may take a while
-[10
+[9
 
-] [11
+] [10
 
 
 ] (../Chapters/1.Introduction.tex
 Chapter 1.
-<../Images/base_stations.png, id=728, 818.05624pt x 433.62pt>
-File: ../Images/base_stations.png Graphic file (type png)
-<use ../Images/base_stations.png>
-Package pdftex.def Info: ../Images/base_stations.png  used on input line 26.
-(pdftex.def)             Requested size: 338.58632pt x 179.47255pt.
 [1
 
-]
-Underfull \hbox (badness 10000) in paragraph at lines 42--43
-
- []
-
-LaTeX Font Info:    Trying to load font information for TS1+lmr on input line 52.
-(/usr/local/texlive/2024/texmf-dist/tex/latex/lm/ts1lmr.fd
-File: ts1lmr.fd 2015/05/01 v1.6.1 Font defs for Latin Modern
-) [2 <../Images/base_stations.png>]) (../Chapters/2.Literature.tex [3{/usr/local/texlive/2024/texmf-dist/fonts/enc/dvips/lm/lm-ts1.enc}]
+]) (../Chapters/2.Literature.tex [2]
 Chapter 2.
-[4
+[3
 
-]
-<../Images/fresnelZones.jpeg, id=779, 532.5158pt x 356.78558pt>
-File: ../Images/fresnelZones.jpeg Graphic file (type jpg)
-<use ../Images/fresnelZones.jpeg>
-Package pdftex.def Info: ../Images/fresnelZones.jpeg  used on input line 42.
-(pdftex.def)             Requested size: 241.84843pt x 162.03825pt.
- [5] [6{/usr/local/texlive/2024/texmf-dist/fonts/enc/dvips/lm/lm-mathit.enc}{/usr/local/texlive/2024/texmf-dist/fonts/enc/dvips/lm/lm-rm.enc}{/usr/local/texlive/2024/texmf-dist/fonts/enc/dvips/lm/lm-mathex.enc} <../Images/fresnelZones.jpeg>] [7] [8] [9{/usr/local/texlive/2024/texmf-dist/fonts/enc/dvips/lm/lm-mathsy.enc}] [10] [11]
-<../Images/explicitPacket.png, id=852, 1057.9525pt x 111.41624pt>
-File: ../Images/explicitPacket.png Graphic file (type png)
-<use ../Images/explicitPacket.png>
-Package pdftex.def Info: ../Images/explicitPacket.png  used on input line 432.
-(pdftex.def)             Requested size: 386.95897pt x 40.75073pt.
- [12
-pdfTeX warning (ext4): destination with the same identifier (name{equation.2.6.3}) has been already used, duplicate ignored
-<argument> ...shipout:D \box_use:N \l_shipout_box 
-                                                  \__shipout_drop_firstpage_...
-l.465 \begin{equation}
-                      
-pdfTeX warning (ext4): destination with the same identifier (name{equation.2.6.3}) has been already used, duplicate ignored
-<argument> ...shipout:D \box_use:N \l_shipout_box 
-                                                  \__shipout_drop_firstpage_...
-l.465 \begin{equation}
-                       <../Images/explicitPacket.png>]
-Overfull \hbox (24.22943pt too wide) detected at line 508
-[][][]\OML/lmm/m/it/10.95 T[] \OT1/lmr/m/n/10.95 = \OML/lmm/m/it/10.95 T[] []
- []
-
-[13]) (../Chapters/3.SystemDesign.tex [14]
+{/usr/local/texlive/2024/texmf-dist/fonts/enc/dvips/lm/lm-mathit.enc}{/usr/local/texlive/2024/texmf-dist/fonts/enc/dvips/lm/lm-mathsy.enc}{/usr/local/texlive/2024/texmf-dist/fonts/enc/dvips/lm/lm-rm.enc}]
+<../Images/Literature/ofdm.png, id=592, 578.16pt x 433.62pt>
+File: ../Images/Literature/ofdm.png Graphic file (type png)
+<use ../Images/Literature/ofdm.png>
+Package pdftex.def Info: ../Images/Literature/ofdm.png  used on input line 77.
+(pdftex.def)             Requested size: 241.84843pt x 181.38472pt.
+<../Images/Literature/fdm.png, id=593, 578.16pt x 433.62pt>
+File: ../Images/Literature/fdm.png Graphic file (type png)
+<use ../Images/Literature/fdm.png>
+Package pdftex.def Info: ../Images/Literature/fdm.png  used on input line 83.
+(pdftex.def)             Requested size: 241.84843pt x 181.38472pt.
+) (../Chapters/3.SystemDesign.tex [4 <../Images/Literature/ofdm.png> <../Images/Literature/fdm.png>] [5]
 Chapter 3.
-LaTeX Font Info:    External font `lmex10' loaded for size
-(Font)              <9> on input line 31.
-LaTeX Font Info:    External font `lmex10' loaded for size
-(Font)              <5> on input line 31.
-[15
+) (../Chapters/4.ValidationAndSimulation.tex [6
 
-]
-<../Images/overallModules.png, id=921, 1191.7022pt x 458.46281pt>
-File: ../Images/overallModules.png Graphic file (type png)
-<use ../Images/overallModules.png>
-Package pdftex.def Info: ../Images/overallModules.png  used on input line 49.
-(pdftex.def)             Requested size: 338.58632pt x 130.2575pt.
- [16 <../Images/overallModules.png>]
-<../Images/transmissionModule.png, id=932, 1351.29843pt x 681.29532pt>
-File: ../Images/transmissionModule.png Graphic file (type png)
-<use ../Images/transmissionModule.png>
-Package pdftex.def Info: ../Images/transmissionModule.png  used on input line 70.
-(pdftex.def)             Requested size: 338.58632pt x 170.70805pt.
- [17 <../Images/transmissionModule.png>] [18] [19]
-<../Images/NEO-6M.jpg, id=976, 501.875pt x 501.875pt>
-File: ../Images/NEO-6M.jpg Graphic file (type jpg)
-<use ../Images/NEO-6M.jpg>
-Package pdftex.def Info: ../Images/NEO-6M.jpg  used on input line 163.
-(pdftex.def)             Requested size: 193.47578pt x 193.479pt.
- [20] [21 <../Images/NEO-6M.jpg>]
-<../Images/BME280.jpg, id=997, 499.8675pt x 259.97125pt>
-File: ../Images/BME280.jpg Graphic file (type jpg)
-<use ../Images/BME280.jpg>
-Package pdftex.def Info: ../Images/BME280.jpg  used on input line 224.
-(pdftex.def)             Requested size: 241.84843pt x 125.78046pt.
- [22 <../Images/BME280.jpg>]
-<../Images/SX1278.jpg, id=1007, 501.875pt x 501.875pt>
-File: ../Images/SX1278.jpg Graphic file (type jpg)
-<use ../Images/SX1278.jpg>
-Package pdftex.def Info: ../Images/SX1278.jpg  used on input line 257.
-(pdftex.def)             Requested size: 193.47578pt x 193.479pt.
- [23 <../Images/SX1278.jpg>]
-<../Images/duck.jpg, id=1015, 396.48125pt x 217.81375pt>
-File: ../Images/duck.jpg Graphic file (type jpg)
-<use ../Images/duck.jpg>
-Package pdftex.def Info: ../Images/duck.jpg  used on input line 268.
-(pdftex.def)             Requested size: 120.92421pt x 66.43143pt.
-<../Images/whip.jpg, id=1016, 297.11pt x 292.09125pt>
-File: ../Images/whip.jpg Graphic file (type jpg)
-<use ../Images/whip.jpg>
-Package pdftex.def Info: ../Images/whip.jpg  used on input line 274.
-(pdftex.def)             Requested size: 120.92421pt x 118.88461pt.
+] [7]
+Overfull \vbox (31.24544pt too high) has occurred while \output is active []
 
-
-LaTeX Warning: Reference `fig:variousantennaespecifications' on page 24 undefined on input line 282.
-
-[24 <../Images/duck.jpg> <../Images/whip.jpg>]
-<../Images/OLED.jpg, id=1026, 501.875pt x 501.875pt>
-File: ../Images/OLED.jpg Graphic file (type jpg)
-<use ../Images/OLED.jpg>
-Package pdftex.def Info: ../Images/OLED.jpg  used on input line 302.
-(pdftex.def)             Requested size: 120.92421pt x 120.91959pt.
-<../Images/buttons.jpg, id=1027, 245.91875pt x 223.83624pt>
-File: ../Images/buttons.jpg Graphic file (type jpg)
-<use ../Images/buttons.jpg>
-Package pdftex.def Info: ../Images/buttons.jpg  used on input line 308.
-(pdftex.def)             Requested size: 120.92421pt x 110.06667pt.
-<../Images/batteryHolder.png, id=1028, 462.72874pt x 333.245pt>
-File: ../Images/batteryHolder.png Graphic file (type png)
-<use ../Images/batteryHolder.png>
-Package pdftex.def Info: ../Images/batteryHolder.png  used on input line 331.
-(pdftex.def)             Requested size: 241.84843pt x 174.17316pt.
- [25 <../Images/OLED.jpg> <../Images/buttons.jpg>]
-Overfull \hbox (18.15135pt too wide) in paragraph at lines 362--363
-\T1/lmr/m/n/10.95 (-20) The re-ceiv-ing sys-tem is slightly sim-pler than the trans-mis-sion mod-ule since it con-tains fewer components/sub-
- []
-
-[26 <../Images/batteryHolder.png>]
-<../Images/receiveModule.png, id=1046, 956.07187pt x 682.04813pt>
-File: ../Images/receiveModule.png Graphic file (type png)
-<use ../Images/receiveModule.png>
-Package pdftex.def Info: ../Images/receiveModule.png  used on input line 375.
-(pdftex.def)             Requested size: 290.22107pt x 207.0409pt.
- [27 <../Images/receiveModule.png>]
-<../Images/transmissionModuleInterface.png, id=1062, 1445.4pt x 813.0375pt>
-File: ../Images/transmissionModuleInterface.png Graphic file (type png)
-<use ../Images/transmissionModuleInterface.png>
-Package pdftex.def Info: ../Images/transmissionModuleInterface.png  used on input line 401.
-(pdftex.def)             Requested size: 386.95897pt x 217.66217pt.
- [28]
-<../Images/microcontrollerModuleSchematic.png, id=1068, 372.39125pt x 455.7025pt>
-File: ../Images/microcontrollerModuleSchematic.png Graphic file (type png)
-<use ../Images/microcontrollerModuleSchematic.png>
-Package pdftex.def Info: ../Images/microcontrollerModuleSchematic.png  used on input line 412.
-(pdftex.def)             Requested size: 217.66211pt x 266.36584pt.
- [29 <../Images/transmissionModuleInterface.png> <../Images/microcontrollerModuleSchematic.png>]
-<../Images/batteryModuleSchematic.png, id=1076, 736.7525pt x 376.40625pt>
-File: ../Images/batteryModuleSchematic.png Graphic file (type png)
-<use ../Images/batteryModuleSchematic.png>
-Package pdftex.def Info: ../Images/batteryModuleSchematic.png  used on input line 421.
-(pdftex.def)             Requested size: 290.22107pt x 148.26817pt.
-<../Images/sensorModuleSchematic.png, id=1079, 626.34pt x 325.215pt>
-File: ../Images/sensorModuleSchematic.png Graphic file (type png)
-<use ../Images/sensorModuleSchematic.png>
-Package pdftex.def Info: ../Images/sensorModuleSchematic.png  used on input line 431.
-(pdftex.def)             Requested size: 290.22107pt x 150.69739pt.
- [30 <../Images/batteryModuleSchematic.png> <../Images/sensorModuleSchematic.png>]
-<../Images/loraModuleSchematic.png, id=1087, 342.27875pt x 390.45876pt>
-File: ../Images/loraModuleSchematic.png Graphic file (type png)
-<use ../Images/loraModuleSchematic.png>
-Package pdftex.def Info: ../Images/loraModuleSchematic.png  used on input line 440.
-(pdftex.def)             Requested size: 266.03474pt x 303.50204pt.
-<../Images/displayAndControlModuleSchematic.png, id=1089, 463.7325pt x 242.9075pt>
-File: ../Images/displayAndControlModuleSchematic.png Graphic file (type png)
-<use ../Images/displayAndControlModuleSchematic.png>
-Package pdftex.def Info: ../Images/displayAndControlModuleSchematic.png  used on input line 450.
-(pdftex.def)             Requested size: 290.22107pt x 152.02437pt.
- [31 <../Images/loraModuleSchematic.png>]
-<../Images/receiveModuleInterface.png, id=1097, 1445.4pt x 813.0375pt>
-File: ../Images/receiveModuleInterface.png Graphic file (type png)
-<use ../Images/receiveModuleInterface.png>
-Package pdftex.def Info: ../Images/receiveModuleInterface.png  used on input line 463.
-(pdftex.def)             Requested size: 386.95897pt x 217.66217pt.
-<../Images/receiverMicrocontrollerModuleSchematic.png, id=1099, 407.5225pt x 460.72125pt>
-File: ../Images/receiverMicrocontrollerModuleSchematic.png Graphic file (type png)
-<use ../Images/receiverMicrocontrollerModuleSchematic.png>
-Package pdftex.def Info: ../Images/receiverMicrocontrollerModuleSchematic.png  used on input line 472.
-(pdftex.def)             Requested size: 241.84843pt x 273.41899pt.
- [32 <../Images/displayAndControlModuleSchematic.png> <../Images/receiveModuleInterface.png>]
-<../Images/receiverLoraModuleSchematic.png, id=1108, 386.44376pt x 290.08376pt>
-File: ../Images/receiverLoraModuleSchematic.png Graphic file (type png)
-<use ../Images/receiverLoraModuleSchematic.png>
-Package pdftex.def Info: ../Images/receiverLoraModuleSchematic.png  used on input line 481.
-(pdftex.def)             Requested size: 290.22107pt x 217.8544pt.
- [33 <../Images/receiverMicrocontrollerModuleSchematic.png> <../Images/receiverLoraModuleSchematic.png>]
-<../Images/receiverDisplayAndControlModuleSchematic.png, id=1116, 632.3625pt x 370.38374pt>
-File: ../Images/receiverDisplayAndControlModuleSchematic.png Graphic file (type png)
-<use ../Images/receiverDisplayAndControlModuleSchematic.png>
-Package pdftex.def Info: ../Images/receiverDisplayAndControlModuleSchematic.png  used on input line 490.
-(pdftex.def)             Requested size: 290.22107pt x 169.98862pt.
-<../Images/transmissionCircuitStripboardFront.jpeg, id=1119, 968.61874pt x 1192.455pt>
-File: ../Images/transmissionCircuitStripboardFront.jpeg Graphic file (type jpg)
-<use ../Images/transmissionCircuitStripboardFront.jpeg>
-Package pdftex.def Info: ../Images/transmissionCircuitStripboardFront.jpeg  used on input line 504.
-(pdftex.def)             Requested size: 217.66211pt x 267.94508pt.
-<../Images/transmisionCircuitStripboardBack.jpeg, id=1120, 968.61874pt x 1192.455pt>
-File: ../Images/transmisionCircuitStripboardBack.jpeg Graphic file (type jpg)
-<use ../Images/transmisionCircuitStripboardBack.jpeg>
-Package pdftex.def Info: ../Images/transmisionCircuitStripboardBack.jpeg  used on input line 509.
-(pdftex.def)             Requested size: 217.66211pt x 267.94508pt.
- [34 <../Images/receiverDisplayAndControlModuleSchematic.png>]
-<../Images/receiverFrontSide.jpg, id=1127, 2945.0025pt x 1881.0275pt>
-File: ../Images/receiverFrontSide.jpg Graphic file (type jpg)
-<use ../Images/receiverFrontSide.jpg>
-Package pdftex.def Info: ../Images/receiverFrontSide.jpg  used on input line 524.
-(pdftex.def)             Requested size: 217.66211pt x 139.00443pt.
-<../Images/receiverBackSide.jpg, id=1128, 4047.12pt x 3035.34pt>
-File: ../Images/receiverBackSide.jpg Graphic file (type jpg)
-<use ../Images/receiverBackSide.jpg>
-Package pdftex.def Info: ../Images/receiverBackSide.jpg  used on input line 529.
-(pdftex.def)             Requested size: 217.66211pt x 163.21582pt.
- [35 <../Images/transmissionCircuitStripboardFront.jpeg> <../Images/transmisionCircuitStripboardBack.jpeg> <../Images/receiverFrontSide.jpg> <../Images/receiverBackSide.jpg>]
-<../Images/debuggerCircuitPicture1.jpg, id=1136, 3035.34pt x 4047.12pt>
-File: ../Images/debuggerCircuitPicture1.jpg Graphic file (type jpg)
-<use ../Images/debuggerCircuitPicture1.jpg>
-Package pdftex.def Info: ../Images/debuggerCircuitPicture1.jpg  used on input line 553.
-(pdftex.def)             Requested size: 217.66211pt x 290.18204pt.
-<../Images/debuggerCircuitPicture2.jpg, id=1137, 3035.34pt x 4047.12pt>
-File: ../Images/debuggerCircuitPicture2.jpg Graphic file (type jpg)
-<use ../Images/debuggerCircuitPicture2.jpg>
-Package pdftex.def Info: ../Images/debuggerCircuitPicture2.jpg  used on input line 558.
-(pdftex.def)             Requested size: 217.66211pt x 290.18204pt.
- [36]
-<../Images/transmissionCircuitSoftwareFlowChart.png, id=1146, 827.09pt x 976.64874pt>
-File: ../Images/transmissionCircuitSoftwareFlowChart.png Graphic file (type png)
-<use ../Images/transmissionCircuitSoftwareFlowChart.png>
-Package pdftex.def Info: ../Images/transmissionCircuitSoftwareFlowChart.png  used on input line 568.
-(pdftex.def)             Requested size: 338.58632pt x 399.81758pt.
- [37 <../Images/debuggerCircuitPicture1.jpg> <../Images/debuggerCircuitPicture2.jpg>] [38 <../Images/transmissionCircuitSoftwareFlowChart.png>] [39]
-Package hyperref Info: bookmark level for unknown lstlisting defaults to 0 on input line 610.
-LaTeX Font Info:    Trying to load font information for T1+DejaVuSansMono-TLF on input line 610.
- (/usr/local/texlive/2024/texmf-dist/tex/latex/dejavu/T1DejaVuSansMono-TLF.fd
-File: T1DejaVuSansMono-TLF.fd 2011/06/01 Font definitions for T1/DejaVuSansMono-TLF.
-)
-LaTeX Font Info:    Font shape `T1/DejaVuSansMono-TLF/m/n' will be
-(Font)              scaled to size 8.76003pt on input line 610.
-Package microtype Info: Loading generic protrusion settings for font family
-(microtype)             `DejaVuSansMono-TLF' (encoding: T1).
-(microtype)             For optimal results, create family-specific settings.
-(microtype)             See the microtype manual for details.
- [40{/usr/local/texlive/2024/texmf-dist/fonts/enc/dvips/dejavu/dejavumono_t1-type1.enc}] [41]
-<../Images/receiverCircuitSoftwareFlowChart.png, id=1218, 826.08624pt x 815.045pt>
-File: ../Images/receiverCircuitSoftwareFlowChart.png Graphic file (type png)
-<use ../Images/receiverCircuitSoftwareFlowChart.png>
-Package pdftex.def Info: ../Images/receiverCircuitSoftwareFlowChart.png  used on input line 655.
-(pdftex.def)             Requested size: 338.58632pt x 334.05869pt.
- [42 <../Images/receiverCircuitSoftwareFlowChart.png>]
-<../Images/transmitterPCB.png, id=1229, 353.32pt x 524.96124pt>
-File: ../Images/transmitterPCB.png Graphic file (type png)
-<use ../Images/transmitterPCB.png>
-Package pdftex.def Info: ../Images/transmitterPCB.png  used on input line 675.
-(pdftex.def)             Requested size: 193.47578pt x 287.46396pt.
-<../Images/receiverPCB.png, id=1230, 288.07625pt x 400.49625pt>
-File: ../Images/receiverPCB.png Graphic file (type png)
-<use ../Images/receiverPCB.png>
-Package pdftex.def Info: ../Images/receiverPCB.png  used on input line 680.
-(pdftex.def)             Requested size: 203.1518pt x 282.44156pt.
- [43]) (../Chapters/4.ValidationAndSimulation.tex [44 <../Images/transmitterPCB.png> <../Images/receiverPCB.png>]
+ [8]
 Chapter 4.
-[45
+) (../Chapters/5.Methodology.tex [9
 
 ]
-<../Images/gpsValidation.png, id=1253, 1441.385pt x 743.77875pt>
-File: ../Images/gpsValidation.png Graphic file (type png)
-<use ../Images/gpsValidation.png>
-Package pdftex.def Info: ../Images/gpsValidation.png  used on input line 27.
-(pdftex.def)             Requested size: 338.58632pt x 174.70859pt.
-<../Images/loraValidationWithSDR.png, id=1258, 575.14874pt x 492.03825pt>
-File: ../Images/loraValidationWithSDR.png Graphic file (type png)
-<use ../Images/loraValidationWithSDR.png>
-Package pdftex.def Info: ../Images/loraValidationWithSDR.png  used on input line 39.
-(pdftex.def)             Requested size: 386.95897pt x 331.05287pt.
- [46 <../Images/gpsValidation.png>]
-<../Images/receiverValidation.png, id=1265, 695.59875pt x 115.43124pt>
-File: ../Images/receiverValidation.png Graphic file (type png)
-<use ../Images/receiverValidation.png>
-Package pdftex.def Info: ../Images/receiverValidation.png  used on input line 48.
-(pdftex.def)             Requested size: 483.69687pt x 80.26587pt.
- [47 <../Images/loraValidationWithSDR.png> <../Images/receiverValidation.png>] [48] [49] [50]) (../Chapters/5.Methodology.tex [51]
 Chapter 5.
-[52
-
-] [53] [54]
-<../Images/dataCollectionDiagram.png, id=1321, 1349.04pt x 517.935pt>
-File: ../Images/dataCollectionDiagram.png Graphic file (type png)
-<use ../Images/dataCollectionDiagram.png>
-Package pdftex.def Info: ../Images/dataCollectionDiagram.png  used on input line 93.
-(pdftex.def)             Requested size: 290.22107pt x 111.41707pt.
- [55 <../Images/dataCollectionDiagram.png>]
-<../Images/shortRangeTests/100mTestGoogleEarth.png, id=1342, 329.23pt x 589.20125pt>
-File: ../Images/shortRangeTests/100mTestGoogleEarth.png Graphic file (type png)
-<use ../Images/shortRangeTests/100mTestGoogleEarth.png>
-Package pdftex.def Info: ../Images/shortRangeTests/100mTestGoogleEarth.png  used on input line 124.
-(pdftex.def)             Requested size: 145.11053pt x 259.69887pt.
-<../Images/shortRangeTests/300mTestGoogleEarth.png, id=1343, 329.23pt x 589.20125pt>
-File: ../Images/shortRangeTests/300mTestGoogleEarth.png Graphic file (type png)
-<use ../Images/shortRangeTests/300mTestGoogleEarth.png>
-Package pdftex.def Info: ../Images/shortRangeTests/300mTestGoogleEarth.png  used on input line 130.
-(pdftex.def)             Requested size: 145.11053pt x 259.69887pt.
-<../Images/shortRangeTests/500mTestGoogleEarth.png, id=1344, 329.23pt x 589.20125pt>
-File: ../Images/shortRangeTests/500mTestGoogleEarth.png Graphic file (type png)
-<use ../Images/shortRangeTests/500mTestGoogleEarth.png>
-Package pdftex.def Info: ../Images/shortRangeTests/500mTestGoogleEarth.png  used on input line 136.
-(pdftex.def)             Requested size: 145.11053pt x 259.69887pt.
- [56 <../Images/shortRangeTests/100mTestGoogleEarth.png> <../Images/shortRangeTests/300mTestGoogleEarth.png> <../Images/shortRangeTests/500mTestGoogleEarth.png>]
-<../Images/shortRangeTests/shortRange2.jpg, id=1356, 4047.12pt x 3035.34pt>
-File: ../Images/shortRangeTests/shortRange2.jpg Graphic file (type jpg)
-<use ../Images/shortRangeTests/shortRange2.jpg>
-Package pdftex.def Info: ../Images/shortRangeTests/shortRange2.jpg  used on input line 150.
-(pdftex.def)             Requested size: 241.84843pt x 181.37149pt.
-<../Images/shortRangeTests/shortRange3.jpeg, id=1357, 963.6pt x 1284.8pt>
-File: ../Images/shortRangeTests/shortRange3.jpeg Graphic file (type jpg)
-<use ../Images/shortRangeTests/shortRange3.jpeg>
-Package pdftex.def Info: ../Images/shortRangeTests/shortRange3.jpeg  used on input line 156.
-(pdftex.def)             Requested size: 169.29684pt x 225.72557pt.
-<../Images/longRangeTestGoogleEarth.png, id=1359, 707.64375pt x 396.48125pt>
-File: ../Images/longRangeTestGoogleEarth.png Graphic file (type png)
-<use ../Images/longRangeTestGoogleEarth.png>
-Package pdftex.def Info: ../Images/longRangeTestGoogleEarth.png  used on input line 171.
-(pdftex.def)             Requested size: 314.40001pt x 176.15228pt.
- [57 <../Images/shortRangeTests/shortRange2.jpg> <../Images/shortRangeTests/shortRange3.jpeg>]
-<../Images/longRangeTest/longRange5.jpeg, id=1366, 3011.25pt x 2641.87pt>
-File: ../Images/longRangeTest/longRange5.jpeg Graphic file (type jpg)
-<use ../Images/longRangeTest/longRange5.jpeg>
-Package pdftex.def Info: ../Images/longRangeTest/longRange5.jpeg  used on input line 180.
-(pdftex.def)             Requested size: 290.22107pt x 254.6083pt.
- [58 <../Images/longRangeTestGoogleEarth.png> <../Images/longRangeTest/longRange5.jpeg>]
-<../Images/longRangeTest/longRange1.jpg, id=1373, 4047.12pt x 3035.34pt>
-File: ../Images/longRangeTest/longRange1.jpg Graphic file (type jpg)
-<use ../Images/longRangeTest/longRange1.jpg>
-Package pdftex.def Info: ../Images/longRangeTest/longRange1.jpg  used on input line 190.
-(pdftex.def)             Requested size: 193.47578pt x 145.10646pt.
-<../Images/longRangeTest/longRange3.jpg, id=1374, 4047.12pt x 3035.34pt>
-File: ../Images/longRangeTest/longRange3.jpg Graphic file (type jpg)
-<use ../Images/longRangeTest/longRange3.jpg>
-Package pdftex.def Info: ../Images/longRangeTest/longRange3.jpg  used on input line 196.
-(pdftex.def)             Requested size: 193.47578pt x 145.10646pt.
-) (../Chapters/6.Results.tex [59 <../Images/longRangeTest/longRange1.jpg> <../Images/longRangeTest/longRange3.jpg>]
-Chapter 6.
-<../Images/Graphs/SameRoomTestGraph.png, id=1381, 1011.78pt x 578.16pt>
-File: ../Images/Graphs/SameRoomTestGraph.png Graphic file (type png)
-<use ../Images/Graphs/SameRoomTestGraph.png>
-Package pdftex.def Info: ../Images/Graphs/SameRoomTestGraph.png  used on input line 17.
-(pdftex.def)             Requested size: 435.32422pt x 248.76274pt.
-[60
-
- <../Images/Graphs/SameRoomTestGraph.png>]
-<../Images/Graphs/100mTestGraph.png, id=1388, 1011.78pt x 578.16pt>
-File: ../Images/Graphs/100mTestGraph.png Graphic file (type png)
-<use ../Images/Graphs/100mTestGraph.png>
-Package pdftex.def Info: ../Images/Graphs/100mTestGraph.png  used on input line 33.
-(pdftex.def)             Requested size: 435.32422pt x 248.76274pt.
-<../Images/Graphs/300mTestGraph.png, id=1390, 1011.78pt x 578.16pt>
-File: ../Images/Graphs/300mTestGraph.png Graphic file (type png)
-<use ../Images/Graphs/300mTestGraph.png>
-Package pdftex.def Info: ../Images/Graphs/300mTestGraph.png  used on input line 44.
-(pdftex.def)             Requested size: 435.32422pt x 248.76274pt.
-<../Images/Graphs/500mTestGraph.png, id=1392, 1011.78pt x 578.16pt>
-File: ../Images/Graphs/500mTestGraph.png Graphic file (type png)
-<use ../Images/Graphs/500mTestGraph.png>
-Package pdftex.def Info: ../Images/Graphs/500mTestGraph.png  used on input line 54.
-(pdftex.def)             Requested size: 435.32422pt x 248.76274pt.
- [61 <../Images/Graphs/100mTestGraph.png> <../Images/Graphs/300mTestGraph.png>]
-<../Images/Graphs/20kmTestGraph.png, id=1400, 1011.78pt x 578.16pt>
-File: ../Images/Graphs/20kmTestGraph.png Graphic file (type png)
-<use ../Images/Graphs/20kmTestGraph.png>
-Package pdftex.def Info: ../Images/Graphs/20kmTestGraph.png  used on input line 65.
-(pdftex.def)             Requested size: 435.32422pt x 248.76274pt.
-<../Images/Graphs/averageRSSIGraph.png, id=1401, 722.7pt x 433.62pt>
-File: ../Images/Graphs/averageRSSIGraph.png Graphic file (type png)
-<use ../Images/Graphs/averageRSSIGraph.png>
-Package pdftex.def Info: ../Images/Graphs/averageRSSIGraph.png  used on input line 73.
-(pdftex.def)             Requested size: 435.32422pt x 261.19295pt.
- [62 <../Images/Graphs/500mTestGraph.png> <../Images/Graphs/20kmTestGraph.png>]) (../Chapters/7.Discussion.tex [63 <../Images/Graphs/averageRSSIGraph.png>]
-Chapter 7.
-[64
-
-] [65]) (../Chapters/8.ConclusionAndRecommendations.tex [66]
-Chapter 8.
-[67
-
-]) [68] (./Main.bbl
-Underfull \hbox (badness 4569) in paragraph at lines 93--95
-[]\T1/lmr/m/n/10.95 (+20) L. Slats. A brief his-tory of LoRa: Three in-ven-
- []
-
-
-Underfull \hbox (badness 1521) in paragraph at lines 93--95
-\T1/lmr/m/n/10.95 (+20) tors share their story. [On-line]. Avail-able: [][]$https : / / blog . semtech . com /
- []
-
-[69
+) (../Chapters/6.Results.tex [10
 
 ]
-** WARNING: IEEEtran.bst: No hyphenation pattern has been
-** loaded for the language `en-GB'. Using the pattern for
-** the default language instead.
-) (../Chapters/9.Appendix.tex [70]
+Chapter 6.
+) (../Chapters/7.Discussion.tex [11
+
+]
+Chapter 7.
+) (../Chapters/8.ConclusionAndRecommendations.tex [12
+
+]
+Chapter 8.
+) [13
+
+] (./Main.bbl) (../Chapters/9.Appendix.tex [14
+
+]
 Chapter 9.
-<../Images/transmitterCircuitFullSchematic.png, id=1511, 4107.345pt x 2903.84875pt>
-File: ../Images/transmitterCircuitFullSchematic.png Graphic file (type png)
-<use ../Images/transmitterCircuitFullSchematic.png>
-Package pdftex.def Info: ../Images/transmitterCircuitFullSchematic.png  used on input line 14.
-(pdftex.def)             Requested size: 483.69687pt x 341.93338pt.
-<../Images/receiverModuleFullSchematic.png, id=1512, 4107.345pt x 2903.84875pt>
-File: ../Images/receiverModuleFullSchematic.png Graphic file (type png)
-<use ../Images/receiverModuleFullSchematic.png>
-Package pdftex.def Info: ../Images/receiverModuleFullSchematic.png  used on input line 22.
-(pdftex.def)             Requested size: 483.69687pt x 341.93338pt.
-[71
+) [15
 
- <../Images/transmitterCircuitFullSchematic.png>] [72 <../Images/receiverModuleFullSchematic.png>]
-<../Images/longRangeTestInterferance.png, id=1523, 762.85pt x 468.75125pt>
-File: ../Images/longRangeTestInterferance.png Graphic file (type png)
-<use ../Images/longRangeTestInterferance.png>
-Package pdftex.def Info: ../Images/longRangeTestInterferance.png  used on input line 30.
-(pdftex.def)             Requested size: 483.69687pt x 297.21742pt.
-
-Overfull \hbox (23.29842pt too wide) in paragraph at lines 35--36
-\T1/lmr/m/n/10.95 (-20) All GitHub files can be found at the fol-low-ing link [][]https://github.com/roryschram/EEE4022S_Final_Project[][].
- []
-
-[73 <../Images/longRangeTestInterferance.png>]
-<../Images/ethicsClearance.png, id=1530, 410.53375pt x 453.695pt>
-File: ../Images/ethicsClearance.png Graphic file (type png)
-<use ../Images/ethicsClearance.png>
-Package pdftex.def Info: ../Images/ethicsClearance.png  used on input line 42.
-(pdftex.def)             Requested size: 386.95897pt x 427.6364pt.
-) [74 <../Images/ethicsClearance.png>] (./Main.aux)
+] (./Main.aux)
  ***********
 LaTeX2e <2023-11-01> patch level 1
 L3 programming layer <2024-02-20>
  ***********
-
-
-LaTeX Warning: There were undefined references.
-
 Package rerunfilecheck Info: File `Main.out' has not changed.
-(rerunfilecheck)             Checksum: C5DE93373571A6F87672FC4490596A67;15994.
+(rerunfilecheck)             Checksum: 6709E58013799D1EC3CD2BD6B5BD05B8;15828.
  ) 
 Here is how much of TeX's memory you used:
- 58140 strings out of 474116
- 1290570 string characters out of 5743682
- 2462273 words of memory out of 5000000
- 78930 multiletter control sequences out of 15000+600000
- 637284 words of font info for 198 fonts, out of 8000000 for 9000
+ 55716 strings out of 474116
+ 1238986 string characters out of 5743682
+ 1947187 words of memory out of 5000000
+ 76893 multiletter control sequences out of 15000+600000
+ 608837 words of font info for 121 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 114i,14n,120p,2950b,2581s stack positions out of 10000i,1000n,20000p,200000b,200000s
-</usr/local/texlive/2024/texmf-dist/fonts/type1/public/dejavu/DejaVuSansMono.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/lm/lmbx10.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/lm/lmbx12.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/lm/lmex10.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/lm/lmmi10.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/lm/lmmi6.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/lm/lmmi8.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/lm/lmr10.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/lm/lmr12.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/lm/lmr17.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/lm/lmr6.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/lm/lmr8.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/lm/lmr9.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/lm/lmri10.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/lm/lmsy10.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/lm/lmsy6.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/symbols/msam10.pfb>
-Output written on Main.pdf (85 pages, 40538735 bytes).
+ 114i,11n,120p,2482b,1215s stack positions out of 10000i,1000n,20000p,200000b,200000s
+</usr/local/texlive/2024/texmf-dist/fonts/type1/public/lm/lmbx10.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/lm/lmbx12.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/lm/lmmi10.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/lm/lmr10.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/lm/lmr12.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/lm/lmr17.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/lm/lmr8.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/lm/lmsy8.pfb>
+Output written on Main.pdf (25 pages, 553630 bytes).
 PDF statistics:
- 1715 PDF objects out of 1728 (max. 8388607)
- 1464 compressed objects within 15 object streams
- 395 named destinations out of 1000 (max. 500000)
- 48676 words of extra memory for PDF output out of 51595 (max. 10000000)
+ 738 PDF objects out of 1000 (max. 8388607)
+ 680 compressed objects within 7 object streams
+ 146 named destinations out of 1000 (max. 500000)
+ 29465 words of extra memory for PDF output out of 29859 (max. 10000000)
 

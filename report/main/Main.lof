@@ -1,65 +1,11 @@
 \babel@toc {english}{}\relax 
 \addvspace {10\p@ }
-\contentsline {figure}{\numberline {1.1}{\ignorespaces Radiosonde Base Stations Around The Globe \cite {dabberdt_shellhorn_cole_paukkunen_horhammer_antikainen_2023}}}{2}{figure.caption.9}%
 \addvspace {10\p@ }
-\contentsline {figure}{\numberline {2.1}{\ignorespaces Diagram of fresnel zones \cite {editorial_team_everything_rf_what_2018}}}{6}{figure.caption.11}%
-\contentsline {figure}{\numberline {2.2}{\ignorespaces 1 Bit/Symbol Frequency Shift Keying}}{7}{figure.caption.12}%
-\contentsline {figure}{\numberline {2.3}{\ignorespaces 8 Bit/Symbol Frequency Definitions}}{7}{figure.caption.13}%
-\contentsline {figure}{\numberline {2.4}{\ignorespaces 8 Bit/Symbol Frequency Shift Keying}}{7}{figure.caption.14}%
-\contentsline {figure}{\numberline {2.5}{\ignorespaces Waterfall plot of a transmission of the \csqQQ {34}4723\csqQQ {34} symbols}}{8}{figure.caption.15}%
-\contentsline {figure}{\numberline {2.6}{\ignorespaces Up-Chirp and Down-Chirp}}{9}{figure.caption.16}%
-\contentsline {figure}{\numberline {2.7}{\ignorespaces Waterfall plot of a transmission of an up-chirp and a down-chirp}}{9}{figure.caption.17}%
-\contentsline {figure}{\numberline {2.8}{\ignorespaces Waterfall plot of a transmission of an up-chirp and a down-chirp with discontinuities}}{10}{figure.caption.18}%
-\contentsline {figure}{\numberline {2.9}{\ignorespaces Various spreading factors for an up-chirp}}{11}{figure.caption.19}%
-\contentsline {figure}{\numberline {2.10}{\ignorespaces LoRa Explicit Packet \cite {SX1278}}}{12}{figure.caption.20}%
-\addvspace {10\p@ }
-\contentsline {figure}{\numberline {3.1}{\ignorespaces Overall module design of entire system}}{16}{figure.caption.21}%
-\contentsline {figure}{\numberline {3.2}{\ignorespaces Overview of Transmission Module}}{17}{figure.caption.22}%
-\contentsline {figure}{\numberline {3.3}{\ignorespaces NEO-6M Gps Module}}{21}{figure.caption.26}%
-\contentsline {figure}{\numberline {3.4}{\ignorespaces BME280 Breakout Module}}{22}{figure.caption.29}%
-\contentsline {figure}{\numberline {3.5}{\ignorespaces SX1278 Breakout Module}}{23}{figure.caption.31}%
-\contentsline {figure}{\numberline {3.6}{\ignorespaces Two Initial Antennae}}{24}{figure.caption.32}%
-\contentsline {figure}{\numberline {3.7}{\ignorespaces OLED Display and Push Button Switches}}{25}{figure.caption.33}%
-\contentsline {figure}{\numberline {3.8}{\ignorespaces Selected Battery/Charging/Output Module}}{26}{figure.caption.34}%
-\contentsline {figure}{\numberline {3.9}{\ignorespaces Overview of the Receive Module}}{27}{figure.caption.36}%
-\contentsline {figure}{\numberline {3.10}{\ignorespaces Overview of the Interfacing within the Transmission Module}}{29}{figure.caption.37}%
-\contentsline {figure}{\numberline {3.11}{\ignorespaces Microcontroller Module Schematic}}{29}{figure.caption.38}%
-\contentsline {figure}{\numberline {3.12}{\ignorespaces Battery Module Schematic}}{30}{figure.caption.39}%
-\contentsline {figure}{\numberline {3.13}{\ignorespaces Sensor Module Schematic}}{30}{figure.caption.40}%
-\contentsline {figure}{\numberline {3.14}{\ignorespaces LoRa Module Schematic}}{31}{figure.caption.41}%
-\contentsline {figure}{\numberline {3.15}{\ignorespaces Display and Control Module Schematic}}{32}{figure.caption.42}%
-\contentsline {figure}{\numberline {3.16}{\ignorespaces Overview of the Interfacing with then Receive Module}}{32}{figure.caption.43}%
-\contentsline {figure}{\numberline {3.17}{\ignorespaces Receiver Module Microcontroller Circuit}}{33}{figure.caption.44}%
-\contentsline {figure}{\numberline {3.18}{\ignorespaces Receiver Module LoRa Circuit}}{33}{figure.caption.45}%
-\contentsline {figure}{\numberline {3.19}{\ignorespaces Receiver Module Display and Control Circuit}}{34}{figure.caption.46}%
-\contentsline {figure}{\numberline {3.20}{\ignorespaces Stripboard Prototype of Transmission Circuit}}{35}{figure.caption.47}%
-\contentsline {figure}{\numberline {3.21}{\ignorespaces Stripboard Prototype of Receiver Circuit}}{35}{figure.caption.48}%
-\contentsline {figure}{\numberline {3.22}{\ignorespaces Debugger Circuit}}{37}{figure.caption.49}%
-\contentsline {figure}{\numberline {3.23}{\ignorespaces Flow Chart of the Transmission Circuit Software}}{38}{figure.caption.50}%
-\contentsline {figure}{\numberline {3.24}{\ignorespaces Flow Chart of the Receiver Circuit Software}}{42}{figure.caption.51}%
-\contentsline {figure}{\numberline {3.25}{\ignorespaces PCB Design for Transmitter and Receiver}}{44}{figure.caption.52}%
-\addvspace {10\p@ }
-\contentsline {figure}{\numberline {4.1}{\ignorespaces GPS Data Validation}}{46}{figure.caption.53}%
-\contentsline {figure}{\numberline {4.2}{\ignorespaces SDR Output for LoRa Transmission}}{47}{figure.caption.54}%
-\contentsline {figure}{\numberline {4.3}{\ignorespaces Receiver Output}}{47}{figure.caption.55}%
-\addvspace {10\p@ }
-\contentsline {figure}{\numberline {5.1}{\ignorespaces Diagram of Data Collection Process}}{55}{figure.caption.58}%
-\contentsline {figure}{\numberline {5.2}{\ignorespaces Short Range Rugby Field Test Distances}}{56}{figure.caption.59}%
-\contentsline {figure}{\numberline {5.3}{\ignorespaces Short Range Rugby Field Testing Procedures}}{57}{figure.caption.60}%
-\contentsline {figure}{\numberline {5.4}{\ignorespaces Long Range Test Distance Map}}{58}{figure.caption.61}%
-\contentsline {figure}{\numberline {5.5}{\ignorespaces Transmitter Module on Lions Head}}{58}{figure.caption.62}%
-\contentsline {figure}{\numberline {5.6}{\ignorespaces Receiver Module in Tygerburg Nature Reserve}}{59}{figure.caption.63}%
-\addvspace {10\p@ }
-\contentsline {figure}{\numberline {6.1}{\ignorespaces Same Room Test with Whip Antenna}}{60}{figure.caption.64}%
-\contentsline {figure}{\numberline {6.2}{\ignorespaces 100m Test with Whip Antenna}}{61}{figure.caption.65}%
-\contentsline {figure}{\numberline {6.3}{\ignorespaces 300m Test with Whip Antenna}}{61}{figure.caption.66}%
-\contentsline {figure}{\numberline {6.4}{\ignorespaces 500m Test with Whip Antenna}}{62}{figure.caption.67}%
-\contentsline {figure}{\numberline {6.5}{\ignorespaces 20km Test with Whip and Yagi Antenna}}{62}{figure.caption.68}%
-\contentsline {figure}{\numberline {6.6}{\ignorespaces Average RSSI Value of Transmissions for Various Test Distances}}{63}{figure.caption.69}%
+\contentsline {figure}{\numberline {2.1}{\ignorespaces OFDM and FDM Waveforms}}{4}{figure.caption.9}%
 \addvspace {10\p@ }
 \addvspace {10\p@ }
 \addvspace {10\p@ }
-\contentsline {figure}{\numberline {9.1}{\ignorespaces Full Transmitter Circuit Schematic}}{71}{figure.caption.72}%
-\contentsline {figure}{\numberline {9.2}{\ignorespaces Full Receiver Circuit Schematic}}{72}{figure.caption.73}%
-\contentsline {figure}{\numberline {9.3}{\ignorespaces Long Range Test Interference}}{73}{figure.caption.74}%
-\contentsline {figure}{\numberline {9.4}{\ignorespaces Ethics Clearance}}{74}{figure.caption.75}%
+\addvspace {10\p@ }
+\addvspace {10\p@ }
+\addvspace {10\p@ }
+\addvspace {10\p@ }

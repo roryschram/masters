@@ -1,10 +1,10 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.26 (TeX Live 2024) (preloaded format=pdflatex 2024.4.24)  22 OCT 2024 11:15
+This is pdfTeX, Version 3.141592653-2.6-1.40.26 (TeX Live 2024) (preloaded format=pdflatex 2024.4.24)  4 NOV 2024 12:15
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
  %&-line parsing enabled.
-**/Users/roryschram/Desktop/EEE4022S_SCHROR002/Chapters/6.Results.tex
-(/Users/roryschram/Desktop/EEE4022S_SCHROR002/Chapters/6.Results.tex
+**/Users/roryschram/Documents/Work/masters/report/Chapters/6.Results.tex
+(/Users/roryschram/Documents/Work/masters/report/Chapters/6.Results.tex
 LaTeX2e <2023-11-01> patch level 1
 L3 programming layer <2024-02-20>
 (/usr/local/texlive/2024/texmf-dist/tex/latex/standalone/standalone.cls
@@ -1185,52 +1185,54 @@ Chapter 1.
 
 LaTeX Warning: Reference `ch:methodology' on page 1 undefined on input line 10.
 
-<../Images/Graphs/SameRoomTestGraph.png, id=44, 1011.78pt x 578.16pt>
-File: ../Images/Graphs/SameRoomTestGraph.png Graphic file (type png)
-<use ../Images/Graphs/SameRoomTestGraph.png>
-Package pdftex.def Info: ../Images/Graphs/SameRoomTestGraph.png  used on input line 17.
-(pdftex.def)             Requested size: 435.32422pt x 248.76274pt.
-[1
+(./6.Results.bbl [1
 
 
-{/usr/local/texlive/2024/texmf-var/fonts/map/pdftex/updmap/pdftex.map}{/usr/local/texlive/2024/texmf-dist/fonts/enc/dvips/lm/lm-ec.enc} <../Images/Graphs/SameRoomTestGraph.png>]
-<../Images/Graphs/100mTestGraph.png, id=57, 1011.78pt x 578.16pt>
-File: ../Images/Graphs/100mTestGraph.png Graphic file (type png)
-<use ../Images/Graphs/100mTestGraph.png>
-Package pdftex.def Info: ../Images/Graphs/100mTestGraph.png  used on input line 33.
-(pdftex.def)             Requested size: 435.32422pt x 248.76274pt.
-<../Images/Graphs/300mTestGraph.png, id=59, 1011.78pt x 578.16pt>
-File: ../Images/Graphs/300mTestGraph.png Graphic file (type png)
-<use ../Images/Graphs/300mTestGraph.png>
-Package pdftex.def Info: ../Images/Graphs/300mTestGraph.png  used on input line 44.
-(pdftex.def)             Requested size: 435.32422pt x 248.76274pt.
- [2 <../Images/Graphs/100mTestGraph.png> <../Images/Graphs/300mTestGraph.png>]
-<../Images/Graphs/500mTestGraph.png, id=69, 1011.78pt x 578.16pt>
-File: ../Images/Graphs/500mTestGraph.png Graphic file (type png)
-<use ../Images/Graphs/500mTestGraph.png>
-Package pdftex.def Info: ../Images/Graphs/500mTestGraph.png  used on input line 54.
-(pdftex.def)             Requested size: 435.32422pt x 248.76274pt.
-<../Images/Graphs/20kmTestGraph.png, id=71, 1011.78pt x 578.16pt>
-File: ../Images/Graphs/20kmTestGraph.png Graphic file (type png)
-<use ../Images/Graphs/20kmTestGraph.png>
-Package pdftex.def Info: ../Images/Graphs/20kmTestGraph.png  used on input line 65.
-(pdftex.def)             Requested size: 435.32422pt x 248.76274pt.
-<../Images/Graphs/averageRSSIGraph.png, id=72, 722.7pt x 433.62pt>
-File: ../Images/Graphs/averageRSSIGraph.png Graphic file (type png)
-<use ../Images/Graphs/averageRSSIGraph.png>
-Package pdftex.def Info: ../Images/Graphs/averageRSSIGraph.png  used on input line 73.
-(pdftex.def)             Requested size: 435.32422pt x 261.19295pt.
- [3 <../Images/Graphs/500mTestGraph.png> <../Images/Graphs/20kmTestGraph.png>] (./6.Results.bbl [4 <../Images/Graphs/averageRSSIGraph.png>]
-
-LaTeX Warning: Empty `thebibliography' environment on input line 23.
-
-) [5
+{/usr/local/texlive/2024/texmf-var/fonts/map/pdftex/updmap/pdftex.map}{/usr/local/texlive/2024/texmf-dist/fonts/enc/dvips/lm/lm-ec.enc}]
+LaTeX Font Info:    Trying to load font information for OT1+lmr on input line 25.
+ (/usr/local/texlive/2024/texmf-dist/tex/latex/lm/ot1lmr.fd
+File: ot1lmr.fd 2015/05/01 v1.6.1 Font defs for Latin Modern
+)
+LaTeX Font Info:    Trying to load font information for OML+lmm on input line 25.
+ (/usr/local/texlive/2024/texmf-dist/tex/latex/lm/omllmm.fd
+File: omllmm.fd 2015/05/01 v1.6.1 Font defs for Latin Modern
+)
+LaTeX Font Info:    Trying to load font information for OMS+lmsy on input line 25.
+ (/usr/local/texlive/2024/texmf-dist/tex/latex/lm/omslmsy.fd
+File: omslmsy.fd 2015/05/01 v1.6.1 Font defs for Latin Modern
+)
+LaTeX Font Info:    Trying to load font information for OMX+lmex on input line 25.
+ (/usr/local/texlive/2024/texmf-dist/tex/latex/lm/omxlmex.fd
+File: omxlmex.fd 2015/05/01 v1.6.1 Font defs for Latin Modern
+)
+LaTeX Font Info:    External font `lmex10' loaded for size
+(Font)              <10.95> on input line 25.
+LaTeX Font Info:    External font `lmex10' loaded for size
+(Font)              <8> on input line 25.
+LaTeX Font Info:    External font `lmex10' loaded for size
+(Font)              <6> on input line 25.
+LaTeX Font Info:    Trying to load font information for U+msa on input line 25.
+ (/usr/local/texlive/2024/texmf-dist/tex/latex/amsfonts/umsa.fd
+File: umsa.fd 2013/01/14 v3.01 AMS symbols A
+) (/usr/local/texlive/2024/texmf-dist/tex/latex/microtype/mt-msa.cfg
+File: mt-msa.cfg 2006/02/04 v1.1 microtype config. file: AMS symbols (a) (RS)
+)
+LaTeX Font Info:    Trying to load font information for U+msb on input line 25.
+ (/usr/local/texlive/2024/texmf-dist/tex/latex/amsfonts/umsb.fd
+File: umsb.fd 2013/01/14 v3.01 AMS symbols B
+) (/usr/local/texlive/2024/texmf-dist/tex/latex/microtype/mt-msb.cfg
+File: mt-msb.cfg 2005/06/01 v1.0 microtype config. file: AMS symbols (b) (RS)
+)
+LaTeX Font Info:    Trying to load font information for U+rsfs on input line 25.
+ (/usr/local/texlive/2024/texmf-dist/tex/latex/jknapltx/ursfs.fd
+File: ursfs.fd 1998/03/24 rsfs font definition file (jk)
+)) [2
 
 ]
 
-Package glossaries Warning: Empty glossary for \printnoidxglossary[type={main}]. Rerun may be required (or you may have forgotten to use commands like \gls) on input line 83.
+Package glossaries Warning: Empty glossary for \printnoidxglossary[type={main}]. Rerun may be required (or you may have forgotten to use commands like \gls) on input line 30.
 
-[6
+[3
 
 
 ] (./6.Results.aux)
@@ -1243,21 +1245,21 @@ L3 programming layer <2024-02-20>
 LaTeX Warning: There were undefined references.
 
 Package rerunfilecheck Info: File `6.Results.out' has not changed.
-(rerunfilecheck)             Checksum: 5DE06AF593CA9DEFA9C371C825D8FEBF;1043.
+(rerunfilecheck)             Checksum: 294721C62F8E96A78FA48ACACEF4D2CE;1043.
  ) 
 Here is how much of TeX's memory you used:
- 54726 strings out of 474116
- 1221679 string characters out of 5743682
+ 54968 strings out of 474116
+ 1225540 string characters out of 5743682
  1931187 words of memory out of 5000000
- 76236 multiletter control sequences out of 15000+600000
- 583915 words of font info for 61 fonts, out of 8000000 for 9000
+ 76431 multiletter control sequences out of 15000+600000
+ 597139 words of font info for 86 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 114i,12n,120p,2488b,1232s stack positions out of 10000i,1000n,20000p,200000b,200000s
+ 114i,5n,120p,2491b,1087s stack positions out of 10000i,1000n,20000p,200000b,200000s
 </usr/local/texlive/2024/texmf-dist/fonts/type1/public/lm/lmbx10.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/lm/lmbx12.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/lm/lmr10.pfb>
-Output written on 6.Results.pdf (6 pages, 495706 bytes).
+Output written on 6.Results.pdf (3 pages, 82114 bytes).
 PDF statistics:
- 118 PDF objects out of 1000 (max. 8388607)
- 91 compressed objects within 1 object stream
- 23 named destinations out of 1000 (max. 500000)
- 16499 words of extra memory for PDF output out of 17280 (max. 10000000)
+ 85 PDF objects out of 1000 (max. 8388607)
+ 73 compressed objects within 1 object stream
+ 15 named destinations out of 1000 (max. 500000)
+ 22613 words of extra memory for PDF output out of 24883 (max. 10000000)
 

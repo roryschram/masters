@@ -1,10 +1,10 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.26 (TeX Live 2024) (preloaded format=pdflatex 2024.4.24)  22 OCT 2024 11:34
+This is pdfTeX, Version 3.141592653-2.6-1.40.26 (TeX Live 2024) (preloaded format=pdflatex 2024.4.24)  4 NOV 2024 12:11
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
  %&-line parsing enabled.
-**/Users/roryschram/Desktop/EEE4022S_SCHROR002/Chapters/4.ValidationAndSimulation.tex
-(/Users/roryschram/Desktop/EEE4022S_SCHROR002/Chapters/4.ValidationAndSimulation.tex
+**/Users/roryschram/Documents/Work/masters/report/Chapters/4.ValidationAndSimulation.tex
+(/Users/roryschram/Documents/Work/masters/report/Chapters/4.ValidationAndSimulation.tex
 LaTeX2e <2023-11-01> patch level 1
 L3 programming layer <2024-02-20>
 (/usr/local/texlive/2024/texmf-dist/tex/latex/standalone/standalone.cls
@@ -1182,110 +1182,54 @@ Package caption Info: supertabular package is loaded.
 Package caption Info: End \AtBeginDocument code.
 
 Chapter 1.
-Package hyperref Info: bookmark level for unknown lstlisting defaults to 0 on input line 20.
-LaTeX Font Info:    Trying to load font information for T1+DejaVuSansMono-TLF on input line 20.
-(/usr/local/texlive/2024/texmf-dist/tex/latex/dejavu/T1DejaVuSansMono-TLF.fd
-File: T1DejaVuSansMono-TLF.fd 2011/06/01 Font definitions for T1/DejaVuSansMono-TLF.
-)
-LaTeX Font Info:    Font shape `T1/DejaVuSansMono-TLF/m/n' will be
-(Font)              scaled to size 8.76003pt on input line 20.
-Package microtype Info: Loading generic protrusion settings for font family
-(microtype)             `DejaVuSansMono-TLF' (encoding: T1).
-(microtype)             For optimal results, create family-specific settings.
-(microtype)             See the microtype manual for details.
-LaTeX Font Info:    Trying to load font information for OT1+lmr on input line 21.
+(./4.ValidationAndSimulation.bbl [1
+
+
+{/usr/local/texlive/2024/texmf-var/fonts/map/pdftex/updmap/pdftex.map}{/usr/local/texlive/2024/texmf-dist/fonts/enc/dvips/lm/lm-ec.enc}]
+LaTeX Font Info:    Trying to load font information for OT1+lmr on input line 25.
  (/usr/local/texlive/2024/texmf-dist/tex/latex/lm/ot1lmr.fd
 File: ot1lmr.fd 2015/05/01 v1.6.1 Font defs for Latin Modern
 )
-LaTeX Font Info:    Trying to load font information for OML+lmm on input line 21.
+LaTeX Font Info:    Trying to load font information for OML+lmm on input line 25.
  (/usr/local/texlive/2024/texmf-dist/tex/latex/lm/omllmm.fd
 File: omllmm.fd 2015/05/01 v1.6.1 Font defs for Latin Modern
 )
-LaTeX Font Info:    Trying to load font information for OMS+lmsy on input line 21.
+LaTeX Font Info:    Trying to load font information for OMS+lmsy on input line 25.
  (/usr/local/texlive/2024/texmf-dist/tex/latex/lm/omslmsy.fd
 File: omslmsy.fd 2015/05/01 v1.6.1 Font defs for Latin Modern
 )
-LaTeX Font Info:    Trying to load font information for OMX+lmex on input line 21.
+LaTeX Font Info:    Trying to load font information for OMX+lmex on input line 25.
  (/usr/local/texlive/2024/texmf-dist/tex/latex/lm/omxlmex.fd
 File: omxlmex.fd 2015/05/01 v1.6.1 Font defs for Latin Modern
 )
 LaTeX Font Info:    External font `lmex10' loaded for size
-(Font)              <10.95> on input line 21.
+(Font)              <10.95> on input line 25.
 LaTeX Font Info:    External font `lmex10' loaded for size
-(Font)              <8> on input line 21.
+(Font)              <8> on input line 25.
 LaTeX Font Info:    External font `lmex10' loaded for size
-(Font)              <6> on input line 21.
-LaTeX Font Info:    Trying to load font information for U+msa on input line 21.
+(Font)              <6> on input line 25.
+LaTeX Font Info:    Trying to load font information for U+msa on input line 25.
  (/usr/local/texlive/2024/texmf-dist/tex/latex/amsfonts/umsa.fd
 File: umsa.fd 2013/01/14 v3.01 AMS symbols A
 ) (/usr/local/texlive/2024/texmf-dist/tex/latex/microtype/mt-msa.cfg
 File: mt-msa.cfg 2006/02/04 v1.1 microtype config. file: AMS symbols (a) (RS)
 )
-LaTeX Font Info:    Trying to load font information for U+msb on input line 21.
+LaTeX Font Info:    Trying to load font information for U+msb on input line 25.
  (/usr/local/texlive/2024/texmf-dist/tex/latex/amsfonts/umsb.fd
 File: umsb.fd 2013/01/14 v3.01 AMS symbols B
 ) (/usr/local/texlive/2024/texmf-dist/tex/latex/microtype/mt-msb.cfg
 File: mt-msb.cfg 2005/06/01 v1.0 microtype config. file: AMS symbols (b) (RS)
 )
-LaTeX Font Info:    Trying to load font information for U+rsfs on input line 21.
+LaTeX Font Info:    Trying to load font information for U+rsfs on input line 25.
  (/usr/local/texlive/2024/texmf-dist/tex/latex/jknapltx/ursfs.fd
 File: ursfs.fd 1998/03/24 rsfs font definition file (jk)
-)
+)) [2
 
-LaTeX Warning: Reference `sec:contructionofdatapacket' on page 1 undefined on input line 23.
+]
 
-[1
+Package glossaries Warning: Empty glossary for \printnoidxglossary[type={main}]. Rerun may be required (or you may have forgotten to use commands like \gls) on input line 29.
 
-
-{/usr/local/texlive/2024/texmf-var/fonts/map/pdftex/updmap/pdftex.map}{/usr/local/texlive/2024/texmf-dist/fonts/enc/dvips/lm/lm-ec.enc}{/usr/local/texlive/2024/texmf-dist/fonts/enc/dvips/dejavu/dejavumono_t1-type1.enc}]
-<../Images/gpsValidation.png, id=52, 1441.385pt x 743.77875pt>
-File: ../Images/gpsValidation.png Graphic file (type png)
-<use ../Images/gpsValidation.png>
-Package pdftex.def Info: ../Images/gpsValidation.png  used on input line 27.
-(pdftex.def)             Requested size: 338.58632pt x 174.70859pt.
-
-
-LaTeX Warning: Reference `eq:barometricformula' on page 2 undefined on input line 32.
-
-
-LaTeX Warning: Reference `ch:Literature' on page 2 undefined on input line 35.
-
-<../Images/loraValidationWithSDR.png, id=56, 575.14874pt x 492.03825pt>
-File: ../Images/loraValidationWithSDR.png Graphic file (type png)
-<use ../Images/loraValidationWithSDR.png>
-Package pdftex.def Info: ../Images/loraValidationWithSDR.png  used on input line 39.
-(pdftex.def)             Requested size: 386.95897pt x 331.05287pt.
-[2 <../Images/gpsValidation.png>]
-<../Images/receiverValidation.png, id=67, 695.59875pt x 115.43124pt>
-File: ../Images/receiverValidation.png Graphic file (type png)
-<use ../Images/receiverValidation.png>
-Package pdftex.def Info: ../Images/receiverValidation.png  used on input line 48.
-(pdftex.def)             Requested size: 483.69687pt x 80.26587pt.
-
-
-LaTeX Warning: Reference `sec:loratransmissionparameters' on page 3 undefined on input line 54.
-
-
-LaTeX Warning: Reference `eq:symbolrate' on page 3 undefined on input line 54.
-
-
-LaTeX Warning: Reference `eq:symboltime' on page 3 undefined on input line 54.
-
-[3 <../Images/loraValidationWithSDR.png> <../Images/receiverValidation.png>] [4{/usr/local/texlive/2024/texmf-dist/fonts/enc/dvips/lm/lm-mathit.enc}]
-
-LaTeX Warning: Reference `eq:preambletime' on page 5 undefined on input line 123.
-
-
-LaTeX Warning: Reference `eq:payloadtimefinal' on page 5 undefined on input line 123.
-
-
-LaTeX Warning: Reference `eq:packettime' on page 5 undefined on input line 123.
-
-[5] [6] (./4.ValidationAndSimulation.bbl [7])
-Using TeX to sort glossary entries---this may take a while
-[8
-
-] [9
+[3
 
 
 ] (./4.ValidationAndSimulation.aux)
@@ -1293,26 +1237,22 @@ Using TeX to sort glossary entries---this may take a while
 LaTeX2e <2023-11-01> patch level 1
 L3 programming layer <2024-02-20>
  ***********
-
-
-LaTeX Warning: There were undefined references.
-
 Package rerunfilecheck Info: File `4.ValidationAndSimulation.out' has not changed.
-(rerunfilecheck)             Checksum: 7F34A540FC76F46F3F7DC1D2BFD7D196;911.
+(rerunfilecheck)             Checksum: 633B9246A414C738C1E40E3A1CBE6B65;911.
  ) 
 Here is how much of TeX's memory you used:
- 55868 strings out of 474116
- 1236419 string characters out of 5743682
- 2001187 words of memory out of 5000000
- 77248 multiletter control sequences out of 15000+600000
- 613536 words of font info for 121 fonts, out of 8000000 for 9000
+ 54979 strings out of 474116
+ 1226100 string characters out of 5743682
+ 1931187 words of memory out of 5000000
+ 76432 multiletter control sequences out of 15000+600000
+ 603512 words of font info for 92 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 114i,12n,120p,2504b,2054s stack positions out of 10000i,1000n,20000p,200000b,200000s
-</usr/local/texlive/2024/texmf-dist/fonts/type1/public/dejavu/DejaVuSansMono.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/lm/lmbx10.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/lm/lmbx12.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/lm/lmmi10.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/lm/lmmi8.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/lm/lmr10.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/lm/lmr6.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/lm/lmri10.pfb>
-Output written on 4.ValidationAndSimulation.pdf (9 pages, 1922149 bytes).
+ 114i,5n,120p,2507b,1087s stack positions out of 10000i,1000n,20000p,200000b,200000s
+</usr/local/texlive/2024/texmf-dist/fonts/type1/public/lm/lmbx10.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/lm/lmbx12.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/lm/lmr10.pfb>
+Output written on 4.ValidationAndSimulation.pdf (3 pages, 83770 bytes).
 PDF statistics:
- 160 PDF objects out of 1000 (max. 8388607)
- 125 compressed objects within 2 object streams
- 31 named destinations out of 1000 (max. 500000)
- 31316 words of extra memory for PDF output out of 35830 (max. 10000000)
+ 81 PDF objects out of 1000 (max. 8388607)
+ 69 compressed objects within 1 object stream
+ 17 named destinations out of 1000 (max. 500000)
+ 26693 words of extra memory for PDF output out of 29859 (max. 10000000)
 

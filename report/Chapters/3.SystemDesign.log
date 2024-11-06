@@ -1,10 +1,10 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.26 (TeX Live 2024) (preloaded format=pdflatex 2024.4.24)  22 OCT 2024 11:28
+This is pdfTeX, Version 3.141592653-2.6-1.40.26 (TeX Live 2024) (preloaded format=pdflatex 2024.4.24)  4 NOV 2024 12:15
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
  %&-line parsing enabled.
-**/Users/roryschram/Desktop/EEE4022S_SCHROR002/Chapters/3.SystemDesign.tex
-(/Users/roryschram/Desktop/EEE4022S_SCHROR002/Chapters/3.SystemDesign.tex
+**/Users/roryschram/Documents/Work/masters/report/Chapters/3.SystemDesign.tex
+(/Users/roryschram/Documents/Work/masters/report/Chapters/3.SystemDesign.tex
 LaTeX2e <2023-11-01> patch level 1
 L3 programming layer <2024-02-20>
 (/usr/local/texlive/2024/texmf-dist/tex/latex/standalone/standalone.cls
@@ -1182,300 +1182,57 @@ Package caption Info: supertabular package is loaded.
 Package caption Info: End \AtBeginDocument code.
 
 Chapter 1.
-LaTeX Font Info:    Trying to load font information for TS1+lmr on input line 31.
-(/usr/local/texlive/2024/texmf-dist/tex/latex/lm/ts1lmr.fd
-File: ts1lmr.fd 2015/05/01 v1.6.1 Font defs for Latin Modern
-)
-LaTeX Font Info:    Trying to load font information for OT1+lmr on input line 31.
+(./3.SystemDesign.bbl [1
+
+
+{/usr/local/texlive/2024/texmf-var/fonts/map/pdftex/updmap/pdftex.map}{/usr/local/texlive/2024/texmf-dist/fonts/enc/dvips/lm/lm-ec.enc}] [2]
+Overfull \vbox (31.24544pt too high) has occurred while \output is active []
+
+ [3]
+LaTeX Font Info:    Trying to load font information for OT1+lmr on input line 25.
  (/usr/local/texlive/2024/texmf-dist/tex/latex/lm/ot1lmr.fd
 File: ot1lmr.fd 2015/05/01 v1.6.1 Font defs for Latin Modern
 )
-LaTeX Font Info:    Trying to load font information for OML+lmm on input line 31.
+LaTeX Font Info:    Trying to load font information for OML+lmm on input line 25.
  (/usr/local/texlive/2024/texmf-dist/tex/latex/lm/omllmm.fd
 File: omllmm.fd 2015/05/01 v1.6.1 Font defs for Latin Modern
 )
-LaTeX Font Info:    Trying to load font information for OMS+lmsy on input line 31.
+LaTeX Font Info:    Trying to load font information for OMS+lmsy on input line 25.
  (/usr/local/texlive/2024/texmf-dist/tex/latex/lm/omslmsy.fd
 File: omslmsy.fd 2015/05/01 v1.6.1 Font defs for Latin Modern
 )
-LaTeX Font Info:    Trying to load font information for OMX+lmex on input line 31.
+LaTeX Font Info:    Trying to load font information for OMX+lmex on input line 25.
  (/usr/local/texlive/2024/texmf-dist/tex/latex/lm/omxlmex.fd
 File: omxlmex.fd 2015/05/01 v1.6.1 Font defs for Latin Modern
 )
 LaTeX Font Info:    External font `lmex10' loaded for size
-(Font)              <10.95> on input line 31.
+(Font)              <10.95> on input line 25.
 LaTeX Font Info:    External font `lmex10' loaded for size
-(Font)              <8> on input line 31.
+(Font)              <8> on input line 25.
 LaTeX Font Info:    External font `lmex10' loaded for size
-(Font)              <6> on input line 31.
-LaTeX Font Info:    Trying to load font information for U+msa on input line 31.
+(Font)              <6> on input line 25.
+LaTeX Font Info:    Trying to load font information for U+msa on input line 25.
  (/usr/local/texlive/2024/texmf-dist/tex/latex/amsfonts/umsa.fd
 File: umsa.fd 2013/01/14 v3.01 AMS symbols A
 ) (/usr/local/texlive/2024/texmf-dist/tex/latex/microtype/mt-msa.cfg
 File: mt-msa.cfg 2006/02/04 v1.1 microtype config. file: AMS symbols (a) (RS)
 )
-LaTeX Font Info:    Trying to load font information for U+msb on input line 31.
+LaTeX Font Info:    Trying to load font information for U+msb on input line 25.
  (/usr/local/texlive/2024/texmf-dist/tex/latex/amsfonts/umsb.fd
 File: umsb.fd 2013/01/14 v3.01 AMS symbols B
 ) (/usr/local/texlive/2024/texmf-dist/tex/latex/microtype/mt-msb.cfg
 File: mt-msb.cfg 2005/06/01 v1.0 microtype config. file: AMS symbols (b) (RS)
 )
-LaTeX Font Info:    Trying to load font information for U+rsfs on input line 31.
+LaTeX Font Info:    Trying to load font information for U+rsfs on input line 25.
  (/usr/local/texlive/2024/texmf-dist/tex/latex/jknapltx/ursfs.fd
 File: ursfs.fd 1998/03/24 rsfs font definition file (jk)
-)
-LaTeX Font Info:    External font `lmex10' loaded for size
-(Font)              <9> on input line 31.
-LaTeX Font Info:    External font `lmex10' loaded for size
-(Font)              <5> on input line 31.
- [1
+)) [4
 
+]
 
-{/usr/local/texlive/2024/texmf-var/fonts/map/pdftex/updmap/pdftex.map}{/usr/local/texlive/2024/texmf-dist/fonts/enc/dvips/lm/lm-ec.enc}{/usr/local/texlive/2024/texmf-dist/fonts/enc/dvips/lm/lm-ts1.enc}]
-<../Images/overallModules.png, id=141, 1191.7022pt x 458.46281pt>
-File: ../Images/overallModules.png Graphic file (type png)
-<use ../Images/overallModules.png>
-Package pdftex.def Info: ../Images/overallModules.png  used on input line 49.
-(pdftex.def)             Requested size: 338.58632pt x 130.2575pt.
- [2 <../Images/overallModules.png>]
+Package glossaries Warning: Empty glossary for \printnoidxglossary[type={main}]. Rerun may be required (or you may have forgotten to use commands like \gls) on input line 86.
 
-LaTeX Warning: Reference `ch:methodology' on page 3 undefined on input line 63.
-
-<../Images/transmissionModule.png, id=154, 1351.29843pt x 681.29532pt>
-File: ../Images/transmissionModule.png Graphic file (type png)
-<use ../Images/transmissionModule.png>
-Package pdftex.def Info: ../Images/transmissionModule.png  used on input line 70.
-(pdftex.def)             Requested size: 338.58632pt x 170.70805pt.
-[3 <../Images/transmissionModule.png>] [4]
-
-LaTeX Warning: Reference `ch:Literature' on page 5 undefined on input line 149.
-
-[5]
-<../Images/NEO-6M.jpg, id=213, 501.875pt x 501.875pt>
-File: ../Images/NEO-6M.jpg Graphic file (type jpg)
-<use ../Images/NEO-6M.jpg>
-Package pdftex.def Info: ../Images/NEO-6M.jpg  used on input line 163.
-(pdftex.def)             Requested size: 193.47578pt x 193.479pt.
- [6 <../Images/NEO-6M.jpg>] [7]
-<../Images/BME280.jpg, id=236, 499.8675pt x 259.97125pt>
-File: ../Images/BME280.jpg Graphic file (type jpg)
-<use ../Images/BME280.jpg>
-Package pdftex.def Info: ../Images/BME280.jpg  used on input line 224.
-(pdftex.def)             Requested size: 241.84843pt x 125.78046pt.
- [8{/usr/local/texlive/2024/texmf-dist/fonts/enc/dvips/lm/lm-rm.enc} <../Images/BME280.jpg>]
-<../Images/SX1278.jpg, id=251, 501.875pt x 501.875pt>
-File: ../Images/SX1278.jpg Graphic file (type jpg)
-<use ../Images/SX1278.jpg>
-Package pdftex.def Info: ../Images/SX1278.jpg  used on input line 257.
-(pdftex.def)             Requested size: 193.47578pt x 193.479pt.
-<../Images/duck.jpg, id=253, 396.48125pt x 217.81375pt>
-File: ../Images/duck.jpg Graphic file (type jpg)
-<use ../Images/duck.jpg>
-Package pdftex.def Info: ../Images/duck.jpg  used on input line 268.
-(pdftex.def)             Requested size: 120.92421pt x 66.43143pt.
-<../Images/whip.jpg, id=254, 297.11pt x 292.09125pt>
-File: ../Images/whip.jpg Graphic file (type jpg)
-<use ../Images/whip.jpg>
-Package pdftex.def Info: ../Images/whip.jpg  used on input line 274.
-(pdftex.def)             Requested size: 120.92421pt x 118.88461pt.
-
-
-Package caption Warning: Ambiguous sub-caption(s), use \nextfloat on input line 278.
-See the caption package documentation for explanation.
-
-
-LaTeX Warning: Reference `fig:variousantennaespecifications' on page 9 undefined on input line 282.
-
-[9 <../Images/SX1278.jpg> <../Images/duck.jpg> <../Images/whip.jpg>]
-<../Images/OLED.jpg, id=265, 501.875pt x 501.875pt>
-File: ../Images/OLED.jpg Graphic file (type jpg)
-<use ../Images/OLED.jpg>
-Package pdftex.def Info: ../Images/OLED.jpg  used on input line 302.
-(pdftex.def)             Requested size: 120.92421pt x 120.91959pt.
-<../Images/buttons.jpg, id=266, 245.91875pt x 223.83624pt>
-File: ../Images/buttons.jpg Graphic file (type jpg)
-<use ../Images/buttons.jpg>
-Package pdftex.def Info: ../Images/buttons.jpg  used on input line 308.
-(pdftex.def)             Requested size: 120.92421pt x 110.06667pt.
-
-
-Package caption Warning: Ambiguous sub-caption(s), use \nextfloat on input line 312.
-See the caption package documentation for explanation.
-
-[10 <../Images/OLED.jpg> <../Images/buttons.jpg>]
-<../Images/batteryHolder.png, id=275, 462.72874pt x 333.245pt>
-File: ../Images/batteryHolder.png Graphic file (type png)
-<use ../Images/batteryHolder.png>
-Package pdftex.def Info: ../Images/batteryHolder.png  used on input line 331.
-(pdftex.def)             Requested size: 241.84843pt x 174.17316pt.
- [11 <../Images/batteryHolder.png>]
-Overfull \hbox (18.15135pt too wide) in paragraph at lines 362--363
-\T1/lmr/m/n/10.95 (-20) The re-ceiv-ing sys-tem is slightly sim-pler than the trans-mis-sion mod-ule since it con-tains fewer components/sub-
- []
-
-<../Images/receiveModule.png, id=290, 956.07187pt x 682.04813pt>
-File: ../Images/receiveModule.png Graphic file (type png)
-<use ../Images/receiveModule.png>
-Package pdftex.def Info: ../Images/receiveModule.png  used on input line 375.
-(pdftex.def)             Requested size: 290.22107pt x 207.0409pt.
-[12] [13 <../Images/receiveModule.png>]
-<../Images/transmissionModuleInterface.png, id=315, 1445.4pt x 813.0375pt>
-File: ../Images/transmissionModuleInterface.png Graphic file (type png)
-<use ../Images/transmissionModuleInterface.png>
-Package pdftex.def Info: ../Images/transmissionModuleInterface.png  used on input line 401.
-(pdftex.def)             Requested size: 386.95897pt x 217.66217pt.
- [14 <../Images/transmissionModuleInterface.png>]
-<../Images/microcontrollerModuleSchematic.png, id=323, 372.39125pt x 455.7025pt>
-File: ../Images/microcontrollerModuleSchematic.png Graphic file (type png)
-<use ../Images/microcontrollerModuleSchematic.png>
-Package pdftex.def Info: ../Images/microcontrollerModuleSchematic.png  used on input line 412.
-(pdftex.def)             Requested size: 217.66211pt x 266.36584pt.
-<../Images/batteryModuleSchematic.png, id=325, 736.7525pt x 376.40625pt>
-File: ../Images/batteryModuleSchematic.png Graphic file (type png)
-<use ../Images/batteryModuleSchematic.png>
-Package pdftex.def Info: ../Images/batteryModuleSchematic.png  used on input line 421.
-(pdftex.def)             Requested size: 290.22107pt x 148.26817pt.
-<../Images/sensorModuleSchematic.png, id=328, 626.34pt x 325.215pt>
-File: ../Images/sensorModuleSchematic.png Graphic file (type png)
-<use ../Images/sensorModuleSchematic.png>
-Package pdftex.def Info: ../Images/sensorModuleSchematic.png  used on input line 431.
-(pdftex.def)             Requested size: 290.22107pt x 150.69739pt.
- [15 <../Images/microcontrollerModuleSchematic.png> <../Images/batteryModuleSchematic.png>]
-<../Images/loraModuleSchematic.png, id=339, 342.27875pt x 390.45876pt>
-File: ../Images/loraModuleSchematic.png Graphic file (type png)
-<use ../Images/loraModuleSchematic.png>
-Package pdftex.def Info: ../Images/loraModuleSchematic.png  used on input line 440.
-(pdftex.def)             Requested size: 266.03474pt x 303.50204pt.
- [16 <../Images/sensorModuleSchematic.png> <../Images/loraModuleSchematic.png>]
-<../Images/displayAndControlModuleSchematic.png, id=348, 463.7325pt x 242.9075pt>
-File: ../Images/displayAndControlModuleSchematic.png Graphic file (type png)
-<use ../Images/displayAndControlModuleSchematic.png>
-Package pdftex.def Info: ../Images/displayAndControlModuleSchematic.png  used on input line 450.
-(pdftex.def)             Requested size: 290.22107pt x 152.02437pt.
-
-
-LaTeX Warning: Reference `appendix:fulltransmitterschematic' on page 17 undefined on input line 455.
-
-<../Images/receiveModuleInterface.png, id=350, 1445.4pt x 813.0375pt>
-File: ../Images/receiveModuleInterface.png Graphic file (type png)
-<use ../Images/receiveModuleInterface.png>
-Package pdftex.def Info: ../Images/receiveModuleInterface.png  used on input line 463.
-(pdftex.def)             Requested size: 386.95897pt x 217.66217pt.
-[17 <../Images/displayAndControlModuleSchematic.png> <../Images/receiveModuleInterface.png>]
-<../Images/receiverMicrocontrollerModuleSchematic.png, id=360, 407.5225pt x 460.72125pt>
-File: ../Images/receiverMicrocontrollerModuleSchematic.png Graphic file (type png)
-<use ../Images/receiverMicrocontrollerModuleSchematic.png>
-Package pdftex.def Info: ../Images/receiverMicrocontrollerModuleSchematic.png  used on input line 472.
-(pdftex.def)             Requested size: 241.84843pt x 273.41899pt.
-<../Images/receiverLoraModuleSchematic.png, id=362, 386.44376pt x 290.08376pt>
-File: ../Images/receiverLoraModuleSchematic.png Graphic file (type png)
-<use ../Images/receiverLoraModuleSchematic.png>
-Package pdftex.def Info: ../Images/receiverLoraModuleSchematic.png  used on input line 481.
-(pdftex.def)             Requested size: 290.22107pt x 217.8544pt.
- [18 <../Images/receiverMicrocontrollerModuleSchematic.png> <../Images/receiverLoraModuleSchematic.png>]
-<../Images/receiverDisplayAndControlModuleSchematic.png, id=372, 632.3625pt x 370.38374pt>
-File: ../Images/receiverDisplayAndControlModuleSchematic.png Graphic file (type png)
-<use ../Images/receiverDisplayAndControlModuleSchematic.png>
-Package pdftex.def Info: ../Images/receiverDisplayAndControlModuleSchematic.png  used on input line 490.
-(pdftex.def)             Requested size: 290.22107pt x 169.98862pt.
-
-
-LaTeX Warning: Reference `appendix:fullreceiverschematic' on page 19 undefined on input line 495.
-
-<../Images/transmissionCircuitStripboardFront.jpeg, id=374, 968.61874pt x 1192.455pt>
-File: ../Images/transmissionCircuitStripboardFront.jpeg Graphic file (type jpg)
-<use ../Images/transmissionCircuitStripboardFront.jpeg>
-Package pdftex.def Info: ../Images/transmissionCircuitStripboardFront.jpeg  used on input line 504.
-(pdftex.def)             Requested size: 217.66211pt x 267.94508pt.
-<../Images/transmisionCircuitStripboardBack.jpeg, id=375, 968.61874pt x 1192.455pt>
-File: ../Images/transmisionCircuitStripboardBack.jpeg Graphic file (type jpg)
-<use ../Images/transmisionCircuitStripboardBack.jpeg>
-Package pdftex.def Info: ../Images/transmisionCircuitStripboardBack.jpeg  used on input line 509.
-(pdftex.def)             Requested size: 217.66211pt x 267.94508pt.
-
-Package caption Warning: Ambiguous sub-caption(s), use \nextfloat on input line 512.
-See the caption package documentation for explanation.
-
-[19 <../Images/receiverDisplayAndControlModuleSchematic.png>]
-<../Images/receiverFrontSide.jpg, id=385, 2945.0025pt x 1881.0275pt>
-File: ../Images/receiverFrontSide.jpg Graphic file (type jpg)
-<use ../Images/receiverFrontSide.jpg>
-Package pdftex.def Info: ../Images/receiverFrontSide.jpg  used on input line 524.
-(pdftex.def)             Requested size: 217.66211pt x 139.00443pt.
-<../Images/receiverBackSide.jpg, id=386, 4047.12pt x 3035.34pt>
-File: ../Images/receiverBackSide.jpg Graphic file (type jpg)
-<use ../Images/receiverBackSide.jpg>
-Package pdftex.def Info: ../Images/receiverBackSide.jpg  used on input line 529.
-(pdftex.def)             Requested size: 217.66211pt x 163.21582pt.
-
-
-Package caption Warning: Ambiguous sub-caption(s), use \nextfloat on input line 532.
-See the caption package documentation for explanation.
-
-
-LaTeX Warning: Reference `appendix:githublink' on page 20 undefined on input line 538.
-
-[20 <../Images/transmissionCircuitStripboardFront.jpeg> <../Images/transmisionCircuitStripboardBack.jpeg> <../Images/receiverFrontSide.jpg> <../Images/receiverBackSide.jpg>]
-<../Images/debuggerCircuitPicture1.jpg, id=394, 3035.34pt x 4047.12pt>
-File: ../Images/debuggerCircuitPicture1.jpg Graphic file (type jpg)
-<use ../Images/debuggerCircuitPicture1.jpg>
-Package pdftex.def Info: ../Images/debuggerCircuitPicture1.jpg  used on input line 553.
-(pdftex.def)             Requested size: 217.66211pt x 290.18204pt.
-<../Images/debuggerCircuitPicture2.jpg, id=395, 3035.34pt x 4047.12pt>
-File: ../Images/debuggerCircuitPicture2.jpg Graphic file (type jpg)
-<use ../Images/debuggerCircuitPicture2.jpg>
-Package pdftex.def Info: ../Images/debuggerCircuitPicture2.jpg  used on input line 558.
-(pdftex.def)             Requested size: 217.66211pt x 290.18204pt.
-
-
-Package caption Warning: Ambiguous sub-caption(s), use \nextfloat on input line 561.
-See the caption package documentation for explanation.
-
-[21]
-<../Images/transmissionCircuitSoftwareFlowChart.png, id=404, 827.09pt x 976.64874pt>
-File: ../Images/transmissionCircuitSoftwareFlowChart.png Graphic file (type png)
-<use ../Images/transmissionCircuitSoftwareFlowChart.png>
-Package pdftex.def Info: ../Images/transmissionCircuitSoftwareFlowChart.png  used on input line 568.
-(pdftex.def)             Requested size: 338.58632pt x 399.81758pt.
- [22 <../Images/debuggerCircuitPicture1.jpg> <../Images/debuggerCircuitPicture2.jpg>] [23 <../Images/transmissionCircuitSoftwareFlowChart.png>] [24{/usr/local/texlive/2024/texmf-dist/fonts/enc/dvips/lm/lm-mathit.enc}{/usr/local/texlive/2024/texmf-dist/fonts/enc/dvips/lm/lm-mathex.enc}{/usr/local/texlive/2024/texmf-dist/fonts/enc/dvips/lm/lm-mathsy.enc}]
-Package hyperref Info: bookmark level for unknown lstlisting defaults to 0 on input line 610.
-LaTeX Font Info:    Trying to load font information for T1+DejaVuSansMono-TLF on input line 610.
- (/usr/local/texlive/2024/texmf-dist/tex/latex/dejavu/T1DejaVuSansMono-TLF.fd
-File: T1DejaVuSansMono-TLF.fd 2011/06/01 Font definitions for T1/DejaVuSansMono-TLF.
-)
-LaTeX Font Info:    Font shape `T1/DejaVuSansMono-TLF/m/n' will be
-(Font)              scaled to size 8.76003pt on input line 610.
-Package microtype Info: Loading generic protrusion settings for font family
-(microtype)             `DejaVuSansMono-TLF' (encoding: T1).
-(microtype)             For optimal results, create family-specific settings.
-(microtype)             See the microtype manual for details.
- [25{/usr/local/texlive/2024/texmf-dist/fonts/enc/dvips/dejavu/dejavumono_t1-type1.enc}] [26]
-<../Images/receiverCircuitSoftwareFlowChart.png, id=493, 826.08624pt x 815.045pt>
-File: ../Images/receiverCircuitSoftwareFlowChart.png Graphic file (type png)
-<use ../Images/receiverCircuitSoftwareFlowChart.png>
-Package pdftex.def Info: ../Images/receiverCircuitSoftwareFlowChart.png  used on input line 655.
-(pdftex.def)             Requested size: 338.58632pt x 334.05869pt.
- [27 <../Images/receiverCircuitSoftwareFlowChart.png>]
-<../Images/transmitterPCB.png, id=506, 353.32pt x 524.96124pt>
-File: ../Images/transmitterPCB.png Graphic file (type png)
-<use ../Images/transmitterPCB.png>
-Package pdftex.def Info: ../Images/transmitterPCB.png  used on input line 675.
-(pdftex.def)             Requested size: 193.47578pt x 287.46396pt.
-<../Images/receiverPCB.png, id=507, 288.07625pt x 400.49625pt>
-File: ../Images/receiverPCB.png Graphic file (type png)
-<use ../Images/receiverPCB.png>
-Package pdftex.def Info: ../Images/receiverPCB.png  used on input line 680.
-(pdftex.def)             Requested size: 203.1518pt x 282.44156pt.
-
-
-Package caption Warning: Ambiguous sub-caption(s), use \nextfloat on input line 683.
-See the caption package documentation for explanation.
-
-[28] (./3.SystemDesign.bbl [29 <../Images/transmitterPCB.png> <../Images/receiverPCB.png>])
-Using TeX to sort glossary entries---this may take a while
-[30
-
-] [31
+[5
 
 
 ] (./3.SystemDesign.aux)
@@ -1483,26 +1240,22 @@ Using TeX to sort glossary entries---this may take a while
 LaTeX2e <2023-11-01> patch level 1
 L3 programming layer <2024-02-20>
  ***********
-
-
-LaTeX Warning: There were undefined references.
-
 Package rerunfilecheck Info: File `3.SystemDesign.out' has not changed.
-(rerunfilecheck)             Checksum: A9C698F73A6D070B1583969D0268A94D;5297.
+(rerunfilecheck)             Checksum: E98FC25F8447211DE2BBD5FAE1476BDF;5022.
  ) 
 Here is how much of TeX's memory you used:
- 56543 strings out of 474116
- 1251547 string characters out of 5743682
- 2204187 words of memory out of 5000000
- 77655 multiletter control sequences out of 15000+600000
- 636157 words of font info for 187 fonts, out of 8000000 for 9000
+ 55032 strings out of 474116
+ 1226684 string characters out of 5743682
+ 1936187 words of memory out of 5000000
+ 76460 multiletter control sequences out of 15000+600000
+ 603512 words of font info for 92 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 114i,12n,120p,2493b,1737s stack positions out of 10000i,1000n,20000p,200000b,200000s
-</usr/local/texlive/2024/texmf-dist/fonts/type1/public/dejavu/DejaVuSansMono.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/lm/lmbx10.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/lm/lmbx12.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/lm/lmex10.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/lm/lmmi10.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/lm/lmmi6.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/lm/lmmi8.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/lm/lmr10.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/lm/lmr6.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/lm/lmr8.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/lm/lmr9.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/lm/lmri10.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/lm/lmsy10.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/lm/lmsy6.pfb>
-Output written on 3.SystemDesign.pdf (31 pages, 13473578 bytes).
+ 114i,11n,120p,2496b,1087s stack positions out of 10000i,1000n,20000p,200000b,200000s
+</usr/local/texlive/2024/texmf-dist/fonts/type1/public/lm/lmbx10.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/lm/lmbx12.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/lm/lmr10.pfb>
+Output written on 3.SystemDesign.pdf (5 pages, 92645 bytes).
 PDF statistics:
- 668 PDF objects out of 1000 (max. 8388607)
- 539 compressed objects within 6 object streams
- 183 named destinations out of 1000 (max. 500000)
- 48000 words of extra memory for PDF output out of 51595 (max. 10000000)
+ 176 PDF objects out of 1000 (max. 8388607)
+ 161 compressed objects within 2 object streams
+ 42 named destinations out of 1000 (max. 500000)
+ 26845 words of extra memory for PDF output out of 29859 (max. 10000000)
 

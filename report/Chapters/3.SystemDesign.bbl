@@ -20,49 +20,9 @@
 \providecommand{\BIBdecl}{\relax}
 \BIBdecl
 
-\bibitem{uno_r3_|_arduino_documentation_2023}
+\bibitem{christian_wolff_physical_2024}
 \BIBentryALTinterwordspacing
-``Uno r3 | arduino documentation,'' Oct. 2023. [Online]. Available: \url{https://docs.arduino.cc/hardware/uno-rev3}
-\BIBentrySTDinterwordspacing
-
-\bibitem{how_much_power_an_arduino_uses_2023}
-\BIBentryALTinterwordspacing
-``How much power an arduino uses (8 tests and their results),'' Oct. 2023. [Online]. Available: \url{https://chipwired.com/arduino-power-use/}
-\BIBentrySTDinterwordspacing
-
-\bibitem{esp32_pinout_reference:_which_gpio_pins_should_you_use?_2018}
-\BIBentryALTinterwordspacing
-``Esp32 pinout reference: Which gpio pins should you use?'' Oct. 2018. [Online]. Available: \url{https://randomnerdtutorials.com/esp32-pinout-reference-gpios/}
-\BIBentrySTDinterwordspacing
-
-\bibitem{insight_into_esp32_sleep_modes_their_power_consumption_2023}
-\BIBentryALTinterwordspacing
-``Insight into esp32 sleep modes \& their power consumption,'' Oct. 2023. [Online]. Available: \url{https://lastminuteengineers.com/esp32-sleep-modes-power-consumption/}
-\BIBentrySTDinterwordspacing
-
-\bibitem{STM32F411}
-\BIBentryALTinterwordspacing
-\emph{Arm® Cortex®-M4 32b MCU+FPU, 125 DMIPS, 512KB Flash, 128KB RAM, USB OTG FS, 11 TIMs, 1 ADC, 13 comm. interfaces}, ST Microelectrics, 2017, rev. 7. [Online]. Available: \url{https://www.st.com/resource/en/datasheet/stm32f411ce.pdf}
-\BIBentrySTDinterwordspacing
-
-\bibitem{NEO_6M}
-\BIBentryALTinterwordspacing
-\emph{uBlox 6 GPS Modules}, uBlox, 2011, rev. 7. [Online]. Available: \url{https://content.u-blox.com/sites/default/files/products/documents/NEO-6_DataSheet_%28GPS.G6-HW-09005%29.pdf}
-\BIBentrySTDinterwordspacing
-
-\bibitem{BME280}
-\BIBentryALTinterwordspacing
-\emph{Combined Humidity and Pressure Sensor}, Bosch Sensortec, January 2022, rev. 1.23. [Online]. Available: \url{https://www.bosch-sensortec.com/media/boschsensortec/downloads/datasheets/bst-bme280-ds002.pdf}
-\BIBentrySTDinterwordspacing
-
-\bibitem{SX1278}
-\BIBentryALTinterwordspacing
-\emph{SX1276/77/78/79 - 137 MHz to 1020 MHz Low Power Long Range Transceiver}, Semtech, May 2020, rev. 7. [Online]. Available: \url{https://semtech.my.salesforce.com/sfc/p/#E0000000JelG/a/2R0000001Rc1/QnUuV9TviODKUgt_rpBlPz.EZA_PNK7Rpi8HA5..Sbo}
-\BIBentrySTDinterwordspacing
-
-\bibitem{GPS_NMEA_DATA}
-\BIBentryALTinterwordspacing
-What exactly is {GPS} {NMEA} data? - {GPS} world. [Online]. Available: \url{https://www.gpsworld.com/what-exactly-is-gps-nmea-data/}
+W.~Christian. Physical fundamentals of the radar principle. [Online]. Available: \url{https://www.radartutorial.eu/01.basics/Physical%20fundamentals%20of%20the%20radar%20principle.en.html}
 \BIBentrySTDinterwordspacing
 
 \end{thebibliography}
