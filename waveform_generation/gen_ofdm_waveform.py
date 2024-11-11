@@ -3,11 +3,11 @@ import matplotlib.pyplot as plt
 import scipy
 
 
-K = 256 # number of OFDM subcarriers
+K = 32768 # number of OFDM subcarriers
 
-CP = K//4  # length of the cyclic prefix: 25% of the block
+# CP = K//4  # length of the cyclic prefix: 25% of the block
 
-P = 32 # number of pilot carriers per OFDM block
+P = 4096 # number of pilot carriers per OFDM block
 pilotValue = 3+3j # The known value each pilot transmits
 
 
@@ -137,19 +137,19 @@ OFDM_time = IDFT(OFDM_data)
 print ("Number of OFDM samples in time-domain before CP: ", len(OFDM_time))
 
 
-def addCP(OFDM_time):
-    cp = OFDM_time[-CP:]               # take the last CP samples ...
-    return np.hstack([cp, OFDM_time])  # ... and add them to the beginning
-OFDM_withCP = addCP(OFDM_time)
-print ("Number of OFDM samples in time domain with CP: ", len(OFDM_withCP))
+# def addCP(OFDM_time):
+#     cp = OFDM_time[-CP:]               # take the last CP samples ...
+#     return np.hstack([cp, OFDM_time])  # ... and add them to the beginning
+# OFDM_withCP = addCP(OFDM_time)
+# print ("Number of OFDM samples in time domain with CP: ", len(OFDM_withCP))
 
 
-np.save("waveform_generation/generated_data/original_OFDM_pulse.npy",OFDM_withCP)
+np.save("waveform_generation/generated_data/original_OFDM_pulse.npy",OFDM_time)
 
 
-padded_OFDM_withCP = np.pad(OFDM_withCP, pad_width=200, mode='constant', constant_values=0+0j)
+padded_OFDM_withCP = np.pad(OFDM_time, pad_width=200, mode='constant', constant_values=0+0j)
 
-np.save("waveform_generation/generated_data/padded_OFDM_pulse.npy",OFDM_withCP)
+np.save("waveform_generation/generated_data/padded_OFDM_pulse.npy",padded_OFDM_withCP)
 
 # Open a .dat file in binary write mode
 with open('waveform_generation/generated_data/padded_OFDM_pulse.dat', 'wb') as f:
