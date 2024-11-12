@@ -21,7 +21,7 @@ received_data = read_complex_data_from_dat("received_data/receive.dat")
 
 received_data = received_data - np.mean(received_data)
 
-for i in range(0,200,1):
+for i in range(0,199,1):
     received_data[i] = 0.0 + 0.0j
 
 
@@ -29,7 +29,7 @@ for i in range(0,200,1):
 
 # Get the original pulse
 transmitted_data = np.load("waveform_generation/generated_data/padded_OFDM_pulse.npy")
-transmitted_data = np.load("chirp_toolchain/sweep_signal.npy")
+# transmitted_data = np.load("chirp_toolchain/sweep_signal.npy")
 
 # plt.plot(np.abs(transmitted_data))
 # plt.show()

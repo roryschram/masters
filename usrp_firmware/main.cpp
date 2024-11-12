@@ -255,7 +255,7 @@ int UHD_SAFE_MAIN(int argc, char *argv[]) {
     
     
     
-    tx_usrp->set_sync_source(uhd::device_addr_t("clock_source=internal,time_source=external"));
+    tx_usrp->set_sync_source(uhd::device_addr_t("clock_source=internal,time_source=none"));
     rx_usrp->set_sync_source(uhd::device_addr_t("clock_source=mimo,time_source=mimo"));
     // rx_usrp->set_clock_source(CONFIG::RX_CLOCK);
     // rx_usrp->set_time_source("mimo");
@@ -362,16 +362,17 @@ int UHD_SAFE_MAIN(int argc, char *argv[]) {
 /////////////////////////////////////////////////////////////////////
 ////////////////////// THREAD SECTION ///////////////////////////////
 /////////////////////////////////////////////////////////////////////
-
+    tx_usrp->set_time_now(uhd::time_spec_t(0.0));
     isSetupComplete.store(true);
+    
 
     std::thread transmit_thread([&]() {
         while (!isSetupComplete.load()) {
             // Busy-wait until setup is complete (could use sleep for more efficiency)
             std::this_thread::sleep_for(std::chrono::milliseconds(10));
         }
-        tx_usrp->set_time_unknown_pps(uhd::time_spec_t(0.0));
-        transmit_vector(tx_usrp, transmitVector, time_now, 1.0);
+        //tx_usrp->set_time_unknown_pps(uhd::time_spec_t(0.0));
+        transmit_vector(tx_usrp, transmitVector, time_now, 2.0);
     });
 
     std::thread receive_thread([&]() {
@@ -379,8 +380,9 @@ int UHD_SAFE_MAIN(int argc, char *argv[]) {
             // Busy-wait until setup is complete (could use sleep for more efficiency)
             std::this_thread::sleep_for(std::chrono::milliseconds(10));
         }
-        rx_usrp->set_time_unknown_pps(uhd::time_spec_t(0.0));
-        received_data = receive_vector(rx_usrp,CONFIG::NUM_SAMPS,time_now,1.0);
+        // Don't need this because this device is the slave device
+        //rx_usrp->set_time_unknown_pps(uhd::time_spec_t(0.0));
+        received_data = receive_vector(rx_usrp,CONFIG::NUM_SAMPS,time_now,2.0);
     });
 
 

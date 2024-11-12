@@ -379,7 +379,8 @@ int UHD_SAFE_MAIN(int argc, char *argv[]) {
             // Busy-wait until setup is complete (could use sleep for more efficiency)
             std::this_thread::sleep_for(std::chrono::milliseconds(10));
         }
-        rx_usrp->set_time_unknown_pps(uhd::time_spec_t(0.0));
+        // Don't need to set this because this is the slave device test
+        //rx_usrp->set_time_unknown_pps(uhd::time_spec_t(0.0));
         received_data = receive_vector(rx_usrp,CONFIG::NUM_SAMPS,time_now,1.0);
     });
 
