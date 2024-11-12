@@ -70,3 +70,4 @@ plt.title("Corrolation between received signal and original transmitted signal")
 plt.xlabel("Samples")
 plt.ylabel("$|\\rho(received data,original frame)|$")
 plt.show()
+
