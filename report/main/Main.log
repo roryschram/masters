@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.26 (TeX Live 2024) (preloaded format=pdflatex 2024.4.24)  6 NOV 2024 11:36
+This is pdfTeX, Version 3.141592653-2.6-1.40.26 (TeX Live 2024) (preloaded format=pdflatex 2024.4.24)  12 NOV 2024 14:08
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -1071,759 +1071,7 @@ Package: gincltex 2011/09/04 v0.3 Include external LaTeX files like graphics
 \gincltex@box=\box98
 ) (/usr/local/texlive/2024/texmf-dist/tex/latex/filemod/filemod-expmin.sty
 Package: filemod-expmin 2011/09/19 v1.2 Get and compare file modification times (expandable; minimal)
-)) (../FrontMatter/Glossary.tex
-../FrontMatter/Glossary.tex:32: Missing \endcsname inserted.
-<to be read again> 
-                   \&
-l.32 ...{American Telephone and Telegraph Company}
-                                                  
-The control sequence marked <to be read again> should
-not appear between \csname and \endcsname.
-
-../FrontMatter/Glossary.tex:32: Missing \endcsname inserted.
-<to be read again> 
-                   \&
-l.32 ...{American Telephone and Telegraph Company}
-                                                  
-The control sequence marked <to be read again> should
-not appear between \csname and \endcsname.
-
-../FrontMatter/Glossary.tex:32: Missing { inserted.
-\@glo@label ->{at\&t}
-                     
-l.32 ...{American Telephone and Telegraph Company}
-                                                  
-Where was the left brace? You said something like `\def\a}',
-which I'm going to interpret as `\def\a{}'.
-
-
-../FrontMatter/Glossary.tex:32: LaTeX Error: Missing \begin{document}.
-
-See the LaTeX manual or LaTeX Companion for explanation.
-Type  H <return>  for immediate help.
- ...                                              
-                                                  
-l.32 ...{American Telephone and Telegraph Company}
-                                                  
-You're in trouble here.  Try typing  <return>  to proceed.
-If that doesn't work, type  X <return>  to quit.
-
-../FrontMatter/Glossary.tex:32: Extra \endcsname.
-\csxdef ...expandafter \xdef \csname #1\endcsname 
-                                                  
-l.32 ...{American Telephone and Telegraph Company}
-                                                  
-I'm ignoring this, since I wasn't doing a \csname.
-
-../FrontMatter/Glossary.tex:32: Missing \endcsname inserted.
-<to be read again> 
-                   \&
-l.32 ...{American Telephone and Telegraph Company}
-                                                  
-The control sequence marked <to be read again> should
-not appear between \csname and \endcsname.
-
-../FrontMatter/Glossary.tex:32: Extra \endcsname.
-\csuse #1->\ifcsname #1\endcsname 
-                                  \csname #1\expandafter \endcsname \fi 
-l.32 ...{American Telephone and Telegraph Company}
-                                                  
-I'm ignoring this, since I wasn't doing a \csname.
-
-../FrontMatter/Glossary.tex:32: Missing \endcsname inserted.
-<to be read again> 
-                   \&
-l.32 ...{American Telephone and Telegraph Company}
-                                                  
-The control sequence marked <to be read again> should
-not appear between \csname and \endcsname.
-
-../FrontMatter/Glossary.tex:32: Too many }'s.
-\@glo@label ->{at\&t}
-                     
-l.32 ...{American Telephone and Telegraph Company}
-                                                  
-You've closed more groups than you opened.
-Such booboos are generally harmless, so keep going.
-
-../FrontMatter/Glossary.tex:32: Extra \endcsname.
-<recently read> \endcsname 
-                           
-l.32 ...{American Telephone and Telegraph Company}
-                                                  
-I'm ignoring this, since I wasn't doing a \csname.
-
-../FrontMatter/Glossary.tex:32: Too many }'s.
-\gls@defglossaryentry ...entrytype {\@glo@label }}
-                                                  \ifcsundef {glolist@\@glo@...
-l.32 ...{American Telephone and Telegraph Company}
-                                                  
-You've closed more groups than you opened.
-Such booboos are generally harmless, so keep going.
-
-../FrontMatter/Glossary.tex:32: Missing \endcsname inserted.
-<to be read again> 
-                   \&
-l.32 ...{American Telephone and Telegraph Company}
-                                                  
-The control sequence marked <to be read again> should
-not appear between \csname and \endcsname.
-
-
-../FrontMatter/Glossary.tex:32: Package glossaries Error: Glossary type `\&t' has not been defined.
-
-See the glossaries package documentation for explanation.
-Type  H <return>  for immediate help.
- ...                                              
-                                                  
-l.32 ...{American Telephone and Telegraph Company}
-                                                  
-You need to define a new glossary type, before making entries in it
-
-../FrontMatter/Glossary.tex:32: Missing \endcsname inserted.
-<to be read again> 
-                   \&
-l.32 ...{American Telephone and Telegraph Company}
-                                                  
-The control sequence marked <to be read again> should
-not appear between \csname and \endcsname.
-
-../FrontMatter/Glossary.tex:32: Missing { inserted.
-\@glo@label ->{at\&t}
-                     
-l.32 ...{American Telephone and Telegraph Company}
-                                                  
-Where was the left brace? You said something like `\def\a}',
-which I'm going to interpret as `\def\a{}'.
-
-../FrontMatter/Glossary.tex:32: Extra \endcsname.
-\gls@defglossaryentry ...@label @parent\endcsname 
-                                                  {}\else \ifdefequal \@glo@...
-l.32 ...{American Telephone and Telegraph Company}
-                                                  
-I'm ignoring this, since I wasn't doing a \csname.
-
-../FrontMatter/Glossary.tex:32: Missing \endcsname inserted.
-<to be read again> 
-                   \&
-l.32 ...{American Telephone and Telegraph Company}
-                                                  
-The control sequence marked <to be read again> should
-not appear between \csname and \endcsname.
-
-../FrontMatter/Glossary.tex:32: Missing { inserted.
-\@glo@label ->{at\&t}
-                     
-l.32 ...{American Telephone and Telegraph Company}
-                                                  
-Where was the left brace? You said something like `\def\a}',
-which I'm going to interpret as `\def\a{}'.
-
-../FrontMatter/Glossary.tex:32: Extra \endcsname.
-\gls@defglossaryentry ...o@label @level\endcsname 
-                                                  {\number \gls@level }\gls@...
-l.32 ...{American Telephone and Telegraph Company}
-                                                  
-I'm ignoring this, since I wasn't doing a \csname.
-
-../FrontMatter/Glossary.tex:32: Missing \endcsname inserted.
-<to be read again> 
-                   \&
-l.32 ...{American Telephone and Telegraph Company}
-                                                  
-The control sequence marked <to be read again> should
-not appear between \csname and \endcsname.
-
-../FrontMatter/Glossary.tex:32: Missing { inserted.
-\@glo@label ->{at\&t}
-                     
-l.32 ...{American Telephone and Telegraph Company}
-                                                  
-Where was the left brace? You said something like `\def\a}',
-which I'm going to interpret as `\def\a{}'.
-
-../FrontMatter/Glossary.tex:32: Extra \endcsname.
-\csxdef ...expandafter \xdef \csname #1\endcsname 
-                                                  
-l.32 ...{American Telephone and Telegraph Company}
-                                                  
-I'm ignoring this, since I wasn't doing a \csname.
-
-../FrontMatter/Glossary.tex:32: Missing \endcsname inserted.
-<to be read again> 
-                   \&
-l.32 ...{American Telephone and Telegraph Company}
-                                                  
-The control sequence marked <to be read again> should
-not appear between \csname and \endcsname.
-
-../FrontMatter/Glossary.tex:32: Too many }'s.
-\@glo@label ->{at\&t}
-                     
-l.32 ...{American Telephone and Telegraph Company}
-                                                  
-You've closed more groups than you opened.
-Such booboos are generally harmless, so keep going.
-
-../FrontMatter/Glossary.tex:32: Extra \endcsname.
-\ifcsdef #1->\ifcsname #1\endcsname 
-                                    \expandafter \@firstoftwo \else \expanda...
-l.32 ...{American Telephone and Telegraph Company}
-                                                  
-I'm ignoring this, since I wasn't doing a \csname.
-
-../FrontMatter/Glossary.tex:32: Missing \endcsname inserted.
-<to be read again> 
-                   \&
-l.32 ...{American Telephone and Telegraph Company}
-                                                  
-The control sequence marked <to be read again> should
-not appear between \csname and \endcsname.
-
-../FrontMatter/Glossary.tex:32: Too many }'s.
-\@glo@label ->{at\&t}
-                     
-l.32 ...{American Telephone and Telegraph Company}
-                                                  
-You've closed more groups than you opened.
-Such booboos are generally harmless, so keep going.
-
-../FrontMatter/Glossary.tex:32: Extra \endcsname.
-<argument> ...lo@\@glo@label @sortvalue\endcsname 
-                                                  
-l.32 ...{American Telephone and Telegraph Company}
-                                                  
-I'm ignoring this, since I wasn't doing a \csname.
-
-../FrontMatter/Glossary.tex:32: Missing \endcsname inserted.
-<to be read again> 
-                   \&
-l.32 ...{American Telephone and Telegraph Company}
-                                                  
-The control sequence marked <to be read again> should
-not appear between \csname and \endcsname.
-
-../FrontMatter/Glossary.tex:32: Missing { inserted.
-\@glo@label ->{at\&t}
-                     
-l.32 ...{American Telephone and Telegraph Company}
-                                                  
-Where was the left brace? You said something like `\def\a}',
-which I'm going to interpret as `\def\a{}'.
-
-../FrontMatter/Glossary.tex:32: Extra \endcsname.
-\csxdef ...expandafter \xdef \csname #1\endcsname 
-                                                  
-l.32 ...{American Telephone and Telegraph Company}
-                                                  
-I'm ignoring this, since I wasn't doing a \csname.
-
-../FrontMatter/Glossary.tex:32: Missing \endcsname inserted.
-<to be read again> 
-                   \&
-l.32 ...{American Telephone and Telegraph Company}
-                                                  
-The control sequence marked <to be read again> should
-not appear between \csname and \endcsname.
-
-../FrontMatter/Glossary.tex:32: Extra \endcsname.
-\gls@defglossaryentry ...lo@label @text\endcsname 
-                                                  \glspluralsuffix }{\@glo@l...
-l.32 ...{American Telephone and Telegraph Company}
-                                                  
-I'm ignoring this, since I wasn't doing a \csname.
-
-../FrontMatter/Glossary.tex:32: Too many }'s.
-\gls@defglossaryentry ...csname \glspluralsuffix }
-                                                  {\@glo@label }{plural}{\@g...
-l.32 ...{American Telephone and Telegraph Company}
-                                                  
-You've closed more groups than you opened.
-Such booboos are generally harmless, so keep going.
-
-../FrontMatter/Glossary.tex:32: Missing \endcsname inserted.
-<to be read again> 
-                   \&
-l.32 ...{American Telephone and Telegraph Company}
-                                                  
-The control sequence marked <to be read again> should
-not appear between \csname and \endcsname.
-
-../FrontMatter/Glossary.tex:32: Extra \endcsname.
-\gls@defglossaryentry ...lo@label @text\endcsname 
-                                                  }{\@glo@label }{first}{\@g...
-l.32 ...{American Telephone and Telegraph Company}
-                                                  
-I'm ignoring this, since I wasn't doing a \csname.
-
-../FrontMatter/Glossary.tex:32: Too many }'s.
-\gls@defglossaryentry ...o@label @text\endcsname }
-                                                  {\@glo@label }{first}{\@gl...
-l.32 ...{American Telephone and Telegraph Company}
-                                                  
-You've closed more groups than you opened.
-Such booboos are generally harmless, so keep going.
-
-../FrontMatter/Glossary.tex:32: Missing \endcsname inserted.
-<to be read again> 
-                   \&
-l.32 ...{American Telephone and Telegraph Company}
-                                                  
-The control sequence marked <to be read again> should
-not appear between \csname and \endcsname.
-
-../FrontMatter/Glossary.tex:32: Extra \endcsname.
-\gls@defglossaryentry ...o@label @first\endcsname 
-                                                  \glspluralsuffix }{\@glo@l...
-l.32 ...{American Telephone and Telegraph Company}
-                                                  
-I'm ignoring this, since I wasn't doing a \csname.
-
-../FrontMatter/Glossary.tex:32: Too many }'s.
-\gls@defglossaryentry ...csname \glspluralsuffix }
-                                                  {\@glo@label }{firstpl}{\@...
-l.32 ...{American Telephone and Telegraph Company}
-                                                  
-You've closed more groups than you opened.
-Such booboos are generally harmless, so keep going.
-
-../FrontMatter/Glossary.tex:32: Missing \endcsname inserted.
-<to be read again> 
-                   \&
-l.32 ...{American Telephone and Telegraph Company}
-                                                  
-The control sequence marked <to be read again> should
-not appear between \csname and \endcsname.
-
-../FrontMatter/Glossary.tex:32: Missing \endcsname inserted.
-<to be read again> 
-                   \&
-l.32 ...{American Telephone and Telegraph Company}
-                                                  
-The control sequence marked <to be read again> should
-not appear between \csname and \endcsname.
-
-../FrontMatter/Glossary.tex:32: Missing { inserted.
-\@glo@label ->{at\&t}
-                     
-l.32 ...{American Telephone and Telegraph Company}
-                                                  
-Where was the left brace? You said something like `\def\a}',
-which I'm going to interpret as `\def\a{}'.
-
-../FrontMatter/Glossary.tex:32: Extra \endcsname.
-\csxdef ...expandafter \xdef \csname #1\endcsname 
-                                                  
-l.32 ...{American Telephone and Telegraph Company}
-                                                  
-I'm ignoring this, since I wasn't doing a \csname.
-
-../FrontMatter/Glossary.tex:32: Missing \endcsname inserted.
-<to be read again> 
-                   \&
-l.32 ...{American Telephone and Telegraph Company}
-                                                  
-The control sequence marked <to be read again> should
-not appear between \csname and \endcsname.
-
-../FrontMatter/Glossary.tex:32: Missing { inserted.
-\@glo@label ->{at\&t}
-                     
-l.32 ...{American Telephone and Telegraph Company}
-                                                  
-Where was the left brace? You said something like `\def\a}',
-which I'm going to interpret as `\def\a{}'.
-
-../FrontMatter/Glossary.tex:32: Extra \endcsname.
-\csxdef ...expandafter \xdef \csname #1\endcsname 
-                                                  
-l.32 ...{American Telephone and Telegraph Company}
-                                                  
-I'm ignoring this, since I wasn't doing a \csname.
-
-../FrontMatter/Glossary.tex:32: Missing \endcsname inserted.
-<to be read again> 
-                   \&
-l.32 ...{American Telephone and Telegraph Company}
-                                                  
-The control sequence marked <to be read again> should
-not appear between \csname and \endcsname.
-
-../FrontMatter/Glossary.tex:32: Missing { inserted.
-\@glo@label ->{at\&t}
-                     
-l.32 ...{American Telephone and Telegraph Company}
-                                                  
-Where was the left brace? You said something like `\def\a}',
-which I'm going to interpret as `\def\a{}'.
-
-../FrontMatter/Glossary.tex:32: Extra \endcsname.
-\csxdef ...expandafter \xdef \csname #1\endcsname 
-                                                  
-l.32 ...{American Telephone and Telegraph Company}
-                                                  
-I'm ignoring this, since I wasn't doing a \csname.
-
-../FrontMatter/Glossary.tex:32: Missing \endcsname inserted.
-<to be read again> 
-                   \&
-l.32 ...{American Telephone and Telegraph Company}
-                                                  
-The control sequence marked <to be read again> should
-not appear between \csname and \endcsname.
-
-../FrontMatter/Glossary.tex:32: Missing { inserted.
-\@glo@label ->{at\&t}
-                     
-l.32 ...{American Telephone and Telegraph Company}
-                                                  
-Where was the left brace? You said something like `\def\a}',
-which I'm going to interpret as `\def\a{}'.
-
-../FrontMatter/Glossary.tex:32: Extra \endcsname.
-\csxdef ...expandafter \xdef \csname #1\endcsname 
-                                                  
-l.32 ...{American Telephone and Telegraph Company}
-                                                  
-I'm ignoring this, since I wasn't doing a \csname.
-
-../FrontMatter/Glossary.tex:32: Missing \endcsname inserted.
-<to be read again> 
-                   \&
-l.32 ...{American Telephone and Telegraph Company}
-                                                  
-The control sequence marked <to be read again> should
-not appear between \csname and \endcsname.
-
-../FrontMatter/Glossary.tex:32: Missing { inserted.
-\@glo@label ->{at\&t}
-                     
-l.32 ...{American Telephone and Telegraph Company}
-                                                  
-Where was the left brace? You said something like `\def\a}',
-which I'm going to interpret as `\def\a{}'.
-
-../FrontMatter/Glossary.tex:32: Extra \endcsname.
-\csxdef ...expandafter \xdef \csname #1\endcsname 
-                                                  
-l.32 ...{American Telephone and Telegraph Company}
-                                                  
-I'm ignoring this, since I wasn't doing a \csname.
-
-../FrontMatter/Glossary.tex:32: Missing \endcsname inserted.
-<to be read again> 
-                   \&
-l.32 ...{American Telephone and Telegraph Company}
-                                                  
-The control sequence marked <to be read again> should
-not appear between \csname and \endcsname.
-
-../FrontMatter/Glossary.tex:32: Missing { inserted.
-\@glo@label ->{at\&t}
-                     
-l.32 ...{American Telephone and Telegraph Company}
-                                                  
-Where was the left brace? You said something like `\def\a}',
-which I'm going to interpret as `\def\a{}'.
-
-../FrontMatter/Glossary.tex:32: Extra \endcsname.
-\csxdef ...expandafter \xdef \csname #1\endcsname 
-                                                  
-l.32 ...{American Telephone and Telegraph Company}
-                                                  
-I'm ignoring this, since I wasn't doing a \csname.
-
-../FrontMatter/Glossary.tex:32: Missing \endcsname inserted.
-<to be read again> 
-                   \&
-l.32 ...{American Telephone and Telegraph Company}
-                                                  
-The control sequence marked <to be read again> should
-not appear between \csname and \endcsname.
-
-../FrontMatter/Glossary.tex:32: Missing { inserted.
-\@glo@label ->{at\&t}
-                     
-l.32 ...{American Telephone and Telegraph Company}
-                                                  
-Where was the left brace? You said something like `\def\a}',
-which I'm going to interpret as `\def\a{}'.
-
-../FrontMatter/Glossary.tex:32: Extra \endcsname.
-\csxdef ...expandafter \xdef \csname #1\endcsname 
-                                                  
-l.32 ...{American Telephone and Telegraph Company}
-                                                  
-I'm ignoring this, since I wasn't doing a \csname.
-
-../FrontMatter/Glossary.tex:32: Missing \endcsname inserted.
-<to be read again> 
-                   \&
-l.32 ...{American Telephone and Telegraph Company}
-                                                  
-The control sequence marked <to be read again> should
-not appear between \csname and \endcsname.
-
-../FrontMatter/Glossary.tex:32: Missing { inserted.
-\@glo@label ->{at\&t}
-                     
-l.32 ...{American Telephone and Telegraph Company}
-                                                  
-Where was the left brace? You said something like `\def\a}',
-which I'm going to interpret as `\def\a{}'.
-
-../FrontMatter/Glossary.tex:32: Extra \endcsname.
-\csxdef ...expandafter \xdef \csname #1\endcsname 
-                                                  
-l.32 ...{American Telephone and Telegraph Company}
-                                                  
-I'm ignoring this, since I wasn't doing a \csname.
-
-../FrontMatter/Glossary.tex:32: Missing \endcsname inserted.
-<to be read again> 
-                   \&
-l.32 ...{American Telephone and Telegraph Company}
-                                                  
-The control sequence marked <to be read again> should
-not appear between \csname and \endcsname.
-
-../FrontMatter/Glossary.tex:32: Missing { inserted.
-\@glo@label ->{at\&t}
-                     
-l.32 ...{American Telephone and Telegraph Company}
-                                                  
-Where was the left brace? You said something like `\def\a}',
-which I'm going to interpret as `\def\a{}'.
-
-../FrontMatter/Glossary.tex:32: Extra \endcsname.
-\csxdef ...expandafter \xdef \csname #1\endcsname 
-                                                  
-l.32 ...{American Telephone and Telegraph Company}
-                                                  
-I'm ignoring this, since I wasn't doing a \csname.
-
-../FrontMatter/Glossary.tex:32: Missing \endcsname inserted.
-<to be read again> 
-                   \&
-l.32 ...{American Telephone and Telegraph Company}
-                                                  
-The control sequence marked <to be read again> should
-not appear between \csname and \endcsname.
-
-../FrontMatter/Glossary.tex:32: Missing { inserted.
-\@glo@label ->{at\&t}
-                     
-l.32 ...{American Telephone and Telegraph Company}
-                                                  
-Where was the left brace? You said something like `\def\a}',
-which I'm going to interpret as `\def\a{}'.
-
-../FrontMatter/Glossary.tex:32: Extra \endcsname.
-\csxdef ...expandafter \xdef \csname #1\endcsname 
-                                                  
-l.32 ...{American Telephone and Telegraph Company}
-                                                  
-I'm ignoring this, since I wasn't doing a \csname.
-
-../FrontMatter/Glossary.tex:32: Missing \endcsname inserted.
-<to be read again> 
-                   \&
-l.32 ...{American Telephone and Telegraph Company}
-                                                  
-The control sequence marked <to be read again> should
-not appear between \csname and \endcsname.
-
-../FrontMatter/Glossary.tex:32: Missing { inserted.
-\@glo@label ->{at\&t}
-                     
-l.32 ...{American Telephone and Telegraph Company}
-                                                  
-Where was the left brace? You said something like `\def\a}',
-which I'm going to interpret as `\def\a{}'.
-
-../FrontMatter/Glossary.tex:32: Extra \endcsname.
-\csxdef ...expandafter \xdef \csname #1\endcsname 
-                                                  
-l.32 ...{American Telephone and Telegraph Company}
-                                                  
-I'm ignoring this, since I wasn't doing a \csname.
-
-../FrontMatter/Glossary.tex:32: Missing \endcsname inserted.
-<to be read again> 
-                   \&
-l.32 ...{American Telephone and Telegraph Company}
-                                                  
-The control sequence marked <to be read again> should
-not appear between \csname and \endcsname.
-
-../FrontMatter/Glossary.tex:32: Too many }'s.
-\@glo@label ->{at\&t}
-                     
-l.32 ...{American Telephone and Telegraph Company}
-                                                  
-You've closed more groups than you opened.
-Such booboos are generally harmless, so keep going.
-
-../FrontMatter/Glossary.tex:32: Extra \endcsname.
-<argument> ...ame glo@\@glo@label @name\endcsname 
-                                                  \@glo@name 
-l.32 ...{American Telephone and Telegraph Company}
-                                                  
-I'm ignoring this, since I wasn't doing a \csname.
-
-../FrontMatter/Glossary.tex:32: Missing \endcsname inserted.
-<to be read again> 
-                   \&
-l.32 ...{American Telephone and Telegraph Company}
-                                                  
-The control sequence marked <to be read again> should
-not appear between \csname and \endcsname.
-
-../FrontMatter/Glossary.tex:32: Too many }'s.
-\@glo@label ->{at\&t}
-                     
-l.32 ...{American Telephone and Telegraph Company}
-                                                  
-You've closed more groups than you opened.
-Such booboos are generally harmless, so keep going.
-
-../FrontMatter/Glossary.tex:32: Extra \endcsname.
-\ifcsundef #1->\ifcsname #1\endcsname 
-                                      \expandafter \ifx \csname #1\endcsname...
-l.32 ...{American Telephone and Telegraph Company}
-                                                  
-I'm ignoring this, since I wasn't doing a \csname.
-
-../FrontMatter/Glossary.tex:32: Missing \endcsname inserted.
-<to be read again> 
-                   \&
-l.32 ...{American Telephone and Telegraph Company}
-                                                  
-The control sequence marked <to be read again> should
-not appear between \csname and \endcsname.
-
-../FrontMatter/Glossary.tex:32: Too many }'s.
-\@glo@label ->{at\&t}
-                     
-l.32 ...{American Telephone and Telegraph Company}
-                                                  
-You've closed more groups than you opened.
-Such booboos are generally harmless, so keep going.
-
-../FrontMatter/Glossary.tex:32: Extra \endcsname.
-\ifcsundef ...pandafter \ifx \csname #1\endcsname 
-                                                  \relax \expandafter \expan...
-l.32 ...{American Telephone and Telegraph Company}
-                                                  
-I'm ignoring this, since I wasn't doing a \csname.
-
-../FrontMatter/Glossary.tex:32: Missing \endcsname inserted.
-<to be read again> 
-                   \&
-l.32 ...{American Telephone and Telegraph Company}
-                                                  
-The control sequence marked <to be read again> should
-not appear between \csname and \endcsname.
-
-../FrontMatter/Glossary.tex:32: Missing { inserted.
-\@glo@label ->{at\&t}
-                     
-l.32 ...{American Telephone and Telegraph Company}
-                                                  
-Where was the left brace? You said something like `\def\a}',
-which I'm going to interpret as `\def\a{}'.
-
-../FrontMatter/Glossary.tex:32: Extra \endcsname.
-\csxdef ...expandafter \xdef \csname #1\endcsname 
-                                                  
-l.32 ...{American Telephone and Telegraph Company}
-                                                  
-I'm ignoring this, since I wasn't doing a \csname.
-
-../FrontMatter/Glossary.tex:32: Missing \endcsname inserted.
-<to be read again> 
-                   \&
-l.32 ...{American Telephone and Telegraph Company}
-                                                  
-The control sequence marked <to be read again> should
-not appear between \csname and \endcsname.
-
-../FrontMatter/Glossary.tex:32: Too many }'s.
-\@glo@label ->{at\&t}
-                     
-l.32 ...{American Telephone and Telegraph Company}
-                                                  
-You've closed more groups than you opened.
-Such booboos are generally harmless, so keep going.
-
-../FrontMatter/Glossary.tex:32: Extra \endcsname.
-<argument> ...ame glo@\@glo@label @desc\endcsname 
-                                                  \@glo@desc 
-l.32 ...{American Telephone and Telegraph Company}
-                                                  
-I'm ignoring this, since I wasn't doing a \csname.
-
-../FrontMatter/Glossary.tex:32: Missing \endcsname inserted.
-<to be read again> 
-                   \&
-l.32 ...{American Telephone and Telegraph Company}
-                                                  
-The control sequence marked <to be read again> should
-not appear between \csname and \endcsname.
-
-../FrontMatter/Glossary.tex:32: Too many }'s.
-\@glo@label ->{at\&t}
-                     
-l.32 ...{American Telephone and Telegraph Company}
-                                                  
-You've closed more groups than you opened.
-Such booboos are generally harmless, so keep going.
-
-../FrontMatter/Glossary.tex:32: Extra \endcsname.
-<argument> ...o@\@glo@label @descplural\endcsname 
-                                                  \@gls@value 
-l.32 ...{American Telephone and Telegraph Company}
-                                                  
-I'm ignoring this, since I wasn't doing a \csname.
-
-../FrontMatter/Glossary.tex:32: Use of \@glo@sort doesn't match its definition.
-<argument> ...rt \@glo@sort \gls@end@sanitizesort 
-                                                  
-l.32 ...{American Telephone and Telegraph Company}
-                                                  
-If you say, e.g., `\def\a1{...}', then you must always
-put `1' after `\a', since control sequence names are
-made up of letters only. The macro here has not been
-followed by the required stuff, so I'm ignoring it.
-
-Runaway argument?
-\expandafter \protected@xdef \csname glo@\@glo@label @sort\endcsname \ETC.
-../FrontMatter/Glossary.tex:33: Paragraph ended before \@@gls@noidx@no@sanitizesort was complete.
-<to be read again> 
-                   \par 
-l.33 
-     
-I suspect you've forgotten a `}', causing me to apply this
-control sequence to too much text. How can we recover?
-My plan is to forget the whole thing and hope for the best.
-
-
-Overfull \hbox (296.06238pt too wide) in paragraph at lines 32--33
-[]\T1/lmr/m/n/10.95 @typemain@type@type@parent@level0@sortvalueAT&T&t@sortvalue&t@sortvalue@textAT&Txtsat&tpluralAT&Tsxtat&tfirstAmerican
- []
-
-
-Overfull \hbox (330.85437pt too wide) in paragraph at lines 32--33
-\T1/lmr/m/n/10.95 phone and Tele-graph Com-pa-nys (AT&Ts)@counterpage@useri@userii@useriii@useriv@userv@uservi@shortAT&T@shortplAT&Ts@longAmerican
- []
-
-
-Overfull \hbox (86.36368pt too wide) in paragraph at lines 32--33
-\T1/lmr/m/n/10.95 graph Com-pa-nyst@nameAT&T&t@numberlistt@numberlist@numberlistat&tt@descAmerican
- []
-
-)
-No file Main.aux.
+)) (../FrontMatter/Glossary.tex) (./Main.aux)
 \openout1 = `Main.aux'.
 
 LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 10.
@@ -1844,6 +1092,7 @@ LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 10.
 LaTeX Font Info:    ... okay on input line 10.
 LaTeX Font Info:    Checking defaults for PU/pdf/m/n on input line 10.
 LaTeX Font Info:    ... okay on input line 10.
+
 *geometry* driver: auto-detecting
 *geometry* detected driver: pdftex
 *geometry* verbose mode - [ preamble ] result:
@@ -1900,11 +1149,12 @@ File: epstopdf-sys.cfg 2010/07/13 v1.3 Configuration of (r)epstopdf for TeX Live
 Package pgfplots notification 'compat/show suggested version=true': document has been generated with the most recent feature set (\pgfplotsset{compat=1.18}).
 
 Package hyperref Info: Link coloring ON on input line 10.
+(./Main.out) (./Main.out)
 \@outlinefile=\write4
 \openout4 = `Main.out'.
 
 Package csquotes Info: Making character " active on input line 10.
-(/usr/local/texlive/2024/texmf-dist/tex/latex/translations/translations-basic-dictionary-english.trsl
+ (/usr/local/texlive/2024/texmf-dist/tex/latex/translations/translations-basic-dictionary-english.trsl
 File: translations-basic-dictionary-english.trsl (english translation file `translations-basic-dictionary')
 )
 Package translations Info: loading dictionary `translations-basic-dictionary' for `english'. on input line 10.
@@ -1936,18 +1186,15 @@ Package: ltcaption 2021/01/08 v1.4c longtable captions (AR)
 Package caption Info: supertabular package is loaded.
 Package caption Info: End \AtBeginDocument code.
  (../FrontMatter/1.Title.tex
-<../FrontMatter/UCT_logo.png, id=7, 1554.80875pt x 1578.89874pt>
+<../FrontMatter/UCT_logo.png, id=392, 1554.80875pt x 1578.89874pt>
 File: ../FrontMatter/UCT_logo.png Graphic file (type png)
 <use ../FrontMatter/UCT_logo.png>
 Package pdftex.def Info: ../FrontMatter/UCT_logo.png  used on input line 14.
 (pdftex.def)             Requested size: 193.47578pt x 196.47044pt.
-) (../FrontMatter/2.Declaration.tex
-Overfull \vbox (110.24214pt too high) has occurred while \output is active []
-
- [1
+) (../FrontMatter/2.Declaration.tex [1
 
 {/usr/local/texlive/2024/texmf-var/fonts/map/pdftex/updmap/pdftex.map}{/usr/local/texlive/2024/texmf-dist/fonts/enc/dvips/lm/lm-ec.enc} <../FrontMatter/UCT_logo.png>]
-<../Images/signiture.png, id=18, 193.72375pt x 112.42pt>
+<../Images/signiture.png, id=402, 193.72375pt x 112.42pt>
 File: ../Images/signiture.png Graphic file (type png)
 <use ../Images/signiture.png>
 Package pdftex.def Info: ../Images/signiture.png  used on input line 21.
@@ -1968,32 +1215,65 @@ Underfull \hbox (badness 10000) in paragraph at lines 23--28
 
 ]) [4
 
-]
-No file Main.toc.
+] (./Main.toc
+LaTeX Font Info:    Trying to load font information for OT1+lmr on input line 6.
+ (/usr/local/texlive/2024/texmf-dist/tex/latex/lm/ot1lmr.fd
+File: ot1lmr.fd 2015/05/01 v1.6.1 Font defs for Latin Modern
+)
+LaTeX Font Info:    Trying to load font information for OML+lmm on input line 6.
+ (/usr/local/texlive/2024/texmf-dist/tex/latex/lm/omllmm.fd
+File: omllmm.fd 2015/05/01 v1.6.1 Font defs for Latin Modern
+)
+LaTeX Font Info:    Trying to load font information for OMS+lmsy on input line 6.
+ (/usr/local/texlive/2024/texmf-dist/tex/latex/lm/omslmsy.fd
+File: omslmsy.fd 2015/05/01 v1.6.1 Font defs for Latin Modern
+)
+LaTeX Font Info:    Trying to load font information for OMX+lmex on input line 6.
+ (/usr/local/texlive/2024/texmf-dist/tex/latex/lm/omxlmex.fd
+File: omxlmex.fd 2015/05/01 v1.6.1 Font defs for Latin Modern
+)
+LaTeX Font Info:    External font `lmex10' loaded for size
+(Font)              <10.95> on input line 6.
+LaTeX Font Info:    External font `lmex10' loaded for size
+(Font)              <8> on input line 6.
+LaTeX Font Info:    External font `lmex10' loaded for size
+(Font)              <6> on input line 6.
+LaTeX Font Info:    Trying to load font information for U+msa on input line 6.
+ (/usr/local/texlive/2024/texmf-dist/tex/latex/amsfonts/umsa.fd
+File: umsa.fd 2013/01/14 v3.01 AMS symbols A
+) (/usr/local/texlive/2024/texmf-dist/tex/latex/microtype/mt-msa.cfg
+File: mt-msa.cfg 2006/02/04 v1.1 microtype config. file: AMS symbols (a) (RS)
+)
+LaTeX Font Info:    Trying to load font information for U+msb on input line 6.
+ (/usr/local/texlive/2024/texmf-dist/tex/latex/amsfonts/umsb.fd
+File: umsb.fd 2013/01/14 v3.01 AMS symbols B
+) (/usr/local/texlive/2024/texmf-dist/tex/latex/microtype/mt-msb.cfg
+File: mt-msb.cfg 2005/06/01 v1.0 microtype config. file: AMS symbols (b) (RS)
+)
+LaTeX Font Info:    Trying to load font information for U+rsfs on input line 6.
+ (/usr/local/texlive/2024/texmf-dist/tex/latex/jknapltx/ursfs.fd
+File: ursfs.fd 1998/03/24 rsfs font definition file (jk)
+) [5
+
+] [6])
 \tf@toc=\write5
 \openout5 = `Main.toc'.
 
-[5
-
-]
-No file Main.lof.
+ [7] (./Main.lof)
 \tf@lof=\write6
 \openout6 = `Main.lof'.
 
-[6
+ [8
 
-]
-No file Main.lot.
+] (./Main.lot)
 \tf@lot=\write7
 \openout7 = `Main.lot'.
 
-[7
 
-]
+Using TeX to sort glossary entries---this may take a while
+[9
 
-Package glossaries Warning: Empty glossary for \printnoidxglossary[type={main}]. Rerun may be required (or you may have forgotten to use commands like \gls) on input line 23.
-
-[8
+] [10
 
 
 ] (../Chapters/1.Introduction.tex
@@ -2002,226 +1282,73 @@ Chapter 1.
 
 ]) (../Chapters/2.Literature.tex [2]
 Chapter 2.
+[3
 
-LaTeX Warning: Citation `skolnik_radar_2024' on page 3 undefined on input line 23.
-
-
-LaTeX Warning: Citation `skolnik_radar_2024' on page 3 undefined on input line 27.
-
-
-LaTeX Warning: Citation `skolnik_radar_2024' on page 3 undefined on input line 29.
-
-
-LaTeX Warning: Citation `christian_wolff_physical_2024' on page 3 undefined on input line 37.
-
-LaTeX Font Info:    Trying to load font information for OT1+lmr on input line 44.
-(/usr/local/texlive/2024/texmf-dist/tex/latex/lm/ot1lmr.fd
-File: ot1lmr.fd 2015/05/01 v1.6.1 Font defs for Latin Modern
-)
-LaTeX Font Info:    Trying to load font information for OML+lmm on input line 44.
- (/usr/local/texlive/2024/texmf-dist/tex/latex/lm/omllmm.fd
-File: omllmm.fd 2015/05/01 v1.6.1 Font defs for Latin Modern
-)
-LaTeX Font Info:    Trying to load font information for OMS+lmsy on input line 44.
- (/usr/local/texlive/2024/texmf-dist/tex/latex/lm/omslmsy.fd
-File: omslmsy.fd 2015/05/01 v1.6.1 Font defs for Latin Modern
-)
-LaTeX Font Info:    Trying to load font information for OMX+lmex on input line 44.
- (/usr/local/texlive/2024/texmf-dist/tex/latex/lm/omxlmex.fd
-File: omxlmex.fd 2015/05/01 v1.6.1 Font defs for Latin Modern
-)
-LaTeX Font Info:    External font `lmex10' loaded for size
-(Font)              <10.95> on input line 44.
-LaTeX Font Info:    External font `lmex10' loaded for size
-(Font)              <8> on input line 44.
-LaTeX Font Info:    External font `lmex10' loaded for size
-(Font)              <6> on input line 44.
-LaTeX Font Info:    Trying to load font information for U+msa on input line 44.
- (/usr/local/texlive/2024/texmf-dist/tex/latex/amsfonts/umsa.fd
-File: umsa.fd 2013/01/14 v3.01 AMS symbols A
-) (/usr/local/texlive/2024/texmf-dist/tex/latex/microtype/mt-msa.cfg
-File: mt-msa.cfg 2006/02/04 v1.1 microtype config. file: AMS symbols (a) (RS)
-)
-LaTeX Font Info:    Trying to load font information for U+msb on input line 44.
- (/usr/local/texlive/2024/texmf-dist/tex/latex/amsfonts/umsb.fd
-File: umsb.fd 2013/01/14 v3.01 AMS symbols B
-) (/usr/local/texlive/2024/texmf-dist/tex/latex/microtype/mt-msb.cfg
-File: mt-msb.cfg 2005/06/01 v1.0 microtype config. file: AMS symbols (b) (RS)
-)
-LaTeX Font Info:    Trying to load font information for U+rsfs on input line 44.
- (/usr/local/texlive/2024/texmf-dist/tex/latex/jknapltx/ursfs.fd
-File: ursfs.fd 1998/03/24 rsfs font definition file (jk)
-) [3
-
-{/usr/local/texlive/2024/texmf-dist/fonts/enc/dvips/lm/lm-mathit.enc}{/usr/local/texlive/2024/texmf-dist/fonts/enc/dvips/lm/lm-mathsy.enc}{/usr/local/texlive/2024/texmf-dist/fonts/enc/dvips/lm/lm-rm.enc}]
-
-LaTeX Warning: Citation `christian_wolff_physical_2024' on page 4 undefined on input line 55.
-
-
-LaTeX Warning: Citation `weinstein_history_2009' on page 4 undefined on input line 63.
-
-
-LaTeX Warning: Citation `weinstein_history_2009' on page 4 undefined on input line 66.
-
-../Chapters/2.Literature.tex:66: Missing \endcsname inserted.
-<to be read again> 
-                   \&
-l.66 ...pany to deploy the system was \gls{at\&t}.
-                                                  
-The control sequence marked <to be read again> should
-not appear between \csname and \endcsname.
-
-
-../Chapters/2.Literature.tex:66: Package glossaries-extra Error: Glossary entry `at\&t' has not been defined.
-
-See the glossaries-extra package documentation for explanation.
-Type  H <return>  for immediate help.
- ...                                              
-                                                  
-l.66 ...pany to deploy the system was \gls{at\&t}.
-                                                  
-You need to define a glossary entry before you can reference it.
-
-../Chapters/2.Literature.tex:66: Missing \endcsname inserted.
-<to be read again> 
-                   \&
-l.66 ...pany to deploy the system was \gls{at\&t}.
-                                                  
-The control sequence marked <to be read again> should
-not appear between \csname and \endcsname.
-
-
-LaTeX Warning: Citation `wright_what_nodate' on page 4 undefined on input line 75.
-
-
-LaTeX Warning: Reference `fig:ofdmandfdmwaveforms' on page 4 undefined on input line 78.
-
-<../Images/Literature/ofdm.png, id=107, 578.16pt x 433.62pt>
+{/usr/local/texlive/2024/texmf-dist/fonts/enc/dvips/lm/lm-mathit.enc}{/usr/local/texlive/2024/texmf-dist/fonts/enc/dvips/lm/lm-mathsy.enc}{/usr/local/texlive/2024/texmf-dist/fonts/enc/dvips/lm/lm-rm.enc}] [4]
+<../Images/Literature/ofdm.png, id=614, 578.16pt x 433.62pt>
 File: ../Images/Literature/ofdm.png Graphic file (type png)
 <use ../Images/Literature/ofdm.png>
-Package pdftex.def Info: ../Images/Literature/ofdm.png  used on input line 87.
+Package pdftex.def Info: ../Images/Literature/ofdm.png  used on input line 90.
 (pdftex.def)             Requested size: 241.84843pt x 181.38472pt.
-<../Images/Literature/fdm.png, id=108, 578.16pt x 433.62pt>
+<../Images/Literature/fdm.png, id=615, 578.16pt x 433.62pt>
 File: ../Images/Literature/fdm.png Graphic file (type png)
 <use ../Images/Literature/fdm.png>
-Package pdftex.def Info: ../Images/Literature/fdm.png  used on input line 93.
+Package pdftex.def Info: ../Images/Literature/fdm.png  used on input line 96.
 (pdftex.def)             Requested size: 241.84843pt x 181.38472pt.
-[4]) (../Chapters/3.SystemDesign.tex [5 <../Images/Literature/ofdm.png> <../Images/Literature/fdm.png>]
+) (../Chapters/3.SystemDesign.tex [5 <../Images/Literature/ofdm.png> <../Images/Literature/fdm.png>] [6]
 Chapter 3.
+) (../Chapters/4.ValidationAndSimulation.tex [7
 
-LaTeX Warning: Citation `christian_wolff_physical_2024' on page 6 undefined on input line 12.
-
-) (../Chapters/4.ValidationAndSimulation.tex [6
-
-] [7]
+] [8]
 Overfull \vbox (31.24544pt too high) has occurred while \output is active []
 
- [8]
+ [9]
 Chapter 4.
-
-LaTeX Warning: Citation `christian_wolff_physical_2024' on page 9 undefined on input line 11.
-
-) (../Chapters/5.Methodology.tex [9
+) (../Chapters/5.Methodology.tex [10
 
 ]
 Chapter 5.
-
-LaTeX Warning: Citation `christian_wolff_physical_2024' on page 10 undefined on input line 11.
-
-) (../Chapters/6.Results.tex [10
+) (../Chapters/6.Results.tex [11
 
 ]
 Chapter 6.
-
-LaTeX Warning: Reference `ch:methodology' on page 11 undefined on input line 10.
-
-
-LaTeX Warning: Citation `christian_wolff_physical_2024' on page 11 undefined on input line 11.
-
-) (../Chapters/7.Discussion.tex [11
+) (../Chapters/7.Discussion.tex [12
 
 ]
 Chapter 7.
-
-LaTeX Warning: Citation `christian_wolff_physical_2024' on page 12 undefined on input line 11.
-
-) (../Chapters/8.ConclusionAndRecommendations.tex [12
+) (../Chapters/8.ConclusionAndRecommendations.tex [13
 
 ]
 Chapter 8.
+) [14
 
-LaTeX Warning: Citation `christian_wolff_physical_2024' on page 13 undefined on input line 10.
-
-) [13
-
-] (./Main.bbl) (../Chapters/9.Appendix.tex [14
+] (./Main.bbl) (../Chapters/9.Appendix.tex [15
 
 ]
 Chapter 9.
-
-LaTeX Warning: Citation `christian_wolff_physical_2024' on page 15 undefined on input line 11.
-
-) [15
+) [16
 
 ] (./Main.aux)
  ***********
 LaTeX2e <2023-11-01> patch level 1
 L3 programming layer <2024-02-20>
  ***********
-
-
-LaTeX Warning: There were undefined references.
-
-
-LaTeX Warning: Label(s) may have changed. Rerun to get cross-references right.
-
-
-Package rerunfilecheck Warning: File `Main.out' has changed.
-(rerunfilecheck)                Rerun to get outlines right
-(rerunfilecheck)                or use package `bookmark'.
-
-Package rerunfilecheck Info: Checksums for `Main.out':
-(rerunfilecheck)             Before: <no file>
-(rerunfilecheck)             After:  73CE7060B8637557E9009C70C00CB8F8;15915.
- )
-(\end occurred when \iffalse on line 32 was incomplete) 
+Package rerunfilecheck Info: File `Main.out' has not changed.
+(rerunfilecheck)             Checksum: 8519AAD1BC5BD7827E4A3F14B04DA24B;15887.
+ ) 
 Here is how much of TeX's memory you used:
- 55681 strings out of 474116
- 1238359 string characters out of 5743682
- 1936187 words of memory out of 5000000
- 76867 multiletter control sequences out of 15000+600000
- 608920 words of font info for 122 fonts, out of 8000000 for 9000
+ 55846 strings out of 474116
+ 1240906 string characters out of 5743682
+ 1947187 words of memory out of 5000000
+ 77008 multiletter control sequences out of 15000+600000
+ 609180 words of font info for 125 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 114i,11n,120p,2482b,1240s stack positions out of 10000i,1000n,20000p,200000b,200000s
-
-pdfTeX warning (dest): name{glo:tdma} has been referenced but does not exist, replaced by a fixed one
-
-
-pdfTeX warning (dest): name{glo:tdm} has been referenced but does not exist, replaced by a fixed one
-
-
-pdfTeX warning (dest): name{glo:fdm} has been referenced but does not exist, replaced by a fixed one
-
-
-pdfTeX warning (dest): name{glo:sdr} has been referenced but does not exist, replaced by a fixed one
-
-
-pdfTeX warning (dest): name{glo:radar} has been referenced but does not exist, replaced by a fixed one
-
-
-pdfTeX warning (dest): name{glo:ofdm} has been referenced but does not exist, replaced by a fixed one
-
-
-pdfTeX warning (dest): name{glo:iot} has been referenced but does not exist, replaced by a fixed one
-
-
-pdfTeX warning (dest): name{glo:lora} has been referenced but does not exist, replaced by a fixed one
-
+ 114i,12n,120p,2482b,1239s stack positions out of 10000i,1000n,20000p,200000b,200000s
 </usr/local/texlive/2024/texmf-dist/fonts/type1/public/lm/lmbx10.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/lm/lmbx12.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/lm/lmmi10.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/lm/lmr10.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/lm/lmr12.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/lm/lmr17.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/lm/lmr8.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/lm/lmsy8.pfb>
-Output written on Main.pdf (23 pages, 540633 bytes).
+Output written on Main.pdf (26 pages, 558321 bytes).
 PDF statistics:
- 332 PDF objects out of 1000 (max. 8388607)
- 280 compressed objects within 3 object streams
- 147 named destinations out of 1000 (max. 500000)
- 28705 words of extra memory for PDF output out of 29859 (max. 10000000)
+ 759 PDF objects out of 1000 (max. 8388607)
+ 700 compressed objects within 7 object streams
+ 153 named destinations out of 1000 (max. 500000)
+ 29473 words of extra memory for PDF output out of 29859 (max. 10000000)
 
