@@ -155,7 +155,8 @@ std::vector<std::complex<double>> receive_vector(uhd::usrp::multi_usrp::sptr rx_
     entireSample.reserve(numSamples);
 
     // allocate buffers to receive with samples (one buffer per channel)
-    std::vector<std::complex<double>> sampleBuffer(samps_per_buff);
+    std::vector<std::complex<double>> sampleBuffer;
+    sampleBuffer.reserve(samps_per_buff);
 
     // creating a pointer to sample buffer
     std::complex<double>* psampleBuffer = &sampleBuffer[0];
@@ -346,6 +347,7 @@ int UHD_SAFE_MAIN(int argc, char *argv[]) {
 
     // Create receive vector
     std::vector<std::complex<double>> received_data;
+    received_data.reserve(CONFIG::NUM_SAMPS);
 
 
 /////////////////////////////////////////////////////////////////////

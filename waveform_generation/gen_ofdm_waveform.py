@@ -3,11 +3,11 @@ import matplotlib.pyplot as plt
 import scipy
 
 
-K = 3000 # number of OFDM subcarriers
+K = 3500 # number of OFDM subcarriers
 
 # CP = K//4  # length of the cyclic prefix: 25% of the block
 
-P = 375 # number of pilot carriers per OFDM block
+P = 300 # number of pilot carriers per OFDM block
 pilotValue = 3+3j # The known value each pilot transmits
 
 
@@ -130,7 +130,6 @@ plt.xlabel('Carrier Index')
 plt.ylabel('$|X(w)|$')
 plt.grid(True)
 plt.show()
-
 
 
 

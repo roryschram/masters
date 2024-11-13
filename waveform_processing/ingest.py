@@ -29,8 +29,8 @@ received_data = read_complex_data_from_dat("received_data/receive.dat")
 
 
 # Get the original pulse
-transmitted_data = np.load("waveform_generation/generated_data/padded_OFDM_pulse.npy")
-# transmitted_data = np.load("chirp_toolchain/sweep_signal.npy")
+# transmitted_data = np.load("waveform_generation/generated_data/padded_OFDM_pulse.npy")
+transmitted_data = np.load("chirp_toolchain/sweep_signal.npy")
 
 # plt.plot(np.abs(transmitted_data))
 # plt.show()
@@ -60,6 +60,7 @@ print(pos_start_frame)
 
 plt.plot(np.real(received_data))
 plt.plot(np.imag(received_data))
+plt.xlim(0,100000)
 plt.title("Received signal")
 plt.xlabel("Samples")
 plt.ylabel("|received|")
@@ -68,7 +69,7 @@ plt.show()
 
 
 # Parameters
-sampling_rate = 50e6   # Sampling rate in Hz (1 MHz)
+sampling_rate = 25e6   # Sampling rate in Hz (1 MHz)
 num_bins = len(received_data)        # Number of time bins
 c = 299702547               # Speed of light in m/s (for distance calculation)
 
@@ -94,7 +95,7 @@ plt.plot(shifted_range_bins_distance,np.abs(corrolation))
 plt.plot(np.abs(corrolation[pos_start_frame]),"ro")
 plt.annotate("Cross Talk",xy=(pos_start_frame,np.abs(corrolation[pos_start_frame])),xytext=(pos_start_frame+5,np.abs(corrolation[pos_start_frame])))
 # Set x-axis limits
-plt.xlim(-50, 100)  # Set the x-axis range from 0 to 50 meters
+#plt.xlim(-50, 100)  # Set the x-axis range from 0 to 50 meters
 
 plt.title("Corrolation between received signal and original transmitted signal")
 plt.xlabel("Distance (m)")
