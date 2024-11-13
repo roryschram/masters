@@ -11,6 +11,7 @@ def read_complex_data_from_dat(filename):
 
     # Reshape the data into pairs of (I, Q) values
     complex_data = double_data[0::2] + 1j * double_data[1::2]
+    print(len(double_data))
 
     return complex_data
 
@@ -19,10 +20,10 @@ received_data = read_complex_data_from_dat("received_data/receive.dat")
 
 #received_data = received_data[255:]
 
-received_data = received_data - np.mean(received_data)
+# received_data = received_data - np.mean(received_data)
 
-for i in range(0,199,1):
-    received_data[i] = 0.0 + 0.0j
+# for i in range(0,199,1):
+#     received_data[i] = 0.0 + 0.0j
 
 
 
@@ -41,19 +42,20 @@ pos_start_frame = np.argmax(np.abs(corrolation))
 print(pos_start_frame)
 
 #received_data = received_data - np.mean(received_data)
-symbol = received_data[pos_start_frame:pos_start_frame+512]
+# symbol = received_data[pos_start_frame:pos_start_frame+512]
 
 
 # plt.plot(np.abs(symbol))
 # plt.show()
 
-np.save("waveform_processing/symbol.npy",symbol)
+# np.save("waveform_processing/symbol.npy",symbol)
 
-plt.plot(20*np.log(np.abs(np.fft.fftshift(np.fft.fft(received_data)))))
-plt.title("Received signal fft")
-plt.xlabel("Samples")
-plt.ylabel("|received|")
-plt.show()
+# freqs = np.fft.fftfreq(len(received_data),d=1/50e6)
+# plt.plot(freqs,20*np.log(np.abs(np.fft.fftshift(np.fft.fft(received_data)))))
+# plt.title("Received signal fft")
+# plt.xlabel("Samples")
+# plt.ylabel("|received|")
+# plt.show()
 
 
 plt.plot(np.real(received_data))
@@ -63,11 +65,39 @@ plt.xlabel("Samples")
 plt.ylabel("|received|")
 plt.show()
 
-plt.plot(np.abs(corrolation))
-plt.plot(pos_start_frame,np.abs(corrolation[pos_start_frame]),"ro")
-plt.annotate("Corrolation peak. Pos: "+str(pos_start_frame),xy=(pos_start_frame,np.abs(corrolation[pos_start_frame])),xytext=(pos_start_frame+5,np.abs(corrolation[pos_start_frame])))
+
+
+# Parameters
+sampling_rate = 50e6   # Sampling rate in Hz (1 MHz)
+num_bins = len(received_data)        # Number of time bins
+c = 299702547               # Speed of light in m/s (for distance calculation)
+
+# Calculate the time spacing between samples
+time_spacing = 1 / sampling_rate  # Time per sample in seconds
+
+# Create an array of range bins in terms of time
+range_bins_time = np.arange(num_bins) * time_spacing
+
+# Convert time bins to distance bins using the speed of light (distance = speed * time)
+range_bins_distance = range_bins_time * c / 2  # Divide by 2 for one-way travel time
+
+# Find the index of the maximum value of the correlation output
+max_index = np.argmax(np.abs(corrolation))
+
+# Shift the range_bins_distance so that the maximum correlation corresponds to 0 meters
+shifted_range_bins_distance = range_bins_distance - range_bins_distance[max_index]
+
+shifted_range_bins_distance = shifted_range_bins_distance[:len(corrolation)]
+
+
+plt.plot(shifted_range_bins_distance,np.abs(corrolation))
+plt.plot(np.abs(corrolation[pos_start_frame]),"ro")
+plt.annotate("Cross Talk",xy=(pos_start_frame,np.abs(corrolation[pos_start_frame])),xytext=(pos_start_frame+5,np.abs(corrolation[pos_start_frame])))
+# Set x-axis limits
+plt.xlim(-50, 100)  # Set the x-axis range from 0 to 50 meters
+
 plt.title("Corrolation between received signal and original transmitted signal")
-plt.xlabel("Samples")
+plt.xlabel("Distance (m)")
 plt.ylabel("$|\\rho(received data,original frame)|$")
 plt.show()
 

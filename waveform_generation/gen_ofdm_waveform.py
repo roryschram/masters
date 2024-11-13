@@ -3,11 +3,11 @@ import matplotlib.pyplot as plt
 import scipy
 
 
-K = 131072 # number of OFDM subcarriers
+K = 3000 # number of OFDM subcarriers
 
 # CP = K//4  # length of the cyclic prefix: 25% of the block
 
-P = 16384 # number of pilot carriers per OFDM block
+P = 375 # number of pilot carriers per OFDM block
 pilotValue = 3+3j # The known value each pilot transmits
 
 
@@ -120,6 +120,10 @@ OFDM_data = OFDM_symbol(QAM)
 print ("Number of OFDM carriers in frequency domain: ", len(OFDM_data))
 
 
+
+
+
+
 plt.plot(np.abs(OFDM_data))
 plt.title("OFDM Symbol in Discrete Freq. Domain")
 plt.xlabel('Carrier Index')
@@ -131,10 +135,19 @@ plt.show()
 
 
 
+
+
+
 def IDFT(OFDM_data):
     return np.fft.ifft(OFDM_data)
 OFDM_time = IDFT(OFDM_data)
 print ("Number of OFDM samples in time-domain before CP: ", len(OFDM_time))
+
+
+
+
+plt.plot(np.abs(OFDM_time))
+plt.show()
 
 
 # def addCP(OFDM_time):
@@ -169,5 +182,3 @@ with open('transmitted_data/transmit.dat', 'wb') as f:
         f.write(np.double(sample.imag).tobytes())
 
 
-plt.plot(padded_OFDM_withCP)
-plt.show()
