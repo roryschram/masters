@@ -31,9 +31,9 @@ def chirp(fs_Hz, rep_Hz, f0_Hz, f1_Hz, periods=1, phase_rad=0):
     phi_rad += phase_rad # Offset by user-specified initial phase.
     return np.tile(np.exp(1j * phi_rad), periods) # Complex I/Q.
 
-sweep_signal = chirp(25e6,500,-5e6,5e6)
+sweep_signal = chirp(25e6,500,-10e6,10e6)
 
-padded_sweep_signal = np.pad(sweep_signal, pad_width=(1000,0), mode="constant", constant_values=0+0j)
+padded_sweep_signal = np.pad(sweep_signal, pad_width=(1000,1000), mode="constant", constant_values=0+0j)
 #padded_sweep_signal = sweep_signal
 
 print(len(sweep_signal))
@@ -48,10 +48,10 @@ plt.legend()
 plt.show()
 
 
-freqs = np.fft.fftfreq(len(sweep_signal),1/25e6)
+freqs = np.fft.fftshift(np.fft.fftfreq(len(sweep_signal),1/25e6))
 
 # Plot the generated sweep signal (showing only a portion for clarity)
-plt.plot(freqs,(np.abs(np.fft.fft(sweep_signal)))) # Adjust the portion as needed
+plt.plot(freqs,np.fft.fftshift(20*np.log10(np.abs(np.fft.fft(sweep_signal))/len(sweep_signal)))) # Adjust the portion as needed
 plt.xlabel("Freq (Hz)")
 plt.ylabel("|padded_sweep_signal|")
 plt.title("FFT of sweep signal")

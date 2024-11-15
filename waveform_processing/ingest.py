@@ -50,12 +50,12 @@ print(pos_start_frame)
 
 # np.save("waveform_processing/symbol.npy",symbol)
 
-# freqs = np.fft.fftfreq(len(received_data),d=1/50e6)
-# plt.plot(freqs,20*np.log(np.abs(np.fft.fftshift(np.fft.fft(received_data)))))
-# plt.title("Received signal fft")
-# plt.xlabel("Samples")
-# plt.ylabel("|received|")
-# plt.show()
+freqs = np.fft.fftshift(np.fft.fftfreq(len(received_data),d=1/25e6))
+plt.plot(freqs,np.fft.fftshift(20*np.log10(np.abs(np.fft.fft(received_data))/len(received_data))))
+plt.title("Received signal fft")
+plt.xlabel("Frequency (Hz)")
+plt.ylabel("|received|")
+plt.show()
 
 
 plt.plot(np.real(received_data))
@@ -95,7 +95,7 @@ plt.plot(shifted_range_bins_distance,np.abs(corrolation))
 plt.plot(np.abs(corrolation[pos_start_frame]),"ro")
 plt.annotate("Cross Talk",xy=(pos_start_frame,np.abs(corrolation[pos_start_frame])),xytext=(pos_start_frame+5,np.abs(corrolation[pos_start_frame])))
 # Set x-axis limits
-#plt.xlim(-50, 100)  # Set the x-axis range from 0 to 50 meters
+plt.xlim(-50, 200)  # Set the x-axis range from 0 to 50 meters
 
 plt.title("Corrolation between received signal and original transmitted signal")
 plt.xlabel("Distance (m)")
