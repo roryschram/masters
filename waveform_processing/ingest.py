@@ -37,9 +37,8 @@ transmitted_data = np.load("chirp_toolchain/sweep_signal.npy")
 
 corrolation = np.correlate(received_data,transmitted_data)
 
-pos_start_frame = np.argmax(np.abs(corrolation))
+# pos_start_frame = np.argmax(np.abs(corrolation))
 
-print(pos_start_frame)
 
 #received_data = received_data - np.mean(received_data)
 # symbol = received_data[pos_start_frame:pos_start_frame+512]
@@ -70,7 +69,7 @@ plt.show()
 
 # Parameters
 sampling_rate = 25e6   # Sampling rate in Hz (1 MHz)
-num_bins = len(received_data)        # Number of time bins
+num_bins = 7000        # Number of time bins
 c = 299702547               # Speed of light in m/s (for distance calculation)
 
 # Calculate the time spacing between samples
@@ -82,23 +81,41 @@ range_bins_time = np.arange(num_bins) * time_spacing
 # Convert time bins to distance bins using the speed of light (distance = speed * time)
 range_bins_distance = range_bins_time * c / 2  # Divide by 2 for one-way travel time
 
-# Find the index of the maximum value of the correlation output
-max_index = np.argmax(np.abs(corrolation))
-
-# Shift the range_bins_distance so that the maximum correlation corresponds to 0 meters
-shifted_range_bins_distance = range_bins_distance - range_bins_distance[max_index]
-
-shifted_range_bins_distance = shifted_range_bins_distance[:len(corrolation)]
 
 
-plt.plot(shifted_range_bins_distance,np.abs(corrolation))
-plt.plot(np.abs(corrolation[pos_start_frame]),"ro")
-plt.annotate("Cross Talk",xy=(pos_start_frame,np.abs(corrolation[pos_start_frame])),xytext=(pos_start_frame+5,np.abs(corrolation[pos_start_frame])))
-# Set x-axis limits
-plt.xlim(-50, 200)  # Set the x-axis range from 0 to 50 meters
+
+
+plt.plot(np.abs(corrolation))
 
 plt.title("Corrolation between received signal and original transmitted signal")
 plt.xlabel("Distance (m)")
 plt.ylabel("$|\\rho(received data,original frame)|$")
 plt.show()
 
+
+corrolation_abs = np.abs(corrolation)
+
+first_max = np.argmax(corrolation_abs[0:7000])
+
+print(first_max)
+
+
+
+chirps = np.zeros(shape=(0,7000))
+
+for i in range(0,70000+1-7000,7000):
+    print(first_max)
+    chirps = np.vstack((chirps,corrolation_abs[first_max+i:first_max+i+7000]))
+
+
+output = np.zeros(shape=(7000,))
+
+for row in chirps:
+    output += row
+
+plt.plot(range_bins_distance,output)
+
+plt.title("Pulse integration output")
+plt.xlabel("Distance (m)")
+plt.ylabel("$|\\rho(received data,original frame)|$")
+plt.show()
