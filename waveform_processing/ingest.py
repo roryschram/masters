@@ -11,7 +11,6 @@ def read_complex_data_from_dat(filename):
 
     # Reshape the data into pairs of (I, Q) values
     complex_data = double_data[0::2] + 1j * double_data[1::2]
-    print(len(double_data))
 
     return complex_data
 
@@ -59,7 +58,6 @@ plt.show()
 
 plt.plot(np.real(received_data))
 plt.plot(np.imag(received_data))
-plt.xlim(0,100000)
 plt.title("Received signal")
 plt.xlabel("Samples")
 plt.ylabel("|received|")
@@ -100,11 +98,13 @@ first_max = np.argmax(corrolation_abs[0:7000])
 print(first_max)
 
 
+length_chirps_total = 350000
+
 
 chirps = np.zeros(shape=(0,7000))
 
-for i in range(0,70000+1-7000,7000):
-    print(first_max)
+for i in range(0,length_chirps_total+1-7000,7000):
+    print(i)
     chirps = np.vstack((chirps,corrolation_abs[first_max+i:first_max+i+7000]))
 
 

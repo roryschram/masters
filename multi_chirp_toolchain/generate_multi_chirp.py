@@ -39,7 +39,7 @@ padded_sweep_signal = np.pad(sweep_signal, pad_width=(1000,1000), mode="constant
 output = np.empty(0)
 
 
-for i in range(10):
+for i in range(50):
     output = np.append(output,padded_sweep_signal)
 
 print(len(output))
