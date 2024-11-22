@@ -57,11 +57,10 @@ plt.show()
 freqs = np.fft.fftshift(np.fft.fftfreq(len(output),1/25e6))
 
 # Plot the generated sweep signal (showing only a portion for clarity)
-plt.plot(freqs,np.fft.fftshift(20*np.log10(np.abs(np.fft.fft(output))/len(output)))) # Adjust the portion as needed
+plt.plot(freqs,np.fft.fftshift(np.abs(np.fft.fft(output))/len(output))) # Adjust the portion as needed
 plt.xlabel("Freq (Hz)")
 plt.ylabel("|padded_sweep_signal|")
 plt.title("FFT of sweep signal")
-plt.legend()
 plt.show()
 
 

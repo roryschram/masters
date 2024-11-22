@@ -67,7 +67,7 @@ plt.show()
 
 # Parameters
 sampling_rate = 25e6   # Sampling rate in Hz (1 MHz)
-num_bins = 7000        # Number of time bins
+num_bins = 7000       # Number of time bins
 c = 299702547               # Speed of light in m/s (for distance calculation)
 
 # Calculate the time spacing between samples
