@@ -28,8 +28,8 @@ received_data = read_complex_data_from_dat("received_data/receive.dat")
 
 
 # Get the original pulse
-# transmitted_data = np.load("waveform_generation/generated_data/padded_OFDM_pulse.npy")
-transmitted_data = np.load("chirp_toolchain/sweep_signal.npy")
+transmitted_data = np.load("transmitted_data/padded_OFDM_pulse.npy")
+# transmitted_data = np.load("chirp_toolchain/sweep_signal.npy")
 
 # plt.plot(np.abs(transmitted_data))
 # plt.show()
@@ -93,7 +93,7 @@ plt.show()
 
 corrolation_abs = np.abs(corrolation)
 
-first_max = np.argmax(corrolation_abs[0:7000])
+first_max = np.argmax(corrolation_abs[25000:27000]) + 25000
 
 print(first_max)
 

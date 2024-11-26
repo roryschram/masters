@@ -3,11 +3,11 @@ import matplotlib.pyplot as plt
 import scipy
 
 
-K = 3500 # number of OFDM subcarriers
+K = 5000 # number of OFDM subcarriers
 
 # CP = K//4  # length of the cyclic prefix: 25% of the block
 
-P = 300 # number of pilot carriers per OFDM block
+P = 1000 # number of pilot carriers per OFDM block
 pilotValue = 3+3j # The known value each pilot transmits
 
 
@@ -87,7 +87,7 @@ SNRdb = 25  # signal to noise-ratio in dB at the receiver
 bits = np.random.binomial(n=1, p=0.5, size=(payloadBits_per_OFDM, ))
 
 
-np.save("waveform_generation/generated_data/bits.npy",bits)
+np.save("transmitted_data/bits.npy",bits)
 
 
 print ("Bits count: ", len(bits))
@@ -156,25 +156,53 @@ plt.show()
 # print ("Number of OFDM samples in time domain with CP: ", len(OFDM_withCP))
 
 
-np.save("waveform_generation/generated_data/original_OFDM_pulse.npy",OFDM_time)
+np.save("transmitted_data/original_OFDM_pulse.npy",OFDM_time)
 
 
-padded_OFDM_withCP = np.pad(OFDM_time, pad_width=200, mode='constant', constant_values=0+0j)
+padded_OFDM_withCP = np.pad(OFDM_time, pad_width=(1000,1000), mode='constant', constant_values=0+0j)
 
-np.save("waveform_generation/generated_data/padded_OFDM_pulse.npy",padded_OFDM_withCP)
 
-# Open a .dat file in binary write mode
-with open('waveform_generation/generated_data/padded_OFDM_pulse.dat', 'wb') as f:
-    for sample in padded_OFDM_withCP:
-        # Write the real part (I) as 64-bit double
-        f.write(np.double(sample.real).tobytes())
-        # Write the imaginary part (Q) as 64-bit double
-        f.write(np.double(sample.imag).tobytes())
+
+output = np.empty(0)
+
+
+for i in range(50):
+    output = np.append(output,padded_OFDM_withCP)
+
+print(len(output))
+
+output = np.pad(output, pad_width=(25000,0), mode='constant', constant_values=0+0j)
+
+# Plot the generated sweep signal (showing only a portion for clarity)
+plt.plot(np.real(output),label="Real Part")  # Adjust the portion as needed
+plt.plot(np.imag(output),label="Imag Part") 
+plt.xlabel("Time (s)")
+plt.ylabel("Amplitude")
+plt.title("Multi OFDM signal")
+plt.legend()
+plt.show()
+
+
+
+
+
+
+
+
+np.save("transmitted_data/padded_OFDM_pulse.npy",padded_OFDM_withCP)
+
+# # Open a .dat file in binary write mode
+# with open('waveform_generation/generated_data/padded_OFDM_pulse.dat', 'wb') as f:
+#     for sample in padded_OFDM_withCP:
+#         # Write the real part (I) as 64-bit double
+#         f.write(np.double(sample.real).tobytes())
+#         # Write the imaginary part (Q) as 64-bit double
+#         f.write(np.double(sample.imag).tobytes())
 
 
 # Save .dat in build folder of cpp project
 with open('transmitted_data/transmit.dat', 'wb') as f:
-    for sample in padded_OFDM_withCP:
+    for sample in output:
         # Write the real part (I) as 64-bit double
         f.write(np.double(sample.real).tobytes())
         # Write the imaginary part (Q) as 64-bit double
