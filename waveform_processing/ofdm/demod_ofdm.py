@@ -3,11 +3,11 @@ import matplotlib.pyplot as plt
 import scipy
 import scipy.interpolate
 
-K = 256 # number of OFDM subcarriers
+K = 100000 # number of OFDM subcarriers
 
 CP = K//4  # length of the cyclic prefix: 25% of the block
 
-P = 32 # number of pilot carriers per OFDM block
+P = 50000 # number of pilot carriers per OFDM block
 pilotValue = 3+3j # The known value each pilot transmits
 
 allCarriers = np.arange(K)  # indices of all subcarriers ([0, 1, ... K-1])
@@ -49,14 +49,14 @@ demapping_table = {v : k for k, v in mapping_table.items()}
 
 
 
-OFDM_RX = np.load("waveform_processing/symbol.npy")
+OFDM_RX = np.load("waveform_processing/ofdm/data_frame.npy")
+
+OFDM_RX = OFDM_RX - np.mean(OFDM_RX)
 
 # plt.plot(OFDM_RX)
 # plt.show()
 
-def removeCP(signal):
-    return signal[CP:(CP+K)]
-OFDM_RX_noCP = removeCP(OFDM_RX)
+OFDM_RX_noCP = OFDM_RX
 
 
 def DFT(OFDM_RX):
@@ -85,12 +85,6 @@ def channelEstimate(OFDM_demod):
 Hest = channelEstimate(OFDM_demod)
 
 #np.save("waveform_processing/channel_estimations/loopback_channel_est.npy",Hest)
-
-original_channel_est = np.load("waveform_processing/channel_estimations/loopback_channel_est.npy")
-matched_filter_out = np.correlate(Hest,original_channel_est,mode='full')
-
-plt.plot(matched_filter_out)
-plt.show()
 
 
 def equalize(OFDM_demod, Hest):
@@ -128,16 +122,18 @@ def Demapping(QAM):
     return np.vstack([demapping_table[C] for C in hardDecision]), hardDecision
 
 PS_est, hardDecision = Demapping(QAM_est)
-for qam, hard in zip(QAM_est, hardDecision):
-    plt.plot([qam.real, hard.real], [qam.imag, hard.imag], 'b-o')
-    plt.plot(hardDecision.real, hardDecision.imag, 'ro')
-plt.title("Hard Decision Mapping")
-plt.xlabel("Real Part (I)")
-plt.ylabel("Imaginary Part (Q)")
-plt.show()
 
 
-bits = np.load("waveform_generation/generated_data/bits.npy")
+# for qam, hard in zip(QAM_est, hardDecision):
+#     plt.plot([qam.real, hard.real], [qam.imag, hard.imag], 'b-o')
+#     plt.plot(hardDecision.real, hardDecision.imag, 'ro')
+# plt.title("Hard Decision Mapping")
+# plt.xlabel("Real Part (I)")
+# plt.ylabel("Imaginary Part (Q)")
+# plt.show()
+
+
+bits = np.load("transmitted_data/bits.npy")
 
 
 def PS(bits):

@@ -31,16 +31,22 @@ def chirp(fs_Hz, rep_Hz, f0_Hz, f1_Hz, periods=1, phase_rad=0):
     phi_rad += phase_rad # Offset by user-specified initial phase.
     return np.tile(np.exp(1j * phi_rad), periods) # Complex I/Q.
 
-sweep_signal = chirp(25e6,500,-10e6,10e6)
+sweep_signal = chirp(25e6,5000,-6.25e6,6.25e6)
 
 padded_sweep_signal = np.pad(sweep_signal, pad_width=(1000,1000), mode="constant", constant_values=0+0j)
 #padded_sweep_signal = sweep_signal
 
-print(len(sweep_signal))
+output = np.empty(0)
+
+
+for i in range(50):
+    output = np.append(output,padded_sweep_signal)
+
+print(len(output))
 
 # Plot the generated sweep signal (showing only a portion for clarity)
-plt.plot(np.real(padded_sweep_signal),label="Real Part")  # Adjust the portion as needed
-plt.plot(np.imag(padded_sweep_signal),label="Imag Part") 
+plt.plot(np.real(output),label="Real Part")  # Adjust the portion as needed
+plt.plot(np.imag(output),label="Imag Part") 
 plt.xlabel("Time (s)")
 plt.ylabel("Amplitude")
 plt.title("Sweep signal")
@@ -48,15 +54,16 @@ plt.legend()
 plt.show()
 
 
-freqs = np.fft.fftshift(np.fft.fftfreq(len(sweep_signal),1/25e6))
+freqs = np.fft.fftshift(np.fft.fftfreq(len(output),1/25e6))
 
 # Plot the generated sweep signal (showing only a portion for clarity)
-plt.plot(freqs,np.fft.fftshift(20*np.log10(np.abs(np.fft.fft(sweep_signal))/len(sweep_signal)))) # Adjust the portion as needed
+plt.plot(freqs,np.fft.fftshift(np.abs(np.fft.fft(output))/len(output))) # Adjust the portion as needed
 plt.xlabel("Freq (Hz)")
 plt.ylabel("|padded_sweep_signal|")
 plt.title("FFT of sweep signal")
-plt.legend()
 plt.show()
+
+
 
 
 
@@ -65,14 +72,14 @@ plt.show()
 
 # Open a .dat file in binary write mode
 with open("transmitted_data/transmit.dat", 'wb') as f:
-    for sample in padded_sweep_signal:
+    for sample in output:
         # Write the real part (I) as 64-bit double
         f.write(np.double(sample.real).tobytes())
         # Write the imaginary part (Q) as 64-bit double
         f.write(np.double(sample.imag).tobytes())
 
 
-np.save("chirp_toolchain/sweep_signal.npy",sweep_signal)
-np.save("chirp_toolchain/padded_sweep_signal.npy",padded_sweep_signal)
+np.save("transmitted_data/sweep_signal.npy",sweep_signal)
+np.save("transmitted_data/padded_sweep_signal.npy",padded_sweep_signal)
 
 
