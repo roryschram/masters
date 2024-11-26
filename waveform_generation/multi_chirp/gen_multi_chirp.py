@@ -42,6 +42,8 @@ output = np.empty(0)
 for i in range(50):
     output = np.append(output,padded_sweep_signal)
 
+
+output = np.pad(output, pad_width=(25000,0), mode="constant", constant_values=0+0j)
 print(len(output))
 
 # Plot the generated sweep signal (showing only a portion for clarity)

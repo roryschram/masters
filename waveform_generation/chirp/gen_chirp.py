@@ -33,7 +33,7 @@ def chirp(fs_Hz, rep_Hz, f0_Hz, f1_Hz, periods=1, phase_rad=0):
 
 sweep_signal = chirp(25e6,5000,-6.25e6,6.25e6)
 
-padded_sweep_signal = np.pad(sweep_signal, pad_width=(1000,1000), mode="constant", constant_values=0+0j)
+padded_sweep_signal = np.pad(sweep_signal, pad_width=(5000,1000), mode="constant", constant_values=0+0j)
 #padded_sweep_signal = sweep_signal
 
 

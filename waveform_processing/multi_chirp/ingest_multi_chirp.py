@@ -93,7 +93,7 @@ plt.show()
 
 corrolation_abs = np.abs(corrolation)
 
-first_max = np.argmax(corrolation_abs[0:5000])
+first_max = np.argmax(corrolation_abs[0:27000])
 
 print(first_max)
 
