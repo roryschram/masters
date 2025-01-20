@@ -49,7 +49,7 @@ demapping_table = {v : k for k, v in mapping_table.items()}
 
 
 
-OFDM_RX = np.load("waveform_processing/ofdm/data_frame.npy")
+OFDM_RX = np.load("waveform_processing/multi_ofdm/returned_data_frame.npy")
 
 OFDM_RX = OFDM_RX - np.mean(OFDM_RX)
 
