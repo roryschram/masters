@@ -15,7 +15,7 @@
 ########################
 
 //The directory containing a CMake configuration file for Boost.
-Boost_DIR:PATH=/opt/homebrew/lib/cmake/Boost-1.86.0
+Boost_DIR:PATH=/opt/homebrew/lib/cmake/Boost-1.87.0
 
 //Path to a file.
 Boost_INCLUDE_DIR:PATH=/opt/homebrew/include
@@ -235,7 +235,7 @@ PKG_CONFIG_ARGN:STRING=
 PKG_CONFIG_EXECUTABLE:FILEPATH=/opt/homebrew/bin/pkg-config
 
 //The directory containing a CMake configuration file for UHD.
-UHD_DIR:PATH=/opt/local/lib/cmake/uhd
+UHD_DIR:PATH=/Users/roryschram/radioconda/lib/cmake/uhd
 
 //Path to a file.
 UHD_INCLUDE_DIRS:PATH=/opt/local/include
@@ -247,7 +247,7 @@ UHD_LIBRARIES:FILEPATH=/opt/local/lib/libuhd.dylib
 UHD_USE_STATIC_LIBS:BOOL=OFF
 
 //The directory containing a CMake configuration file for boost_headers.
-boost_headers_DIR:PATH=/opt/homebrew/lib/cmake/boost_headers-1.86.0
+boost_headers_DIR:PATH=/opt/homebrew/lib/cmake/boost_headers-1.87.0
 
 
 ########################
@@ -396,7 +396,7 @@ CMAKE_UNAME:INTERNAL=/usr/bin/uname
 //ADVANCED property for variable: CMAKE_VERBOSE_MAKEFILE
 CMAKE_VERBOSE_MAKEFILE-ADVANCED:INTERNAL=1
 //Details about finding Boost
-FIND_PACKAGE_MESSAGE_DETAILS_Boost:INTERNAL=[/opt/homebrew/lib/cmake/Boost-1.86.0/BoostConfig.cmake][c ][v1.86.0()]
+FIND_PACKAGE_MESSAGE_DETAILS_Boost:INTERNAL=[/opt/homebrew/lib/cmake/Boost-1.87.0/BoostConfig.cmake][c ][v1.87.0()]
 //Details about finding UHD
 FIND_PACKAGE_MESSAGE_DETAILS_UHD:INTERNAL=[/opt/local/lib/libuhd.dylib][/opt/local/include][v(4.1.0)]
 PC_UHD_CFLAGS:INTERNAL=

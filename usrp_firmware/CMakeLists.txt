@@ -67,6 +67,8 @@ message(STATUS "Boost_LIBRARIES = ${Boost_LIBRARIES}")
 message(STATUS "Boost Found: ${Boost_FOUND}")
 message(STATUS "Boost_VERSION: ${Boost_VERSION}")
 
+set(Boost_INCLUDE_DIRS "/opt/homebrew/Cellar/boost/1.87.0")
+
 
 # need these include and link directories for the build
 include_directories(
