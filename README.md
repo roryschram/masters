@@ -7,10 +7,10 @@
     <img src="logo.jpg" alt="Logo" width="80" height="51">
   </a>
 
-<h3 align="center">Single Pulse Classification Radar Based on an OFDM Waveform</h3>
+<h3 align="center">Single pulse classification radar based on orthogonal frequency division multiplexing</h3>
 
   <p align="center">
-    This Github page outlines my masters project which started in April of 2024. This Github repo. contains all associated files which may have been used in the research process.
+    The following Github page outlines my masters project which started in April of 2024. This Github repo. contains all associated files which may have been used in the research process.
     <br />
     <a href="https://github.com/roryschram/masters"><strong>Explore the docs »</strong></a>
     <br />
@@ -55,33 +55,59 @@
 
 <!-- ABOUT THE PROJECT -->
 ## About The Project
-
-Here's a blank template to get started: To avoid retyping too much info. Do a search and replace with your text editor for the following: `github_username`, `repo_name`, `twitter_handle`, `linkedin_username`, `email_client`, `email`, `project_title`, `project_description`
-
-<p align="right">(<a href="#readme-top">back to top</a>)</p>
-
-
-
-### Built With
-
+The main aim of this project was to build on the theoretical work set out by Gabriel Lellouch and Amit Mishra in their various publications. My masters focused primarily on showing a practical implementation of their theoretical work that showed that estimation of a channel that a radar signal passes through has the capability, when combined with post-processing, to classify a target object that a radar is looking at, when compared to other objects.
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
-
 
 
 <!-- GETTING STARTED -->
 ## Getting Started
-
-This is an example of how you may give instructions on setting up your project locally.
-To get a local copy up and running follow these simple example steps.
+The entire code base for this project was designed and engineered on a MacBook Pro 13-inch, M2, 2022, with 8 GB of memory. I have tried to make the project as cross-platform compatible as possible, by utilizing technologies such as Docker containerization, however, if any issues arise on machines that aren't using my exact setup, then you may need to go digging for solutions yourself.
 
 ### Prerequisites
 
-This is an example of how to list things you need to use the software and how to install them.
-* npm
-  ```sh
-  npm install npm@latest -g
-  ```
+It is important that you have docker installed on your system. For me, that simply involved going to the official Docker website and downloading Docker Desktop. The download and install of this piece of software installed the required command line tools to use Docker.
+
+Next, I will assume that you already have git CLI tools installed on your local machine. This is important as it allows you to interact with this repository to copy my code.
+
+Next, you must make a copy of this repository to your local machine. First navigate to your desired save location for the program with the following:
+
+```bash
+cd /path/to/desired/save/location
+```
+
+Then, clone the github hosted repository with the following:
+
+```bash
+git clone https://github.com/roryschram/masters.git
+```
+
+The git repository has the following structure and layout:
+
+    
+```
+..
+├── CNAME
+├── index.html
+├── rate.html
+├── rate.html
+├── rate.html
+├── rate.html
+├── rate.html
+├── rate.html
+├── rate.html
+├── rate.html
+├── rate.html
+├── rate.html
+├── rate.html
+├── rate.html
+├── rate.html
+└── README.md
+├── assets
+│   └── css
+│       ├── index-ui.css
+│       └── rate-ui.css
+```
 
 ### Installation
 

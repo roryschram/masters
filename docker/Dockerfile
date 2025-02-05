@@ -49,4 +49,22 @@ RUN          cmake .. -DNEON_SIMD_ENABLE=OFF -DENABLE_PYTHON3=ON -DUHD_RELEASE_M
 RUN          make -j $MAKEWIDTH
 RUN          make install
 RUN          uhd_images_downloader
-WORKDIR      /
+
+# Set the root user's password (replace 'yourpassword' with a secure password)
+RUN echo "root:root" | chpasswd
+
+# Grant root user sudo privileges (already has full privileges in most cases)
+RUN echo "root ALL=(ALL) NOPASSWD:ALL" >> /etc/sudoers
+# Create a new user (replace 'newuser' with your preferred username)
+
+RUN useradd -m -s /bin/bash usrp && \
+    echo "usrp:usrp" | chpasswd && \
+    usermod -aG sudo usrp
+
+# Set the new user to have passwordless sudo privileges (optional)
+RUN echo "usrp ALL=(ALL) NOPASSWD:ALL" >> /etc/sudoers
+
+# Switch to the new user (if needed)
+USER usrp
+WORKDIR /home/usrp
+
