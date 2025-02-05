@@ -6,18 +6,14 @@
 #
 
 cmake_minimum_required(VERSION 3.5.1)
-project(N210_FIRMWARE CXX C)
+project(N210_FIRMWARE)
 
 #!## Configure Compiler ########################################################
-set(CMAKE_CXX_STANDARD 17)
 
-if(CMAKE_SYSTEM_NAME STREQUAL "FreeBSD" AND ${CMAKE_CXX_COMPILER_ID} STREQUAL "Clang")
-    set(CMAKE_EXE_LINKER_FLAGS "-lthr ${CMAKE_EXE_LINKER_FLAGS}")
-    set(CMAKE_CXX_FLAGS "-stdlib=libc++ ${CMAKE_CXX_FLAGS}")
-endif()
+set(CMAKE_EXE_LINKER_FLAGS "${CMAKE_EXE_LINKER_FLAGS}")
+set(CMAKE_CXX_FLAGS "-std=c++11 ${CMAKE_CXX_FLAGS}")  # Or any other C++ standard you want to use
+set(CMAKE_CXX_COMPILER "g++")
 
-set(CMAKE_CXX_FLAGS_DEBUG "${CMAKE_CXX_FLAGS_DEBUG} -g")
-set(CMAKE_C_FLAGS_DEBUG "${CMAKE_C_FLAGS_DEBUG} -g")
 
 set(EXTERNAL_DIR ${CMAKE_SOURCE_DIR}/externals)
 
@@ -66,8 +62,6 @@ message(STATUS "Boost_LIBRARY_DIRS = ${Boost_LIBRARY_DIRS}")
 message(STATUS "Boost_LIBRARIES = ${Boost_LIBRARIES}")
 message(STATUS "Boost Found: ${Boost_FOUND}")
 message(STATUS "Boost_VERSION: ${Boost_VERSION}")
-
-set(Boost_INCLUDE_DIRS "/opt/homebrew/Cellar/boost/1.87.0")
 
 
 # need these include and link directories for the build
@@ -133,4 +127,4 @@ add_library(processing_library ${PROCESSING_SOURCES})
 add_executable(${PROJECT_NAME} main.cpp)
 
 message(STATUS "Linking against shared UHD library.")
-target_link_libraries(${PROJECT_NAME} ${UHD_LIBRARIES} test_types_library hardware_config utility_library processing_library)
+target_link_libraries(${PROJECT_NAME} ${UHD_LIBRARIES} test_types_library hardware_config utility_library processing_library pthread)

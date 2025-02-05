@@ -1,6 +1,5 @@
 file(REMOVE_RECURSE
   "CMakeFiles/N210_FIRMWARE.dir/main.cpp.o"
-  "CMakeFiles/N210_FIRMWARE.dir/main.cpp.o.d"
   "N210_FIRMWARE"
   "N210_FIRMWARE.pdb"
 )

@@ -29,7 +29,7 @@ set(EXTERNAL_DIR ${CMAKE_SOURCE_DIR}/externals)
 option(UHD_USE_STATIC_LIBS OFF)
 
 # To add UHD as a dependency to this project, add a line such as this:
-find_package(UHD 4.1.0 REQUIRED)
+find_package(UHD 3.14.0 REQUIRED)
 
 
 #!###################################################### HDF LIBRARY #######################################################

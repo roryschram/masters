@@ -1,0 +1,13 @@
+version: '3.8'
+
+services:
+  ubuntu_container:
+    build: .
+    container_name: usrp
+    stdin_open: true
+    tty: true
+
+    volumes:
+      - ../../masters/:/home/masters/
+
+    network_mode: "host"
