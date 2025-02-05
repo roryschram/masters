@@ -35,7 +35,8 @@ RUN apt-get -y install autoconf \
         python3-requests \
         python3-scipy \
         python3-setuptools \
-        python3-ruamel.yaml
+        python3-ruamel.yaml \
+        sudo
 
 RUN          rm -rf /var/lib/apt/lists/*
 
