@@ -50,21 +50,21 @@ RUN          make -j $MAKEWIDTH
 RUN          make install
 RUN          uhd_images_downloader
 
-# Set the root user's password (replace 'yourpassword' with a secure password)
+# Set root password
 RUN echo "root:root" | chpasswd
 
-# Grant root user sudo privileges (already has full privileges in most cases)
-RUN echo "root ALL=(ALL) NOPASSWD:ALL" >> /etc/sudoers
-# Create a new user (replace 'newuser' with your preferred username)
-
+# Create new user 'usrp' and set password
 RUN useradd -m -s /bin/bash usrp && \
-    echo "usrp:usrp" | chpasswd && \
-    usermod -aG sudo usrp
+    echo "usrp:usrp" | chpasswd
 
-# Set the new user to have passwordless sudo privileges (optional)
-RUN echo "usrp ALL=(ALL) NOPASSWD:ALL" >> /etc/sudoers
+# Add 'usrp' to sudoers correctly
+RUN usermod -aG sudo usrp && \
+    echo "usrp ALL=(ALL) NOPASSWD:ALL" > /etc/sudoers.d/usrp
 
-# Switch to the new user (if needed)
+# Ensure proper ownership
+RUN chown -R usrp:usrp /home/usrp
+
+# Switch to 'usrp' user
 USER usrp
-WORKDIR /home/usrp
+WORKDIR /home/
 
