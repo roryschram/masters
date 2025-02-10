@@ -248,7 +248,7 @@ int UHD_SAFE_MAIN(int argc, char *argv[]) {
     uhd::usrp::multi_usrp::sptr tx_usrp = uhd::usrp::multi_usrp::make(tx_usrp_args);
     uhd::usrp::multi_usrp::sptr rx_usrp = uhd::usrp::multi_usrp::make(rx_usrp_args);
     std::cout<<"\nMULTI USRP OBJECT CREATED WITH IP ADDRESSES";
-tes
+testsgsgs
 
     // Set the clock and time sources for the tx and rx usrp devices
     
