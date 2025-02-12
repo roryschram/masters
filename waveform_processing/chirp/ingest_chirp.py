@@ -58,10 +58,12 @@ plt.ylabel("|received|")
 plt.show()
 
 
-plt.plot(np.real(received_data))
-plt.plot(np.imag(received_data))
+time = np.arange(len(received_data))/25000000
+
+plt.plot(time,np.real(received_data))
+plt.plot(time,np.imag(received_data))
 plt.title("Received signal")
-plt.xlabel("Samples")
+plt.xlabel("Time (s)")
 plt.ylabel("|received|")
 plt.show()
 

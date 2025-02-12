@@ -96,7 +96,7 @@ plt.show()
 
 
 
-data_frame = received_data[first_max:first_max+50000]
+data_frame = received_data[first_max:first_max+400000]
 print(len(data_frame))
 
 np.save("waveform_processing/ofdm/data_frame.npy",data_frame)

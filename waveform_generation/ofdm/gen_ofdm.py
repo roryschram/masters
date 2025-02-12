@@ -3,7 +3,7 @@ import matplotlib.pyplot as plt
 import scipy
 
 
-K = 50000 # number of OFDM subcarriers
+K = 400000 # number of OFDM subcarriers
 
 # CP = K//4  # length of the cyclic prefix: 25% of the block
 
