@@ -79,6 +79,7 @@ void saveComplexDataToFile(const std::string& filename, const std::vector<std::c
 void transmit_vector(uhd::usrp::multi_usrp::sptr tx_usrp, std::vector<std::complex<double>> buffers, uhd::time_spec_t time_now, double secondsInFuture){
     //set up transmit streamer
     uhd::stream_args_t stream_args("fc64","sc16");
+    //stream_args.args["underflow_policy"] = "next_burst";
     uhd::tx_streamer::sptr tx_stream = tx_usrp->get_tx_stream(stream_args);
         
     uhd::tx_metadata_t md;
@@ -255,9 +256,6 @@ int UHD_SAFE_MAIN(int argc, char *argv[]) {
     uhd::usrp::multi_usrp::sptr rx_usrp = uhd::usrp::multi_usrp::make(rx_usrp_args);
     std::cout<<"\nMULTI USRP OBJECT CREATED WITH IP ADDRESSES";
 
-    std::cout<<"\nNumber of tx channels on tx usrp: "<<tx_usrp->get_tx_num_channels();
-    std::cout<<"\nNumber of rx channels on rx usrp: "<<rx_usrp->get_tx_num_channels();
-
 
     // Set the clock and time sources for the tx and rx usrp devices
     
@@ -383,12 +381,12 @@ int UHD_SAFE_MAIN(int argc, char *argv[]) {
     //     transmit_vector(tx_usrp, transmitVector, time_now, 2.0);
     // });
 
-    transmit_vector(tx_usrp, transmitVector, time_now, 2.0);
+    transmit_vector(tx_usrp, transmitVector, time_now, 0.1);
 
     std::thread receive_thread([&]() {
         // Don't need this because this device is the slave device
         //rx_usrp->set_time_unknown_pps(uhd::time_spec_t(0.0));
-        received_data = receive_vector(rx_usrp,CONFIG::NUM_SAMPS,time_now,2.0);
+        received_data = receive_vector(rx_usrp,CONFIG::NUM_SAMPS,time_now, 0.1);
     });
 
 

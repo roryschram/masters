@@ -17,7 +17,7 @@ def read_complex_data_from_dat(filename):
 # Get received usrp data
 received_data = read_complex_data_from_dat("received_data/receive.dat")
 
-#received_data = received_data[255:]
+received_data = received_data[255:]
 
 # received_data = received_data - np.mean(received_data)
 
@@ -96,7 +96,7 @@ plt.show()
 
 
 
-data_frame = received_data[first_max:first_max+5000]
+data_frame = received_data[first_max:first_max+50000]
 print(len(data_frame))
 
 np.save("waveform_processing/ofdm/data_frame.npy",data_frame)
