@@ -1,5 +1,7 @@
 import numpy as np
 import matplotlib.pylab as plt
+import scipy
+import scipy.signal
 
 def read_complex_data_from_dat(filename):
     # Read the binary data
@@ -34,7 +36,7 @@ transmitted_data = np.load("transmitted_data/sweep_signal.npy")
 # plt.plot(np.abs(transmitted_data))
 # plt.show()
 
-corrolation = np.correlate(received_data,transmitted_data)
+corrolation = scipy.signal.correlate(received_data,transmitted_data)
 
 # pos_start_frame = np.argmax(np.abs(corrolation))
 

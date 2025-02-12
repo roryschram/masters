@@ -14,9 +14,9 @@
     "RX_RATE":25e6,
     "TX_BW":1e6,
     "RX_BW": 1e6,
-    "TX_GAIN":25,
+    "TX_GAIN":20,
     "RX_GAIN":20,
     "OUTPUT_FILE":"temp",
-    "NUM_SAMPS": 40000,
+    "NUM_SAMPS": 1e6,
     "VERBOSE":false
   }

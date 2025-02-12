@@ -91,13 +91,17 @@ void transmit_vector(uhd::usrp::multi_usrp::sptr tx_usrp, std::vector<std::compl
     //std::cout<<"Max Transmit Buffer Size: "<<maxTransmitSize<<"\n";
     size_t fullBufferLength=buffers.size();
 
+    //std::cout<<"full buffer length "<<fullBufferLength<<"\n";
+
     if(fullBufferLength<=maxTransmitSize){
+        std::cout<<"OUT OF WHILE LOOP: "<<maxTransmitSize<<"\n";
         std::vector<std::complex<double>*> pBuffs(1,&buffers.front());
-        tx_stream->send(pBuffs,buffers.size(),md,10.0);
+        tx_stream->send(pBuffs,buffers.size(),md,0.1);
         md.end_of_burst=true;
-        tx_stream->send("",0,md,10.0);
+        tx_stream->send("",0,md,0.1);
         return;
     }else{
+        //std::cout<<"IN WHILE LOOP: "<<maxTransmitSize<<"\n";
         size_t numSent=0;
         while (numSent<fullBufferLength)
         {
@@ -107,13 +111,14 @@ void transmit_vector(uhd::usrp::multi_usrp::sptr tx_usrp, std::vector<std::compl
             }
             std::vector<std::complex<double>> smallbuffer(buffers.begin()+numSent,buffers.begin()+numSent+smallBufferSize);
             std::vector<std::complex<double>*> pBuffs(1,&smallbuffer.front());
-            tx_stream->send(pBuffs,smallbuffer.size(),md,10.0);
+            tx_stream->send(pBuffs,smallbuffer.size(),md,0.1);
             numSent+=smallBufferSize;
             md.has_time_spec=false; //dont want subsequent packets to wait
             md.start_of_burst=false;
+            std::cout<<"Samps Tramsitted: "<<numSent<<"\n";
         }
         md.end_of_burst=true;
-        tx_stream->send("",0,md,10.0);
+        tx_stream->send("",0,md,0.1);
         std::cout<<"Time of first transmitted sample: "<<md.time_spec.get_full_secs() + md.time_spec.get_frac_secs()<<"\n";
         return;
     }
@@ -181,12 +186,13 @@ std::vector<std::complex<double>> receive_vector(uhd::usrp::multi_usrp::sptr rx_
             samplesForThisBlock=samps_per_buff;
         }
             
-        size_t numNewSamples=rx_stream->recv(psampleBuffer,samplesForThisBlock,rxMetaData,10.0);
+        size_t numNewSamples=rx_stream->recv(psampleBuffer,samplesForThisBlock,rxMetaData,0.1);
 
         //append received data to rest of buffer
         entireSample.insert(entireSample.begin()+numSamplesReceived, sampleBuffer.begin(), sampleBuffer.begin()+numNewSamples);
         //increment num samples receieved
         numSamplesReceived+=numNewSamples;
+        std::cout<<"Samps received: "<<numSamplesReceived<<"\n";
     }
     std::cout<<"Time of first received sample: "<<rxMetaData.time_spec.get_full_secs() + rxMetaData.time_spec.get_frac_secs()<<"\n";
     std::cout<<"Error code on receive: "<<rxMetaData.error_code<<"\n";
@@ -248,7 +254,10 @@ int UHD_SAFE_MAIN(int argc, char *argv[]) {
     uhd::usrp::multi_usrp::sptr tx_usrp = uhd::usrp::multi_usrp::make(tx_usrp_args);
     uhd::usrp::multi_usrp::sptr rx_usrp = uhd::usrp::multi_usrp::make(rx_usrp_args);
     std::cout<<"\nMULTI USRP OBJECT CREATED WITH IP ADDRESSES";
-testsgsgs
+
+    std::cout<<"\nNumber of tx channels on tx usrp: "<<tx_usrp->get_tx_num_channels();
+    std::cout<<"\nNumber of rx channels on rx usrp: "<<rx_usrp->get_tx_num_channels();
+
 
     // Set the clock and time sources for the tx and rx usrp devices
     
@@ -369,20 +378,14 @@ testsgsgs
     isSetupComplete.store(true);
     
 
-    std::thread transmit_thread([&]() {
-        while (!isSetupComplete.load()) {
-            // Busy-wait until setup is complete (could use sleep for more efficiency)
-            std::this_thread::sleep_for(std::chrono::milliseconds(10));
-        }
-        //tx_usrp->set_time_unknown_pps(uhd::time_spec_t(0.0));
-        transmit_vector(tx_usrp, transmitVector, time_now, 2.0);
-    });
+    // std::thread transmit_thread([&]() {
+    //     //tx_usrp->set_time_unknown_pps(uhd::time_spec_t(0.0));
+    //     transmit_vector(tx_usrp, transmitVector, time_now, 2.0);
+    // });
+
+    transmit_vector(tx_usrp, transmitVector, time_now, 2.0);
 
     std::thread receive_thread([&]() {
-        while (!isSetupComplete.load()) {
-            // Busy-wait until setup is complete (could use sleep for more efficiency)
-            std::this_thread::sleep_for(std::chrono::milliseconds(10));
-        }
         // Don't need this because this device is the slave device
         //rx_usrp->set_time_unknown_pps(uhd::time_spec_t(0.0));
         received_data = receive_vector(rx_usrp,CONFIG::NUM_SAMPS,time_now,2.0);
@@ -395,7 +398,7 @@ testsgsgs
 /////////////////////////////////////////////////////////////////////
 
 
-    transmit_thread.join();
+    // transmit_thread.join();
     receive_thread.join();
 
 
