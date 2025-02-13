@@ -50,7 +50,7 @@ corrolation = scipy.signal.correlate(received_data,transmitted_data)
 
 # np.save("waveform_processing/symbol.npy",symbol)
 
-freqs = np.fft.fftshift(np.fft.fftfreq(len(received_data),d=1/25e6))
+freqs = np.fft.fftshift(np.fft.fftfreq(len(received_data),d=1/12.5e6))
 plt.plot(freqs,np.fft.fftshift(20*np.log10(np.abs(np.fft.fft(received_data))/len(received_data))))
 plt.title("Received signal fft")
 plt.xlabel("Frequency (Hz)")
