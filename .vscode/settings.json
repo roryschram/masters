@@ -1,5 +1,5 @@
 {
-    "cmake.sourceDirectory": "/Users/roryschram/Documents/Work/masters/usrp_firmware",
+    "cmake.sourceDirectory": "/home/usrp/Desktop/masters/usrp_firmware",
     "cSpell.enableFiletypes": [
         "!latex"
     ],
