@@ -31,7 +31,7 @@ def chirp(fs_Hz, rep_Hz, f0_Hz, f1_Hz, periods=1, phase_rad=0):
     phi_rad += phase_rad # Offset by user-specified initial phase.
     return np.tile(np.exp(1j * phi_rad), periods) # Complex I/Q.
 
-sweep_signal = chirp(12.5e6,50,-5e6,5e6)
+sweep_signal = chirp(12.5e6,1000,-5e6,5e6)
 
 
 padded_sweep_signal = np.pad(sweep_signal, pad_width=(5000,1000), mode="constant", constant_values=0+0j)
@@ -44,7 +44,6 @@ plt.plot(np.imag(padded_sweep_signal),label="Imag Part")
 plt.xlabel("Time (s)")
 plt.ylabel("Amplitude")
 plt.title("Sweep signal")
-plt.legend()
 plt.show()
 
 
@@ -61,7 +60,7 @@ plt.show()
 
 # Open a .dat file in binary write mode
 with open("transmitted_data/transmit.dat", 'wb') as f:
-    for sample in padded_sweep_signal:
+    for sample in sweep_signal:
         # Write the real part (I) as 64-bit double
         f.write(np.double(sample.real).tobytes())
         # Write the imaginary part (Q) as 64-bit double

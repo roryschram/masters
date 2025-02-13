@@ -79,7 +79,7 @@ void saveComplexDataToFile(const std::string& filename, const std::vector<std::c
 void transmit_vector(uhd::usrp::multi_usrp::sptr tx_usrp, std::vector<std::complex<double>> buffers, uhd::time_spec_t time_now, double secondsInFuture){
     //set up transmit streamer
     uhd::stream_args_t stream_args("fc64","sc16");
-    //stream_args.args["underflow_policy"] = "next_burst";
+    // stream_args.args["underflow_policy"] = "wait";
     uhd::tx_streamer::sptr tx_stream = tx_usrp->get_tx_stream(stream_args);
         
     uhd::tx_metadata_t md;
@@ -122,7 +122,7 @@ void transmit_vector(uhd::usrp::multi_usrp::sptr tx_usrp, std::vector<std::compl
             numSent+=smallBufferSize;
             md.has_time_spec=false; //dont want subsequent packets to wait
             md.start_of_burst=false;
-            std::cout<<"Samps Tramsitted: "<<numSent<<"\n";
+            // std::cout<<"Samps Tramsitted: "<<numSent<<"\n";
         }
         // md.end_of_burst=true;
         // tx_stream->send("",0,md,0.1);
@@ -256,11 +256,11 @@ int UHD_SAFE_MAIN(int argc, char *argv[]) {
 
     // Create the args for the tx and rx usrp
     uhd::device_addr_t tx_usrp_args("addr="+CONFIG::SDR_IP_TX);
-    uhd::device_addr_t rx_usrp_args("addr="+CONFIG::SDR_IP_RX);
+    // uhd::device_addr_t rx_usrp_args("addr="+CONFIG::SDR_IP_RX);
 
     // Instantiate a tx and rx multi usrp object
     uhd::usrp::multi_usrp::sptr tx_usrp = uhd::usrp::multi_usrp::make(tx_usrp_args);
-    uhd::usrp::multi_usrp::sptr rx_usrp = uhd::usrp::multi_usrp::make(rx_usrp_args);
+    // uhd::usrp::multi_usrp::sptr rx_usrp = uhd::usrp::multi_usrp::make(rx_usrp_args);
     std::cout<<"\nMULTI USRP OBJECT CREATED WITH IP ADDRESSES";
 
 
@@ -272,7 +272,7 @@ int UHD_SAFE_MAIN(int argc, char *argv[]) {
     
     
     tx_usrp->set_sync_source(uhd::device_addr_t("clock_source=internal,time_source=none"));
-    rx_usrp->set_sync_source(uhd::device_addr_t("clock_source=mimo,time_source=mimo"));
+    // rx_usrp->set_sync_source(uhd::device_addr_t("clock_source=mimo,time_source=mimo"));
     // rx_usrp->set_clock_source(CONFIG::RX_CLOCK);
     // rx_usrp->set_time_source("mimo");
     std::cout<<"\nREF CLOCK SET AND RX CLOCK SET";
@@ -293,15 +293,15 @@ int UHD_SAFE_MAIN(int argc, char *argv[]) {
         TX::setupTransmitter(tx_usrp);
         break;
     case CONFIG::USRP_MODE::RX_ONLY_MODE:
-        RX::setupReceiever(rx_usrp);
+        // RX::setupReceiever(rx_usrp);
         break;
     case CONFIG::USRP_MODE::TX_AND_RX_MODE:
         TX::setupTransmitter(tx_usrp);
-        RX::setupReceiever(rx_usrp);
+        // RX::setupReceiever(rx_usrp);
         break;
     case CONFIG::USRP_MODE::RUN_MAIN:
         TX::setupTransmitter(tx_usrp);
-        RX::setupReceiever(rx_usrp);
+        // RX::setupReceiever(rx_usrp);
         break;
     default:
         std::cout<<"Hit default case, mode not set correctly"<<std::endl;
@@ -361,8 +361,8 @@ int UHD_SAFE_MAIN(int argc, char *argv[]) {
 /////////////////////////////////////////////////////////////////////
 
     // Create receive vector
-    std::vector<std::complex<double>> received_data;
-    received_data.reserve(CONFIG::NUM_SAMPS);
+    // std::vector<std::complex<double>> received_data;
+    // received_data.reserve(CONFIG::NUM_SAMPS);
 
 
 /////////////////////////////////////////////////////////////////////
@@ -413,7 +413,7 @@ int UHD_SAFE_MAIN(int argc, char *argv[]) {
     // std::cout<<"\nFrac time of transmit first sample: "<<txMetaData.time_spec.get_full_secs() + txMetaData.time_spec.get_frac_secs();
     // std::cout<<"\n"<<rxMetaData.to_pp_string(false);
 
-    saveComplexDataToFile("../../received_data/receive.dat",received_data);
+    // saveComplexDataToFile("../../received_data/receive.dat",received_data);
 
 
     return EXIT_SUCCESS;
