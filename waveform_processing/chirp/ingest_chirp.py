@@ -76,7 +76,7 @@ first_max = np.argmax(corrolation_abs)
 
 
 # Parameters
-sampling_rate = 25e6   # Sampling rate in Hz (1 MHz)
+sampling_rate = 12.5e6   # Sampling rate in Hz (1 MHz)
 c = 299702547               # Speed of light in m/s (for distance calculation)
 
 # Calculate the time spacing between samples

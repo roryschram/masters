@@ -79,7 +79,7 @@ void saveComplexDataToFile(const std::string& filename, const std::vector<std::c
 void transmit_vector(uhd::usrp::multi_usrp::sptr tx_usrp, std::vector<std::complex<double>> buffers, uhd::time_spec_t time_now, double secondsInFuture){
     //set up transmit streamer
     uhd::stream_args_t stream_args("fc64","sc16");
-    //stream_args.args["underflow_policy"] = "next_burst";
+    stream_args.args["underflow_policy"] = "next_burst";
     uhd::tx_streamer::sptr tx_stream = tx_usrp->get_tx_stream(stream_args);
         
     uhd::tx_metadata_t md;
@@ -94,19 +94,13 @@ void transmit_vector(uhd::usrp::multi_usrp::sptr tx_usrp, std::vector<std::compl
 
     //std::cout<<"full buffer length "<<fullBufferLength<<"\n";
 
-    while (1)
-    {
-        /* code */
-
-    
-
     if(fullBufferLength<=maxTransmitSize){
         std::cout<<"OUT OF WHILE LOOP: "<<maxTransmitSize<<"\n";
         std::vector<std::complex<double>*> pBuffs(1,&buffers.front());
         tx_stream->send(pBuffs,buffers.size(),md,0.1);
         md.end_of_burst=true;
         tx_stream->send("",0,md,0.1);
-        //return;
+        return;
     }else{
         //std::cout<<"IN WHILE LOOP: "<<maxTransmitSize<<"\n";
         size_t numSent=0;
@@ -124,12 +118,11 @@ void transmit_vector(uhd::usrp::multi_usrp::sptr tx_usrp, std::vector<std::compl
             md.start_of_burst=false;
             std::cout<<"Samps Tramsitted: "<<numSent<<"\n";
         }
-        // md.end_of_burst=true;
-        // tx_stream->send("",0,md,0.1);
-        // std::cout<<"Time of first transmitted sample: "<<md.time_spec.get_full_secs() + md.time_spec.get_frac_secs()<<"\n";
-        //return;
+        md.end_of_burst=true;
+        tx_stream->send("",0,md,0.1);
+        std::cout<<"Time of first transmitted sample: "<<md.time_spec.get_full_secs() + md.time_spec.get_frac_secs()<<"\n";
+        return;
     }
-}
 }
 
 
@@ -385,15 +378,15 @@ int UHD_SAFE_MAIN(int argc, char *argv[]) {
 
     std::thread transmit_thread([&]() {
         //tx_usrp->set_time_unknown_pps(uhd::time_spec_t(0.0));
-        transmit_vector(tx_usrp, transmitVector, time_now, 0.1);
+        transmit_vector(tx_usrp, transmitVector, time_now, 0.5);
     });
 
 
-    // std::thread receive_thread([&]() {
-    //     // Don't need this because this device is the slave device
-    //     //rx_usrp->set_time_unknown_pps(uhd::time_spec_t(0.0));
-    //     received_data = receive_vector(rx_usrp,CONFIG::NUM_SAMPS,time_now, 0.1);
-    // });
+    std::thread receive_thread([&]() {
+        // Don't need this because this device is the slave device
+        //rx_usrp->set_time_unknown_pps(uhd::time_spec_t(0.0));
+        received_data = receive_vector(rx_usrp,CONFIG::NUM_SAMPS,time_now, 0.5);
+    });
 
 
 
@@ -403,7 +396,7 @@ int UHD_SAFE_MAIN(int argc, char *argv[]) {
 
 
     transmit_thread.join();
-    // receive_thread.join();
+    receive_thread.join();
 
 
 
