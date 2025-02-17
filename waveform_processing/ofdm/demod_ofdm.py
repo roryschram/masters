@@ -3,11 +3,11 @@ import matplotlib.pyplot as plt
 import scipy
 import scipy.interpolate
 
-K = 50000 # number of OFDM subcarriers
+K = 400000 # number of OFDM subcarriers
 
 CP = K//4  # length of the cyclic prefix: 25% of the block
 
-P = 5000 # number of pilot carriers per OFDM block
+P = 50000 # number of pilot carriers per OFDM block
 pilotValue = 3+3j # The known value each pilot transmits
 
 allCarriers = np.arange(K)  # indices of all subcarriers ([0, 1, ... K-1])

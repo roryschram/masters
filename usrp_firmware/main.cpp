@@ -116,7 +116,7 @@ void transmit_vector(uhd::usrp::multi_usrp::sptr tx_usrp, std::vector<std::compl
             numSent+=smallBufferSize;
             md.has_time_spec=false; //dont want subsequent packets to wait
             md.start_of_burst=false;
-            std::cout<<"Samps Tramsitted: "<<numSent<<"\n";
+            //std::cout<<"Samps Tramsitted: "<<numSent<<"\n";
         }
         md.end_of_burst=true;
         tx_stream->send("",0,md,0.1);
@@ -173,7 +173,7 @@ std::vector<std::complex<double>> receive_vector(uhd::usrp::multi_usrp::sptr rx_
     std::complex<double>* psampleBuffer = &sampleBuffer[0];
 
 
-    uhd::stream_cmd_t stream_cmd=uhd::stream_cmd_t::STREAM_MODE_NUM_SAMPS_AND_DONE;
+    uhd::stream_cmd_t stream_cmd=uhd::stream_cmd_t::STREAM_MODE_START_CONTINUOUS;
     // stream_cmd.num_samps  = numSamples;
     stream_cmd.stream_now = false;
     stream_cmd.time_spec  = uhd::time_spec_t(time_now + secondsInFuture - 0.03);
@@ -199,7 +199,7 @@ std::vector<std::complex<double>> receive_vector(uhd::usrp::multi_usrp::sptr rx_
         numSamplesReceived+=numNewSamples;
         rxMetaData.has_time_spec=false; //dont want subsequent packets to wait
         rxMetaData.start_of_burst=false;
-        std::cout<<"Samps received: "<<numSamplesReceived<<"\n";
+        //std::cout<<"Samps received: "<<numSamplesReceived<<"\n";
     }
 
     stream_cmd.stream_now = false;
@@ -387,14 +387,14 @@ int UHD_SAFE_MAIN(int argc, char *argv[]) {
 
     std::thread transmit_thread([&]() {
         //tx_usrp->set_time_unknown_pps(uhd::time_spec_t(0.0));
-        transmit_vector(tx_usrp, transmitVector, time_now, 0.5);
+        transmit_vector(tx_usrp, transmitVector, time_now, 0.1);
     });
 
 
     std::thread receive_thread([&]() {
         // Don't need this because this device is the slave device
         //rx_usrp->set_time_unknown_pps(uhd::time_spec_t(0.0));
-        received_data = receive_vector(rx_usrp,CONFIG::NUM_SAMPS,time_now, 0.5);
+        received_data = receive_vector(rx_usrp,CONFIG::NUM_SAMPS,time_now, 0.1);
     });
 
 

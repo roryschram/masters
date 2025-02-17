@@ -94,8 +94,8 @@ void transmit_vector(uhd::usrp::multi_usrp::sptr tx_usrp, std::vector<std::compl
 
     //std::cout<<"full buffer length "<<fullBufferLength<<"\n";
 
-    // while (1)
-    // {
+    while (1)
+    {
         /* code */
 
     
@@ -132,7 +132,7 @@ void transmit_vector(uhd::usrp::multi_usrp::sptr tx_usrp, std::vector<std::compl
 
 
 
-    // }
+    }
 
 
 
