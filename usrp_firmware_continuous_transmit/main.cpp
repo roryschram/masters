@@ -94,8 +94,8 @@ void transmit_vector(uhd::usrp::multi_usrp::sptr tx_usrp, std::vector<std::compl
 
     //std::cout<<"full buffer length "<<fullBufferLength<<"\n";
 
-    while (1)
-    {
+    // while (1)
+    // {
         /* code */
 
     
@@ -122,14 +122,20 @@ void transmit_vector(uhd::usrp::multi_usrp::sptr tx_usrp, std::vector<std::compl
             numSent+=smallBufferSize;
             md.has_time_spec=false; //dont want subsequent packets to wait
             md.start_of_burst=false;
-            // std::cout<<"Samps Tramsitted: "<<numSent<<"\n";
+            std::cout<<"Samps Tramsitted: "<<numSent<<"\n";
         }
         // md.end_of_burst=true;
         // tx_stream->send("",0,md,0.1);
         // std::cout<<"Time of first transmitted sample: "<<md.time_spec.get_full_secs() + md.time_spec.get_frac_secs()<<"\n";
         //return;
     }
-}
+
+
+
+    // }
+
+
+
 }
 
 

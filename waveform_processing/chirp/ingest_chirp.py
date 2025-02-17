@@ -19,6 +19,7 @@ def read_complex_data_from_dat(filename):
 # Get received usrp data
 received_data = read_complex_data_from_dat("received_data/receive.dat")
 
+print("the length of the received data is: "+str(len(received_data)))
 #received_data = received_data[255:]
 
 # received_data = received_data - np.mean(received_data)
@@ -50,7 +51,7 @@ corrolation = scipy.signal.correlate(received_data,transmitted_data)
 
 # np.save("waveform_processing/symbol.npy",symbol)
 
-freqs = np.fft.fftshift(np.fft.fftfreq(len(received_data),d=1/12.5e6))
+freqs = np.fft.fftshift(np.fft.fftfreq(len(received_data),d=1/25e6))
 plt.plot(freqs,np.fft.fftshift(20*np.log10(np.abs(np.fft.fft(received_data))/len(received_data))))
 plt.title("Received signal fft")
 plt.xlabel("Frequency (Hz)")
@@ -60,8 +61,8 @@ plt.show()
 
 time = np.arange(len(received_data))/25000000
 
-plt.plot(time,np.real(received_data))
-plt.plot(time,np.imag(received_data))
+plt.plot(np.real(received_data))
+plt.plot(np.imag(received_data))
 plt.title("Received signal")
 plt.xlabel("Time (s)")
 plt.ylabel("|received|")

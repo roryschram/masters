@@ -10,13 +10,13 @@
     "TEST_TYPE": "MAIN",
     "TX_FREQ":2.835e9,
     "RX_FREQ":2.835e9,
-    "TX_RATE":12.5e6,
-    "RX_RATE":12.5e6,
+    "TX_RATE":6.25e6,
+    "RX_RATE":6.25e6,
     "TX_BW":1e6,
     "RX_BW": 1e6,
-    "TX_GAIN":15,
+    "TX_GAIN":0,
     "RX_GAIN":0,
     "OUTPUT_FILE":"temp",
-    "NUM_SAMPS": 500000,
+    "NUM_SAMPS": 50000,
     "VERBOSE":false
   }

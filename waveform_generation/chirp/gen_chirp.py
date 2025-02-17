@@ -31,7 +31,7 @@ def chirp(fs_Hz, rep_Hz, f0_Hz, f1_Hz, periods=1, phase_rad=0):
     phi_rad += phase_rad # Offset by user-specified initial phase.
     return np.tile(np.exp(1j * phi_rad), periods) # Complex I/Q.
 
-sweep_signal = chirp(12.5e6,1000,-5e6,5e6)
+sweep_signal = chirp(25e6,10,-5e6,5e6)
 
 
 padded_sweep_signal = np.pad(sweep_signal, pad_width=(5000,1000), mode="constant", constant_values=0+0j)
@@ -69,5 +69,7 @@ with open("transmitted_data/transmit.dat", 'wb') as f:
 
 np.save("transmitted_data/sweep_signal.npy",sweep_signal)
 np.save("transmitted_data/padded_sweep_signal.npy",padded_sweep_signal)
+
+print("RAW Chrip Signal Length: "+str(len(sweep_signal)))
 
 

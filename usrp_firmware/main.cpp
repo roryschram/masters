@@ -147,13 +147,18 @@ void transmit_vector(uhd::usrp::multi_usrp::sptr tx_usrp, std::vector<std::compl
 
 
 std::vector<std::complex<double>> receive_vector(uhd::usrp::multi_usrp::sptr rx_usrp,size_t numSamples,uhd::time_spec_t time_now, double secondsInFuture){
-    // these should be constants
-    std::string cpu_format="fc64"; // function of doubles
-    std::string wire_format="sc16"; // https://files.ettus.com/manual/structuhd_1_1stream__args__t.html#a0ba0e946d2f83f7ac085f4f4e2ce9578
-        
-    // create a receive streamer
-    uhd::stream_args_t stream_args(cpu_format, wire_format);
+    //set up receive streamer
+    uhd::stream_args_t stream_args("fc64","sc16");
+    stream_args.args["underflow_policy"] = "next_burst";
     uhd::rx_streamer::sptr rx_stream = rx_usrp->get_rx_stream(stream_args);
+
+    uhd::rx_metadata_t rxMetaData;
+    rxMetaData.has_time_spec = true;
+    rxMetaData.end_of_burst = false;
+    rxMetaData.time_spec = uhd::time_spec_t(time_now + secondsInFuture - 0.03);
+    rxMetaData.start_of_burst = false;
+
+
     size_t samps_per_buff=rx_stream->get_max_num_samps();
 
     // create totalVector
@@ -168,17 +173,16 @@ std::vector<std::complex<double>> receive_vector(uhd::usrp::multi_usrp::sptr rx_
     std::complex<double>* psampleBuffer = &sampleBuffer[0];
 
 
-    // setup streaming
-    uhd::stream_cmd_t stream_cmd=uhd::stream_cmd_t::STREAM_MODE_NUM_SAMPS_AND_DONE;
-    stream_cmd.num_samps  = numSamples;
-    stream_cmd.stream_now = false;
-    stream_cmd.time_spec  = uhd::time_spec_t(time_now + secondsInFuture);
-    rx_stream->issue_stream_cmd(stream_cmd);
+    // uhd::stream_cmd_t stream_cmd=uhd::stream_cmd_t::STREAM_MODE_START_CONTINUOUS;
+    // // stream_cmd.num_samps  = numSamples;
+    // stream_cmd.stream_now = false;
+    // stream_cmd.time_spec  = uhd::time_spec_t(time_now + secondsInFuture - 0.03);
+    // rx_stream->issue_stream_cmd(stream_cmd);
 
 
     // 
     size_t numSamplesReceived=0;
-    uhd::rx_metadata_t rxMetaData;
+    
         
 
     while (numSamplesReceived<numSamples){
@@ -193,9 +197,12 @@ std::vector<std::complex<double>> receive_vector(uhd::usrp::multi_usrp::sptr rx_
         entireSample.insert(entireSample.begin()+numSamplesReceived, sampleBuffer.begin(), sampleBuffer.begin()+numNewSamples);
         //increment num samples receieved
         numSamplesReceived+=numNewSamples;
+        rxMetaData.has_time_spec=false; //dont want subsequent packets to wait
+        rxMetaData.start_of_burst=false;
         std::cout<<"Samps received: "<<numSamplesReceived<<"\n";
     }
-    std::cout<<"Time of first received sample: "<<rxMetaData.time_spec.get_full_secs() + rxMetaData.time_spec.get_frac_secs()<<"\n";
+    rxMetaData.end_of_burst = true;
+    std::cout<<"Time of last received sample: "<<rxMetaData.time_spec.get_full_secs() + rxMetaData.time_spec.get_frac_secs()<<"\n";
     std::cout<<"Error code on receive: "<<rxMetaData.error_code<<"\n";
     return entireSample;
 }
@@ -374,18 +381,18 @@ int UHD_SAFE_MAIN(int argc, char *argv[]) {
 /////////////////////////////////////////////////////////////////////
     tx_usrp->set_time_now(uhd::time_spec_t(0.0));
     isSetupComplete.store(true);
-    
+
 
     std::thread transmit_thread([&]() {
         //tx_usrp->set_time_unknown_pps(uhd::time_spec_t(0.0));
-        transmit_vector(tx_usrp, transmitVector, time_now, 0.5);
+        transmit_vector(tx_usrp, transmitVector, time_now, 0.2);
     });
 
 
     std::thread receive_thread([&]() {
         // Don't need this because this device is the slave device
         //rx_usrp->set_time_unknown_pps(uhd::time_spec_t(0.0));
-        received_data = receive_vector(rx_usrp,CONFIG::NUM_SAMPS,time_now, 0.5);
+        received_data = receive_vector(rx_usrp,CONFIG::NUM_SAMPS,time_now, 0.2);
     });
 
 
@@ -410,224 +417,6 @@ int UHD_SAFE_MAIN(int argc, char *argv[]) {
 
 
     return EXIT_SUCCESS;
-
-
-    // std::vector<std::complex<double>> receivedVector(CONFIG::NUM_SAMPS);
-
-
-    // uhd::stream_args_t st_args("fc32", "sc16");
-    // auto rx_stream = usrp->get_rx_stream(st_args);
-    // uhd::rx_metadata_t md{};
-    // // Figure out the current time
-    // auto time_now = usrp->get_time_now();
-    // // Craft timed command
-    // uhd::stream_cmd_t stream_cmd(uhd::stream_cmd_t::STREAM_MODE_NUM_SAMPS_AND_DONE);
-    // stream_cmd.num_samps  = CONFIG::NUM_SAMPS;
-    // stream_cmd.stream_now = false; // Enable timed streaming
-    // stream_cmd.time_spec = time_now + 1.0; // Start 1s in the future
-    // rx_stream->issue_stream_cmd(stream_cmd);
-    // // We assume buffers etc. have been allocated
-    // const double timeout = 2.0; // We need to wait at least 1 seconds before samples arrive
-    // int num_recvd = rx_stream->recv(receivedVector, rx_stream->get_max_num_samps(), md, timeout);
-    // // The first sample in 'buffs' will be captured at the requested time. Also,
-    // // the metadata object (md) will most likely contain a timestamp which then will
-    // // match that in the stream command.
-
-
-    // std::cout<<"\n\nNumber of samples received: "<<num_recvd<<"\n";
-
-
-
-
-    // int tickRate = 10;
-    // long long prevTick = usrp->get_time_now().to_ticks(tickRate);
-
-    // while (1) {
-    //     if (usrp->get_time_now().to_ticks(tickRate) > prevTick) {
-    //         std::cout<<"\nTime Now: "<<usrp->get_time_now().to_ticks(tickRate)<<"\n";
-    //         prevTick = usrp->get_time_now().to_ticks(tickRate);    
-
-    //     }
-    // }
-
-    
-    
-
-
-
-    // std::cout<<"\nTime Sources Availible: ";
-    // for (std::string i: usrp->get_time_sources(0))
-    //     std::cout << i << ' ';
-    // std::cout<<"\nTime Source Chosen: "<<CONFIG::REF_CLOCK<<"\n";
-
-    // std::cout<<"Setting Time Source To: "<<CONFIG::REF_CLOCK<<"\n";
-    // usrp->set_time_source(CONFIG::REF_CLOCK);
-    // std::cout<<"Done\n";
-
-
-    // while (usrp->get_mboard_sensor("gps_locked").value == "false") {
-
-    // }
-    // std::cout<<"\n GPS Lock Success!\n";
-
-    // std::cout<<"\n"<<usrp->get_mboard_sensor("gps_gprmc").value<<"\n";
-
-
-
-    // while (1) {
-    //     std::cout<<"\r"<<usrp->get_time_now(0).get_tick_count(100);
-    // }
-
-
-    // return EXIT_SUCCESS;
-
-
-
-
-
-
-
-
-//     //! Create Global Vars
-//     std::vector<std::complex<double>> testVector(CONFIG::NUM_SAMPS, std::complex<double>(0.8,0.0));
-//     std::string SFCWErr;
-//     IQ_3D entireDataset;
-//     IQ_2D allRangeSweeps;
-//     std::string experimentName = storage::generateExperimentTitle();
-//     std::cout<<"EXPERIMENT NAME= "<<experimentName<<"\n";
-//     storage::createEmptyH5CommitDataTypes(CONFIG::OUTPUT_FILE);
-
-
-
-// ///////////////// Import previously created waveform /////////////////////////////
-// // Open the .dat file in binary mode
-//     std::ifstream file("murray_cw.dat", std::ios::binary);
-//     if (!file) {
-//         std::cerr << "Failed to open the file!" << std::endl;
-//         return 1;
-//     }
-
-//     // Read the file content into a buffer
-//     std::vector<double> buffer;
-
-//     // Move to the end of the file to determine its size
-//     file.seekg(0, std::ios::end);
-//     size_t fileSize = file.tellg();
-//     file.seekg(0, std::ios::beg);
-
-//     // Calculate the number of doubles (real + imaginary)
-//     size_t numDoubles = fileSize / sizeof(double);
-
-//     // Resize the buffer to hold the data
-//     buffer.resize(numDoubles);
-
-//     // Read the data from the file into the buffer
-//     file.read(reinterpret_cast<char*>(buffer.data()), fileSize);
-//     file.close();
-
-//     // Check if the number of doubles is even (each complex number has 2 doubles: real + imaginary)
-//     if (numDoubles % 2 != 0) {
-//         std::cerr << "Invalid data: The number of elements should be even." << std::endl;
-//         return 1;
-//     }
-
-//     // Create a vector to store the complex numbers
-//     std::vector<std::complex<double>> complexData;
-//     complexData.reserve(numDoubles / 2);
-
-//     // Interleave the real and imaginary parts into the complex array
-//     for (size_t i = 0; i < numDoubles; i += 2) {
-//         std::complex<double> complexValue(buffer[i], buffer[i + 1]);
-//         complexData.push_back(complexValue);
-//     }
-
-
-// ///////////////// Import previously created waveform /////////////////////////////
-
-
-
-
-
-
-
-
-//     // // create a sine wave in the real to send
-//     // const int size = 10000; // Length of the array
-//     // const double frequency = 200.0; // Frequency of the sine wave
-//     // const double samplingRate = 10000.0; // Sampling rate
-//     // std::vector<std::complex<double>> complexArray(size);
-
-//     // for (int i = 0; i < size; ++i) {
-//     //     double t = i / samplingRate; // Time variable
-//     //     double realPart = std::sin(2 * M_PI * frequency * t); // Sine wave as the real part
-//     //     //double realPart = (std::sin(2 * M_PI * frequency * t) >= 0) ? 1.0 : -1.0;
-//     //     testVector[i] = std::complex<double>(realPart, 0.0); // Imaginary part is zero
-//     // }
-
-//     // //! set up storage
-
-//     switch (CONFIG::TEST_TYPE)
-//     {
-//     case CONFIG::TEST_TYPES::TRANSMIT_SINGLE_FREQ:
-//         tests::transmitSingleFreq(tx_usrp);
-//         break;
-//     case CONFIG::TEST_TYPES::RECEIVE_SINGLE_FREQ:
-//         std::cout<<"Receiver Set Up. Capturing samples now"<<std::endl;
-//         tests::captureSingleFreqToFile(rx_usrp,"double",CONFIG::NUM_SAMPS,CONFIG::OUTPUT_FILE,1.5);
-//         break;
-//     case CONFIG::TEST_TYPES::LOOPBACK:
-//         std::cout<<"Trying to do a loopback test"<<"\n";
-//         tests::transmitAndReceiveToH5(usrp,complexData,CONFIG::OUTPUT_FILE,"received",false,1.5);
-//         storage::dumpComplexVectortoHDF(complexData,CONFIG::OUTPUT_FILE,"transmit");
-//         break;
-//     case CONFIG::TEST_TYPES::INVALID:
-//         std::cout<<"invalid test type, shutting down"<<std::endl;
-//         return EXIT_FAILURE;
-//         break;
-//     case CONFIG::TEST_TYPES::LOOPBACK_SINGLE_DOWNMIX:
-//         std::cout<<"Doing a Loopback with Downmix"<<std::endl;
-//         tests::transmitReceiveDownmixToH5(usrp,testVector,CONFIG::OUTPUT_FILE,1.5);
-//         break;
-//     case CONFIG::TEST_TYPES::SFCW:
-//         std::cout<<"\n Performing SFCW Test Now:\n";
-
-//         //! Set up SFCW Pameters
-//         if(!DSP::SFCW::setSFCWParameters(&SFCWErr)){
-//             std::cerr<<SFCWErr;
-//             return EXIT_FAILURE;
-//         }
-
-//         //!  Set up Storage
-//         storage::createEmptyH5CommitDataTypes(experimentName);
-        
-
-//         //! run Sweeps
-//         if(CONFIG::SFCW_NUM_SWEEPS<=0){
-//             //tests::SFCW::performSweepsTilStopSignal();
-//             std::cerr<<"Indefinite Sweeps not implemented yet"<<std::endl;
-//             return EXIT_FAILURE;
-//         }else{
-//             std::cout<<"Starting Sweeps:\n";
-//             bool testSuccess= tests::SFCW::performNSweepsAndStore( usrp ,CONFIG::SFCW_NUM_SWEEPS);
-//             //storage::testWritingAndReadingMatWithDummyData();
-            
-//         }
-
-
-
-//         break;
-//     default:
-//         break;
-//     }
-    
-    
-
-//     std::cout<<"Reached End Of main()"<<std::endl;
-//     return EXIT_SUCCESS;
 }
 
-
-
-
-
-
+    
