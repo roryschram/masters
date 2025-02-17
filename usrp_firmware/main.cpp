@@ -98,8 +98,8 @@ void transmit_vector(uhd::usrp::multi_usrp::sptr tx_usrp, std::vector<std::compl
         std::cout<<"OUT OF WHILE LOOP: "<<maxTransmitSize<<"\n";
         std::vector<std::complex<double>*> pBuffs(1,&buffers.front());
         tx_stream->send(pBuffs,buffers.size(),md,0.1);
-        md.end_of_burst=true;
-        tx_stream->send("",0,md,0.1);
+        //md.end_of_burst=true;
+        //tx_stream->send("",0,md,0.1);
         return;
     }else{
         //std::cout<<"IN WHILE LOOP: "<<maxTransmitSize<<"\n";
@@ -155,7 +155,7 @@ std::vector<std::complex<double>> receive_vector(uhd::usrp::multi_usrp::sptr rx_
     uhd::rx_metadata_t rxMetaData;
     rxMetaData.has_time_spec = true;
     rxMetaData.end_of_burst = false;
-    rxMetaData.time_spec = uhd::time_spec_t(time_now + secondsInFuture);
+    rxMetaData.time_spec = uhd::time_spec_t(time_now + secondsInFuture -0.03);
     rxMetaData.start_of_burst = false;
 
 
@@ -173,10 +173,10 @@ std::vector<std::complex<double>> receive_vector(uhd::usrp::multi_usrp::sptr rx_
     std::complex<double>* psampleBuffer = &sampleBuffer[0];
 
 
-    uhd::stream_cmd_t stream_cmd=uhd::stream_cmd_t::STREAM_MODE_START_CONTINUOUS;
+    uhd::stream_cmd_t stream_cmd=uhd::stream_cmd_t::STREAM_MODE_NUM_SAMPS_AND_DONE;
     // stream_cmd.num_samps  = numSamples;
     stream_cmd.stream_now = false;
-    stream_cmd.time_spec  = uhd::time_spec_t(time_now + secondsInFuture);
+    stream_cmd.time_spec  = uhd::time_spec_t(time_now + secondsInFuture - 0.03);
     rx_stream->issue_stream_cmd(stream_cmd);
 
 
@@ -201,9 +201,11 @@ std::vector<std::complex<double>> receive_vector(uhd::usrp::multi_usrp::sptr rx_
         rxMetaData.start_of_burst=false;
         std::cout<<"Samps received: "<<numSamplesReceived<<"\n";
     }
-    rxMetaData.end_of_burst = true;
-    std::cout<<"Time of last received sample: "<<rxMetaData.time_spec.get_full_secs() + rxMetaData.time_spec.get_frac_secs()<<"\n";
-    std::cout<<"Error code on receive: "<<rxMetaData.error_code<<"\n";
+
+    stream_cmd.stream_now = false;
+    rx_usrp->issue_stream_cmd(stream_cmd);
+    //std::cout<<"Time of last received sample: "<<rxMetaData.time_spec.get_full_secs() + rxMetaData.time_spec.get_frac_secs()<<"\n";
+    std::cout<<rxMetaData.to_pp_string()<<"\n";
     return entireSample;
 }
 
@@ -385,14 +387,14 @@ int UHD_SAFE_MAIN(int argc, char *argv[]) {
 
     std::thread transmit_thread([&]() {
         //tx_usrp->set_time_unknown_pps(uhd::time_spec_t(0.0));
-        transmit_vector(tx_usrp, transmitVector, time_now, 0.2);
+        transmit_vector(tx_usrp, transmitVector, time_now, 0.5);
     });
 
 
     std::thread receive_thread([&]() {
         // Don't need this because this device is the slave device
         //rx_usrp->set_time_unknown_pps(uhd::time_spec_t(0.0));
-        received_data = receive_vector(rx_usrp,CONFIG::NUM_SAMPS,time_now, 0.2);
+        received_data = receive_vector(rx_usrp,CONFIG::NUM_SAMPS,time_now, 0.5);
     });
 
 

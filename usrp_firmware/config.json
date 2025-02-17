@@ -1,6 +1,6 @@
 {
     "SDR_IP_TX": "192.168.10.2",
-    "SDR_IP_RX": "192.168.20.2",
+    "SDR_IP_RX": "192.168.10.3",
     "TX_SUBDEV": "A:0",
     "RX_SUBDEV": "A:0",
     "REF_CLOCK": "internal",
@@ -12,11 +12,11 @@
     "RX_FREQ":2.835e9,
     "TX_RATE":25e6,
     "RX_RATE":25e6,
-    "TX_BW":20e6,
-    "RX_BW": 20e6,
+    "TX_BW":1e6,
+    "RX_BW": 1e6,
     "TX_GAIN":20,
     "RX_GAIN":20,
     "OUTPUT_FILE":"temp",
-    "NUM_SAMPS": 1000000,
+    "NUM_SAMPS": 2000000,
     "VERBOSE":false
   }
