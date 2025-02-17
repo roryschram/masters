@@ -79,7 +79,7 @@ void saveComplexDataToFile(const std::string& filename, const std::vector<std::c
 void transmit_vector(uhd::usrp::multi_usrp::sptr tx_usrp, std::vector<std::complex<double>> buffers, uhd::time_spec_t time_now, double secondsInFuture){
     //set up transmit streamer
     uhd::stream_args_t stream_args("fc64","sc16");
-    stream_args.args["underflow_policy"] = "next_burst";
+    // stream_args.args["underflow_policy"] = "next_burst";
     uhd::tx_streamer::sptr tx_stream = tx_usrp->get_tx_stream(stream_args);
         
     uhd::tx_metadata_t md;
@@ -149,13 +149,13 @@ void transmit_vector(uhd::usrp::multi_usrp::sptr tx_usrp, std::vector<std::compl
 std::vector<std::complex<double>> receive_vector(uhd::usrp::multi_usrp::sptr rx_usrp,size_t numSamples,uhd::time_spec_t time_now, double secondsInFuture){
     //set up receive streamer
     uhd::stream_args_t stream_args("fc64","sc16");
-    stream_args.args["underflow_policy"] = "next_burst";
+    // stream_args.args["underflow_policy"] = "next_burst";
     uhd::rx_streamer::sptr rx_stream = rx_usrp->get_rx_stream(stream_args);
 
     uhd::rx_metadata_t rxMetaData;
     rxMetaData.has_time_spec = true;
     rxMetaData.end_of_burst = false;
-    rxMetaData.time_spec = uhd::time_spec_t(time_now + secondsInFuture - 0.03);
+    rxMetaData.time_spec = uhd::time_spec_t(time_now + secondsInFuture);
     rxMetaData.start_of_burst = false;
 
 
@@ -173,11 +173,11 @@ std::vector<std::complex<double>> receive_vector(uhd::usrp::multi_usrp::sptr rx_
     std::complex<double>* psampleBuffer = &sampleBuffer[0];
 
 
-    // uhd::stream_cmd_t stream_cmd=uhd::stream_cmd_t::STREAM_MODE_START_CONTINUOUS;
-    // // stream_cmd.num_samps  = numSamples;
-    // stream_cmd.stream_now = false;
-    // stream_cmd.time_spec  = uhd::time_spec_t(time_now + secondsInFuture - 0.03);
-    // rx_stream->issue_stream_cmd(stream_cmd);
+    uhd::stream_cmd_t stream_cmd=uhd::stream_cmd_t::STREAM_MODE_START_CONTINUOUS;
+    // stream_cmd.num_samps  = numSamples;
+    stream_cmd.stream_now = false;
+    stream_cmd.time_spec  = uhd::time_spec_t(time_now + secondsInFuture);
+    rx_stream->issue_stream_cmd(stream_cmd);
 
 
     // 
