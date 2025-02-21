@@ -1,5 +1,7 @@
 import numpy as np
 import matplotlib.pylab as plt
+import scipy
+import scipy.signal
 
 def read_complex_data_from_dat(filename):
     # Read the binary data
@@ -17,6 +19,7 @@ def read_complex_data_from_dat(filename):
 # Get received usrp data
 received_data = read_complex_data_from_dat("received_data/receive.dat")
 
+print("the length of the received data is: "+str(len(received_data)))
 #received_data = received_data[255:]
 
 # received_data = received_data - np.mean(received_data)
@@ -30,11 +33,12 @@ received_data = read_complex_data_from_dat("received_data/receive.dat")
 # Get the original pulse
 # transmitted_data = np.load("transmitted_data/padded_OFDM_pulse.npy")
 transmitted_data = np.load("transmitted_data/sweep_signal.npy")
+print(str(len(transmitted_data)))
 
 # plt.plot(np.abs(transmitted_data))
 # plt.show()
 
-corrolation = np.correlate(received_data,transmitted_data)
+corrolation = scipy.signal.correlate(received_data,transmitted_data)
 
 # pos_start_frame = np.argmax(np.abs(corrolation))
 
@@ -48,7 +52,7 @@ corrolation = np.correlate(received_data,transmitted_data)
 
 # np.save("waveform_processing/symbol.npy",symbol)
 
-freqs = np.fft.fftshift(np.fft.fftfreq(len(received_data),d=1/25e6))
+freqs = np.fft.fftshift(np.fft.fftfreq(len(received_data),d=1/12.5e6))
 plt.plot(freqs,np.fft.fftshift(20*np.log10(np.abs(np.fft.fft(received_data))/len(received_data))))
 plt.title("Received signal fft")
 plt.xlabel("Frequency (Hz)")
@@ -56,10 +60,12 @@ plt.ylabel("|received|")
 plt.show()
 
 
+time = np.arange(len(received_data))/12500000
+
 plt.plot(np.real(received_data))
 plt.plot(np.imag(received_data))
 plt.title("Received signal")
-plt.xlabel("Samples")
+plt.xlabel("Time (s)")
 plt.ylabel("|received|")
 plt.show()
 
@@ -72,7 +78,7 @@ first_max = np.argmax(corrolation_abs)
 
 
 # Parameters
-sampling_rate = 25e6   # Sampling rate in Hz (1 MHz)
+sampling_rate = 12.5e6   # Sampling rate in Hz (1 MHz)
 c = 299702547               # Speed of light in m/s (for distance calculation)
 
 # Calculate the time spacing between samples
@@ -99,7 +105,7 @@ plt.show()
 
 
 
-plt.plot(range_bins_distance,corrolation_abs[first_max:])
+plt.plot(range_bins_distance[:100],corrolation_abs[first_max:][:100])
 
 plt.title("Pulse integration output")
 plt.xlabel("Distance (m)")

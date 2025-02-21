@@ -1,5 +1,7 @@
 import numpy as np
 import matplotlib.pylab as plt
+import scipy
+import scipy.signal
 
 def read_complex_data_from_dat(filename):
     # Read the binary data
@@ -17,7 +19,7 @@ def read_complex_data_from_dat(filename):
 # Get received usrp data
 received_data = read_complex_data_from_dat("received_data/receive.dat")
 
-#received_data = received_data[255:]
+# received_data = received_data[255:]
 
 # received_data = received_data - np.mean(received_data)
 
@@ -33,7 +35,7 @@ transmitted_data = np.load("transmitted_data/original_OFDM_pulse.npy")
 # plt.plot(np.abs(transmitted_data))
 # plt.show()
 
-corrolation = np.correlate(received_data,transmitted_data)
+corrolation = scipy.signal.correlate(received_data,transmitted_data)
 
 # pos_start_frame = np.argmax(np.abs(corrolation))
 
@@ -47,7 +49,7 @@ corrolation = np.correlate(received_data,transmitted_data)
 
 # np.save("waveform_processing/symbol.npy",symbol)
 
-freqs = np.fft.fftshift(np.fft.fftfreq(len(received_data),d=1/25e6))
+freqs = np.fft.fftshift(np.fft.fftfreq(len(received_data),d=1/12.5e6))
 plt.plot(freqs,np.fft.fftshift(20*np.log10(np.abs(np.fft.fft(received_data))/len(received_data))))
 plt.title("Received signal fft")
 plt.xlabel("Frequency (Hz)")
@@ -71,7 +73,7 @@ first_max = np.argmax(corrolation_abs)
 
 
 # Parameters
-sampling_rate = 25e6   # Sampling rate in Hz (1 MHz)
+sampling_rate = 12.5e6   # Sampling rate in Hz (1 MHz)
 c = 299702547               # Speed of light in m/s (for distance calculation)
 
 # Calculate the time spacing between samples
@@ -95,9 +97,15 @@ plt.ylabel("$|\\rho(received data,original frame)|$")
 plt.show()
 
 
-
-data_frame = received_data[first_max:first_max+5000]
+print(first_max)
+data_frame = received_data[first_max-5000000:first_max]
 print(len(data_frame))
+
+
+plt.plot(np.real(data_frame))
+plt.plot(np.imag(data_frame))
+plt.title("Data Frame")
+plt.show()
 
 np.save("waveform_processing/ofdm/data_frame.npy",data_frame)
 

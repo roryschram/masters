@@ -3,12 +3,12 @@ import matplotlib.pyplot as plt
 import scipy
 import scipy.interpolate
 
-K = 5000 # number of OFDM subcarriers
+K = 5000000 # number of OFDM subcarriers
 
 CP = K//4  # length of the cyclic prefix: 25% of the block
 
-P = 1000 # number of pilot carriers per OFDM block
-pilotValue = 3+3j # The known value each pilot transmits
+P = 5000 # number of pilot carriers per OFDM block
+pilotValue = 30+30j # The known value each pilot transmits
 
 allCarriers = np.arange(K)  # indices of all subcarriers ([0, 1, ... K-1])
 
@@ -27,22 +27,22 @@ mu = 4 # bits per symbol (i.e. 16QAM)
 payloadBits_per_OFDM = len(dataCarriers)*mu  # number of payload bits per OFDM symbol
 
 mapping_table = {
-    (0,0,0,0) : -3-3j,
-    (0,0,0,1) : -3-1j,
-    (0,0,1,0) : -3+3j,
-    (0,0,1,1) : -3+1j,
-    (0,1,0,0) : -1-3j,
-    (0,1,0,1) : -1-1j,
-    (0,1,1,0) : -1+3j,
-    (0,1,1,1) : -1+1j,
-    (1,0,0,0) :  3-3j,
-    (1,0,0,1) :  3-1j,
-    (1,0,1,0) :  3+3j,
-    (1,0,1,1) :  3+1j,
-    (1,1,0,0) :  1-3j,
-    (1,1,0,1) :  1-1j,
-    (1,1,1,0) :  1+3j,
-    (1,1,1,1) :  1+1j
+    (0,0,0,0) : -30-30j,
+    (0,0,0,1) : -30-10j,
+    (0,0,1,0) : -30+30j,
+    (0,0,1,1) : -30+10j,
+    (0,1,0,0) : -10-30j,
+    (0,1,0,1) : -10-10j,
+    (0,1,1,0) : -10+30j,
+    (0,1,1,1) : -10+10j,
+    (1,0,0,0) :  30-30j,
+    (1,0,0,1) :  30-10j,
+    (1,0,1,0) :  30+30j,
+    (1,0,1,1) :  30+10j,
+    (1,1,0,0) :  10-30j,
+    (1,1,0,1) :  10-10j,
+    (1,1,1,0) :  10+30j,
+    (1,1,1,1) :  10+10j
 }
 
 demapping_table = {v : k for k, v in mapping_table.items()}
@@ -75,8 +75,8 @@ def channelEstimate(OFDM_demod):
     Hest_phase = scipy.interpolate.interp1d(pilotCarriers, np.angle(Hest_at_pilots), kind='linear')(allCarriers)
     Hest = Hest_abs * np.exp(1j*Hest_phase)
     
-    plt.stem(pilotCarriers, abs(Hest_at_pilots), label='Pilot estimates')
-    plt.plot(allCarriers, abs(Hest), label='Estimated channel via interpolation')
+    # plt.stem(pilotCarriers, np.fft.fftshift(abs(Hest_at_pilots)), label='Pilot estimates')
+    plt.plot(allCarriers, np.fft.fftshift(abs(Hest)), label='Estimated channel via interpolation')
     plt.title("Channel estimation based on pilots")
     plt.grid(True); plt.xlabel('Carrier index'); plt.ylabel('$|H(f)|$'); plt.legend(fontsize=10)
     plt.show()

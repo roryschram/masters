@@ -1,5 +1,5 @@
 {
-    "cmake.sourceDirectory": "/Users/roryschram/Documents/Work/masters/usrp_firmware",
+    "cmake.sourceDirectory": "/home/usrp/Desktop/masters/usrp_firmware",
     "cSpell.enableFiletypes": [
         "!latex"
     ],
@@ -70,6 +70,17 @@
         "cstddef": "cpp",
         "cstdlib": "cpp",
         "cstring": "cpp",
-        "ctime": "cpp"
+        "ctime": "cpp",
+        "any": "cpp",
+        "codecvt": "cpp",
+        "forward_list": "cpp",
+        "algorithm": "cpp",
+        "iterator": "cpp",
+        "memory_resource": "cpp",
+        "numeric": "cpp",
+        "random": "cpp",
+        "ranges": "cpp",
+        "valarray": "cpp",
+        "*.ipp": "cpp"
     }
 }
