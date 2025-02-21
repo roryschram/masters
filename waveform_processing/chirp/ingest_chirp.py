@@ -33,6 +33,7 @@ print("the length of the received data is: "+str(len(received_data)))
 # Get the original pulse
 # transmitted_data = np.load("transmitted_data/padded_OFDM_pulse.npy")
 transmitted_data = np.load("transmitted_data/sweep_signal.npy")
+print(str(len(transmitted_data)))
 
 # plt.plot(np.abs(transmitted_data))
 # plt.show()

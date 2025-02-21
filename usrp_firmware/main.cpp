@@ -155,7 +155,7 @@ std::vector<std::complex<double>> receive_vector(uhd::usrp::multi_usrp::sptr rx_
     uhd::rx_metadata_t rxMetaData;
     rxMetaData.has_time_spec = true;
     rxMetaData.end_of_burst = false;
-    rxMetaData.time_spec = uhd::time_spec_t(time_now + secondsInFuture -0.03);
+    rxMetaData.time_spec = uhd::time_spec_t(time_now + secondsInFuture);
     rxMetaData.start_of_burst = false;
 
 
@@ -174,9 +174,9 @@ std::vector<std::complex<double>> receive_vector(uhd::usrp::multi_usrp::sptr rx_
 
 
     uhd::stream_cmd_t stream_cmd=uhd::stream_cmd_t::STREAM_MODE_START_CONTINUOUS;
-    // stream_cmd.num_samps  = numSamples;
-    stream_cmd.stream_now = false;
-    stream_cmd.time_spec  = uhd::time_spec_t(time_now + secondsInFuture - 0.03);
+    // // stream_cmd.num_samps  = numSamples;
+    // stream_cmd.stream_now = false;
+    // stream_cmd.time_spec  = uhd::time_spec_t(time_now + secondsInFuture - 0.03);
     rx_stream->issue_stream_cmd(stream_cmd);
 
 
@@ -197,13 +197,13 @@ std::vector<std::complex<double>> receive_vector(uhd::usrp::multi_usrp::sptr rx_
         entireSample.insert(entireSample.begin()+numSamplesReceived, sampleBuffer.begin(), sampleBuffer.begin()+numNewSamples);
         //increment num samples receieved
         numSamplesReceived+=numNewSamples;
-        rxMetaData.has_time_spec=false; //dont want subsequent packets to wait
-        rxMetaData.start_of_burst=false;
-        //std::cout<<"Samps received: "<<numSamplesReceived<<"\n";
+        // rxMetaData.has_time_spec=false; //dont want subsequent packets to wait
+        // rxMetaData.start_of_burst=false;
+        std::cout<<"Samps received: "<<numSamplesReceived<<"\n";
     }
 
-    stream_cmd.stream_now = false;
-    rx_usrp->issue_stream_cmd(stream_cmd);
+    // stream_cmd.stream_now = false;
+    // rx_usrp->issue_stream_cmd(stream_cmd);
     //std::cout<<"Time of last received sample: "<<rxMetaData.time_spec.get_full_secs() + rxMetaData.time_spec.get_frac_secs()<<"\n";
     std::cout<<rxMetaData.to_pp_string()<<"\n";
     return entireSample;
@@ -383,6 +383,7 @@ int UHD_SAFE_MAIN(int argc, char *argv[]) {
 /////////////////////////////////////////////////////////////////////
     tx_usrp->set_time_now(uhd::time_spec_t(0.0));
     isSetupComplete.store(true);
+
 
 
     std::thread transmit_thread([&]() {
