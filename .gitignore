@@ -6,3 +6,5 @@ transmitted_data/bits.npy
 transmitted_data/original_OFDM_pulse.npy
 transmitted_data/padded_OFDM_pulse.npy
 received_data/receive.dat
+received_data/receive.dat
+transmitted_data/bits.npy
