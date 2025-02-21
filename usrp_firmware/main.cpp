@@ -199,7 +199,7 @@ std::vector<std::complex<double>> receive_vector(uhd::usrp::multi_usrp::sptr rx_
         numSamplesReceived+=numNewSamples;
         // rxMetaData.has_time_spec=false; //dont want subsequent packets to wait
         // rxMetaData.start_of_burst=false;
-        std::cout<<"Samps received: "<<numSamplesReceived<<"\n";
+        // std::cout<<"Samps received: "<<numSamplesReceived<<"\n";
     }
 
     // stream_cmd.stream_now = false;

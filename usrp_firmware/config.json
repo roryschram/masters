@@ -12,11 +12,11 @@
     "RX_FREQ":3.7e9,
     "TX_RATE":12.5e6,
     "RX_RATE":12.5e6,
-    "TX_BW":1e6,
-    "RX_BW": 1e6,
+    "TX_BW":10e6,
+    "RX_BW": 10e6,
     "TX_GAIN":30,
     "RX_GAIN":30,
     "OUTPUT_FILE":"temp",
-    "NUM_SAMPS": 500000,
+    "NUM_SAMPS": 5000000,
     "VERBOSE":false
   }
