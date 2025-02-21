@@ -73,7 +73,7 @@ first_max = np.argmax(corrolation_abs)
 
 
 # Parameters
-sampling_rate = 25e6   # Sampling rate in Hz (1 MHz)
+sampling_rate = 12.5e6   # Sampling rate in Hz (1 MHz)
 c = 299702547               # Speed of light in m/s (for distance calculation)
 
 # Calculate the time spacing between samples
@@ -97,9 +97,15 @@ plt.ylabel("$|\\rho(received data,original frame)|$")
 plt.show()
 
 
-
-data_frame = received_data[first_max:first_max+400000]
+print(first_max)
+data_frame = received_data[first_max-1000000:first_max]
 print(len(data_frame))
+
+
+plt.plot(np.real(data_frame))
+plt.plot(np.imag(data_frame))
+plt.title("Data Frame")
+plt.show()
 
 np.save("waveform_processing/ofdm/data_frame.npy",data_frame)
 

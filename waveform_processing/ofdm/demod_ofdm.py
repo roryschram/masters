@@ -3,11 +3,11 @@ import matplotlib.pyplot as plt
 import scipy
 import scipy.interpolate
 
-K = 400000 # number of OFDM subcarriers
+K = 1000000 # number of OFDM subcarriers
 
 CP = K//4  # length of the cyclic prefix: 25% of the block
 
-P = 50000 # number of pilot carriers per OFDM block
+P = 5000 # number of pilot carriers per OFDM block
 pilotValue = 3+3j # The known value each pilot transmits
 
 allCarriers = np.arange(K)  # indices of all subcarriers ([0, 1, ... K-1])
@@ -75,8 +75,8 @@ def channelEstimate(OFDM_demod):
     Hest_phase = scipy.interpolate.interp1d(pilotCarriers, np.angle(Hest_at_pilots), kind='linear')(allCarriers)
     Hest = Hest_abs * np.exp(1j*Hest_phase)
     
-    plt.stem(pilotCarriers, abs(Hest_at_pilots), label='Pilot estimates')
-    plt.plot(allCarriers, abs(Hest), label='Estimated channel via interpolation')
+    # plt.stem(pilotCarriers, np.fft.fftshift(abs(Hest_at_pilots)), label='Pilot estimates')
+    plt.plot(allCarriers, np.fft.fftshift(abs(Hest)), label='Estimated channel via interpolation')
     plt.title("Channel estimation based on pilots")
     plt.grid(True); plt.xlabel('Carrier index'); plt.ylabel('$|H(f)|$'); plt.legend(fontsize=10)
     plt.show()
