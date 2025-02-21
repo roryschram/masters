@@ -52,7 +52,7 @@ corrolation = scipy.signal.correlate(received_data,transmitted_data)
 
 # np.save("waveform_processing/symbol.npy",symbol)
 
-freqs = np.fft.fftshift(np.fft.fftfreq(len(received_data),d=1/25e6))
+freqs = np.fft.fftshift(np.fft.fftfreq(len(received_data),d=1/12.5e6))
 plt.plot(freqs,np.fft.fftshift(20*np.log10(np.abs(np.fft.fft(received_data))/len(received_data))))
 plt.title("Received signal fft")
 plt.xlabel("Frequency (Hz)")
@@ -60,7 +60,7 @@ plt.ylabel("|received|")
 plt.show()
 
 
-time = np.arange(len(received_data))/25000000
+time = np.arange(len(received_data))/12500000
 
 plt.plot(np.real(received_data))
 plt.plot(np.imag(received_data))
@@ -105,7 +105,7 @@ plt.show()
 
 
 
-plt.plot(range_bins_distance,corrolation_abs[first_max:])
+plt.plot(range_bins_distance[:100],corrolation_abs[first_max:][:100])
 
 plt.title("Pulse integration output")
 plt.xlabel("Distance (m)")
