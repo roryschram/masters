@@ -3,12 +3,12 @@ import matplotlib.pyplot as plt
 import scipy
 import scipy.interpolate
 
-K = 5000000 # number of OFDM subcarriers
+K = 12500000 # number of OFDM subcarriers
 
 CP = K//4  # length of the cyclic prefix: 25% of the block
 
 P = 5000 # number of pilot carriers per OFDM block
-pilotValue = 30+30j # The known value each pilot transmits
+pilotValue = 120+60j # The known value each pilot transmits
 
 allCarriers = np.arange(K)  # indices of all subcarriers ([0, 1, ... K-1])
 
@@ -27,29 +27,29 @@ mu = 4 # bits per symbol (i.e. 16QAM)
 payloadBits_per_OFDM = len(dataCarriers)*mu  # number of payload bits per OFDM symbol
 
 mapping_table = {
-    (0,0,0,0) : -30-30j,
-    (0,0,0,1) : -30-10j,
-    (0,0,1,0) : -30+30j,
-    (0,0,1,1) : -30+10j,
-    (0,1,0,0) : -10-30j,
-    (0,1,0,1) : -10-10j,
-    (0,1,1,0) : -10+30j,
-    (0,1,1,1) : -10+10j,
-    (1,0,0,0) :  30-30j,
-    (1,0,0,1) :  30-10j,
-    (1,0,1,0) :  30+30j,
-    (1,0,1,1) :  30+10j,
-    (1,1,0,0) :  10-30j,
-    (1,1,0,1) :  10-10j,
-    (1,1,1,0) :  10+30j,
-    (1,1,1,1) :  10+10j
+    (0,0,0,0) : -60-60j,
+    (0,0,0,1) : -60-20j,
+    (0,0,1,0) : -60+60j,
+    (0,0,1,1) : -60+20j,
+    (0,1,0,0) : -20-60j,
+    (0,1,0,1) : -20-20j,
+    (0,1,1,0) : -20+60j,
+    (0,1,1,1) : -20+20j,
+    (1,0,0,0) :  60-60j,
+    (1,0,0,1) :  60-20j,
+    (1,0,1,0) :  60+60j,
+    (1,0,1,1) :  60+20j,
+    (1,1,0,0) :  20-60j,
+    (1,1,0,1) :  20-20j,
+    (1,1,1,0) :  20+60j,
+    (1,1,1,1) :  20+20j
 }
 
 demapping_table = {v : k for k, v in mapping_table.items()}
 
 
 
-OFDM_RX = np.load("waveform_processing/ofdm/data_frame.npy")
+OFDM_RX = np.load("../masters_large_data/received_data/data_frame.npy")
 
 OFDM_RX = OFDM_RX - np.mean(OFDM_RX)
 
@@ -133,7 +133,7 @@ PS_est, hardDecision = Demapping(QAM_est)
 # plt.show()
 
 
-bits = np.load("transmitted_data/bits.npy")
+bits = np.load("../masters_large_data/transmitted_data/bits.npy")
 
 
 def PS(bits):

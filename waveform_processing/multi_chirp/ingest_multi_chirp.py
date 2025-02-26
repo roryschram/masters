@@ -15,7 +15,7 @@ def read_complex_data_from_dat(filename):
     return complex_data
 
 # Get received usrp data
-received_data = read_complex_data_from_dat("received_data/receive.dat")
+received_data = read_complex_data_from_dat("../masters_large_data/received_data/receive.dat")
 
 #received_data = received_data[255:]
 
@@ -29,7 +29,7 @@ received_data = read_complex_data_from_dat("received_data/receive.dat")
 
 # Get the original pulse
 # transmitted_data = np.load("transmitted_data/padded_OFDM_pulse.npy")
-transmitted_data = np.load("transmitted_data/sweep_signal.npy")
+transmitted_data = np.load("../masters_large_data/transmitted_data/sweep_signal.npy")
 
 # plt.plot(np.abs(transmitted_data))
 # plt.show()

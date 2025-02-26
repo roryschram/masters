@@ -49,7 +49,7 @@ demapping_table = {v : k for k, v in mapping_table.items()}
 
 
 
-OFDM_RX = np.load("waveform_processing/multi_ofdm/returned_data_frame.npy")
+OFDM_RX = np.load("../masters_large_data/received_data/returned_data_frame.npy")
 
 OFDM_RX = OFDM_RX - np.mean(OFDM_RX)
 
@@ -133,7 +133,7 @@ PS_est, hardDecision = Demapping(QAM_est)
 # plt.show()
 
 
-bits = np.load("transmitted_data/bits.npy")
+bits = np.load("../masters_large_data/transmitted_data/bits.npy")
 
 
 def PS(bits):

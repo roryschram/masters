@@ -342,7 +342,7 @@ int UHD_SAFE_MAIN(int argc, char *argv[]) {
     // }
 
 
-    std::string filename = "../../transmitted_data/transmit.dat";
+    std::string filename = "../../../masters_large_data/transmitted_data/transmit.dat";
     std::vector<std::complex<double>> transmitVector = readComplexDataFromFile(filename);
 
     // // Output the data
@@ -416,7 +416,7 @@ int UHD_SAFE_MAIN(int argc, char *argv[]) {
     // std::cout<<"\nFrac time of transmit first sample: "<<txMetaData.time_spec.get_full_secs() + txMetaData.time_spec.get_frac_secs();
     // std::cout<<"\n"<<rxMetaData.to_pp_string(false);
 
-    saveComplexDataToFile("../../received_data/receive.dat",received_data);
+    saveComplexDataToFile("../../../masters_large_data/received_data/receive.dat",received_data);
 
 
     return EXIT_SUCCESS;

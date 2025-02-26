@@ -15,7 +15,7 @@ def read_complex_data_from_dat(filename):
     return complex_data
 
 # Get received usrp data
-received_data = read_complex_data_from_dat("received_data/receive.dat")
+received_data = read_complex_data_from_dat("../masters_large_data/received_data/receive.dat")
 
 #received_data = received_data[255:]
 
@@ -28,7 +28,7 @@ received_data = read_complex_data_from_dat("received_data/receive.dat")
 
 
 # Get the original pulse
-transmitted_data = np.load("transmitted_data/original_OFDM_pulse.npy")
+transmitted_data = np.load("../masters_large_data/transmitted_data/original_OFDM_pulse.npy")
 # transmitted_data = np.load("chirp_toolchain/sweep_signal.npy")
 
 # plt.plot(np.abs(transmitted_data))
@@ -94,7 +94,7 @@ plt.show()
 corrolation_abs = np.abs(corrolation)
 
 returned_data = received_data[26056:26056+5000]
-np.save("waveform_processing/multi_ofdm/returned_data_frame.npy",returned_data)
+np.save("../masters_large_data/received_data/returned_data_frame.npy",returned_data)
 
 first_max = np.argmax(corrolation_abs[25000:27000]) + 25000
 

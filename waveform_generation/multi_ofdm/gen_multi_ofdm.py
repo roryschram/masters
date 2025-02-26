@@ -2,6 +2,17 @@ import numpy as np
 import matplotlib.pyplot as plt
 import scipy
 
+import os
+
+if not os.path.exists("../masters_large_data"):
+    os.makedirs("../masters_large_data/")
+
+if not os.path.exists("../masters_large_data/transmitted_data"):
+    os.makedirs("../masters_large_data/transmitted_data/")
+
+if not os.path.exists("../masters_large_data/received_data"):
+    os.makedirs("../masters_large_data/received_data/")
+
 
 K = 5000 # number of OFDM subcarriers
 
@@ -87,7 +98,7 @@ SNRdb = 25  # signal to noise-ratio in dB at the receiver
 bits = np.random.binomial(n=1, p=0.5, size=(payloadBits_per_OFDM, ))
 
 
-np.save("transmitted_data/bits.npy",bits)
+np.save("../masters_large_data/transmitted_data/bits.npy",bits)
 
 
 print ("Bits count: ", len(bits))
@@ -156,7 +167,7 @@ plt.show()
 # print ("Number of OFDM samples in time domain with CP: ", len(OFDM_withCP))
 
 
-np.save("transmitted_data/original_OFDM_pulse.npy",OFDM_time)
+np.save("../masters_large_data/transmitted_data/original_OFDM_pulse.npy",OFDM_time)
 
 
 padded_OFDM_withCP = np.pad(OFDM_time, pad_width=(1000,1000), mode='constant', constant_values=0+0j)
@@ -189,7 +200,7 @@ plt.show()
 
 
 
-np.save("transmitted_data/padded_OFDM_pulse.npy",padded_OFDM_withCP)
+np.save("../masters_large_data/transmitted_data/padded_OFDM_pulse.npy",padded_OFDM_withCP)
 
 # # Open a .dat file in binary write mode
 # with open('waveform_generation/generated_data/padded_OFDM_pulse.dat', 'wb') as f:
@@ -201,7 +212,7 @@ np.save("transmitted_data/padded_OFDM_pulse.npy",padded_OFDM_withCP)
 
 
 # Save .dat in build folder of cpp project
-with open('transmitted_data/transmit.dat', 'wb') as f:
+with open('../masters_large_data/transmitted_data/transmit.dat', 'wb') as f:
     for sample in output:
         # Write the real part (I) as 64-bit double
         f.write(np.double(sample.real).tobytes())

@@ -15,7 +15,7 @@ def read_complex_data_from_dat(filename):
     return complex_data
 
 # Get received usrp data
-received_data = read_complex_data_from_dat("received_data/receive.dat")
+received_data = read_complex_data_from_dat("../masters_large_data/received_data/receive.dat")
 
 
 plt.plot(np.real(received_data))

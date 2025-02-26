@@ -1,6 +1,17 @@
 import numpy as np
 import matplotlib.pyplot as plt
 
+import os
+
+if not os.path.exists("../masters_large_data"):
+    os.makedirs("../masters_large_data/")
+
+if not os.path.exists("../masters_large_data/transmitted_data"):
+    os.makedirs("../masters_large_data/transmitted_data/")
+
+if not os.path.exists("../masters_large_data/received_data"):
+    os.makedirs("../masters_large_data/received_data/")
+
 
 
 # chirp
@@ -59,7 +70,7 @@ plt.show()
 
 
 # Open a .dat file in binary write mode
-with open("transmitted_data/transmit.dat", 'wb') as f:
+with open("../masters_large_data/transmitted_data/transmit.dat", 'wb') as f:
     for sample in sweep_signal:
         # Write the real part (I) as 64-bit double
         f.write(np.double(sample.real).tobytes())
@@ -67,8 +78,8 @@ with open("transmitted_data/transmit.dat", 'wb') as f:
         f.write(np.double(sample.imag).tobytes())
 
 
-np.save("transmitted_data/sweep_signal.npy",sweep_signal)
-np.save("transmitted_data/padded_sweep_signal.npy",padded_sweep_signal)
+np.save("../masters_large_data/transmitted_data/sweep_signal.npy",sweep_signal)
+np.save("../masters_large_data/transmitted_data/padded_sweep_signal.npy",padded_sweep_signal)
 
 print("RAW Chrip Signal Length: "+str(len(sweep_signal)))
 
