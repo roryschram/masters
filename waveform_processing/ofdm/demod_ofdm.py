@@ -84,13 +84,19 @@ def channelEstimate(OFDM_demod):
     return Hest
 Hest = channelEstimate(OFDM_demod)
 
-#np.save("waveform_processing/channel_estimations/loopback_channel_est.npy",Hest)
+np.save("../masters_large_data/received_data/channel_est.npy",Hest)
 
 
 def equalize(OFDM_demod, Hest):
     return OFDM_demod / Hest
-    #return OFDM_demod   
+    # return OFDM_demod   
 equalized_Hest = equalize(OFDM_demod, Hest)
+
+
+# plt.scatter(np.real(equalized_Hest),np.imag(equalized_Hest))
+# plt.ylim(-1000,1000)
+# plt.xlim(-1000,1000)
+# plt.show()
 
 
 def get_payload(equalized):
