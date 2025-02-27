@@ -4,37 +4,35 @@ import matplotlib.pyplot as plt
 import os
 
 
-# # First we must make sure that we really want to add the latest recorded 
+def append_channel_est(path):
+    database_path = path
+    # Here we read in the saved Numpy array from the latest channel estimation that has been done
+    print("Reading in Numpy array")
+    latest_channel_est = np.load("../masters_large_data/received_data/channel_est.npy")
 
 
+    # Save the NumPy array to an HDF5 file
+    print("Saving the latest channel estimation to the database")
 
+    try:
+        with h5py.File(database_path, 'a') as database:
+            group = database["seen_data"]
+            d = group.create_dataset('6', data=latest_channel_est)
+            d.attrs.create("Centre Frequency","2790000000")
+            d.attrs.create("Sample Rate","12500000")
+            d.attrs.create("Transmit Gain","10")
+            d.attrs.create("Receive Gain","30")
+            d.attrs.create("Target","Corner Reflector")
+            d.attrs.create("Target Distance","3")
 
+            print(d.attrs.keys())
 
-# # Path to the hdf5 file
-# database_path = "../database.hdf5"
+    except Exception as e:
+        print(f"Exception thrown: {e}")
+    
 
-
-# # Here we read in the saved Numpy array from the latest channel estimation that has been done
-# print("...Reading in Numpy array...")
-# latest_channel_est = np.load("../masters_large_data/received_data/channel_est.npy")
-# print("...Done...")
-
-
-# # Save the NumPy array to an HDF5 file
-# print("...Saving the latest channel estimation to the database...")
-# with h5py.File(database_path, 'w') as database:
-#     d = database.create_dataset('1', data=latest_channel_est)
-#     d.attrs.create("Centre Frequency","2790000000")
-#     d.attrs.create("Sample Rate","12500000")
-#     d.attrs.create("Transmit Gain","10")
-#     d.attrs.create("Receive Gain","30")
-#     d.attrs.create("Target","Corner Reflector")
-#     d.attrs.create("Target Distance","3")
-
-#     print(d.attrs.keys())
-
-# database.close()
-# print("...Done...")
+    database.close()
+    print("...Done...")
 
 
 # # Read the NumPy array from the HDF5 file
@@ -98,11 +96,12 @@ def main():
                 print(hf)
                 h5_tree(hf)
             hf.close()
-            input("\nEnter 'menu' to return to menu else ")
+            input("\nPress enter to return to menu")
         elif user_input.lower() == 'a':
             os.system('cls' if os.name == 'nt' else 'clear')
-            print("You entered 'a'")
-            input()
+            print("You entered 'a' which means you want to append the latest channel estimation to the database\n")
+            append_channel_est(database_path)
+            input("\nPress enter to return to menu")
         elif user_input.lower() == 'd':
             os.system('cls' if os.name == 'nt' else 'clear')
             print("You entered 'd'")
