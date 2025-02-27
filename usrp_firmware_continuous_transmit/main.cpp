@@ -346,7 +346,7 @@ int UHD_SAFE_MAIN(int argc, char *argv[]) {
     // }
 
 
-    std::string filename = "../../transmitted_data/transmit.dat";
+    std::string filename = "../../../masters_large_data/transmitted_data/transmit.dat";
     std::vector<std::complex<double>> transmitVector = readComplexDataFromFile(filename);
 
     // // Output the data

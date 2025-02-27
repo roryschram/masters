@@ -2,13 +2,27 @@ import numpy as np
 import matplotlib.pyplot as plt
 import scipy
 
+import os
 
-K = 100000 # number of OFDM subcarriers
+if not os.path.exists("../masters_large_data"):
+    os.makedirs("../masters_large_data/")
+
+if not os.path.exists("../masters_large_data/transmitted_data"):
+    os.makedirs("../masters_large_data/transmitted_data/")
+
+if not os.path.exists("../masters_large_data/received_data"):
+    os.makedirs("../masters_large_data/received_data/")
+
+
+graphs = False
+
+
+K = 12500000 # number of OFDM subcarriers
 
 # CP = K//4  # length of the cyclic prefix: 25% of the block
 
 P = 5000 # number of pilot carriers per OFDM block
-pilotValue = 30+30j # The known value each pilot transmits
+pilotValue = 120+60j # The known value each pilot transmits
 
 
 allCarriers = np.arange(K)  # indices of all subcarriers ([0, 1, ... K-1])
@@ -25,15 +39,17 @@ dataCarriers = np.delete(allCarriers, pilotCarriers)
 print ("allCarriers:   %s" % allCarriers)
 print ("pilotCarriers: %s" % pilotCarriers)
 print ("dataCarriers:  %s" % dataCarriers)
-plt.plot(pilotCarriers, np.zeros_like(pilotCarriers), 'bo', label='pilot')
-plt.plot(dataCarriers, np.zeros_like(dataCarriers), 'ro', label='data')
 
-plt.title("Symbol Scheme for OFDM Signal")
-plt.xlabel("Carrier Index")
-plt.grid()
-plt.tight_layout()
-plt.legend()
-plt.show()
+
+if graphs:
+    plt.plot(pilotCarriers, np.zeros_like(pilotCarriers), 'bo', label='pilot')
+    plt.plot(dataCarriers, np.zeros_like(dataCarriers), 'ro', label='data')
+    plt.title("Symbol Scheme for OFDM Signal")
+    plt.xlabel("Carrier Index")
+    plt.grid()
+    plt.tight_layout()
+    # plt.legend()
+    plt.show()
 
 
 
@@ -41,40 +57,42 @@ mu = 4 # bits per symbol (i.e. 16QAM)
 payloadBits_per_OFDM = len(dataCarriers)*mu  # number of payload bits per OFDM symbol
 
 mapping_table = {
-    (0,0,0,0) : -30-30j,
-    (0,0,0,1) : -30-10j,
-    (0,0,1,0) : -30+30j,
-    (0,0,1,1) : -30+10j,
-    (0,1,0,0) : -10-30j,
-    (0,1,0,1) : -10-10j,
-    (0,1,1,0) : -10+30j,
-    (0,1,1,1) : -10+10j,
-    (1,0,0,0) :  30-30j,
-    (1,0,0,1) :  30-10j,
-    (1,0,1,0) :  30+30j,
-    (1,0,1,1) :  30+10j,
-    (1,1,0,0) :  10-30j,
-    (1,1,0,1) :  10-10j,
-    (1,1,1,0) :  10+30j,
-    (1,1,1,1) :  10+10j
+    (0,0,0,0) : -60-60j,
+    (0,0,0,1) : -60-20j,
+    (0,0,1,0) : -60+60j,
+    (0,0,1,1) : -60+20j,
+    (0,1,0,0) : -20-60j,
+    (0,1,0,1) : -20-20j,
+    (0,1,1,0) : -20+60j,
+    (0,1,1,1) : -20+20j,
+    (1,0,0,0) :  60-60j,
+    (1,0,0,1) :  60-20j,
+    (1,0,1,0) :  60+60j,
+    (1,0,1,1) :  60+20j,
+    (1,1,0,0) :  20-60j,
+    (1,1,0,1) :  20-20j,
+    (1,1,1,0) :  20+60j,
+    (1,1,1,1) :  20+20j
 }
-for b3 in [0, 1]:
-    for b2 in [0, 1]:
-        for b1 in [0, 1]:
-            for b0 in [0, 1]:
-                B = (b3, b2, b1, b0)
-                Q = mapping_table[B]
-                plt.plot(Q.real, Q.imag, 'bo')
-                plt.text(Q.real, Q.imag+0.2, "".join(str(x) for x in B), ha='center')
+
+if graphs:
+    for b3 in [0, 1]:
+        for b2 in [0, 1]:
+            for b1 in [0, 1]:
+                for b0 in [0, 1]:
+                    B = (b3, b2, b1, b0)
+                    Q = mapping_table[B]
+                    plt.plot(Q.real, Q.imag, 'bo')
+                    plt.text(Q.real, Q.imag+0.2, "".join(str(x) for x in B), ha='center')
 
 
-plt.title("16 QAM Constellation with Grey-Mapping")
-plt.xlabel("Real Part (I)")
-plt.ylabel("Imaginary Part (Q)")
-plt.ylim(-40,40)
-plt.xlim(-40,40)
-plt.grid()
-plt.show()
+    plt.title("16 QAM Constellation with Grey-Mapping")
+    plt.xlabel("Real Part (I)")
+    plt.ylabel("Imaginary Part (Q)")
+    plt.ylim(-80,80)
+    plt.xlim(-80,80)
+    plt.grid()
+    plt.show()
 
 demapping_table = {v : k for k, v in mapping_table.items()}
 
@@ -87,7 +105,7 @@ SNRdb = 25  # signal to noise-ratio in dB at the receiver
 bits = np.random.binomial(n=1, p=0.5, size=(payloadBits_per_OFDM, ))
 
 
-np.save("transmitted_data/bits.npy",bits)
+np.save("../masters_large_data/transmitted_data/bits.npy",bits)
 
 
 print ("Bits count: ", len(bits))
@@ -123,13 +141,13 @@ print ("Number of OFDM carriers in frequency domain: ", len(OFDM_data))
 
 
 
-
-plt.plot(np.abs(OFDM_data))
-plt.title("OFDM Symbol in Discrete Freq. Domain")
-plt.xlabel('Carrier Index')
-plt.ylabel('$|X(w)|$')
-plt.grid(True)
-plt.show()
+if graphs:
+    plt.plot(np.abs(OFDM_data))
+    plt.title("OFDM Symbol in Discrete Freq. Domain")
+    plt.xlabel('Carrier Index')
+    plt.ylabel('$|X(w)|$')
+    plt.grid(True)
+    plt.show()
 
 
 
@@ -144,9 +162,17 @@ print ("Number of OFDM samples in time-domain before CP: ", len(OFDM_time))
 
 
 
+# Adding this here to amplify signal
+OFDM_time = 10*OFDM_time
+# 
 
-plt.plot(np.abs(OFDM_time))
-plt.show()
+
+
+
+
+if graphs:
+    plt.plot(np.abs(OFDM_time))
+    plt.show()
 
 
 # def addCP(OFDM_time):
@@ -156,30 +182,30 @@ plt.show()
 # print ("Number of OFDM samples in time domain with CP: ", len(OFDM_withCP))
 
 
-np.save("transmitted_data/original_OFDM_pulse.npy",OFDM_time)
+np.save("../masters_large_data/transmitted_data/original_OFDM_pulse.npy",OFDM_time)
 
 
 padded_OFDM_withCP = np.pad(OFDM_time, pad_width=(5000,1000), mode='constant', constant_values=0+0j)
 
 
-
-# Plot the generated sweep signal (showing only a portion for clarity)
-plt.plot(np.real(padded_OFDM_withCP),label="Real Part")  # Adjust the portion as needed
-plt.plot(np.imag(padded_OFDM_withCP),label="Imag Part") 
-plt.xlabel("Time (s)")
-plt.ylabel("Amplitude")
-plt.title("Multi OFDM signal")
-plt.legend()
-plt.show()
-
-
+if graphs:
+    # Plot the generated sweep signal (showing only a portion for clarity)
+    plt.plot(np.real(padded_OFDM_withCP),label="Real Part")  # Adjust the portion as needed
+    plt.plot(np.imag(padded_OFDM_withCP),label="Imag Part") 
+    plt.xlabel("Time (s)")
+    plt.ylabel("Amplitude")
+    plt.title("Multi OFDM signal")
+    # plt.legend()
+    plt.show()
 
 
 
 
 
 
-np.save("transmitted_data/padded_OFDM_pulse.npy",padded_OFDM_withCP)
+
+
+np.save("../masters_large_data/transmitted_data/padded_OFDM_pulse.npy",padded_OFDM_withCP)
 
 # # Open a .dat file in binary write mode
 # with open('waveform_generation/generated_data/padded_OFDM_pulse.dat', 'wb') as f:
@@ -191,7 +217,7 @@ np.save("transmitted_data/padded_OFDM_pulse.npy",padded_OFDM_withCP)
 
 
 # Save .dat in build folder of cpp project
-with open('transmitted_data/transmit.dat', 'wb') as f:
+with open('../masters_large_data/transmitted_data/transmit.dat', 'wb') as f:
     for sample in padded_OFDM_withCP:
         # Write the real part (I) as 64-bit double
         f.write(np.double(sample.real).tobytes())

@@ -17,7 +17,7 @@ def read_complex_data_from_dat(filename):
     return complex_data
 
 # Get received usrp data
-received_data = read_complex_data_from_dat("received_data/receive.dat")
+received_data = read_complex_data_from_dat("../masters_large_data/received_data/receive.dat")
 
 # received_data = received_data[255:]
 
@@ -30,7 +30,7 @@ received_data = read_complex_data_from_dat("received_data/receive.dat")
 
 
 # Get the original pulse
-transmitted_data = np.load("transmitted_data/original_OFDM_pulse.npy")
+transmitted_data = np.load("../masters_large_data/transmitted_data/original_OFDM_pulse.npy")
 
 # plt.plot(np.abs(transmitted_data))
 # plt.show()
@@ -98,7 +98,7 @@ plt.show()
 
 
 print(first_max)
-data_frame = received_data[first_max-5000000:first_max]
+data_frame = received_data[first_max-12500000:first_max]
 print(len(data_frame))
 
 
@@ -107,7 +107,7 @@ plt.plot(np.imag(data_frame))
 plt.title("Data Frame")
 plt.show()
 
-np.save("waveform_processing/ofdm/data_frame.npy",data_frame)
+np.save("../masters_large_data/received_data/data_frame.npy",data_frame)
 
 plt.plot(range_bins_distance,corrolation_abs[first_max:])
 
