@@ -1,6 +1,7 @@
 import h5py
 import numpy as np
 import matplotlib.pyplot as plt
+import os
 
 
 # # First we must make sure that we really want to add the latest recorded 
@@ -47,40 +48,68 @@ import matplotlib.pyplot as plt
 # # plt.show()
 
 
-# def h5_tree(val, pre=''):
-#     items = len(val)
-#     for key, val in val.items():
-#         items -= 1
-#         if items == 0:
-#             # the last item
-#             if type(val) == h5py._hl.group.Group:
-#                 print(pre + '└── ' + key)
-#                 h5_tree(val, pre+'    ')
-#             else:
-#                 try:
-#                     print(pre + '└── ' + key + ' (%d)' % len(val))
-#                 except TypeError:
-#                     print(pre + '└── ' + key + ' (scalar)')
-#         else:
-#             if type(val) == h5py._hl.group.Group:
-#                 print(pre + '├── ' + key)
-#                 h5_tree(val, pre+'│   ')
-#             else:
-#                 try:
-#                     print(pre + '├── ' + key + ' (%d)' % len(val))
-#                 except TypeError:
-#                     print(pre + '├── ' + key + ' (scalar)')
+def h5_tree(val, pre=''):
+    items = len(val)
+    for key, val in val.items():
+        items -= 1
+        if items == 0:
+            # the last item
+            if type(val) == h5py._hl.group.Group:
+                print(pre + '└── ' + key)
+                h5_tree(val, pre+'    ')
+            else:
+                try:
+                    print(pre + '└── ' + key + ' (%d)' % len(val))
+                except TypeError:
+                    print(pre + '└── ' + key + ' (scalar)')
+        else:
+            if type(val) == h5py._hl.group.Group:
+                print(pre + '├── ' + key)
+                h5_tree(val, pre+'│   ')
+            else:
+                try:
+                    print(pre + '├── ' + key + ' (%d)' % len(val))
+                except TypeError:
+                    print(pre + '├── ' + key + ' (scalar)')
 
-# with h5py.File(database_path, 'r') as hf:
-#     print(hf)
-#     h5_tree(hf)
+
 
 
 
 
 # Python main function
 def main():
-    print("hey there")
+    database_path = "../database.hdf5"
+
+
+
+
+    while True:
+        os.system('cls' if os.name == 'nt' else 'clear')
+        user_input = input("Options (or type 'exit' to quit) - 't' = ToString (read/explore structure of database) - 'a' = Appened (append latest channel estimation to database) - 'd' = Delete (delete last appended channel estimation to database):")
+
+        if user_input.lower() == 'exit':
+            print("Goodbye!")
+            break  # Exit the loop
+        elif user_input.lower() == 't':
+            os.system('cls' if os.name == 'nt' else 'clear')
+            print("You entered 't' which means you want to print/explore the structure of the database\n")
+            with h5py.File(database_path, 'r') as hf:
+                print(hf)
+                h5_tree(hf)
+            hf.close()
+            input("\nEnter 'menu' to return to menu else ")
+        elif user_input.lower() == 'a':
+            os.system('cls' if os.name == 'nt' else 'clear')
+            print("You entered 'a'")
+            input()
+        elif user_input.lower() == 'd':
+            os.system('cls' if os.name == 'nt' else 'clear')
+            print("You entered 'd'")
+            input()
+            
+
+
 
 
 if __name__=="__main__":
