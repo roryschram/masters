@@ -16,11 +16,20 @@ def read_complex_data_from_dat(filename):
 
 # Get received usrp data
 received_data = read_complex_data_from_dat("../masters_large_data/received_data/reid_receive.dat")
+received_data = received_data[1000000:]
+
+fft = np.fft.fft(received_data)
 
 
 plt.plot(np.real(received_data))
 plt.plot(np.imag(received_data))
 plt.title("Received signal")
 plt.xlabel("Samples")
+plt.ylabel("|received|")
+plt.show()
+
+plt.plot(20*np.log10(np.abs(np.fft.fftshift(fft)/len(received_data))))
+plt.title("FFT")
+plt.xlabel("Freq")
 plt.ylabel("|received|")
 plt.show()
