@@ -8,10 +8,10 @@ set(CMAKE_DEPENDS_LANGUAGES
 
 # The set of dependency files which are needed:
 set(CMAKE_DEPENDS_DEPENDENCY_FILES
-  "/home/usrp/Desktop/masters/usrp_firmware/src/hardware/RX_Funcs.cpp" "CMakeFiles/hardware_config.dir/src/hardware/RX_Funcs.cpp.o" "gcc" "CMakeFiles/hardware_config.dir/src/hardware/RX_Funcs.cpp.o.d"
-  "/home/usrp/Desktop/masters/usrp_firmware/src/hardware/RX_config.cpp" "CMakeFiles/hardware_config.dir/src/hardware/RX_config.cpp.o" "gcc" "CMakeFiles/hardware_config.dir/src/hardware/RX_config.cpp.o.d"
-  "/home/usrp/Desktop/masters/usrp_firmware/src/hardware/TX_Funcs.cpp" "CMakeFiles/hardware_config.dir/src/hardware/TX_Funcs.cpp.o" "gcc" "CMakeFiles/hardware_config.dir/src/hardware/TX_Funcs.cpp.o.d"
-  "/home/usrp/Desktop/masters/usrp_firmware/src/hardware/TX_config.cpp" "CMakeFiles/hardware_config.dir/src/hardware/TX_config.cpp.o" "gcc" "CMakeFiles/hardware_config.dir/src/hardware/TX_config.cpp.o.d"
+  "/home/usrp/Desktop/masters/reid_capture_program/src/hardware/RX_Funcs.cpp" "CMakeFiles/hardware_config.dir/src/hardware/RX_Funcs.cpp.o" "gcc" "CMakeFiles/hardware_config.dir/src/hardware/RX_Funcs.cpp.o.d"
+  "/home/usrp/Desktop/masters/reid_capture_program/src/hardware/RX_config.cpp" "CMakeFiles/hardware_config.dir/src/hardware/RX_config.cpp.o" "gcc" "CMakeFiles/hardware_config.dir/src/hardware/RX_config.cpp.o.d"
+  "/home/usrp/Desktop/masters/reid_capture_program/src/hardware/TX_Funcs.cpp" "CMakeFiles/hardware_config.dir/src/hardware/TX_Funcs.cpp.o" "gcc" "CMakeFiles/hardware_config.dir/src/hardware/TX_Funcs.cpp.o.d"
+  "/home/usrp/Desktop/masters/reid_capture_program/src/hardware/TX_config.cpp" "CMakeFiles/hardware_config.dir/src/hardware/TX_config.cpp.o" "gcc" "CMakeFiles/hardware_config.dir/src/hardware/TX_config.cpp.o.d"
   )
 
 # Targets to which this target links which contain Fortran sources.

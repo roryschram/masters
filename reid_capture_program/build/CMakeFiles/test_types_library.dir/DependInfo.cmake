@@ -8,8 +8,8 @@ set(CMAKE_DEPENDS_LANGUAGES
 
 # The set of dependency files which are needed:
 set(CMAKE_DEPENDS_DEPENDENCY_FILES
-  "/home/usrp/Desktop/masters/usrp_firmware/src/test_types/receive_tests.cpp" "CMakeFiles/test_types_library.dir/src/test_types/receive_tests.cpp.o" "gcc" "CMakeFiles/test_types_library.dir/src/test_types/receive_tests.cpp.o.d"
-  "/home/usrp/Desktop/masters/usrp_firmware/src/test_types/transmit_tests.cpp" "CMakeFiles/test_types_library.dir/src/test_types/transmit_tests.cpp.o" "gcc" "CMakeFiles/test_types_library.dir/src/test_types/transmit_tests.cpp.o.d"
+  "/home/usrp/Desktop/masters/reid_capture_program/src/test_types/receive_tests.cpp" "CMakeFiles/test_types_library.dir/src/test_types/receive_tests.cpp.o" "gcc" "CMakeFiles/test_types_library.dir/src/test_types/receive_tests.cpp.o.d"
+  "/home/usrp/Desktop/masters/reid_capture_program/src/test_types/transmit_tests.cpp" "CMakeFiles/test_types_library.dir/src/test_types/transmit_tests.cpp.o" "gcc" "CMakeFiles/test_types_library.dir/src/test_types/transmit_tests.cpp.o.d"
   )
 
 # Targets to which this target links which contain Fortran sources.

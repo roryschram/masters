@@ -1,7 +1,7 @@
 CMakeFiles/hardware_config.dir/src/hardware/TX_Funcs.cpp.o: \
- /home/usrp/Desktop/masters/usrp_firmware/src/hardware/TX_Funcs.cpp \
+ /home/usrp/Desktop/masters/reid_capture_program/src/hardware/TX_Funcs.cpp \
  /usr/include/stdc-predef.h \
- /home/usrp/Desktop/masters/usrp_firmware/inc/hardware/TX_Funcs.hpp \
+ /home/usrp/Desktop/masters/reid_capture_program/inc/hardware/TX_Funcs.hpp \
  /usr/include/c++/13/vector /usr/include/c++/13/bits/requires_hosted.h \
  /usr/include/x86_64-linux-gnu/c++/13/bits/c++config.h \
  /usr/include/x86_64-linux-gnu/c++/13/bits/os_defines.h \

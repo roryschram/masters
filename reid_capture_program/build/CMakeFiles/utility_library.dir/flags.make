@@ -4,7 +4,7 @@
 # compile CXX with g++
 CXX_DEFINES = 
 
-CXX_INCLUDES = -I/home/usrp/Desktop/masters/usrp_firmware/inc
+CXX_INCLUDES = -I/home/usrp/Desktop/masters/reid_capture_program/inc
 
 CXX_FLAGS = -std=c++11 
 

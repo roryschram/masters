@@ -1,7 +1,7 @@
 CMakeFiles/hardware_config.dir/src/hardware/RX_Funcs.cpp.o: \
- /home/usrp/Desktop/masters/usrp_firmware/src/hardware/RX_Funcs.cpp \
+ /home/usrp/Desktop/masters/reid_capture_program/src/hardware/RX_Funcs.cpp \
  /usr/include/stdc-predef.h \
- /home/usrp/Desktop/masters/usrp_firmware/inc/hardware/RX_Funcs.hpp \
+ /home/usrp/Desktop/masters/reid_capture_program/inc/hardware/RX_Funcs.hpp \
  /usr/include/uhd/usrp/multi_usrp.hpp /usr/include/uhd/config.hpp \
  /usr/include/boost/config.hpp /usr/include/boost/config/user.hpp \
  /usr/include/boost/config/detail/select_compiler_config.hpp \

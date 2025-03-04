@@ -1,4 +1,4 @@
-# Install script for directory: /home/usrp/Desktop/masters/usrp_firmware
+# Install script for directory: /home/usrp/Desktop/masters/reid_capture_program
 
 # Set the install prefix
 if(NOT DEFINED CMAKE_INSTALL_PREFIX)
@@ -50,5 +50,5 @@ endif()
 
 string(REPLACE ";" "\n" CMAKE_INSTALL_MANIFEST_CONTENT
        "${CMAKE_INSTALL_MANIFEST_FILES}")
-file(WRITE "/home/usrp/Desktop/masters/usrp_firmware/build/${CMAKE_INSTALL_MANIFEST}"
+file(WRITE "/home/usrp/Desktop/masters/reid_capture_program/build/${CMAKE_INSTALL_MANIFEST}"
      "${CMAKE_INSTALL_MANIFEST_CONTENT}")

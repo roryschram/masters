@@ -257,11 +257,11 @@ int UHD_SAFE_MAIN(int argc, char *argv[]) {
 
 
     // Create the args for the tx and rx usrp
-    uhd::device_addr_t tx_usrp_args("addr="+CONFIG::SDR_IP_TX);
+    // uhd::device_addr_t tx_usrp_args("addr="+CONFIG::SDR_IP_TX);
     uhd::device_addr_t rx_usrp_args("addr="+CONFIG::SDR_IP_RX);
 
     // Instantiate a tx and rx multi usrp object
-    uhd::usrp::multi_usrp::sptr tx_usrp = uhd::usrp::multi_usrp::make(tx_usrp_args);
+    // uhd::usrp::multi_usrp::sptr tx_usrp = uhd::usrp::multi_usrp::make(tx_usrp_args);
     uhd::usrp::multi_usrp::sptr rx_usrp = uhd::usrp::multi_usrp::make(rx_usrp_args);
     std::cout<<"\nMULTI USRP OBJECT CREATED WITH IP ADDRESSES";
 
@@ -273,8 +273,8 @@ int UHD_SAFE_MAIN(int argc, char *argv[]) {
     
     
     
-    tx_usrp->set_sync_source(uhd::device_addr_t("clock_source=internal,time_source=none"));
-    rx_usrp->set_sync_source(uhd::device_addr_t("clock_source=mimo,time_source=mimo"));
+    // tx_usrp->set_sync_source(uhd::device_addr_t("clock_source=internal,time_source=none"));
+    rx_usrp->set_sync_source(uhd::device_addr_t("clock_source=internal,time_source=none"));
     // rx_usrp->set_clock_source(CONFIG::RX_CLOCK);
     // rx_usrp->set_time_source("mimo");
     std::cout<<"\nREF CLOCK SET AND RX CLOCK SET";
@@ -292,17 +292,17 @@ int UHD_SAFE_MAIN(int argc, char *argv[]) {
     switch (CONFIG::device_mode)
     {
     case CONFIG::USRP_MODE::TX_ONLY_MODE:
-        TX::setupTransmitter(tx_usrp);
+        // TX::setupTransmitter(tx_usrp);
         break;
     case CONFIG::USRP_MODE::RX_ONLY_MODE:
         RX::setupReceiever(rx_usrp);
         break;
     case CONFIG::USRP_MODE::TX_AND_RX_MODE:
-        TX::setupTransmitter(tx_usrp);
+        // TX::setupTransmitter(tx_usrp);
         RX::setupReceiever(rx_usrp);
         break;
     case CONFIG::USRP_MODE::RUN_MAIN:
-        TX::setupTransmitter(tx_usrp);
+        // TX::setupTransmitter(tx_usrp);
         RX::setupReceiever(rx_usrp);
         break;
     default:
@@ -342,8 +342,8 @@ int UHD_SAFE_MAIN(int argc, char *argv[]) {
     // }
 
 
-    std::string filename = "../../../masters_large_data/transmitted_data/transmit.dat";
-    std::vector<std::complex<double>> transmitVector = readComplexDataFromFile(filename);
+    // std::string filename = "../../../masters_large_data/transmitted_data/transmit.dat";
+    // std::vector<std::complex<double>> transmitVector = readComplexDataFromFile(filename);
 
     // // Output the data
     // for (const auto& sample : transmitVector) {
@@ -372,24 +372,24 @@ int UHD_SAFE_MAIN(int argc, char *argv[]) {
 /////////////////////////////////////////////////////////////////////
 
 
-    tx_usrp->set_time_now(uhd::time_spec_t(0.0));
+    // tx_usrp->set_time_now(uhd::time_spec_t(0.0));
     //////////// Global variables //////////
-    auto time_now = tx_usrp->get_time_now();
+    auto time_now = rx_usrp->get_time_now();
     std::cout<<"\nTime now: "<<time_now.get_full_secs() + time_now.get_frac_secs()<<"\n";
 
 
 /////////////////////////////////////////////////////////////////////
 ////////////////////// THREAD SECTION ///////////////////////////////
 /////////////////////////////////////////////////////////////////////
-    tx_usrp->set_time_now(uhd::time_spec_t(0.0));
+    rx_usrp->set_time_now(uhd::time_spec_t(0.0));
     isSetupComplete.store(true);
 
 
 
-    std::thread transmit_thread([&]() {
-        //tx_usrp->set_time_unknown_pps(uhd::time_spec_t(0.0));
-        transmit_vector(tx_usrp, transmitVector, time_now, 0.1);
-    });
+    // std::thread transmit_thread([&]() {
+    //     //tx_usrp->set_time_unknown_pps(uhd::time_spec_t(0.0));
+    //     transmit_vector(tx_usrp, transmitVector, time_now, 0.1);
+    // });
 
 
     std::thread receive_thread([&]() {
@@ -405,7 +405,7 @@ int UHD_SAFE_MAIN(int argc, char *argv[]) {
 /////////////////////////////////////////////////////////////////////
 
 
-    transmit_thread.join();
+    // transmit_thread.join();
     receive_thread.join();
 
 
@@ -416,7 +416,7 @@ int UHD_SAFE_MAIN(int argc, char *argv[]) {
     // std::cout<<"\nFrac time of transmit first sample: "<<txMetaData.time_spec.get_full_secs() + txMetaData.time_spec.get_frac_secs();
     // std::cout<<"\n"<<rxMetaData.to_pp_string(false);
 
-    saveComplexDataToFile("../../../masters_large_data/received_data/receive.dat",received_data);
+    saveComplexDataToFile("../../../masters_large_data/received_data/reid_receive.dat",received_data);
 
 
     return EXIT_SUCCESS;

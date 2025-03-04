@@ -1,7 +1,7 @@
 CMakeFiles/test_types_library.dir/src/test_types/receive_tests.cpp.o: \
- /home/usrp/Desktop/masters/usrp_firmware/src/test_types/receive_tests.cpp \
+ /home/usrp/Desktop/masters/reid_capture_program/src/test_types/receive_tests.cpp \
  /usr/include/stdc-predef.h \
- /home/usrp/Desktop/masters/usrp_firmware/inc/test_types/receive_tests.hpp \
+ /home/usrp/Desktop/masters/reid_capture_program/inc/test_types/receive_tests.hpp \
  /usr/include/uhd/usrp/multi_usrp.hpp /usr/include/uhd/config.hpp \
  /usr/include/boost/config.hpp /usr/include/boost/config/user.hpp \
  /usr/include/boost/config/detail/select_compiler_config.hpp \
@@ -1313,6 +1313,6 @@ CMakeFiles/test_types_library.dir/src/test_types/receive_tests.cpp.o: \
  /usr/include/uhd/usrp/dboard_iface.hpp /usr/include/uhd/types/serial.hpp \
  /usr/include/uhd/usrp/gpio_defs.hpp /usr/include/c++/13/chrono \
  /usr/include/uhd/usrp/subdev_spec.hpp \
- /home/usrp/Desktop/masters/usrp_firmware/inc/utilities/config_reader.hpp \
- /home/usrp/Desktop/masters/usrp_firmware/inc/utilities/config_constants.hpp \
- /home/usrp/Desktop/masters/usrp_firmware/inc/hardware/RX_Funcs.hpp
+ /home/usrp/Desktop/masters/reid_capture_program/inc/utilities/config_reader.hpp \
+ /home/usrp/Desktop/masters/reid_capture_program/inc/utilities/config_constants.hpp \
+ /home/usrp/Desktop/masters/reid_capture_program/inc/hardware/RX_Funcs.hpp
