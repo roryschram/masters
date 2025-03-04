@@ -7,31 +7,70 @@ import os
 def append_channel_est(path):
     database_path = path
     # Here we read in the saved Numpy array from the latest channel estimation that has been done
-    print("Reading in Numpy array")
     latest_channel_est = np.load("../masters_large_data/received_data/channel_est.npy")
 
+    with h5py.File(database_path, 'r') as hf:
+        print(hf)
+        h5_tree(hf)
+    hf.close()
 
-    # Save the NumPy array to an HDF5 file
-    print("Saving the latest channel estimation to the database")
+    print("\n^^^This is the current file structure of the database ^^^")
+
+    input_group = input("\nEnter the group which you would like to enter the data into ('/' for root. Not reccomended): ")
+
+    centre_freq = ""
+    sample_rate = ""
+    transmit_gain = ""
+    receive_gain = ""
+    target = ""
+    target_distance = ""
+    scene_description = ""
 
     try:
-        with h5py.File(database_path, 'a') as database:
-            group = database["seen_data"]
-            d = group.create_dataset('6', data=latest_channel_est)
-            d.attrs.create("Centre Frequency","2790000000")
-            d.attrs.create("Sample Rate","12500000")
-            d.attrs.create("Transmit Gain","10")
-            d.attrs.create("Receive Gain","30")
-            d.attrs.create("Target","Corner Reflector")
-            d.attrs.create("Target Distance","3")
+        with h5py.File(database_path, 'r') as database:
+            group = database[input_group]
+            dataset_count = sum(1 for name in group if isinstance(group[name], h5py.Dataset))
+            print("Epic, the group '"+input_group+"' exists! There are "+str(dataset_count)+" datasets.\n")
 
-            print(d.attrs.keys())
+            centre_freq = input("Enter the centre frequency of the transmit: ")
+            sample_rate = input("Enter the sample rate of the signal: ")
+            transmit_gain = input("Enter the transmit gain: ")
+            receive_gain = input("Enter the receive gain: ")
+            target = input("Enter the target type: ")
+            target_distance = input("Enter the target distance: ")
+            scene_description = input("Enter the scene description: ")
+
 
     except Exception as e:
         print(f"Exception thrown: {e}")
     
 
+
     database.close()
+
+
+
+
+
+
+    # try:
+    #     with h5py.File(database_path, 'a') as database:
+    #         group = database["seen_data"]
+    #         d = group.create_dataset('6', data=latest_channel_est)
+    #         d.attrs.create("Centre Frequency","2790000000")
+    #         d.attrs.create("Sample Rate","12500000")
+    #         d.attrs.create("Transmit Gain","10")
+    #         d.attrs.create("Receive Gain","30")
+    #         d.attrs.create("Target","Corner Reflector")
+    #         d.attrs.create("Target Distance","3")
+
+    #         print(d.attrs.keys())
+
+    # except Exception as e:
+    #     print(f"Exception thrown: {e}")
+    
+
+    # database.close()
     print("...Done...")
 
 
