@@ -119,14 +119,6 @@ def delete_dataset(path):
     print("\n^^^This is the current file structure of the database ^^^")
 
     input_group = input("\nEnter the group which you would like to delete the dataset from ('/' for root): ")
-    centre_freq = ""
-    sample_rate = ""
-    transmit_gain = ""
-    receive_gain = ""
-    target = ""
-    target_distance = ""
-    scene_description = ""
-    dataset_count = 0
 
 
     try:
