@@ -125,61 +125,13 @@ def delete_dataset(path):
         with h5py.File(database_path, 'r') as database:
             group = database[input_group]
             dataset_count = sum(1 for name in group if isinstance(group[name], h5py.Dataset))
-            print("Epic, the group '"+input_group+"' exists! There are "+str(dataset_count)+" datasets. Therefore if you add another, the name will be "+str(dataset_count+1)+"\n")
+            print("Epic, the group '"+input_group+"' exists! There are "+str(dataset_count)+" datasets.\n")
             
-            selection_happy = ""
-            while selection_happy != "y":
-                centre_freq = ""
-                sample_rate = ""
-                transmit_gain = ""
-                receive_gain = ""
-                target = ""
-                target_distance = ""
-                scene_description = ""
-
-                while centre_freq == "":
-                    centre_freq = input("Enter the centre frequency of the transmit in GHz: ")
-
-                while sample_rate == "":
-                    sample_rate = input("Enter the sample rate of the signal in MHz: ")
-                
-                while transmit_gain == "":
-                    transmit_gain = input("Enter the transmit gain: ")
-                
-
-                while receive_gain == "":
-                    receive_gain = input("Enter the receive gain: ")
-                
-
-                while target == "":
-                    target = input("Enter the target type: ")
-                
-
-                while target_distance == "":
-                    target_distance = input("Enter the target distance: ")
-                
-
-                while scene_description == "":
-                    scene_description = input("Enter the scene description: ")
-                
-
-                selection_happy = input("\n\nYou have chosen the following as metadata for this capture:\ncentre_freq: %s\nsample_rate: %s\ntransmit_gain: %s\nreceive_gain: %s\ntarget: %s\ntarget_distance: %s\nscene_description: %s\n\nIf you are happy with this metadata, then enter 'y' and hit enter. If you don't enter 'y', then the program will request you to enter scene information again: "%(centre_freq,sample_rate,transmit_gain,receive_gain,target,target_distance,scene_description))
-        
         database.close()
 
         with h5py.File(database_path, 'a') as database:
             group = database[input_group]
-            d = group.create_dataset(str(dataset_count+1), data=latest_channel_est)
-            
-            # (centre_freq,sample_rate,transmit_gain,receive_gain,target,target_distance,scene_description)
-            d.attrs.create("centre_freq",centre_freq)
-            d.attrs.create("sample_rate",sample_rate)
-            d.attrs.create("transmit_gain",transmit_gain)
-            d.attrs.create("receive_gain",receive_gain)
-            d.attrs.create("target",target)
-            d.attrs.create("target_distance",target_distance)
-            d.attrs.create("scene_description",scene_description)
-            print("Channel estimation succesfully added to the database!")
+            dataset_to_delete = input("Enter the name of the dataset that you would like to delete in the "+group+" group: ")
 
         database.close()
 
