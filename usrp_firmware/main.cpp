@@ -13,6 +13,8 @@
 #include "test_types/receive_tests.hpp"
 #include <iomanip>
 #include <fstream>
+#include <fstream>
+#include <chrono>
 
 
 std::atomic<bool> isSetupComplete(false);
@@ -46,7 +48,27 @@ std::vector<std::complex<double>> readComplexDataFromFile(const std::string& fil
 }
 
 void saveComplexDataToFile(const std::string& filename, const std::vector<std::complex<double>>& complexData) {
+    auto now = std::chrono::system_clock::now();
+    auto duration = std::chrono::duration_cast<std::chrono::seconds>(now.time_since_epoch());
+    long long timestamp = duration.count();
+
+    // Save timestamp to file
+    std::ofstream tfile("../../../masters_large_data/received_data/latest_capture_timestamp.txt");
+    if (tfile.is_open()) {
+        tfile << timestamp << std::endl;
+        tfile.close();
+        std::cout << "Timestamp saved: " << timestamp << std::endl;
+    } else {
+        std::cerr << "Failed to open file for timestamp" << std::endl;
+    }    
+    
+    
+    
+    
+    
     std::ofstream file(filename, std::ios::binary);
+
+
 
     if (!file) {
         std::cerr << "Error opening file for writing: " << filename << std::endl;
