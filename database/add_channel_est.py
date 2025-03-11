@@ -4,7 +4,6 @@ import matplotlib.pyplot as plt
 import os
 from datetime import datetime, timezone, timedelta
 import shutil
-import gc
 
 
 # These are the variables that allow for the user to use previoyusly entered metadata for a captured channel estimation
@@ -166,6 +165,7 @@ def append_channel_est(path):
             print(f"Exception thrown: {e}")
     
     elif has_appened_happened == True:
+        try:
 
             with h5py.File(database_path, 'r') as database:
                 group = database[input_group]
@@ -178,7 +178,23 @@ def append_channel_est(path):
             should_use_same_metadata = input("Enter 'y' if you would like to use this previous capture's metadata for this new capture: ")
             
             if should_use_same_metadata == 'y':
-                test123 = 1
+                with h5py.File(database_path, 'a') as database:
+                    group = database[input_group]
+                    name = dataset_count + 1
+                    d = group.create_dataset(f"{name:03d}", data=latest_channel_est)
+                    
+                    # (centre_freq,sample_rate,transmit_gain,receive_gain,target,target_distance,scene_description)
+                    d.attrs.create("centre_freq",prev_centre_freq)
+                    d.attrs.create("sample_rate",prev_sample_rate)
+                    d.attrs.create("transmit_gain",prev_transmit_gain)
+                    d.attrs.create("receive_gain",prev_receive_gain)
+                    d.attrs.create("target",prev_target)
+                    d.attrs.create("target_distance",prev_target_distance)
+                    d.attrs.create("scene_description",prev_scene_description)
+                    d.attrs.create("timestamp",timestamp)
+                    print("Channel estimation succesfully added to the database!")
+                database.close()
+                return
 
             else:    
                 selection_happy = ""
@@ -265,6 +281,9 @@ def append_channel_est(path):
                 has_appened_happened = True
 
             database.close()
+        
+        except Exception as e:
+            print(f"Exception thrown: {e}")
 
 
 
@@ -340,7 +359,6 @@ def h5_tree(val, pre=''):
 
 # Python main function
 def main():
-    gc.collect()
     database_path = "../database.hdf5"
     terminal_width = shutil.get_terminal_size().columns
 
