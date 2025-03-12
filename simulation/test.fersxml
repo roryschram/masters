@@ -41,14 +41,14 @@
   <window_skip>0</window_skip>
   <window_length>0.1</window_length>
   <prf>1</prf>
-  <noise_temp>0.0000001</noise_temp>
+  <noise_temp>100</noise_temp>
  </monostatic>
 </platform>
 
 <platform name="target">
  <motionpath interpolation="linear">
   <positionwaypoint>
-   <x>50</x>
+   <x>30000</x>
    <y>0</y>
    <altitude>0</altitude>
    <time>0</time>
@@ -62,7 +62,7 @@
  </fixedrotation>
  <target name="wings">
   <rcs type="isotropic">
-   <value>5000</value>
+   <value>50</value>
   </rcs>
  </target>
 </platform>
