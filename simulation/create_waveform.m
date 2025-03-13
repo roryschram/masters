@@ -1,13 +1,5 @@
-sig = chirp(-50000, 50000, 0.1 , 1e6, 1);
-I = real(sig);
-Q = imag(sig);
-save -hdf5 chirp.h5 I Q
-
-plot(real(sig))
-
-
-
-
-
-
-
+sig = chirp(1000, 10000, 0.01, 20000, 1);  
+I = real(sig);  
+Q = imag(sig);  
+hdf5write('chirp.h5', '/I/value', I, '/Q/value', Q);  
+plot(sig)

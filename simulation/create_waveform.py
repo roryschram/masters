@@ -37,10 +37,10 @@ def save_chirp_to_h5(filename, start_freq, end_freq, sample_rate, duration):
 
 
 # Example parameters
-start_freq = -50000    # Start frequency in Hz
-end_freq = 50000      # End frequency in Hz
+start_freq = -6.25e6    # Start frequency in Hz
+end_freq = 6.25e6      # End frequency in Hz
 sample_rate = 12.5e6 # Sample rate in samples per second (Hz)
-duration = 0.1         # Duration of chirp in seconds
+duration = 0.000001         # Duration of chirp in seconds
 
 
 # Save the chirp signal to an HDF5 file
