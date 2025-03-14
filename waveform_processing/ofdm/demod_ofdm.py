@@ -127,7 +127,7 @@ def Demapping(QAM):
     # transform the constellation point into the bit groups
     return np.vstack([demapping_table[C] for C in hardDecision]), hardDecision
 
-PS_est, hardDecision = Demapping(QAM_est)
+# PS_est, hardDecision = Demapping(QAM_est)
 
 
 # for qam, hard in zip(QAM_est, hardDecision):
@@ -139,13 +139,15 @@ PS_est, hardDecision = Demapping(QAM_est)
 # plt.show()
 
 
-bits = np.load("../masters_large_data/transmitted_data/bits.npy")
+# Removed the bit error calc because ti took lots of compute
+
+# bits = np.load("../masters_large_data/transmitted_data/bits.npy")
 
 
-def PS(bits):
-    return bits.reshape((-1,))
-bits_est = PS(PS_est)
-print ("Obtained Bit error rate: ", np.sum(abs(bits-bits_est))/len(bits))
+# def PS(bits):
+#     return bits.reshape((-1,))
+# bits_est = PS(PS_est)
+# print ("Obtained Bit error rate: ", np.sum(abs(bits-bits_est))/len(bits))
 
 
 

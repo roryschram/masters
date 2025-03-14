@@ -2,6 +2,8 @@ import h5py
 import numpy as np
 import matplotlib.pyplot as plt
 import os
+from datetime import datetime, timezone, timedelta
+import shutil
 
 
 # These are the variables that allow for the user to use previoyusly entered metadata for a captured channel estimation
@@ -21,6 +23,13 @@ def append_channel_est(path):
     database_path = path
     # Here we read in the saved Numpy array from the latest channel estimation that has been done
     latest_channel_est = np.load("../masters_large_data/received_data/channel_est.npy")
+    with open("../masters_large_data/received_data/latest_capture_timestamp.txt","r") as timestamp_file:
+        latest_capture_timestamp = int(timestamp_file.readline().strip())
+
+    utc_plus_2 = timezone(timedelta(hours=2))
+    dt = datetime.fromtimestamp(latest_capture_timestamp, tz=utc_plus_2)
+    timestamp = dt.strftime("%d-%m-%Y %H:%M:%S")
+
 
     with h5py.File(database_path, 'r') as hf:
         print(hf)
@@ -29,7 +38,11 @@ def append_channel_est(path):
 
     print("\n^^^This is the current file structure of the database ^^^")
 
+
     input_group = input("\nEnter the group which you would like to enter the data into ('/' for root): ")
+    if input_group == "exit":
+        return
+    
     centre_freq = ""
     sample_rate = ""
     transmit_gain = ""
@@ -55,50 +68,72 @@ def append_channel_est(path):
                 group = database[input_group]
                 dataset_count = sum(1 for name in group if isinstance(group[name], h5py.Dataset))
                 print("Epic, the group '"+input_group+"' exists! There are "+str(dataset_count)+" datasets. Therefore if you add another, the name will be "+str(dataset_count+1)+"\n")
+                print("The timestamp of the latest channel estimation is: ",timestamp)
+            database.close()  
                 
-                selection_happy = ""
-                while selection_happy != "y":
-                    centre_freq = ""
-                    sample_rate = ""
-                    transmit_gain = ""
-                    receive_gain = ""
-                    target = ""
-                    target_distance = ""
-                    scene_description = ""
+                
+            selection_happy = ""
+            while selection_happy != "y":
+                centre_freq = ""
+                sample_rate = ""
+                transmit_gain = ""
+                receive_gain = ""
+                target = ""
+                target_distance = ""
+                scene_description = ""
 
-                    while centre_freq == "":
-                        centre_freq = input("Enter the centre frequency of the transmit in GHz: ")
 
-                    while sample_rate == "":
-                        sample_rate = input("Enter the sample rate of the signal in MHz: ")
+                while centre_freq == "":
+                    centre_freq = input("Enter the centre frequency of the transmit in GHz: ")
+                    if centre_freq == "exit":
+                        return
+
+                while sample_rate == "":
+                    sample_rate = input("Enter the sample rate of the signal in MHz: ")
+                    if sample_rate == "exit":
+                        return
+                
+                while transmit_gain == "":
+                    transmit_gain = input("Enter the transmit gain: ")
+                    if transmit_gain == "exit":
+                        return
+                
+
+                while receive_gain == "":
+                    receive_gain = input("Enter the receive gain: ")
+                    if receive_gain == "exit":
+                        return
+                
+
+                while target == "":
+                    target = input("Enter the target type: ")
+                    if target == "exit":
+                        return
+                
+
+                while target_distance == "":
+                    target_distance = input("Enter the target distance: ")
+                    if target_distance == "exit":
+                        return
+                
+
+                while scene_description == "":
+                    scene_description = input("Enter the scene description: ")
+                    if scene_description == "exit":
+                        return
+                
+
+                selection_happy = input("\n\nYou have chosen the following as metadata for this capture:\ncentre_freq: %s\nsample_rate: %s\ntransmit_gain: %s\nreceive_gain: %s\ntarget: %s\ntarget_distance: %s\nscene_description: %s\n\nIf you are happy with this metadata, then enter 'y' and hit enter. If you don't enter 'y', then the program will request you to enter scene information again: "%(centre_freq,sample_rate,transmit_gain,receive_gain,target,target_distance,scene_description))
+                if selection_happy == "exit":
+                    return
                     
-                    while transmit_gain == "":
-                        transmit_gain = input("Enter the transmit gain: ")
-                    
 
-                    while receive_gain == "":
-                        receive_gain = input("Enter the receive gain: ")
-                    
 
-                    while target == "":
-                        target = input("Enter the target type: ")
-                    
-
-                    while target_distance == "":
-                        target_distance = input("Enter the target distance: ")
-                    
-
-                    while scene_description == "":
-                        scene_description = input("Enter the scene description: ")
-                    
-
-                    selection_happy = input("\n\nYou have chosen the following as metadata for this capture:\ncentre_freq: %s\nsample_rate: %s\ntransmit_gain: %s\nreceive_gain: %s\ntarget: %s\ntarget_distance: %s\nscene_description: %s\n\nIf you are happy with this metadata, then enter 'y' and hit enter. If you don't enter 'y', then the program will request you to enter scene information again: "%(centre_freq,sample_rate,transmit_gain,receive_gain,target,target_distance,scene_description))
-            
-            database.close()
 
             with h5py.File(database_path, 'a') as database:
                 group = database[input_group]
-                d = group.create_dataset(str(dataset_count+1), data=latest_channel_est)
+                name = dataset_count + 1
+                d = group.create_dataset(f"{name:03d}", data=latest_channel_est)
                 
                 # (centre_freq,sample_rate,transmit_gain,receive_gain,target,target_distance,scene_description)
                 d.attrs.create("centre_freq",centre_freq)
@@ -108,6 +143,7 @@ def append_channel_est(path):
                 d.attrs.create("target",target)
                 d.attrs.create("target_distance",target_distance)
                 d.attrs.create("scene_description",scene_description)
+                d.attrs.create("timestamp",timestamp)
                 print("Channel estimation succesfully added to the database!")
                 
                 
@@ -129,62 +165,99 @@ def append_channel_est(path):
             print(f"Exception thrown: {e}")
     
     elif has_appened_happened == True:
+        try:
 
             with h5py.File(database_path, 'r') as database:
                 group = database[input_group]
                 dataset_count = sum(1 for name in group if isinstance(group[name], h5py.Dataset))
                 print("Epic, the group '"+input_group+"' exists! There are "+str(dataset_count)+" datasets. Therefore if you add another, the name will be "+str(dataset_count+1)+"\n")
-                
-                print("\n\nI noticed that you have used the following for the previous capture:\ncentre_freq: %s\nsample_rate: %s\ntransmit_gain: %s\nreceive_gain: %s\ntarget: %s\ntarget_distance: %s\nscene_description: %s\n"%(prev_centre_freq,prev_sample_rate,prev_transmit_gain,prev_receive_gain,prev_target,prev_target_distance,prev_scene_description))
-                should_use_same_metadata = input("Enter 'y' if you would like to use this previous capture's metadata for this new capture: ")
-                
-                if should_use_same_metadata == 'y':
-                    no = 1
-
-                else:    
-                    selection_happy = ""
-                    while selection_happy != "y":
-                        centre_freq = ""
-                        sample_rate = ""
-                        transmit_gain = ""
-                        receive_gain = ""
-                        target = ""
-                        target_distance = ""
-                        scene_description = ""
-
-                        while centre_freq == "":
-                            centre_freq = input("Enter the centre frequency of the transmit in GHz: ")
-
-                        while sample_rate == "":
-                            sample_rate = input("Enter the sample rate of the signal in MHz: ")
-                        
-                        while transmit_gain == "":
-                            transmit_gain = input("Enter the transmit gain: ")
-                        
-
-                        while receive_gain == "":
-                            receive_gain = input("Enter the receive gain: ")
-                        
-
-                        while target == "":
-                            target = input("Enter the target type: ")
-                        
-
-                        while target_distance == "":
-                            target_distance = input("Enter the target distance: ")
-                        
-
-                        while scene_description == "":
-                            scene_description = input("Enter the scene description: ")
-                        
-
-                        selection_happy = input("\n\nYou have chosen the following as metadata for this capture:\ncentre_freq: %s\nsample_rate: %s\ntransmit_gain: %s\nreceive_gain: %s\ntarget: %s\ntarget_distance: %s\nscene_description: %s\n\nIf you are happy with this metadata, then enter 'y' and hit enter. If you don't enter 'y', then the program will request you to enter scene information again: "%(centre_freq,sample_rate,transmit_gain,receive_gain,target,target_distance,scene_description))
-            
             database.close()
+
+
+            print("\n\nI noticed that you have used the following for the previous capture:\ncentre_freq: %s\nsample_rate: %s\ntransmit_gain: %s\nreceive_gain: %s\ntarget: %s\ntarget_distance: %s\nscene_description: %s\n"%(prev_centre_freq,prev_sample_rate,prev_transmit_gain,prev_receive_gain,prev_target,prev_target_distance,prev_scene_description))
+            should_use_same_metadata = input("Enter 'y' if you would like to use this previous capture's metadata for this new capture: ")
+            
+            if should_use_same_metadata == 'y':
+                with h5py.File(database_path, 'a') as database:
+                    group = database[input_group]
+                    name = dataset_count + 1
+                    d = group.create_dataset(f"{name:03d}", data=latest_channel_est)
+                    
+                    # (centre_freq,sample_rate,transmit_gain,receive_gain,target,target_distance,scene_description)
+                    d.attrs.create("centre_freq",prev_centre_freq)
+                    d.attrs.create("sample_rate",prev_sample_rate)
+                    d.attrs.create("transmit_gain",prev_transmit_gain)
+                    d.attrs.create("receive_gain",prev_receive_gain)
+                    d.attrs.create("target",prev_target)
+                    d.attrs.create("target_distance",prev_target_distance)
+                    d.attrs.create("scene_description",prev_scene_description)
+                    d.attrs.create("timestamp",timestamp)
+                    print("Channel estimation succesfully added to the database!")
+                database.close()
+                return
+
+            else:    
+                selection_happy = ""
+                while selection_happy != "y":
+                    centre_freq = ""
+                    sample_rate = ""
+                    transmit_gain = ""
+                    receive_gain = ""
+                    target = ""
+                    target_distance = ""
+                    scene_description = ""
+
+
+                    while centre_freq == "":
+                        centre_freq = input("Enter the centre frequency of the transmit in GHz: ")
+                        if centre_freq == "exit":
+                            return
+
+                    while sample_rate == "":
+                        sample_rate = input("Enter the sample rate of the signal in MHz: ")
+                        if sample_rate == "exit":
+                            return
+                    
+                    while transmit_gain == "":
+                        transmit_gain = input("Enter the transmit gain: ")
+                        if transmit_gain == "exit":
+                            return
+                    
+
+                    while receive_gain == "":
+                        receive_gain = input("Enter the receive gain: ")
+                        if receive_gain == "exit":
+                            return
+                    
+
+                    while target == "":
+                        target = input("Enter the target type: ")
+                        if target == "exit":
+                            return
+                    
+
+                    while target_distance == "":
+                        target_distance = input("Enter the target distance: ")
+                        if target_distance == "exit":
+                            return
+                    
+
+                    while scene_description == "":
+                        scene_description = input("Enter the scene description: ")
+                        if scene_description == "exit":
+                            return
+                    
+
+                    selection_happy = input("\n\nYou have chosen the following as metadata for this capture:\ncentre_freq: %s\nsample_rate: %s\ntransmit_gain: %s\nreceive_gain: %s\ntarget: %s\ntarget_distance: %s\nscene_description: %s\n\nIf you are happy with this metadata, then enter 'y' and hit enter. If you don't enter 'y', then the program will request you to enter scene information again: "%(centre_freq,sample_rate,transmit_gain,receive_gain,target,target_distance,scene_description))
+                    if selection_happy == "exit":
+                        return
+                    
+
 
             with h5py.File(database_path, 'a') as database:
                 group = database[input_group]
-                d = group.create_dataset(str(dataset_count+1), data=latest_channel_est)
+                name = dataset_count + 1
+                d = group.create_dataset(f"{name:03d}", data=latest_channel_est)
                 
                 # (centre_freq,sample_rate,transmit_gain,receive_gain,target,target_distance,scene_description)
                 d.attrs.create("centre_freq",centre_freq)
@@ -194,6 +267,7 @@ def append_channel_est(path):
                 d.attrs.create("target",target)
                 d.attrs.create("target_distance",target_distance)
                 d.attrs.create("scene_description",scene_description)
+                d.attrs.create("timestamp",timestamp)
                 print("Channel estimation succesfully added to the database!")
                 
                 
@@ -207,17 +281,12 @@ def append_channel_est(path):
                 has_appened_happened = True
 
             database.close()
+        
+        except Exception as e:
+            print(f"Exception thrown: {e}")
 
 
-# # Read the NumPy array from the HDF5 file
-# print("...Reading the latest channel estimation to the database...")
-# with h5py.File(database_path, 'r') as hdf5_file:
-#     loaded_array = hdf5_file['1'][:]
-# database.close()
-# print("...Done...")
 
-# # plt.plot(np.abs(np.fft.fftshift(loaded_array)))
-# # plt.show()
 
 def delete_dataset(path):
     database_path = path
@@ -291,13 +360,19 @@ def h5_tree(val, pre=''):
 # Python main function
 def main():
     database_path = "../database.hdf5"
+    terminal_width = shutil.get_terminal_size().columns
 
 
 
 
     while True:
         os.system('cls' if os.name == 'nt' else 'clear')
-        user_input = input("Options (or type 'exit' to quit) - 't' = ToString (read/explore structure of database) - 'a' = Appened (append latest channel estimation to database) - 'd' = Delete (delete last appended channel estimation to database):")
+        text = "### Welcome to my HDF5 database program! ###"
+        print(text.center(terminal_width))
+        
+        text = "### Welcome to my HDF5 database program! ###"
+        print("Options:\n'exit' - Use to exit program at any point\n't' - ToString, used to display structure of database\n'a' - Appened latest channel estimation\n'd' - Delete a dataset\n")
+        user_input = input("Choose an option: ")
 
         if user_input.lower() == 'exit':
             print("Goodbye!")
@@ -308,6 +383,7 @@ def main():
             with h5py.File(database_path, 'r') as hf:
                 print(hf)
                 h5_tree(hf)
+                print("\n^^^This is the current file structure of the database ^^^")
             hf.close()
             input("\nPress enter to return to menu")
         elif user_input.lower() == 'a':
