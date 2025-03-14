@@ -55,18 +55,23 @@
 
 <!-- ABOUT THE PROJECT -->
 ## About The Project
-The main aim of this project was to build on the theoretical work set out by Gabriel Lellouch and Amit Mishra in their various publications. My masters focused primarily on showing a practical implementation of their theoretical work that showed that estimation of a channel that a radar signal passes through has the capability, when combined with post-processing, to classify a target object that a radar is looking at, when compared to other objects.
+The main aim of this project was to build on the theoretical work set out by Gabriel Lellouch and Amit Mishra in their various publications with regards to building a single pulse classification RADAR based on a flat top signal spectra. My masters focuses primarily on showing a practical implementation of their theoretical work that showed that estimation of the channel that a radar signal passes through has the capability, when combined with post-processing, to classify a target object that a radar is looking at, when compared to other objects.
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
 
 <!-- GETTING STARTED -->
 ## Getting Started
-The entire code base for this project was designed and engineered on a MacBook Pro 13-inch, M2, 2022, with 8 GB of memory. I have tried to make the project as cross-platform compatible as possible, by utilizing technologies such as Docker containerization, however, if any issues arise on machines that aren't using my exact setup, then you may need to go digging for solutions yourself.
+The entire code base for this project was designed and engineered on a a Linux based computer running Ubuntu. I have tried to make the project as cross-platform compatible as possible with the help of Docker, however, since Docker still uses the kernal of the computer on which you are running the containers, I would HIGHLY reccomend not running this program on an ARM based computer (basically any new MacBook) since a lot of the dependancies for the project will not work, trust me I tried.
 
 ### Prerequisites
+#### OS Requirement
+First and formost, you should have a Linux based machine running Ubuntu. At the time of writing this, the latest version of Ubuntu is 24.04.2.
 
-It is important that you have docker installed on your system. For me, that simply involved going to the official Docker website and downloading Docker Desktop. The download and install of this piece of software installed the required command line tools to use Docker.
+#### Docker
+Once you have Ubuntu installed, you must install Docker. Docker is a containerization software that allows me to create an image that just works for the USRPs. Without this, you would have to do A LOT of manual dependancy installs for the firmware of the USRPs (UHD) which would take a minute. To install Docker, you can follow the following link to do it on Linux [Install Docker on Linux](https://docs.docker.com/desktop/setup/install/linux/). I reccomend the command line installation. After doing this install, you want to be able to run Docker commands without running sudo before each command. Use the information on the following site to do that [Post Installation on Linux](https://docs.docker.com/engine/install/linux-postinstall/).
+
+
 
 Next, I will assume that you already have git CLI tools installed on your local machine. This is important as it allows you to interact with this repository to copy my code.
 
