@@ -6,8 +6,8 @@ services:
     stdin_open: true
     tty: true
 
-    volumes:
-      - ../../masters/:/home/usrp/masters
+    # volumes:
+    #   - ../../masters/:/home/usrp/masters
 
     network_mode: "host"
-    user: usrp
+    # user: usrp

@@ -1,6 +1,6 @@
-This is BibTeX, Version 0.99d (TeX Live 2024)
+This is BibTeX, Version 0.99d (TeX Live 2025)
 Capacity: max_strings=200000, hash_size=200000, hash_prime=170003
-The top-level auxiliary file: 4.ValidationAndSimulation.aux
+The top-level auxiliary file: 4.Simulation.aux
 The style file: IEEEtran.bst
 Reallocated singl_function (elt_size=4) to 100 items from 50.
 Reallocated singl_function (elt_size=4) to 100 items from 50.
@@ -15,7 +15,7 @@ Database file #1: ../Bibliography/References.bib
 Done.
 You've used 1 entry,
             4087 wiz_defined-function locations,
-            825 strings with 7535 characters,
+            825 strings with 7509 characters,
 and the built_in function-call counts, 418 in all, are:
 = -- 21
 > -- 4

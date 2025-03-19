@@ -36,7 +36,8 @@ RUN apt-get -y install autoconf \
         python3-scipy \
         python3-setuptools \
         python3-ruamel.yaml \
-        sudo
+        sudo \
+        zsh
 
 RUN          rm -rf /var/lib/apt/lists/*
 
@@ -66,5 +67,7 @@ RUN chown -R usrp:usrp /home/usrp
 
 # Switch to 'usrp' user
 USER usrp
-WORKDIR /home/
+WORKDIR /home/usrp
+
+RUN git clone https://github.com/roryschram/masters.git
 
