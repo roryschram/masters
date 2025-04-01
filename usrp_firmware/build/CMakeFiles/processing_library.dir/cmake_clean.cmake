@@ -1,5 +1,6 @@
 file(REMOVE_RECURSE
   "CMakeFiles/processing_library.dir/src/processing/DSP.cpp.o"
+  "CMakeFiles/processing_library.dir/src/processing/DSP.cpp.o.d"
   "libprocessing_library.a"
   "libprocessing_library.pdb"
 )

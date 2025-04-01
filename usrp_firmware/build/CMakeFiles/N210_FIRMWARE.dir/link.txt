@@ -1,1 +1,1 @@
-g++  -std=c++11    CMakeFiles/N210_FIRMWARE.dir/main.cpp.o  -o N210_FIRMWARE  /usr/lib/libuhd.so libtest_types_library.a libhardware_config.a libutility_library.a libprocessing_library.a -lpthread 
+g++ -std=c++11  CMakeFiles/N210_FIRMWARE.dir/main.cpp.o -o N210_FIRMWARE  /usr/lib/libuhd.so libtest_types_library.a libhardware_config.a libutility_library.a libprocessing_library.a -lpthread 

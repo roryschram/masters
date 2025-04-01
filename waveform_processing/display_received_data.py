@@ -1,6 +1,7 @@
 import numpy as np
 import matplotlib.pylab as plt
 
+
 def read_complex_data_from_dat(filename):
     # Read the binary data
     with open(filename, 'rb') as f:

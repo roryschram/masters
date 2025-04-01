@@ -1,5 +1,6 @@
 file(REMOVE_RECURSE
   "CMakeFiles/utility_library.dir/src/utilities/config_reader.cpp.o"
+  "CMakeFiles/utility_library.dir/src/utilities/config_reader.cpp.o.d"
   "libutility_library.a"
   "libutility_library.pdb"
 )

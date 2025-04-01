@@ -15,7 +15,7 @@ print("Channel estimations loaded!")
 
 
 start_time = time.time()
-matched_output1 = np.correlate(channel_est1,channel_est2,mode="same")
+matched_output1 = scipy.signal.correlate(channel_est1,channel_est2)
 print("\nTime to corrolate using NumPy:\n--- %s seconds ---\n" % (time.time() - start_time))
 
 
