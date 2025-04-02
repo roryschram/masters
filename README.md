@@ -66,14 +66,43 @@ The entire code base for this project was designed and engineered on a a Linux b
 
 ### Prerequisites
 #### OS Requirement
-First and formost, you should have a Linux based machine running Ubuntu. At the time of writing this, the latest version of Ubuntu is 24.04.2.
+First and formost, you should have a Linux based machine running Ubuntu. At the time of writing this, the latest version of Ubuntu is 24.04.2. This is the latest version of Ubuntu that the software has been tested on.
 
 #### Docker
 Once you have Ubuntu installed, you must install Docker. Docker is a containerization software that allows me to create an image that just works for the USRPs. Without this, you would have to do A LOT of manual dependancy installs for the firmware of the USRPs (UHD) which would take a minute. To install Docker, you can follow the following link to do it on Linux [Install Docker on Linux](https://docs.docker.com/desktop/setup/install/linux/). I reccomend the command line installation. After doing this install, you want to be able to run Docker commands without running sudo before each command. Use the information on the following site to do that [Post Installation on Linux](https://docs.docker.com/engine/install/linux-postinstall/).
 
+^^^ This is not really needed as of a few decisions ago ^^^
 
+#### OS Software Requirments
+The following OS requirments are needed for the installation of the UHD application programming interface. Runt he following command to get the required software:
 
-Next, I will assume that you already have git CLI tools installed on your local machine. This is important as it allows you to interact with this repository to copy my code.
+```bash
+sudo apt install -y autoconf \
+        automake \
+        build-essential \
+        ccache \
+        cmake \
+        cpufrequtils \
+        doxygen \
+        ethtool \
+        g++ \
+        git \
+        inetutils-tools \
+        libboost-all-dev \
+        libncurses5-dev \
+        libusb-1.0-0 \
+        libusb-1.0-0-dev \
+        libusb-dev \
+        python3-dev \
+        python3-mako \
+        python3-numpy \
+        python3-requests \
+        python3-scipy \
+        python3-setuptools \
+        python3-ruamel.yaml \
+        sudo \
+        zsh
+```
 
 Next, you must make a copy of this repository to your local machine. First navigate to your desired save location for the program with the following:
 
@@ -87,27 +116,38 @@ Then, clone the github hosted repository with the following:
 git clone https://github.com/roryschram/masters.git
 ```
 
+This will create a file called "masters" in the desired project save location.
+
 The git repository has the following structure and layout:
 
     
 ```
 ..
-├── CNAME
-├── index.html
-├── rate.html
-├── rate.html
-├── rate.html
-├── rate.html
-├── rate.html
-├── rate.html
-├── rate.html
-├── rate.html
-├── rate.html
-├── rate.html
-├── rate.html
-├── rate.html
-├── rate.html
-└── README.md
+├── .venv
+├── .vscode
+├── Matlab
+├── data
+├── database
+├── docker
+├── graphs
+├── matched_filter
+├── pre_reading
+├── presentations
+├── python
+├── reid_capture_program
+├── report
+├── simulation
+├── testing
+├── usrp_firmware
+├── usrp_firmware_continous
+├── waveform_generation
+├── waveform_processing
+├── 
+├── 
+├── 
+├── 
+└── 
+ 
 ├── assets
 │   └── css
 │       ├── index-ui.css
