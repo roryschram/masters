@@ -10,4 +10,3 @@ received_data/receive.dat
 transmitted_data/bits.npy
 .venv/
 .DS_Store
-jupyter/
