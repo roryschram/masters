@@ -65,6 +65,13 @@ The main aim of this project was to build on the theoretical work set out by Gab
 The entire code base for this project was designed and engineered on a a Linux based computer running Ubuntu. I have tried to make the project as cross-platform compatible as possible with the help of Docker, however, since Docker still uses the kernal of the computer on which you are running the containers, I would HIGHLY reccomend not running this program on an ARM based computer (basically any new MacBook) since a lot of the dependancies for the project will not work, trust me I tried.
 
 ### Prerequisites
+#### Python Environment Requirements
+First create a virtual environment with:
+```bash
+python3 -m venv .venv
+source .venv/bin/activate
+pip install -r requirements.txt
+```
 #### OS Requirement
 First and formost, you should have a Linux based machine running Ubuntu. At the time of writing this, the latest version of Ubuntu is 24.04.2. This is the latest version of Ubuntu that the software has been tested on.
 
