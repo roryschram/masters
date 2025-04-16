@@ -49,20 +49,20 @@ corrolation = scipy.signal.correlate(received_data,transmitted_data)
 
 # np.save("waveform_processing/symbol.npy",symbol)
 
-freqs = np.fft.fftshift(np.fft.fftfreq(len(received_data),d=1/12.5e6))
-plt.plot(freqs,np.fft.fftshift(20*np.log10(np.abs(np.fft.fft(received_data))/len(received_data))))
-plt.title("Received signal fft")
-plt.xlabel("Frequency (Hz)")
-plt.ylabel("|received|")
-plt.show()
+# freqs = np.fft.fftshift(np.fft.fftfreq(len(received_data),d=1/12.5e6))
+# plt.plot(freqs,np.fft.fftshift(20*np.log10(np.abs(np.fft.fft(received_data))/len(received_data))))
+# plt.title("Received signal fft")
+# plt.xlabel("Frequency (Hz)")
+# plt.ylabel("|received|")
+# plt.show()
 
 
-plt.plot(np.real(received_data))
-plt.plot(np.imag(received_data))
-plt.title("Received signal")
-plt.xlabel("Samples")
-plt.ylabel("|received|")
-plt.show()
+# plt.plot(np.real(received_data))
+# plt.plot(np.imag(received_data))
+# plt.title("Received signal")
+# plt.xlabel("Samples")
+# plt.ylabel("|received|")
+# plt.show()
 
 
 
@@ -89,12 +89,12 @@ range_bins_distance = range_bins_time * c / 2  # Divide by 2 for one-way travel 
 
 
 
-plt.plot(np.abs(corrolation))
+# plt.plot(np.abs(corrolation))
 
-plt.title("Corrolation between received signal and original transmitted signal")
-plt.xlabel("Distance (m)")
-plt.ylabel("$|\\rho(received data,original frame)|$")
-plt.show()
+# plt.title("Corrolation between received signal and original transmitted signal")
+# plt.xlabel("Distance (m)")
+# plt.ylabel("$|\\rho(received data,original frame)|$")
+# plt.show()
 
 
 print(first_max)
@@ -102,16 +102,16 @@ data_frame = received_data[first_max-12500000:first_max]
 print(len(data_frame))
 
 
-plt.plot(np.real(data_frame))
-plt.plot(np.imag(data_frame))
-plt.title("Data Frame")
-plt.show()
+# plt.plot(np.real(data_frame))
+# plt.plot(np.imag(data_frame))
+# plt.title("Data Frame")
+# plt.show()
 
 np.save("../masters_large_data/received_data/data_frame.npy",data_frame)
 
-plt.plot(range_bins_distance,corrolation_abs[first_max:])
+# plt.plot(range_bins_distance,corrolation_abs[first_max:])
 
-plt.title("Pulse integration output")
-plt.xlabel("Distance (m)")
-plt.ylabel("$|\\rho(received data,original frame)|$")
-plt.show()
+# plt.title("Pulse integration output")
+# plt.xlabel("Distance (m)")
+# plt.ylabel("$|\\rho(received data,original frame)|$")
+# plt.show()
