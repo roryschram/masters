@@ -1,5 +1,8 @@
 import numpy as np
-import matplotlib.pylab as plt
+import matplotlib
+matplotlib.use('TkAgg')
+import matplotlib.pyplot as plt
+
 
 
 def read_complex_data_from_dat(filename):
