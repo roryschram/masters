@@ -19,11 +19,14 @@ def read_complex_data_from_dat(filename):
     return complex_data
 
 # Get received usrp data
-received_data = read_complex_data_from_dat("../masters_large_data/received_data/receive.dat")
+received_data1 = read_complex_data_from_dat("../masters_large_data/received_data/multi_receive/receive1.dat")
+received_data2 = read_complex_data_from_dat("../masters_large_data/received_data/multi_receive/receive2.dat")
 
 
-plt.plot(np.real(received_data))
-plt.plot(np.imag(received_data))
+plt.plot(np.real(received_data1))
+plt.plot(np.imag(received_data1))
+plt.plot(np.real(received_data2))
+plt.plot(np.imag(received_data2))
 plt.title("Received signal")
 plt.xlabel("Samples")
 plt.ylabel("|received|")

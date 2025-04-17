@@ -142,7 +142,7 @@ void transmit_vector(uhd::usrp::multi_usrp::sptr tx_usrp, std::vector<std::compl
         }
         md.end_of_burst=true;
         tx_stream->send("",0,md,0.1);
-        std::cout<<"Time of first transmitted sample: "<<md.time_spec.get_full_secs() + md.time_spec.get_frac_secs()<<"\n";
+        // std::cout<<"Time of first transmitted sample: "<<md.time_spec.get_full_secs() + md.time_spec.get_frac_secs()<<"\n";
         return;
     }
 }
@@ -343,12 +343,14 @@ int UHD_SAFE_MAIN(int argc, char *argv[]) {
     received_data.reserve(CONFIG::NUM_SAMPS);
 
 
+    for (int i = 1; i < 21; i++) {
+    auto capture_number = std::to_string(i);
 
 
     tx_usrp->set_time_now(uhd::time_spec_t(0.0));
     //////////// Global variables //////////
     auto time_now = tx_usrp->get_time_now();
-    std::cout<<"\nTime now: "<<time_now.get_full_secs() + time_now.get_frac_secs()<<"\n";
+    std::cout<<"\nCapture "<<capture_number<<"\n";
 
 
 
@@ -375,8 +377,9 @@ int UHD_SAFE_MAIN(int argc, char *argv[]) {
     receive_thread.join();
 
 
-    saveComplexDataToFile("../../../masters_large_data/received_data/multi_receive/receive.dat",received_data);
+    saveComplexDataToFile("../../../masters_large_data/received_data/multi_receive/raw_captures/receive"+capture_number+".dat",received_data);
 
+    }
 
     return EXIT_SUCCESS;
 }
