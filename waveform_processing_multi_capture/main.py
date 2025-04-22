@@ -1,6 +1,8 @@
 import matplotlib.pyplot as plt
-plt.rcParams['figure.figsize'] = (10, 4)
-plt.rcParams['figure.dpi'] = 300
+# plt.rcParams['figure.figsize'] = (10, 4)
+# plt.rcParams['figure.dpi'] = 300
+import matplotlib
+matplotlib.use('TkAgg')
 
 import numpy as np
 import scipy
@@ -11,6 +13,8 @@ import glob
 from sklearn.decomposition import PCA
 from sklearn.preprocessing import StandardScaler
 from scipy.signal import decimate
+from sklearn.svm import SVC
+from sklearn.preprocessing import LabelEncoder
 
 
 arrays = []
@@ -23,31 +27,6 @@ for i in range(1,21):
     arrays.append(arr)
 
 
-# print(arrays)
-
-# for i in range(0,20):
-#     plt.plot(arrays[i])
-
-# plt.show()
-
-
-
-# Parameters
-num_captures = 20
-window_size = 12500000  # We'll use the first 8192 samples of each
-
-
-# X = []
-
-# # Extract FFT magnitude features from each variable
-# for i in range(1, num_captures + 1):
-#     capture = globals()[f"capture{i}"][:window_size]  # Access variable by name
-#     # Downsample to 12.5k samples
-#     downsample_factor = 25000
-#     capture_ds = decimate(capture, downsample_factor)
-
-#     X.append(capture_ds)
-
 X = np.array(arrays)
 
 
@@ -56,24 +35,87 @@ scaler = StandardScaler()
 X_scaled = scaler.fit_transform(X)
 
 # Apply PCA
-pca = PCA(n_components=3)
+pca = PCA(n_components=10)
 X_pca = pca.fit_transform(X_scaled)
 
-print(pca.explained_variance_ratio_)
+
+rTotalVariance = 0
+for i in pca.explained_variance_ratio_:
+    rTotalVariance += i
+    print(i)
+print("Total variance ratio addition: "+str(rTotalVariance))
+
 
 # Plotting
-fig = plt.figure(figsize=(10,4))
-ax = fig.add_subplot(111,projection='3d')
+
+# Define labels for each point
+labels = ['30 dB'] * 10 + ['40 dB'] * 10
+colors = {'30 dB': 'red', '40 dB': 'blue'}
+
+le = LabelEncoder()
+y_encoded = le.fit_transform(labels)  # 40 dB = 0, 30 dB = 1
+print(y_encoded)
+
+# Train SVM
+svm = SVC(kernel='rbf', gamma='scale', C=1.0)
+svm.fit(X_pca[:, :3], y_encoded)  # Use first 10 PCs
 
 
+
+# Create 3D grid
+grid_size = 30  # finer = slower
+x_min, x_max = X_pca[:, 0].min() - 1, X_pca[:, 0].max() + 1
+y_min, y_max = X_pca[:, 1].min() - 1, X_pca[:, 1].max() + 1
+z_min, z_max = X_pca[:, 2].min() - 1, X_pca[:, 2].max() + 1
+
+xx, yy, zz = np.meshgrid(
+    np.linspace(x_min, x_max, grid_size),
+    np.linspace(y_min, y_max, grid_size),
+    np.linspace(z_min, z_max, grid_size)
+)
+
+grid = np.c_[xx.ravel(), yy.ravel(), zz.ravel()]
+decision = svm.decision_function(grid)
+decision = decision.reshape(xx.shape)
+
+slice_idx = grid_size // 2  # middle slice along z-axis
+
+fig = plt.figure(figsize=(10, 8))
+ax = fig.add_subplot(111, projection='3d')
+
+# Plot decision boundary on a Z slice
+ax.contour(xx[:, :, slice_idx], yy[:, :, slice_idx], decision[:, :, slice_idx],
+           levels=[0], colors='gray', linewidths=2)
+
+# Scatter actual data points
+colors = {'40 dB': 'red', '30 dB': 'blue'}
 for i in range(len(X_pca)):
-    ax.scatter(X_pca[i, 0], X_pca[i, 1], X_pca[i, 2])  # Avoid repeated labels
+    ax.scatter(X_pca[i, 0], X_pca[i, 1], X_pca[i, 2],
+               color=colors[labels[i]],
+               label=labels[i] if i in [0, 10] else "")
+    ax.text(X_pca[i, 0], X_pca[i, 1], X_pca[i, 2], str(i + 1), fontsize=8)
 
 ax.set_xlabel('PC1')
 ax.set_ylabel('PC2')
 ax.set_zlabel('PC3')
-ax.set_title("PCA of Channel Estimations")
-# ax.view_init(elev=, azim=0)  # ← change perspective to top-down
+ax.set_title('SVM Decision Boundary (Z-slice) in 3D PCA Space')
 ax.legend()
-ax.legend(loc='center left', bbox_to_anchor=(1.05, 0.5))
+plt.tight_layout()
 plt.show()
+
+# fig = plt.figure(figsize=(10,4))
+# ax = fig.add_subplot(111,projection='3d')
+
+
+# for i in range(len(X_pca)):
+#     ax.scatter(X_pca[i, 0], X_pca[i, 1], X_pca[i, 2],
+#     color=colors[labels[i]], label=labels[i] if i in [0, 10] else "")
+#     ax.text(X_pca[i, 0], X_pca[i, 1], X_pca[i, 2], str(i+1), fontsize=8)  # Avoid repeated labels
+
+# ax.set_xlabel('PC1')
+# ax.set_ylabel('PC2')
+# ax.set_zlabel('PC3')
+# ax.set_title("PCA of Channel Estimations")
+# ax.legend()
+# ax.legend(loc='center left', bbox_to_anchor=(1.05, 0.5))
+# plt.show()

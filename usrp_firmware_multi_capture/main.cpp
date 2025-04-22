@@ -344,41 +344,38 @@ int UHD_SAFE_MAIN(int argc, char *argv[]) {
 
 
     for (int i = 1; i < 21; i++) {
-    auto capture_number = std::to_string(i);
+        auto capture_number = std::to_string(i);
 
 
-    tx_usrp->set_time_now(uhd::time_spec_t(0.0));
-    //////////// Global variables //////////
-    auto time_now = tx_usrp->get_time_now();
-    std::cout<<"\nCapture "<<capture_number<<"\n";
+        tx_usrp->set_time_now(uhd::time_spec_t(0.0));
+        //////////// Global variables //////////
+        auto time_now = tx_usrp->get_time_now();
+        std::cout<<"\nCapture "<<capture_number<<"\n";
 
-
-
-
-    tx_usrp->set_time_now(uhd::time_spec_t(0.0));
-    isSetupComplete.store(true);
+        
+        isSetupComplete.store(true);
 
 
 
-    std::thread transmit_thread([&]() {
-        //tx_usrp->set_time_unknown_pps(uhd::time_spec_t(0.0));
-        transmit_vector(tx_usrp, transmitVector, time_now, 0.1);
-    });
+        std::thread transmit_thread([&]() {
+            //tx_usrp->set_time_unknown_pps(uhd::time_spec_t(0.0));
+            transmit_vector(tx_usrp, transmitVector, time_now, 0.1);
+        });
 
 
-    std::thread receive_thread([&]() {
-        // Don't need this because this device is the slave device
-        //rx_usrp->set_time_unknown_pps(uhd::time_spec_t(0.0));
-        received_data = receive_vector(rx_usrp,CONFIG::NUM_SAMPS,time_now, 0.1);
-    });
+        std::thread receive_thread([&]() {
+            // Don't need this because this device is the slave device
+            //rx_usrp->set_time_unknown_pps(uhd::time_spec_t(0.0));
+            received_data = receive_vector(rx_usrp,CONFIG::NUM_SAMPS,time_now, 0.1);
+        });
 
 
-    transmit_thread.join();
-    receive_thread.join();
+        transmit_thread.join();
+        receive_thread.join();
 
 
-    saveComplexDataToFile("../../../masters_large_data/received_data/multi_receive/raw_captures/receive"+capture_number+".dat",received_data);
-
+        saveComplexDataToFile("../../../masters_large_data/received_data/multi_receive/raw_captures/receive"+capture_number+".dat",received_data);
+        
     }
 
     return EXIT_SUCCESS;

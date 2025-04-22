@@ -2,6 +2,7 @@ import numpy as np
 import matplotlib.pylab as plt
 import scipy
 import scipy.signal
+from concurrent.futures import ProcessPoolExecutor
 
 def read_complex_data_from_dat(filename):
     # Read the binary data
@@ -21,79 +22,34 @@ def read_complex_data_from_dat(filename):
 transmitted_data = np.load("../masters_large_data/transmitted_data/original_OFDM_pulse.npy")
 
 
-for i in range(1,21):
-    # Get received usrp data
-    print("Reading in capture "+str(i))
-    received_data = read_complex_data_from_dat("../masters_large_data/received_data/multi_receive/raw_captures/receive"+str(i)+".dat")
+def process_capture(i):
+    print(f"Processing capture {i}")
 
+    input_file = f"../masters_large_data/received_data/multi_receive/raw_captures/receive{i}.dat"
+    output_file = f"../masters_large_data/received_data/multi_receive/data_frames/data_frame{i}.npy"
 
-    corrolation = scipy.signal.correlate(received_data,transmitted_data)
-    corrolation_abs = np.abs(corrolation)
-    first_max = np.argmax(corrolation_abs)
+    # Read raw data
+    received_data = read_complex_data_from_dat(input_file)
 
+    # Cross-correlation
+    correlation = scipy.signal.correlate(received_data, transmitted_data)
+    correlation_abs = np.abs(correlation)
+    first_max = np.argmax(correlation_abs)
 
-    # freqs = np.fft.fftshift(np.fft.fftfreq(len(received_data),d=1/12.5e6))
-    # plt.plot(freqs,np.fft.fftshift(20*np.log10(np.abs(np.fft.fft(received_data))/len(received_data))))
-    # plt.title("Received signal fft")
-    # plt.xlabel("Frequency (Hz)")
-    # plt.ylabel("|received|")
-    # plt.show()
+    # Extract aligned frame
+    start_index = max(0, first_max - 12500000)  # Avoid negative indexing
+    data_frame = received_data[start_index:first_max]
 
+    # Save to file
+    np.save(output_file, data_frame)
 
-    # plt.plot(np.real(received_data))
-    # plt.plot(np.imag(received_data))
-    # plt.title("Received signal")
-    # plt.xlabel("Samples")
-    # plt.ylabel("|received|")
-    # plt.show()
+    return f"Capture {i} processed."
 
+# Main multiprocessing block
+if __name__ == "__main__":
+    with ProcessPoolExecutor(max_workers=4) as executor:
+        results = list(executor.map(process_capture, range(1, 21)))
 
-
-
-
-
-
-
-    # # Parameters
-    # sampling_rate = 12.5e6   # Sampling rate in Hz (1 MHz)
-    # c = 299702547               # Speed of light in m/s (for distance calculation)
-
-    # # Calculate the time spacing between samples
-    # time_spacing = 1 / sampling_rate  # Time per sample in seconds
-
-    # # Create an array of range bins in terms of time
-    # range_bins_time = np.arange(len(corrolation[first_max:])) * time_spacing
-
-
-    # # Convert time bins to distance bins using the speed of light (distance = speed * time)
-    # range_bins_distance = range_bins_time * c / 2  # Divide by 2 for one-way travel time
-
-
-
-
-    # plt.plot(np.abs(corrolation))
-
-    # plt.title("Corrolation between received signal and original transmitted signal")
-    # plt.xlabel("Distance (m)")
-    # plt.ylabel("$|\\rho(received data,original frame)|$")
-    # plt.show()
-
-
-    # print(first_max)
-    data_frame = received_data[first_max-12500000:first_max]
-    # print(len(data_frame))
-
-
-    # plt.plot(np.real(data_frame))
-    # plt.plot(np.imag(data_frame))
-    # plt.title("Data Frame")
-    # plt.show()
-
-    np.save("../masters_large_data/received_data/multi_receive/data_frames/data_frame"+str(i)+".npy",data_frame)
-
-    # plt.plot(range_bins_distance,corrolation_abs[first_max:])
-
-    # plt.title("Pulse integration output")
-    # plt.xlabel("Distance (m)")
-    # plt.ylabel("$|\\rho(received data,original frame)|$")
-    # plt.show()
+    # Print results
+    for res in results:
+        print(res)

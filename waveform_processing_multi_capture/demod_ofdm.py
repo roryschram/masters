@@ -63,9 +63,11 @@ for i in range(1,21):
         # Perform interpolation between the pilot carriers to get an estimate
         # of the channel in the data carriers. Here, we interpolate absolute value and phase 
         # separately
-        Hest_abs = scipy.interpolate.interp1d(pilotCarriers, abs(Hest_at_pilots), kind='linear')(allCarriers)
-        Hest_phase = scipy.interpolate.interp1d(pilotCarriers, np.angle(Hest_at_pilots), kind='linear')(allCarriers)
-        Hest = Hest_abs * np.exp(1j*Hest_phase)
+
+        # Commented out because I want to try with no interpolation to speed system up
+        # Hest_abs = scipy.interpolate.interp1d(pilotCarriers, abs(Hest_at_pilots), kind='linear')(allCarriers)
+        # Hest_phase = scipy.interpolate.interp1d(pilotCarriers, np.angle(Hest_at_pilots), kind='linear')(allCarriers)
+        # Hest = Hest_abs * np.exp(1j*Hest_phase)
         
         # # plt.stem(pilotCarriers, np.fft.fftshift(abs(Hest_at_pilots)), label='Pilot estimates')
         # plt.plot(allCarriers, np.fft.fftshift(abs(Hest)), label='Estimated channel via interpolation')
@@ -73,7 +75,8 @@ for i in range(1,21):
         # plt.grid(True); plt.xlabel('Carrier index'); plt.ylabel('$|H(f)|$')
         # plt.show()
         
-        return Hest
+        # return Hest
+        return Hest_at_pilots
     Hest = channelEstimate(OFDM_demod)
 
     np.save("../masters_large_data/received_data/multi_receive/channel_estimations/channel_est"+str(i)+".npy",Hest)

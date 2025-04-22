@@ -14,7 +14,7 @@ if not os.path.exists("../masters_large_data/received_data"):
     os.makedirs("../masters_large_data/received_data/")
 
 
-graphs = False
+graphs = True
 
 
 K = 12500000 # number of OFDM subcarriers
