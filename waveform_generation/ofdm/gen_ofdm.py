@@ -163,7 +163,7 @@ print ("Number of OFDM samples in time-domain before CP: ", len(OFDM_time))
 
 
 # Adding this here to amplify signal
-OFDM_time = 10*OFDM_time
+# OFDM_time = 10*OFDM_time
 # 
 
 
@@ -185,7 +185,7 @@ if graphs:
 np.save("../masters_large_data/transmitted_data/original_OFDM_pulse.npy",OFDM_time)
 
 
-padded_OFDM_withCP = np.pad(OFDM_time, pad_width=(5000,1000), mode='constant', constant_values=0+0j)
+padded_OFDM_withCP = OFDM_time
 
 
 if graphs:
