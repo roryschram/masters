@@ -17,7 +17,7 @@ if not os.path.exists("../masters_large_data/received_data"):
 graphs = True
 
 
-K = 12500000 # number of OFDM subcarriers
+K = 5000000 # number of OFDM subcarriers
 
 # CP = K//4  # length of the cyclic prefix: 25% of the block
 
@@ -190,8 +190,9 @@ padded_OFDM_withCP = np.pad(OFDM_time, pad_width=(5000,1000), mode='constant', c
 
 if graphs:
     # Plot the generated sweep signal (showing only a portion for clarity)
-    plt.plot(np.real(padded_OFDM_withCP),label="Real Part")  # Adjust the portion as needed
-    plt.plot(np.imag(padded_OFDM_withCP),label="Imag Part") 
+    # plt.plot(np.real(padded_OFDM_withCP),label="Real Part")  # Adjust the portion as needed
+    # plt.plot(np.imag(padded_OFDM_withCP),label="Imag Part") 
+    plt.plot(np.angle(padded_OFDM_withCP),label="Imag Part") 
     plt.xlabel("Time (s)")
     plt.ylabel("Amplitude")
     plt.title("Multi OFDM signal")

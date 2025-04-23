@@ -3,7 +3,7 @@ import matplotlib.pyplot as plt
 import scipy
 import scipy.interpolate
 
-K = 12500000 # number of OFDM subcarriers
+K = 5000000 # number of OFDM subcarriers
 CP = K//4  # length of the cyclic prefix: 25% of the block
 P = 5000 # number of pilot carriers per OFDM block
 pilotValue = 120+60j # The known value each pilot transmits
@@ -43,7 +43,7 @@ demapping_table = {v : k for k, v in mapping_table.items()}
 
 
 
-for i in range(1,21):
+for i in range(1,2):
     print("Calculating channel estimation for capture "+str(i))
     OFDM_RX = np.load("../masters_large_data/received_data/multi_receive/data_frames/data_frame"+str(i)+".npy")
 
@@ -58,7 +58,8 @@ for i in range(1,21):
 
     def channelEstimate(OFDM_demod):
         pilots = OFDM_demod[pilotCarriers]  # extract the pilot values from the RX signal
-        Hest_at_pilots = pilots / pilotValue # divide by the transmitted pilot values
+        # Hest_at_pilots = pilots / pilotValue # divide by the transmitted pilot values
+        Hest_at_pilots = pilots
         
         # Perform interpolation between the pilot carriers to get an estimate
         # of the channel in the data carriers. Here, we interpolate absolute value and phase 

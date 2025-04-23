@@ -37,7 +37,7 @@ def process_capture(i):
     first_max = np.argmax(correlation_abs)
 
     # Extract aligned frame
-    start_index = max(0, first_max - 12500000)  # Avoid negative indexing
+    start_index = max(0, first_max - 5000000)  # Avoid negative indexing
     data_frame = received_data[start_index:first_max]
 
     # Save to file
@@ -48,7 +48,7 @@ def process_capture(i):
 # Main multiprocessing block
 if __name__ == "__main__":
     with ProcessPoolExecutor(max_workers=4) as executor:
-        results = list(executor.map(process_capture, range(1, 21)))
+        results = list(executor.map(process_capture, range(1, 2)))
 
     # Print results
     for res in results:

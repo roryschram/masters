@@ -107,7 +107,7 @@ void transmit_vector(uhd::usrp::multi_usrp::sptr tx_usrp, std::vector<std::compl
     uhd::tx_metadata_t md;
     md.has_time_spec = true;
     md.end_of_burst = false;
-    md.time_spec = uhd::time_spec_t(time_now + secondsInFuture);
+    md.time_spec = uhd::time_spec_t(secondsInFuture);
     md.start_of_burst = false;
 
     size_t maxTransmitSize=tx_stream->get_max_num_samps(); //not entirely sure where this comes from
@@ -177,7 +177,7 @@ std::vector<std::complex<double>> receive_vector(uhd::usrp::multi_usrp::sptr rx_
     uhd::rx_metadata_t rxMetaData;
     rxMetaData.has_time_spec = true;
     rxMetaData.end_of_burst = false;
-    rxMetaData.time_spec = uhd::time_spec_t(time_now + secondsInFuture);
+    rxMetaData.time_spec = uhd::time_spec_t(secondsInFuture);
     rxMetaData.start_of_burst = false;
 
 
@@ -219,7 +219,7 @@ std::vector<std::complex<double>> receive_vector(uhd::usrp::multi_usrp::sptr rx_
         entireSample.insert(entireSample.begin()+numSamplesReceived, sampleBuffer.begin(), sampleBuffer.begin()+numNewSamples);
         //increment num samples receieved
         numSamplesReceived+=numNewSamples;
-        // rxMetaData.has_time_spec=false; //dont want subsequent packets to wait
+        rxMetaData.has_time_spec=false; //dont want subsequent packets to wait
         // rxMetaData.start_of_burst=false;
         // std::cout<<"Samps received: "<<numSamplesReceived<<"\n";
     }
@@ -343,7 +343,7 @@ int UHD_SAFE_MAIN(int argc, char *argv[]) {
     received_data.reserve(CONFIG::NUM_SAMPS);
 
 
-    for (int i = 1; i < 21; i++) {
+    for (int i = 1; i < 3; i++) {
         auto capture_number = std::to_string(i);
 
 
@@ -359,14 +359,14 @@ int UHD_SAFE_MAIN(int argc, char *argv[]) {
 
         std::thread transmit_thread([&]() {
             //tx_usrp->set_time_unknown_pps(uhd::time_spec_t(0.0));
-            transmit_vector(tx_usrp, transmitVector, time_now, 0.1);
+            transmit_vector(tx_usrp, transmitVector, time_now, 0.5);
         });
 
 
         std::thread receive_thread([&]() {
             // Don't need this because this device is the slave device
             //rx_usrp->set_time_unknown_pps(uhd::time_spec_t(0.0));
-            received_data = receive_vector(rx_usrp,CONFIG::NUM_SAMPS,time_now, 0.1);
+            received_data = receive_vector(rx_usrp,CONFIG::NUM_SAMPS,time_now, 0.5);
         });
 
 
