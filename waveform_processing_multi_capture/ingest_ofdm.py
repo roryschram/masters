@@ -48,7 +48,7 @@ def process_capture(i):
 # Main multiprocessing block
 if __name__ == "__main__":
     with ProcessPoolExecutor(max_workers=4) as executor:
-        results = list(executor.map(process_capture, range(1, 2)))
+        results = list(executor.map(process_capture, range(1, 3)))
 
     # Print results
     for res in results:

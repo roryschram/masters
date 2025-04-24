@@ -161,7 +161,7 @@ OFDM_time = IDFT(OFDM_data)
 print ("Number of OFDM samples in time-domain before CP: ", len(OFDM_time))
 
 
-
+OFDM_time /= np.max(np.abs(OFDM_time))
 # Adding this here to amplify signal
 # OFDM_time = 10*OFDM_time
 # 
@@ -171,7 +171,8 @@ print ("Number of OFDM samples in time-domain before CP: ", len(OFDM_time))
 
 
 if graphs:
-    plt.plot(np.abs(OFDM_time))
+    plt.plot(np.real(OFDM_time))
+    plt.plot(np.imag(OFDM_time))
     plt.show()
 
 
