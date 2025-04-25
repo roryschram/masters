@@ -17,7 +17,7 @@ def read_complex_data_from_dat(filename):
     return complex_data
 
 # Get received usrp data
-received_data = read_complex_data_from_dat("../masters_large_data/received_data/receive.dat")
+received_data = read_complex_data_from_dat("../masters_large_data/received_data/multi_receive/raw_captures/receive4.dat")
 
 
 # Get the original pulse
@@ -31,17 +31,17 @@ received_data = received_data - np.mean(received_data)
 symbol = received_data[pos_start_frame:pos_start_frame+1000000]
 
 
-plt.plot(np.abs(symbol))
-plt.show()
+# plt.plot(np.abs(symbol))
+# plt.show()
 
 np.save("waveform_processing/symbol.npy",symbol)
 
-freqs = np.fft.fftshift(np.fft.fftfreq(len(received_data),d=1/12.5e6))
-plt.plot(freqs,np.fft.fftshift(20*np.log10(np.abs(np.fft.fft(received_data))/len(received_data))))
-plt.title("Received signal fft")
-plt.xlabel("Frequency (Hz)")
-plt.ylabel("|received|")
-plt.show()
+# freqs = np.fft.fftshift(np.fft.fftfreq(len(received_data),d=1/12.5e6))
+# plt.plot(freqs,np.fft.fftshift(20*np.log10(np.abs(np.fft.fft(received_data))/len(received_data))))
+# plt.title("Received signal fft")
+# plt.xlabel("Frequency (Hz)")
+# plt.ylabel("|received|")
+# plt.show()
 
 
 plt.plot(np.real(received_data))
