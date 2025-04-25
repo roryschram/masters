@@ -23,17 +23,12 @@ received_data = read_complex_data_from_dat("../masters_large_data/received_data/
 # Get the original pulse
 transmitted_data = read_complex_data_from_dat("../masters_large_data/transmitted_data/transmit.dat")
 
-plt.plot(np.real(transmitted_data))
-plt.plot(np.imag(transmitted_data))
-plt.show()
-
 corrolation = scipy.signal.correlate(received_data,transmitted_data)
-
 pos_start_frame = np.argmax(np.abs(corrolation))
 
 
 received_data = received_data - np.mean(received_data)
-symbol = received_data[pos_start_frame:pos_start_frame+512]
+symbol = received_data[pos_start_frame:pos_start_frame+1000000]
 
 
 plt.plot(np.abs(symbol))

@@ -14,51 +14,53 @@ if not os.path.exists("../masters_large_data/received_data"):
 
 
 
-# def gen_simple_signal(sampling_rate, frequency, duration=1.0):
-#     t = np.arange(0, duration, 1/sampling_rate)
-#     signal = np.exp(1j * 2 * np.pi * frequency * t)
-#     return signal
+def gen_simple_signal(sampling_rate, frequency, duration=1.0):
+    t = np.arange(0, duration, 1/sampling_rate)
+    signal = np.exp(1j * 2 * np.pi * frequency * t)
+    return signal
 
 # simple_sig = np.complex128(0)
 
-# for i in range(-4000000,4010000,100000):
-#     simple_sig += gen_simple_signal(10000000,i,duration=0.1)
-
-
-def gen_random_complex_signal(length):
-    real_part = 2 * np.random.rand(length) - 1   # Uniform in [-1, 1]
-    imag_part = 2 * np.random.rand(length) - 1   # Uniform in [-1, 1]
-    return real_part + 1j * imag_part
-
-
-def gen_ofdm_2048_10MHz(data_symbols, cp_len=0):
-    Nfft = 2048
-    # generate mapping: use all bins 0…2047
-    subcarriers = np.arange(Nfft)
-    # put your QAM/PSK symbols on every bin
-    X = np.zeros(Nfft, dtype=complex)
-    X[subcarriers] = data_symbols   # data_symbols must be length 2048
-    # IFFT → time domain
-    x = np.fft.ifft(X, n=Nfft)
-    # optional cyclic prefix
-    if cp_len > 0:
-        x = np.hstack([x[-cp_len:], x])
-    return x, 10e6, 10e6/Nfft   # returns (time_signal, sample_rate, subcarrier_spacing)
+# for i in range(-1000000,1100000,10000):
+#     simple_sig += gen_simple_signal(25000000,i,duration=0.005)
 
 
 
-# Example: generate 1024 complex samples
-rand = gen_random_complex_signal(2048)
-
-simple_sig = gen_ofdm_2048_10MHz(rand)
-
-simple_sig = simple_sig[0]
-
-
-simple_sig /= np.max(np.abs(simple_sig))
+# simple_sig /= np.max(np.abs(simple_sig))
 # simple_sig *= 0.005
 
 
+
+
+
+
+
+
+sampling_rate = 25_000_000  # 25 MHz
+duration = 0.04             # 40 ms
+fft_size = 500
+subcarrier_spacing = 20000  # 15 kHz
+
+# Generate 1024 subcarriers centered around 0 Hz
+frequencies = np.linspace(-subcarrier_spacing * fft_size / 2,subcarrier_spacing * (fft_size / 2 - 1) ,fft_size)
+frequencies = np.append(frequencies,[5000000])
+
+print(frequencies)
+
+# Initialize signal
+simple_sig = np.zeros(int(duration * sampling_rate), dtype=np.complex128)
+
+# Sum the tones
+for f in frequencies:
+    simple_sig += gen_simple_signal(sampling_rate, f, duration)
+
+# window = np.hanning(len(simple_sig))
+# simple_sig *= window
+
+# Normalize to avoid clipping or excessive amplitude
+simple_sig /= np.max(np.abs(simple_sig))
+
+print(len(simple_sig))
 
 
 
@@ -76,10 +78,8 @@ plt.title("Sweep signal")
 plt.show()
 
 
-freqs = np.fft.fftfreq(len(simple_sig),d=1/10e6)
-
 # Plot the generated sweep signal (showing only a portion for clarity)
-plt.plot(freqs, np.abs(np.fft.fft(simple_sig))/len(simple_sig)) # Adjust the portion as needed
+plt.plot(np.fft.fftshift(np.abs(np.fft.fft(simple_sig)))) # Adjust the portion as needed
 plt.xlabel("Freq (Hz)")
 plt.ylabel("|padded_sweep_signal|")
 plt.title("FFT of sweep signal")
