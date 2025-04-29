@@ -42,13 +42,19 @@ start_frame_val_time = received_data[pos_start_frame]
 print(str(pos_start_frame)+","+str(start_frame_val))
 
 # get the symbol
-symbol = received_data[pos_start_frame:pos_start_frame+1000000]
+symbol = received_data[pos_start_frame-500000:pos_start_frame+500000]
 
 
 # Save the symbol for later processing
 np.save("../masters_large_data/processing/simple_signal_symbol.npy",symbol)
 
+# Import frequencies
+frequencies = np.load("../masters_large_data/processing/simple_signal_frequencies.npy")
 
+
+
+
+# Plot the received signal and the correlation
 fig, axs = plt.subplots(2,1)
 ax: Axes = axs[0]
 ax.plot(np.real(received_data),label = "Real Part")
@@ -82,11 +88,11 @@ plt.tight_layout()
 plt.show()
 
 
-
+# Plot the symbol
 fig, axs = plt.subplots(1,1)
 axs.plot(np.real(symbol),label = "Real Part")
 axs.plot(np.imag(symbol),label = "Imag Part")
-axs.set_title("Plot of the OFDM signal")
+axs.set_title("Plot of the OFDM received symbol")
 axs.set_xlabel("Samples")
 axs.set_ylabel("Amplitude")
 axs.legend()
@@ -94,69 +100,29 @@ axs.legend()
 plt.tight_layout()
 plt.show()
 
-# # freqs = np.fft.fftshift(np.fft.fftfreq(len(received_data),d=1/12.5e6))
-# # plt.plot(freqs,np.fft.fftshift(20*np.log10(np.abs(np.fft.fft(received_data))/len(received_data))))
-# # plt.title("Received signal fft")
-# # plt.xlabel("Frequency (Hz)")
-# # plt.ylabel("|received|")
-# # plt.show()
-
-
-# plt.plot(np.real(received_data))
-# plt.plot(np.imag(received_data))
-# plt.title("Received signal")
-# plt.xlabel("Samples")
-# plt.ylabel("|received|")
-# plt.show()
 
 
 
-# corrolation_abs = np.abs(corrolation)
+# Plot the fft and phase
+fig, axs = plt.subplots(2,1)
+ax: Axes = axs[0]
 
-# first_max = np.argmax(corrolation_abs)
+freqs = np.fft.fftfreq(len(symbol),1/25000000)
+ax.plot(freqs,np.abs(np.fft.fft(symbol))) # Adjust the portion as needed
+for freq in frequencies:
+    ax.axvline(x=freq, color='red', linestyle='--', linewidth=1)
 
+ax.set_xlabel("Freq (Hz)")
+ax.set_ylabel("Magnitude")
+ax.set_title("FFT of generated OFDM signal")
 
+ax = axs[1]
+ax.plot(freqs,np.angle(np.fft.fft(symbol))) # Adjust the portion as needed
+ax.set_xlabel("Freq (Hz)")
+ax.set_ylabel("Phase")
+ax.set_title("Phase of FFT of generated OFDM signal")
 
-# # Parameters
-# sampling_rate = 12.5e6   # Sampling rate in Hz (1 MHz)
-# c = 299702547               # Speed of light in m/s (for distance calculation)
-
-# # Calculate the time spacing between samples
-# time_spacing = 1 / sampling_rate  # Time per sample in seconds
-
-# # Create an array of range bins in terms of time
-# range_bins_time = np.arange(len(corrolation[first_max:])) * time_spacing
-
-
-# # Convert time bins to distance bins using the speed of light (distance = speed * time)
-# range_bins_distance = range_bins_time * c / 2  # Divide by 2 for one-way travel time
-
-
-
-
-# plt.plot(np.abs(corrolation))
-
-# plt.title("Corrolation between received signal and original transmitted signal")
-# plt.xlabel("Distance (m)")
-# plt.ylabel("$|\\rho(received data,original frame)|$")
-# plt.show()
+plt.tight_layout()
+plt.show()
 
 
-# print(first_max)
-# data_frame = received_data[first_max-12500000:first_max]
-# print(len(data_frame))
-
-
-# # plt.plot(np.real(data_frame))
-# # plt.plot(np.imag(data_frame))
-# # plt.title("Data Frame")
-# # plt.show()
-
-# np.save("../masters_large_data/received_data/data_frame.npy",data_frame)
-
-# # plt.plot(range_bins_distance,corrolation_abs[first_max:])
-
-# # plt.title("Pulse integration output")
-# # plt.xlabel("Distance (m)")
-# # plt.ylabel("$|\\rho(received data,original frame)|$")
-# # plt.show()

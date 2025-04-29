@@ -36,6 +36,9 @@ frequencies = np.append(frequencies,[5000000])
 # Remove DC signal
 frequencies = frequencies[frequencies != 0]
 
+# Save the frequencies
+np.save("../masters_large_data/processing/simple_signal_frequencies.npy",frequencies)
+
 
 # Initialize signal
 simple_sig = np.zeros(int(duration * sampling_rate), dtype=np.complex128)
