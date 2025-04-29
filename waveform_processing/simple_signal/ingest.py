@@ -107,17 +107,22 @@ plt.show()
 fig, axs = plt.subplots(2,1)
 ax: Axes = axs[0]
 
-freqs = np.fft.fftfreq(len(symbol),1/25000000)
-ax.plot(freqs,np.abs(np.fft.fft(symbol))) # Adjust the portion as needed
+fft_vals = np.fft.fft(symbol)
+freqs = np.fft.fftfreq(len(fft_vals),1/25000000)
+fft_vals_abs = np.abs(fft_vals)
+
+dBV = 20 * np.log10(fft_vals_abs)
+
+ax.plot(freqs,dBV) # Adjust the portion as needed
 for freq in frequencies:
     ax.axvline(x=freq, color='red', linestyle='--', linewidth=1)
 
 ax.set_xlabel("Freq (Hz)")
-ax.set_ylabel("Magnitude")
+ax.set_ylabel("dBV")
 ax.set_title("FFT of generated OFDM signal")
 
 ax = axs[1]
-ax.plot(freqs,np.angle(np.fft.fft(symbol))) # Adjust the portion as needed
+ax.plot(freqs,np.angle(fft_vals)) # Adjust the portion as needed
 ax.set_xlabel("Freq (Hz)")
 ax.set_ylabel("Phase")
 ax.set_title("Phase of FFT of generated OFDM signal")
