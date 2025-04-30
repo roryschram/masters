@@ -117,7 +117,7 @@ fft_vals = np.fft.fft(symbol)
 freqs = np.fft.fftfreq(len(fft_vals),1/25000000)
 fft_vals_abs = np.abs(fft_vals)
 
-dBV = 20 * np.log10(fft_vals_abs)
+dBV = 20 * np.log10(fft_vals_abs + 1e-12)
 
 ax.plot(freqs,dBV) # Adjust the portion as needed
 for freq in frequencies:

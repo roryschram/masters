@@ -79,7 +79,7 @@ fft_vals = np.fft.fft(simple_sig)
 freqs = np.fft.fftfreq(len(simple_sig),1/25000000)
 fft_vals_abs = np.abs(fft_vals)
 
-dBV = 20 * np.log10(fft_vals_abs)
+dBV = 20 * np.log10(fft_vals_abs + 1e-12)
 
 # Plot the spectra of the generated OFDM signal
 axs2[0].plot(freqs,dBV) # Adjust the portion as needed
