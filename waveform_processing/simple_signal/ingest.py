@@ -119,6 +119,8 @@ fft_vals_abs = np.abs(fft_vals)
 
 dBV = 20 * np.log10(fft_vals_abs + 1e-12)
 
+np.save("../masters_large_data/processing/simple_signal_dBV_receive.npy",np.fft.fftshift(dBV))
+
 ax.plot(freqs,dBV) # Adjust the portion as needed
 for freq in frequencies:
     ax.axvline(x=freq, color='red', linestyle='--', linewidth=1)
