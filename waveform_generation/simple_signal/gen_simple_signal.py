@@ -75,9 +75,14 @@ plt.show()
 
 fig2, axs2 = plt.subplots(2,1)
 
+fft_vals = np.fft.fft(simple_sig)
+freqs = np.fft.fftfreq(len(simple_sig),1/25000000)
+fft_vals_abs = np.abs(fft_vals)
+
+dBV = 20 * np.log10(fft_vals_abs)
+
 # Plot the spectra of the generated OFDM signal
-freqs = np.fft.fftfreq(len(simple_sig),1/sampling_rate)
-axs2[0].plot(freqs,np.abs(np.fft.fft(simple_sig))) # Adjust the portion as needed
+axs2[0].plot(freqs,dBV) # Adjust the portion as needed
 axs2[0].set_xlabel("Freq (Hz)")
 axs2[0].set_ylabel("Magnitude")
 axs2[0].set_title("FFT of generated OFDM signal")

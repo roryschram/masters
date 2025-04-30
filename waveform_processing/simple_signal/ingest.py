@@ -42,7 +42,13 @@ start_frame_val_time = received_data[pos_start_frame]
 print(str(pos_start_frame)+","+str(start_frame_val))
 
 # get the symbol
-symbol = received_data[pos_start_frame-500000:pos_start_frame+500000]
+symbol = np.array(received_data[pos_start_frame-500000:pos_start_frame+500000])
+
+# Normalize to avoid clipping or excessive amplitude
+normalize_ratio = np.max(np.abs(symbol))
+symbol /= normalize_ratio
+
+print("Normalization Ratio: "+str(round(normalize_ratio,20)))
 
 
 # Save the symbol for later processing
