@@ -11,3 +11,4 @@ for i in range(1,51,1):
     input = np.load("../masters_large_data/received_data/multi_receive/channel_estimations/channel_est"+str(i)+".npy")
     axs.plot(input)
 plt.show()
+
