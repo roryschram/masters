@@ -23,8 +23,8 @@ def read_complex_data_from_dat(filename):
 
 
 # Get received usrp data
+# received_data = read_complex_data_from_dat("../masters_large_data/received_data/multi_receive/raw_captures/receive1.dat")
 received_data = read_complex_data_from_dat("../masters_large_data/received_data/receive.dat")
-
 
 # Get the original transmitted clean pulse
 transmitted_data = read_complex_data_from_dat("../masters_large_data/transmitted_data/transmit.dat")
@@ -33,6 +33,8 @@ transmitted_data = read_complex_data_from_dat("../masters_large_data/transmitted
 # Perform a correlation using scipy for fft correlation (speed)
 correlation = scipy.signal.correlate(received_data,transmitted_data,mode='same')
 correlation_abs = np.abs(correlation)
+
+print(len(correlation))
 
 # Get the largest value of the correlation --> start of received data
 pos_start_frame = np.argmax(correlation_abs)
@@ -43,7 +45,7 @@ print(str(pos_start_frame)+","+str(start_frame_val))
 
 # get the symbol
 symbol = np.array(received_data[pos_start_frame-500000:pos_start_frame+500000])
-
+print(len(symbol))
 # Normalize to avoid clipping or excessive amplitude
 normalize_ratio = np.max(np.abs(symbol))
 symbol /= normalize_ratio

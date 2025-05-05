@@ -19,7 +19,7 @@ def read_complex_data_from_dat(filename):
     return complex_data
 
 # Get received usrp data
-received_data1 = read_complex_data_from_dat("../masters_large_data/received_data/receive.dat")
+received_data1 = read_complex_data_from_dat("../masters_large_data/received_data/multi_receive/raw_captures/receive1.dat")
 
 
 
