@@ -41,27 +41,28 @@ def process_ingest(i):
     correlation = scipy.signal.correlate(received_data,transmitted_data,mode='same')
     correlation_abs = np.abs(correlation)
 
-    print(len(correlation))
+    # print(len(correlation))
     
     # Get the largest value of the correlation --> start of received data
     pos_start_frame = np.argmax(correlation_abs)
     start_frame_val = np.max(correlation_abs)
     start_frame_val_time = received_data[pos_start_frame]
 
-    print(str(pos_start_frame)+","+str(start_frame_val))
+    # print(str(pos_start_frame)+","+str(start_frame_val))
     
-    print(len(received_data))
-    print(pos_start_frame)
+    # print(len(received_data))
+    # print(pos_start_frame)
+
     # get the symbol
     symbol = np.array(received_data[pos_start_frame-500000:pos_start_frame+500000])
 
-    print(len(received_data))
+    # print(len(received_data))
 
     # Normalize to avoid clipping or excessive amplitude
     normalize_ratio = np.max(np.abs(symbol))
     symbol /= normalize_ratio
 
-    print("Normalization Ratio: "+str(round(normalize_ratio,20)))
+    # print("Normalization Ratio: "+str(round(normalize_ratio,20)))
 
 
     # Save the symbol for later processing
@@ -78,8 +79,8 @@ def process_ingest(i):
 
 # Main multiprocessing block
 if __name__ == "__main__":
-    with ProcessPoolExecutor(max_workers=4) as executor:
-        results = list(executor.map(process_ingest, range(1, 2)))
+    with ProcessPoolExecutor(max_workers=16) as executor:
+        results = list(executor.map(process_ingest, range(1, 51)))
 
     # Print results
     for res in results:
