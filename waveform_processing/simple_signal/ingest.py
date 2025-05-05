@@ -126,6 +126,11 @@ np.save("../masters_large_data/processing/simple_signal_dBV_receive.npy",np.fft.
 ax.plot(freqs,dBV) # Adjust the portion as needed
 for freq in frequencies:
     ax.axvline(x=freq, color='red', linestyle='--', linewidth=1)
+    ax.annotate(
+    str(freq),
+    xy=(freq, 60),           # point to annotate
+    xytext=(freq, 60), # text position
+)
 
 ax.set_xlabel("Freq (Hz)")
 ax.set_ylabel("dBV")

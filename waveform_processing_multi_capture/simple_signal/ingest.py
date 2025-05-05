@@ -31,7 +31,7 @@ def process_ingest(i):
 
     input_file = f"../masters_large_data/received_data/multi_receive/raw_captures/receive{i}.dat"
     output_file_symbol = f"../masters_large_data/received_data/multi_receive/data_frames/data_frame{i}.npy"
-    output_file_dBV = f"../masters_large_data/received_data/multi_receive/data_frames_dBV/data_frame{i}.npy"
+    output_file_dBV = f"../masters_large_data/received_data/multi_receive/data_frames_dBV/data_frame_dBV{i}.npy"
 
     # Read raw data
     received_data = np.array(read_complex_data_from_dat(input_file))
