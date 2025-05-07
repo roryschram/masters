@@ -41,6 +41,9 @@ def process_ingest(i):
     correlation = scipy.signal.correlate(received_data,transmitted_data,mode='same')
     correlation_abs = np.abs(correlation)
 
+    # Save correlation
+    np.save(f"../masters_large_data/received_data/multi_receive/correlations/correlation{i}.npy",correlation)
+
     # print(len(correlation))
     
     # Get the largest value of the correlation --> start of received data
@@ -80,7 +83,7 @@ def process_ingest(i):
 # Main multiprocessing block
 if __name__ == "__main__":
     with ProcessPoolExecutor(max_workers=16) as executor:
-        results = list(executor.map(process_ingest, range(1, 51)))
+        results = list(executor.map(process_ingest, range(1, 101)))
 
     # Print results
     for res in results:
