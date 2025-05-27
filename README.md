@@ -72,6 +72,18 @@ python3 -m venv .venv
 source .venv/bin/activate
 pip install -r requirements.txt
 ```
+
+#### Using the rig
+First, turn on the rig
+Connect via ethernet to rig
+Connect via ssh to rig
+Run to get a juypter server running
+```bash
+jupyter notebook --no-browser --port=8888
+```
+Now you can explore files and run notebooks
+
+
 #### OS Requirement
 First and formost, you should have a Linux based machine running Ubuntu. At the time of writing this, the latest version of Ubuntu is 24.04.2. This is the latest version of Ubuntu that the software has been tested on.
 

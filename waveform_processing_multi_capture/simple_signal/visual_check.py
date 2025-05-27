@@ -1,6 +1,6 @@
 import numpy as np
 import matplotlib
-matplotlib.use("TkAgg")
+matplotlib.use("QtAgg")
 import matplotlib.pyplot as plt
 from matplotlib.axis import Axis
 
