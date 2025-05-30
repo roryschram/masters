@@ -40,4 +40,7 @@ S.~B. Weinstein, ``The history of orthogonal frequency-division multiplexing.'' 
 G.~Wright. What is orthogonal frequency-division multiplexing ({OFDM})? [Online]. Available: \url{https://www.techtarget.com/searchnetworking/definition/orthogonal-frequency-division-multiplexing}
 \BIBentrySTDinterwordspacing
 
+\bibitem{Design_and_Demonstration_of_an_OFDM_Based_RadCom_System}
+G.~Norrie and S.~Paine, ``Design and demonstration of an ofdm based radcom system,'' in \emph{2023 IEEE Radar Conference (RadarConf23)}, 2023, pp. 1--6.
+
 \end{thebibliography}
