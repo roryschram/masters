@@ -73,9 +73,60 @@ The above figure gives a broad idea of what goes into an OFDM-based signal, howe
 \section{Utilization of OFDM Signals in RADAR}
 There is an ever evolving area of RADAR research that involves the combination of RADAR systems and telecommunication systems. This is colloquially known as \gls{radcom}. Radcom aims to combine radar and telecommunications because this could potentially lead to system that are more spectrally efficient, and lightweight. In essence, one could imagine a RADAR system that can communicate with other base stations, as well as performing usual RADAR tasks, all from a single system. An attempt at creating a system like this was attempted by Dr Stephen Paine and Grant Norrie in \cite{Design_and_Demonstration_of_an_OFDM_Based_RadCom_System}. They set out to create a RADAR system that utilizes the previously mentioned OFDM signal structure in a radcom setup. They wanted to base the system around an OFDM signal because of the ever-increasing popularity of OFDM signals in communication networks. They mention that communication signals are often used in passive RADARs, by exploiting \gls{ioo}. An IOO is a transmitter that is not intended for RADAR purposes, but rather other applications, with the most popular being telecommunications purposes. They pose the question, if a passive RADAR system can use existing communication signals to detect objects, why can an active system not do the same?
 
-They explored the use of the OFDM based \gls{dab} modulation scheme as the backbone of the system.
+They explored the use of the OFDM based \gls{dab} modulation scheme as the backbone of the system. Part of the reason for this, is the fact that DAB is a very popular and well-defined. They designed and documented an entire toolchain that consisted of the following parts.
+
+\begin{enumerate}
+    \item Signal Generation Chain: This entailed the building of the signal that was to be transmitted by their receiver.
+    \item Hardware Testbed: This was the physical hardware that was used to implement the theoretical in the real world. This consisted of dual Ettus USRP N210 SDRs.
+    \item Radar Processing Chain: Everything to do with processing of the signal on the reception side of things to verify the operation of the system as a RADAR. The main objective of this toolchain was to generate a range-doppler graph to visualize the output of the overall RADAR system.
+    \item Communications Processing Chain: This toolchain was in place to verify and perform the necessary operations to facilitate a working communication link between the transmitter and the receiver.
+\end{enumerate}
+
+The SDR platform had specific configuration characteristics that were used for the tests performed by \cite{Design_and_Demonstration_of_an_OFDM_Based_RadCom_System}. These settings are summarized in table \ref{tab:sdr_platform_parameters} below:
+
+\begin{table}[H]
+\centering
+\begin{tabular}{|c|c|}
+\hline
+\textbf{Parameter} & \textbf{Value} \\ \hline
+Tx Gain            & 0 dB           \\ \hline
+Rx Gain            & 0 dB           \\ \hline
+Tx Bandwidth       & 1.1 MHz        \\ \hline
+Rx Bandwidth       & 1.1 MHz        \\ \hline
+Sampling Rate      & 5 MHz          \\ \hline
+Carrier Frequency  & 2.45 GHz       \\ \hline
+\end{tabular}
+\caption{SDR Toolchain Parameters}
+\label{tab:sdr_platform_parameters}
+\end{table}
+
+Multiple tests were performed to test the capability of the system. These tests were a communication test, a static range test, and a range-doppler test, which involved a moving target. The communication test was fairly basic, and it aimed to eliminate antenna/system feed through, and then measured the \gls{ber} upon transmission from the transmit antenna to the reception antenna from a distance of 5 meters away. The BER was confirmed to be 0\% and then the test was deemed to be a success.
+
+Then a static range test was performed with an object 100m away from the RADAR. After pulse cancellation with adjusted dynamic range, and clutter map removal, a range-doppler map was generated as shown below in figure \ref{fig:norrie_paine_static_test}:
+
+
+\begin{figure}[H]
+\centering
+\includegraphics[width = 0.8\linewidth]{../Images/Literature/norrie_paine_static_test.png}
+\caption{Range-doppler map of object at 100m}
+\label{fig:norrie_paine_static_test}
+\end{figure}
+
+
+This figure showed that the object was detectable at 100m, specifically, the onbject could be seen in the 109m range bin. Lastly, a moving target test was performed, which was able to successfully detect a moving car. The ground truth of the moving object was as follows, it was 30m away from the RADAR and was moving at a velocity of 7.2 $m.s^{-1}$ and 7.0 $m.s^{-1}$ as measured by a \gls{gps} and the odometer respectively. The measured range and velocity was determined to be 36m and -7.4 $m.s^{-1}$. The negative velocity is due to the object moving away from the RADAR system.
+
+Another example of work done on OFDM based RADAR systems in the past is the work done by Tigrek ...... don't know if I'm actuaoly going to use this phd
+
+
+
+
+
+
 
 \section{Critique of Literature}
+Notes to self \\
+....In Stephen Paine and Norrie paper, the communication test is quite trivial...
+
 
 % ----------------------------------------------------
 \ifstandalone

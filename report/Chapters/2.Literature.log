@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.26 (TeX Live 2024) (preloaded format=pdflatex 2024.4.24)  30 MAY 2025 13:51
+This is pdfTeX, Version 3.141592653-2.6-1.40.26 (TeX Live 2024) (preloaded format=pdflatex 2024.4.24)  30 MAY 2025 15:42
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -1234,11 +1234,17 @@ File: ../Images/Literature/fdm.png Graphic file (type png)
 <use ../Images/Literature/fdm.png>
 Package pdftex.def Info: ../Images/Literature/fdm.png  used on input line 62.
 (pdftex.def)             Requested size: 241.84843pt x 181.38472pt.
- [3 <../Images/Literature/ofdm.png> <../Images/Literature/fdm.png>] (./2.Literature.bbl [4])
+ [3 <../Images/Literature/ofdm.png> <../Images/Literature/fdm.png>]
+<../Images/Literature/norrie_paine_static_test.png, id=125, 970.12437pt x 526.46687pt>
+File: ../Images/Literature/norrie_paine_static_test.png Graphic file (type png)
+<use ../Images/Literature/norrie_paine_static_test.png>
+Package pdftex.def Info: ../Images/Literature/norrie_paine_static_test.png  used on input line 110.
+(pdftex.def)             Requested size: 386.95897pt x 209.99658pt.
+ [4] (./2.Literature.bbl [5 <../Images/Literature/norrie_paine_static_test.png>])
 Using TeX to sort glossary entries---this may take a while
-[5
+[6
 
-] [6
+] [7
 
 
 ] (./2.Literature.aux)
@@ -1247,21 +1253,21 @@ LaTeX2e <2023-11-01> patch level 1
 L3 programming layer <2024-02-20>
  ***********
 Package rerunfilecheck Info: File `2.Literature.out' has not changed.
-(rerunfilecheck)             Checksum: EDF81F68DCB5EBEBD5BC8E81F426E973;1387.
+(rerunfilecheck)             Checksum: 44310DA98B25BB4F2C0D60E4B8E8E0E3;1387.
  ) 
 Here is how much of TeX's memory you used:
- 55392 strings out of 474116
- 1232445 string characters out of 5743682
+ 55459 strings out of 474116
+ 1233737 string characters out of 5743682
  1939187 words of memory out of 5000000
- 76758 multiletter control sequences out of 15000+600000
- 613371 words of font info for 124 fonts, out of 8000000 for 9000
+ 76812 multiletter control sequences out of 15000+600000
+ 613537 words of font info for 126 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 114i,11n,120p,2494b,1144s stack positions out of 10000i,1000n,20000p,200000b,200000s
+ 114i,12n,120p,2494b,1234s stack positions out of 10000i,1000n,20000p,200000b,200000s
 </usr/local/texlive/2024/texmf-dist/fonts/type1/public/lm/lmbx10.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/lm/lmbx12.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/lm/lmmi10.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/lm/lmr10.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/lm/lmr8.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/lm/lmri10.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/lm/lmsy8.pfb>
-Output written on 2.Literature.pdf (6 pages, 322420 bytes).
+Output written on 2.Literature.pdf (7 pages, 403731 bytes).
 PDF statistics:
- 191 PDF objects out of 1000 (max. 8388607)
- 163 compressed objects within 2 object streams
- 40 named destinations out of 1000 (max. 500000)
- 30839 words of extra memory for PDF output out of 35830 (max. 10000000)
+ 215 PDF objects out of 1000 (max. 8388607)
+ 184 compressed objects within 2 object streams
+ 49 named destinations out of 1000 (max. 500000)
+ 30844 words of extra memory for PDF output out of 35830 (max. 10000000)
 
