@@ -11,7 +11,7 @@ channel_ests = []
 
 fig, axs = plt.subplots()
 
-for i in range(1,201,1):
+for i in range(1,251,1):
     input = np.load("../masters_large_data/received_data/multi_receive/channel_estimations/channel_est"+str(i)+".npy")
     channel_ests.append(input)
     axs.plot(input,color='orange')
@@ -24,16 +24,17 @@ plt.show()
 
 
 # Parameters
-num_captures = 200
+num_captures = 250
 window_size =  320 # We'll use the first 8192 samples of each
 labels = (
     ['First'] * 50 + 
     ['Second'] * 50 +
     ['Third'] * 50 +
-    ['Fourth'] * 50
+    ['Fourth'] * 50 +
+    ['Fifth'] * 50
 )
 
-label_to_int = {'First': 0, 'Second': 1, 'Third': 2, 'Fourth': 3}
+label_to_int = {'First': 0, 'Second': 1, 'Third': 2, 'Fourth': 3, 'Fifth': 4}
 int_labels = np.array([label_to_int[label] for label in labels])
 
 X = []
@@ -45,7 +46,7 @@ scaler = StandardScaler()
 X_scaled = scaler.fit_transform(X)
 
 # Apply PCA
-pca = PCA(n_components=3)
+pca = PCA(n_components=10)
 X_pca = pca.fit_transform(X_scaled)
 
 print(pca.explained_variance_ratio_)
@@ -54,7 +55,7 @@ print(pca.explained_variance_ratio_)
 
 
 # Split into train/test sets
-X_train, X_test, y_train, y_test = train_test_split(X_pca, int_labels, test_size=0.5, random_state=42, stratify=int_labels)
+X_train, X_test, y_train, y_test = train_test_split(X_pca, int_labels, test_size=0.2, random_state=42, stratify=int_labels)
 
 # Train SVM classifier
 svm = SVC(kernel='rbf', C=1.0, gamma='scale')
@@ -76,7 +77,7 @@ print(confusion_matrix(y_test, y_pred))
 fig = plt.figure()
 ax = fig.add_subplot(projection='3d')
 
-color_map = {'First': 'r', 'Second': 'g','Third': 'b','Fourth': 'y'}
+color_map = {'First': 'r', 'Second': 'g','Third': 'b','Fourth': 'y','Fifth': 'c'}
 
 for i in range(len(X_pca)):
     ax.scatter(X_pca[i, 0], X_pca[i, 1], X_pca[i, 2],
