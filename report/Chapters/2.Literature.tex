@@ -9,79 +9,45 @@
 
 
 \chapter{Literature Review}\label{ch:Literature}
-This chapter aims to add context to the entire project by exploring the existing literature on RADAR systems, 
-the OFDM modulation scheme, and the combination of the two within a single system in order to achieve the objective 
-of object classification. In order to get to a level where the topic of object classification can be discussed, one 
-must first delve into the fundamental operation of RADAR and OFDM based systems. Once one has a strong understanding 
-of these basics, the combination of the two can be discussed in regard to object classification. 
+The aim of this chapter, is to clarify the existing literature that surrounds the topics of \gls{radar} and \gls{ofdm}. This aims to add context to the broader project, since having an understanding of current technologies involved in this project is particularly important since there are multiple complex moving parts of this project. Especially as we move towards the latter parts of the project. In order to get to a level where the topic of object classification can be discussed, one must first delve into the fundamental operation of RADAR and OFDM based systems. Once one has a strong understanding of these basics, the combination of the two can be discussed in regard to object classification. I will separate the literature review into multiple distinct and vastly different sections, with the first being RADAR.
 
 
 
 \section{RADAR}
-\subsection{Brief RADAR History}
-The basic idea of RADAR was experimented with in the classical electromagnetic radiation experiments of the 1880s 
-performed by Heinrich Hertz \cite{skolnik_radar_2024}. These experiments set out to prove the previous theoretical 
-work done by James Clerk Maxwell. Maxwell came up with a formula that described electromagnetic fields, and he 
-hypothesized that this formula would apply to both light and radio waves since they were both examples of electromagnetic 
-radiation, just at very different frequencies. The work done by Maxwell led to the discovery that electromagnetic waves 
-can be reflected by metallic objects and refracted by a dielectric medium, just like light can \cite{skolnik_radar_2024}. 
-This work did not go unnoticed, and a patent for an "an obstacle detector and ship navigation device" was issued in 1904 
-to Christian Hülsmeyer, a German engineer \cite{skolnik_radar_2024}. Work on RADAR then slowed down due to a lack of 
-interest from governmental authorities until the early 1930s, when the development of long-range bombers prompted the 
-major countries of the world to develop technologies which could detect these hostile aircraft.
+\subsection{History}
+The fundamental idea behind RADAR systems and the technology itself were first theorized during the classical electromagnetic radiation experiments of the 1880s performed by Heinrich Hertz \cite{skolnik_radar_2024}. These experiments set out to prove the previous theoretical work achieved by James Clerk Maxwell. Maxwell came up with the formulae that described electromagnetic fields, and he hypothesized that this formula would apply to both light and radio waves since they were both examples of electromagnetic radiation just at vastly different frequencies. This has obviously since been proved, with visible light roughly falling into the 400THz to 700THz frequency range. The work done by Maxwell led to the discovery that electromagnetic waves can be reflected by metallic objects and refracted by a dielectric medium, just like light can \cite{skolnik_radar_2024}. This work did not go unnoticed and a patent for an "an obstacle detector and ship navigation device" was issued in 1904 to Christian Hülsmeyer, a German engineer \cite{skolnik_radar_2024}. Work on RADAR then slowed down due to a lack of interest from governmental authorities until the early 1930s, when the development of long-range bombers prompted the major powers of the world to develop technologies which could detect these hostile aircraft, which would be useful for the coming second world war.
 
 
 
 \subsection{RADAR Basics}
-The fundamental operation of a simple single pulse RADAR system relies on three physical fundamental properties of the universe 
-\cite{christian_wolff_physical_2024} which are listed below:
+At its core, a RADAR is defined as an instrument that can detect surrounding objects using radio waves. Do achieve this, there are multiple different setups of RADAR systems, which will be discussed later. These RADAR setups however all rely on the follwoing fundamental laws of physics which are listed below \cite{christian_wolff_physical_2024}:
+
 \begin{enumerate}
-    \item \textbf{Reflection of electromagnetic waves}: This rule describes how a radio wave will be reflected 
-    back towards a transmitter of said radio wave if the object is placed directly in front of the transmitter. 
-    This reflection indicates that the object is in front of the transmitter.
-    \item \textbf{Electromagnetic energy travels through air at a constant speed}: This rule describes how the 
-    electromagnetic waves transmitted by an antenna propagate through the transmission medium, usually air for our 
-    earth's use cases, at roughly the speed of light, $c$. This velocity $c$ equates to 299,792,458 $m.s^{-1}$ 
-    \item \textbf{Electromagnetic energy normally travels through space in a straight line}: This describes how the 
-    energy transmitted by an antenna in a radar system propagates through space in a straight line. This is important 
-    because it means that the energy of the RADAR system can be directed in a specific direction by the antenna system, 
-    which means that the reflecting object's direction (azimuth and elevation) can be determined.
+    \item \textbf{Reflection of electromagnetic waves}: This rule describes how a radio wave will be reflected back towards a transmitter of said radio wave if the object is placed directly in front of the transmitter. This reflection indicates that the object is in front of the transmitter.
+    \item \textbf{Electromagnetic energy travels through air at a constant speed}: This rule describes how the electromagnetic waves transmitted by an antenna propagate through the transmission medium, usually air for our earth's use cases, at roughly the speed of light, $c$. This velocity $c$ equates to 299,792,458 $m.s^{-1}$ 
+    \item \textbf{Electromagnetic energy normally travels through space in a straight line}: This describes how the energy transmitted by an antenna in a radar system propagates through space in a straight line. This is important because it means that the energy of the RADAR system can be directed in a specific direction by the antenna system, which means that the reflecting object's direction (azimuth and elevation) can be determined.
 \end{enumerate}
 
-Using the above-mentioned physical properties, the distance, azimuth, and elevation of the object that is being looked at 
-by the radar system can be determined.
-
-Since RADAR utilizes the electromagnetic spectrum, there are distinct advantages concerning the use of RADAR 
-systems \cite{christian_wolff_physical_2024}. The main advantage is that, unlike humans, RADAR systems can 
-operate day and night, 24/7, over far distances, in good or bad weather. Compared to human eyes, this is much better. 
-The above example of a RADAR system is that of a simple single pulse RADAR. In the next section I want to outline the 
-other type of RADAR system that I might use in my OFDM system, a pulsed RADAR system.
+Using the above-mentioned physical properties, the distance, azimuth, and elevation of the object that is being looked at by the radar system can be determined. Since RADAR utilizes the electromagnetic spectrum, there are distinct advantages concerning the use of RADAR systems \cite{christian_wolff_physical_2024}. The main advantage is that, unlike humans, RADAR systems can operate day and night, 24/7, over far distances, in good or bad weather. Compared to human eyes, this is obviously a lot better.
 
 
 \section{OFDM}
-\subsection{Brief OFDM History}
-The idea of OFDM transmission techniques has been around for many years, however, it was never implemented in communication channels until the appearance of mass market applications coincided with the availability of efficient software and electronic technologies \cite{weinstein_history_2009}. Before OFDM however, there was \gls{fdm}.
+\subsection{History}
+The broad idea of OFDM transmission techniques has been around for many years, however, it was never implemented in communication channels until the appearance of mass market applications coincided with the availability of efficient software and electronic technologies \cite{weinstein_history_2009}. Before OFDM was implemented in the mass market telecommunication industry however, there was \gls{fdm}.
 
 \subsubsection{FDM}
-FDM system innovation was built out of necessity by telegraph companies hoping to increase the amount of users that could utilize their transmission lines so as to increase profits from their systems \cite{weinstein_history_2009}. Transmission companies needed a method to have multiple messages being sent on the same transmission line at one time. Other methods had been used such as \gls{tdm}, and \gls{tdma}. These methods were however limited by burst speed which was itself limited by inter-symbol interference. Around the 1920s, FDM became the main carrier system for telephone companies. The first major company to deploy the system was \gls{att}. This first system used 8kHz subchannel spacing with 4kHz channel size. This form of transmission system later developed into systems that had more sub carrier channels with less subcarrier spacing. There were however some drawbacks to FDM, which are highlighted below:
+FDM system innovation was driven out of necessity due to telegraph companies hoping to increase the amount of users that could utilize their transmission lines to increase profits from their systems \cite{weinstein_history_2009}. Transmission companies were in search of a method to have multiple messages being sent on the same transmission line at simultaneously. Other methods had been used such as \gls{tdm}, and \gls{tdma}. These methods were however limited by burst speed which was itself limited by inter-symbol interference. Around the 1920s, FDM became the main carrier system for telephone companies. The first major company to deploy the system was \gls{att}. This initial deployment of the system used 8kHz subchannels with 4kHz allocated to each channel. This form of transmission system later developed into systems that had more subcarrier channels with less subcarrier spacing. There were however some drawbacks to FDM, which are highlighted below:
 
 \begin{enumerate}
-    \item \textbf{Waste of frequency}: Due to the large subcarrier spacing, FDM wasted a lot of precious frequency spectrum to these so-called "guard" bands. As the frequency spectrum became more crowded throughout the years, these guards band became a liability because spectrum access became so crowded. 
-    \item \textbf{Using different modulators for the various sub-channels}: In the old systems, each sub-channel had a separate modulator in the up-mixing process. This multiplication process became tedious once there were lots of sub-carriers.
+    \item \textbf{Waste of frequency}: Due to the large subcarrier spacing, FDM wasted a lot of precious frequency spectrum to these so-called "guard" bands on either side of the carrier. As the frequency spectrum became more crowded throughout the years, these guard bands became a liability due to demand for spectrum being to high, and the guard bands were not effciently using the spectrum.
+    \item \textbf{Using different modulators for the various sub-channels}: In the old systems, each sub-channel had a separate modulator in the up-mixing process. This multiplication process became tedious once there were multiple sub-carriers.
 \end{enumerate}
 
-To compensate for the waste of frequency issue, the concept of OFDM was introduced, where each subcarrier overlapped except they had non-interefering spectra \cite{weinstein_history_2009}.
+To compensate for this inefficient use of the frequency spectrum, OFDM was introduced. What made OFDM different to FDM was that each subcarrier overlapped some of the other carriers in signal. This was able to be done because each carrier was spaced in such a way that it was orthogonal to the other carriers in the signal \cite{weinstein_history_2009}.
 
 
 \subsubsection{OFDM}
-As mentioned before, \gls{ofdm} is a method of data transmission that breaks information into bit chunks that are sent 
-in parallel over multiple channels \cite{wright_what_nodate}. The OFDM transmission scheme builds 
-upon FDM where multiple channels are created over a specific bandwidth, and bits of information are 
-sent on each channel in parallel. The main difference between FDM and OFDM is therefore the orthogonality of 
-the OFDM signal. Pictured below in figure \ref{fig:ofdmandfdmwaveforms} is an OFDM, and FDM based waveform. 
-As can be seen, all the peaks of the OFDM waveform have zero interference with any other part of the signal, 
-whereas, with the FDM waveform, the peaks have significant interference from the other channels since the 
-channels are not spaced orthogonally in regard to each other. 
+As mentioned before, \gls{ofdm} is a method of data transmission that breaks information into bit chunks that are sent in parallel over multiple channels \cite{wright_what_nodate}. The OFDM transmission scheme builds upon FDM where multiple channels are created over a specific bandwidth, and bits of information are sent on each channel in parallel. The main difference between FDM and OFDM is therefore the orthogonality of the OFDM signal. Pictured below in figure \ref{fig:ofdmandfdmwaveforms} is an OFDM, and FDM based waveform. As can be seen, all the peaks of the OFDM waveform have zero interference with any other part of the signal, whereas, with the FDM waveform, the peaks have significant interference from the other channels since the channels are not spaced orthogonally in regard to each other. 
 
 \begin{figure}[H]
 \centering
@@ -104,45 +70,63 @@ channels are not spaced orthogonally in regard to each other.
 The above figure gives a broad idea of what goes into an OFDM-based signal, however in practice, the signal used will have vastly more complexity added on concerning error correction and data formats in general. The base signal however will still revolve around the idea of orthogonal carriers.
 
 
+\section{Utilization of OFDM Signals in RADAR}
+There is an ever evolving area of RADAR research that involves the combination of RADAR systems and telecommunication systems. This is colloquially known as \gls{radcom}. Radcom aims to combine radar and telecommunications because this could potentially lead to system that are more spectrally efficient, and lightweight. In essence, one could imagine a RADAR system that can communicate with other base stations, as well as performing usual RADAR tasks, all from a single system. An attempt at creating a system like this was attempted by Dr Stephen Paine and Grant Norrie in \cite{Design_and_Demonstration_of_an_OFDM_Based_RadCom_System}. They set out to create a RADAR system that utilizes the previously mentioned OFDM signal structure in a radcom setup. They wanted to base the system around an OFDM signal because of the ever-increasing popularity of OFDM signals in communication networks. They mention that communication signals are often used in passive RADARs, by exploiting \gls{ioo}. An IOO is a transmitter that is not intended for RADAR purposes, but rather other applications, with the most popular being telecommunications purposes. They pose the question, if a passive RADAR system can use existing communication signals to detect objects, why can an active system not do the same?
+
+They explored the use of the OFDM based \gls{dab} modulation scheme as the backbone of the system. Part of the reason for this, is the fact that DAB is a very popular and well-defined. They designed and documented an entire toolchain that consisted of the following parts.
+
+\begin{enumerate}
+    \item Signal Generation Chain: This entailed the building of the signal that was to be transmitted by their receiver.
+    \item Hardware Testbed: This was the physical hardware that was used to implement the theoretical in the real world. This consisted of dual Ettus USRP N210 SDRs.
+    \item Radar Processing Chain: Everything to do with processing of the signal on the reception side of things to verify the operation of the system as a RADAR. The main objective of this toolchain was to generate a range-doppler graph to visualize the output of the overall RADAR system.
+    \item Communications Processing Chain: This toolchain was in place to verify and perform the necessary operations to facilitate a working communication link between the transmitter and the receiver.
+\end{enumerate}
+
+The SDR platform had specific configuration characteristics that were used for the tests performed by \cite{Design_and_Demonstration_of_an_OFDM_Based_RadCom_System}. These settings are summarized in table \ref{tab:sdr_platform_parameters} below:
+
+\begin{table}[H]
+\centering
+\begin{tabular}{|c|c|}
+\hline
+\textbf{Parameter} & \textbf{Value} \\ \hline
+Tx Gain            & 0 dB           \\ \hline
+Rx Gain            & 0 dB           \\ \hline
+Tx Bandwidth       & 1.1 MHz        \\ \hline
+Rx Bandwidth       & 1.1 MHz        \\ \hline
+Sampling Rate      & 5 MHz          \\ \hline
+Carrier Frequency  & 2.45 GHz       \\ \hline
+\end{tabular}
+\caption{SDR Toolchain Parameters}
+\label{tab:sdr_platform_parameters}
+\end{table}
+
+Multiple tests were performed to test the capability of the system. These tests were a communication test, a static range test, and a range-doppler test, which involved a moving target. The communication test was fairly basic, and it aimed to eliminate antenna/system feed through, and then measured the \gls{ber} upon transmission from the transmit antenna to the reception antenna from a distance of 5 meters away. The BER was confirmed to be 0\% and then the test was deemed to be a success.
+
+Then a static range test was performed with an object 100m away from the RADAR. After pulse cancellation with adjusted dynamic range, and clutter map removal, a range-doppler map was generated as shown below in figure \ref{fig:norrie_paine_static_test}:
+
+
+\begin{figure}[H]
+\centering
+\includegraphics[width = 0.8\linewidth]{../Images/Literature/norrie_paine_static_test.png}
+\caption{Range-doppler map of object at 100m}
+\label{fig:norrie_paine_static_test}
+\end{figure}
+
+
+This figure showed that the object was detectable at 100m, specifically, the onbject could be seen in the 109m range bin. Lastly, a moving target test was performed, which was able to successfully detect a moving car. The ground truth of the moving object was as follows, it was 30m away from the RADAR and was moving at a velocity of 7.2 $m.s^{-1}$ and 7.0 $m.s^{-1}$ as measured by a \gls{gps} and the odometer respectively. The measured range and velocity was determined to be 36m and -7.4 $m.s^{-1}$. The negative velocity is due to the object moving away from the RADAR system.
+
+Another example of work done on OFDM based RADAR systems in the past is the work done by Tigrek ...... don't know if I'm actuaoly going to use this phd
 
 
 
-\section{Fresnel Zones}
 
 
-\section{LoRa Theory of Operation}
-
-\subsection{Frequency Shift Keying}
-
-
-\subsection{The Chirp}\label{sec:chirps}
-
-
-\subsection{Bandwidth}
-
-\subsection{Spreading Factor}
-
-
-
-\subsection{LoRa Data Packets}\label{sec:loradatapackets}
-
-
-\subsection{LoRa Transmission Parameters}\label{sec:loratransmissionparameters}
-
-
-\subsubsection{Symbol Rate and Symbol Time}
-
-
-\subsubsection{Preamble Time}
-
-\subsubsection{Payload Time}
-
-
-
-\subsubsection{Packet Time}
 
 
 \section{Critique of Literature}
+Notes to self \\
+....In Stephen Paine and Norrie paper, the communication test is quite trivial...
+
 
 % ----------------------------------------------------
 \ifstandalone

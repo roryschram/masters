@@ -15,45 +15,45 @@ Warning--empty journal in weinstein_history_2009
 Warning--empty year in weinstein_history_2009
 
 Done.
-You've used 4 entries,
+You've used 5 entries,
             4087 wiz_defined-function locations,
-            837 strings with 8015 characters,
-and the built_in function-call counts, 1369 in all, are:
-= -- 88
-> -- 16
-< -- 0
-+ -- 8
-- -- 4
-* -- 54
-:= -- 271
-add.period$ -- 8
-call.type$ -- 4
-change.case$ -- 4
-chr.to.int$ -- 0
-cite$ -- 6
-duplicate$ -- 107
-empty$ -- 130
-format.name$ -- 4
-if$ -- 275
+            844 strings with 8259 characters,
+and the built_in function-call counts, 2036 in all, are:
+= -- 139
+> -- 28
+< -- 4
++ -- 14
+- -- 6
+* -- 83
+:= -- 371
+add.period$ -- 10
+call.type$ -- 5
+change.case$ -- 5
+chr.to.int$ -- 9
+cite$ -- 7
+duplicate$ -- 158
+empty$ -- 198
+format.name$ -- 7
+if$ -- 437
 int.to.chr$ -- 0
-int.to.str$ -- 4
-missing$ -- 26
-newline$ -- 43
-num.names$ -- 4
-pop$ -- 88
+int.to.str$ -- 5
+missing$ -- 35
+newline$ -- 46
+num.names$ -- 5
+pop$ -- 111
 preamble$ -- 1
 purify$ -- 0
 quote$ -- 2
-skip$ -- 92
+skip$ -- 147
 stack$ -- 0
-substring$ -- 1
-swap$ -- 51
-text.length$ -- 0
+substring$ -- 23
+swap$ -- 86
+text.length$ -- 1
 text.prefix$ -- 0
 top$ -- 5
-type$ -- 4
+type$ -- 5
 warning$ -- 2
-while$ -- 4
-width$ -- 5
-write$ -- 58
+while$ -- 8
+width$ -- 6
+write$ -- 67
 (There were 2 warnings)

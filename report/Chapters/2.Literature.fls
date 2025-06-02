@@ -529,6 +529,8 @@ INPUT /usr/local/texlive/2024/texmf-dist/fonts/tfm/public/lm/ec-lmbx12.tfm
 INPUT /usr/local/texlive/2024/texmf-dist/fonts/tfm/public/lm/ec-lmr12.tfm
 INPUT /usr/local/texlive/2024/texmf-dist/fonts/tfm/public/lm/ec-lmbx12.tfm
 INPUT /usr/local/texlive/2024/texmf-dist/fonts/tfm/public/lm/ec-lmbx10.tfm
+INPUT /usr/local/texlive/2024/texmf-var/fonts/map/pdftex/updmap/pdftex.map
+INPUT /usr/local/texlive/2024/texmf-dist/fonts/enc/dvips/lm/lm-ec.enc
 INPUT /usr/local/texlive/2024/texmf-dist/tex/latex/lm/ot1lmr.fd
 INPUT /usr/local/texlive/2024/texmf-dist/tex/latex/lm/ot1lmr.fd
 INPUT /usr/local/texlive/2024/texmf-dist/tex/latex/lm/ot1lmr.fd
@@ -575,8 +577,6 @@ INPUT /usr/local/texlive/2024/texmf-dist/tex/latex/jknapltx/ursfs.fd
 INPUT /usr/local/texlive/2024/texmf-dist/fonts/tfm/public/rsfs/rsfs10.tfm
 INPUT /usr/local/texlive/2024/texmf-dist/fonts/tfm/public/rsfs/rsfs10.tfm
 INPUT /usr/local/texlive/2024/texmf-dist/fonts/tfm/public/rsfs/rsfs5.tfm
-INPUT /usr/local/texlive/2024/texmf-var/fonts/map/pdftex/updmap/pdftex.map
-INPUT /usr/local/texlive/2024/texmf-dist/fonts/enc/dvips/lm/lm-ec.enc
 INPUT /usr/local/texlive/2024/texmf-dist/fonts/enc/dvips/lm/lm-mathit.enc
 INPUT /usr/local/texlive/2024/texmf-dist/fonts/enc/dvips/lm/lm-mathsy.enc
 INPUT /usr/local/texlive/2024/texmf-dist/fonts/enc/dvips/lm/lm-rm.enc
@@ -591,10 +591,16 @@ INPUT ../Images/Literature/fdm.png
 INPUT ../Images/Literature/fdm.png
 INPUT ../Images/Literature/fdm.png
 INPUT ../Images/Literature/fdm.png
+INPUT ../Images/Literature/norrie_paine_static_test.png
+INPUT ../Images/Literature/norrie_paine_static_test.png
+INPUT ../Images/Literature/norrie_paine_static_test.png
+INPUT ../Images/Literature/norrie_paine_static_test.png
+INPUT ../Images/Literature/norrie_paine_static_test.png
 INPUT ./2.Literature.bbl
 INPUT ./2.Literature.bbl
 INPUT 2.Literature.bbl
 INPUT /usr/local/texlive/2024/texmf-dist/fonts/tfm/public/lm/ec-lmr17.tfm
+INPUT /usr/local/texlive/2024/texmf-dist/fonts/tfm/public/lm/ec-lmri10.tfm
 INPUT 2.Literature.aux
 INPUT ./2.Literature.out
 INPUT ./2.Literature.out
@@ -603,4 +609,5 @@ INPUT /usr/local/texlive/2024/texmf-dist/fonts/type1/public/lm/lmbx12.pfb
 INPUT /usr/local/texlive/2024/texmf-dist/fonts/type1/public/lm/lmmi10.pfb
 INPUT /usr/local/texlive/2024/texmf-dist/fonts/type1/public/lm/lmr10.pfb
 INPUT /usr/local/texlive/2024/texmf-dist/fonts/type1/public/lm/lmr8.pfb
+INPUT /usr/local/texlive/2024/texmf-dist/fonts/type1/public/lm/lmri10.pfb
 INPUT /usr/local/texlive/2024/texmf-dist/fonts/type1/public/lm/lmsy8.pfb

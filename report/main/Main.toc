@@ -7,10 +7,11 @@
 \contentsline {section}{\numberline {1.2}Problem Statement}{1}{section.1.2}%
 \contentsline {section}{\numberline {1.3}Objectives}{1}{section.1.3}%
 \contentsline {section}{\numberline {1.4}System Requirements}{2}{section.1.4}%
+\contentsline {subsection}{\numberline {1.4.1}Hardware Requirements}{2}{subsection.1.4.1}%
 \contentsline {section}{\numberline {1.5}Scope and Limitations}{2}{section.1.5}%
 \contentsline {chapter}{\numberline {2}Literature Review}{3}{chapter.2}%
 \contentsline {section}{\numberline {2.1}RADAR}{3}{section.2.1}%
-\contentsline {subsection}{\numberline {2.1.1}Brief RADAR History}{3}{subsection.2.1.1}%
+\contentsline {subsection}{\numberline {2.1.1}History}{3}{subsection.2.1.1}%
 \contentsline {subsection}{\numberline {2.1.2}RADAR Basics}{3}{subsection.2.1.2}%
 \contentsline {section}{\numberline {2.2}OFDM}{4}{section.2.2}%
 \contentsline {subsection}{\numberline {2.2.1}Brief OFDM History}{4}{subsection.2.2.1}%
