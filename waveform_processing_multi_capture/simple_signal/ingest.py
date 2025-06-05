@@ -83,7 +83,7 @@ def process_ingest(i):
 # Main multiprocessing block
 if __name__ == "__main__":
     with ProcessPoolExecutor(max_workers=16) as executor:
-        results = list(executor.map(process_ingest, range(141, 241)))
+        results = list(executor.map(process_ingest, range(241, 441)))
 
     # Print results
     for res in results:

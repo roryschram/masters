@@ -11,7 +11,7 @@ channel_ests = []
 
 fig, axs = plt.subplots()
 
-for i in range(1,251,1):
+for i in range(41,441,1):
     input = np.load("../masters_large_data/received_data/multi_receive/channel_estimations/channel_est"+str(i)+".npy")
     channel_ests.append(input)
     axs.plot(input,color='orange')
@@ -27,14 +27,13 @@ plt.show()
 num_captures = 250
 window_size =  320 # We'll use the first 8192 samples of each
 labels = (
-    ['First'] * 50 + 
-    ['Second'] * 50 +
-    ['Third'] * 50 +
-    ['Fourth'] * 50 +
-    ['Fifth'] * 50
+    ['tri-hedral'] * 100 + 
+    ['di-hedral'] * 100 +
+    ['cylinder'] * 100 +
+    ['sheet'] * 100
 )
 
-label_to_int = {'First': 0, 'Second': 1, 'Third': 2, 'Fourth': 3, 'Fifth': 4}
+label_to_int = {'tri-hedral': 0, 'di-hedral': 1, 'cylinder': 2, 'sheet': 3}
 int_labels = np.array([label_to_int[label] for label in labels])
 
 X = []
@@ -55,7 +54,7 @@ print(pca.explained_variance_ratio_)
 
 
 # Split into train/test sets
-X_train, X_test, y_train, y_test = train_test_split(X_pca, int_labels, test_size=0.2, random_state=42, stratify=int_labels)
+X_train, X_test, y_train, y_test = train_test_split(X_pca, int_labels, test_size=0.2, stratify=int_labels)
 
 # Train SVM classifier
 svm = SVC(kernel='rbf', C=1.0, gamma='scale')
@@ -77,12 +76,12 @@ print(confusion_matrix(y_test, y_pred))
 fig = plt.figure()
 ax = fig.add_subplot(projection='3d')
 
-color_map = {'First': 'r', 'Second': 'g','Third': 'b','Fourth': 'y','Fifth': 'c'}
+color_map = {'tri-hedral': 'r', 'di-hedral': 'g','cylinder': 'b','sheet': 'y'}
 
 for i in range(len(X_pca)):
     ax.scatter(X_pca[i, 0], X_pca[i, 1], X_pca[i, 2],
                color=color_map[labels[i]],
-               label=labels[i] if i % 50 == 0 else "")  # Avoid repeated labels
+               label=labels[i] if i % 100 == 0 else "")  # Avoid repeated labels
 
 ax.set_xlabel('PC1')
 ax.set_ylabel('PC2')

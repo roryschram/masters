@@ -8,12 +8,17 @@ from matplotlib.axis import Axis
 
 fig, axs = plt.subplots(1,1)
 
-for i in range(1,51,1):
+for i in range(41,141,1):
     input = np.load("../masters_large_data/received_data/multi_receive/channel_estimations/channel_est"+str(i)+".npy")
     axs.plot(input,color='blue')
 
-for i in range(51,101,1):
+for i in range(141,241,1):
     input = np.load("../masters_large_data/received_data/multi_receive/channel_estimations/channel_est"+str(i)+".npy")
     axs.plot(input,color='orange')
+
+for i in range(341,441,1):
+    input = np.load("../masters_large_data/received_data/multi_receive/channel_estimations/channel_est"+str(i)+".npy")
+    axs.plot(input,color='green')
+
 axs.set_ybound(0.0,1.1)
 plt.show()
