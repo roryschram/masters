@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.26 (TeX Live 2024) (preloaded format=pdflatex 2024.4.24)  30 MAY 2025 15:42
+This is pdfTeX, Version 3.141592653-2.6-1.40.26 (TeX Live 2024) (preloaded format=pdflatex 2024.4.24)  2 JUN 2025 17:33
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -1256,18 +1256,18 @@ Package rerunfilecheck Info: File `2.Literature.out' has not changed.
 (rerunfilecheck)             Checksum: 44310DA98B25BB4F2C0D60E4B8E8E0E3;1387.
  ) 
 Here is how much of TeX's memory you used:
- 55459 strings out of 474116
- 1233737 string characters out of 5743682
+ 55461 strings out of 474116
+ 1233788 string characters out of 5743682
  1939187 words of memory out of 5000000
- 76812 multiletter control sequences out of 15000+600000
+ 76813 multiletter control sequences out of 15000+600000
  613537 words of font info for 126 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
  114i,12n,120p,2494b,1234s stack positions out of 10000i,1000n,20000p,200000b,200000s
 </usr/local/texlive/2024/texmf-dist/fonts/type1/public/lm/lmbx10.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/lm/lmbx12.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/lm/lmmi10.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/lm/lmr10.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/lm/lmr8.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/lm/lmri10.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/lm/lmsy8.pfb>
-Output written on 2.Literature.pdf (7 pages, 403731 bytes).
+Output written on 2.Literature.pdf (7 pages, 404254 bytes).
 PDF statistics:
- 215 PDF objects out of 1000 (max. 8388607)
- 184 compressed objects within 2 object streams
- 49 named destinations out of 1000 (max. 500000)
+ 217 PDF objects out of 1000 (max. 8388607)
+ 186 compressed objects within 2 object streams
+ 50 named destinations out of 1000 (max. 500000)
  30844 words of extra memory for PDF output out of 35830 (max. 10000000)
 

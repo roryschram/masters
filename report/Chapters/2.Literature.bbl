@@ -43,4 +43,7 @@ G.~Wright. What is orthogonal frequency-division multiplexing ({OFDM})? [Online]
 \bibitem{Design_and_Demonstration_of_an_OFDM_Based_RadCom_System}
 G.~Norrie and S.~Paine, ``Design and demonstration of an ofdm based radcom system,'' in \emph{2023 IEEE Radar Conference (RadarConf23)}, 2023, pp. 1--6.
 
+\bibitem{lellouch_waveform_2015}
+G.~Lellouch, ``{WAVEFORM} {DESIGN} {AND} {PROCESSING} {TECHNIQUES} {IN} {OFDM} {RADAR}.''
+
 \end{thebibliography}
