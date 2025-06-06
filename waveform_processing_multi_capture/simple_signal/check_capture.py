@@ -21,7 +21,7 @@ def read_complex_data_from_dat(filename):
 
 
 # Enter the capture number that we want to check
-capture_num = 170
+capture_num = 350
 
 # Load the data
 raw_data = read_complex_data_from_dat(f"../masters_large_data/received_data/multi_receive/raw_captures/receive{capture_num}.dat")
@@ -59,7 +59,7 @@ correlation_abs = np.abs(correlation)
 correlation_max_pos = np.argmax(correlation_abs)
 ax3.plot(correlation_abs)
 ax3.axvline(x=correlation_max_pos, color='red', linestyle='--', linewidth=1)
-ax3.set_xbound(correlation_max_pos-50,correlation_max_pos+150)
+# ax3.set_xbound(correlation_max_pos-50,correlation_max_pos+150)
 ax3.set_title("Correlation output of return signal")
 ax3.set_ylabel("V^2")
 ax3.set_xlabel("Samples")
