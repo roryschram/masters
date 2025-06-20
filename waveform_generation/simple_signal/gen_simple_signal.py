@@ -1,6 +1,6 @@
 import numpy as np
 import matplotlib
-matplotlib.use("TkAgg")
+# matplotlib.use("TkAgg")
 import matplotlib.pyplot as plt
 import os
 
@@ -77,16 +77,16 @@ fig2, axs2 = plt.subplots(2,1)
 
 fft_vals = np.fft.fft(simple_sig)
 freqs = np.fft.fftfreq(len(simple_sig),1/25000000)
-fft_vals_abs = np.abs(fft_vals)
+# fft_vals_abs = np.abs(fft_vals)
 
-dBV = 20 * np.log10(fft_vals_abs + 1e-12)
+# dBV = 20 * np.log10(fft_vals_abs + 1e-12)
 
-np.save("../masters_large_data/processing/simple_signal_dBV_transmit.npy",np.fft.fftshift(dBV))
+# np.save("../masters_large_data/processing/simple_signal_dBV_transmit.npy",np.fft.fftshift(dBV))
 
 # Plot the spectra of the generated OFDM signal
-axs2[0].plot(freqs,dBV) # Adjust the portion as needed
+axs2[0].plot(freqs,fft_vals) # Adjust the portion as needed
 axs2[0].set_xlabel("Freq (Hz)")
-axs2[0].set_ylabel("Magnitude")
+axs2[0].set_ylabel("Magnitude (V)")
 axs2[0].set_title("FFT of generated OFDM signal")
 
 axs2[1].plot(freqs,np.angle(np.fft.fft(simple_sig))) # Adjust the portion as needed
