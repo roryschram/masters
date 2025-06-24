@@ -9,17 +9,19 @@
 
 
 \chapter{Literature Review}\label{ch:Literature}
-The aim of this chapter, is to clarify the existing literature that surrounds the topics of \gls{radar} and \gls{ofdm}. This aims to add context to the broader project, since having an understanding of current technologies involved in this project is particularly important since there are multiple complex moving parts of this project. Especially as we move towards the latter parts of the project. In order to get to a level where the topic of object classification can be discussed, one must first delve into the fundamental operation of RADAR and OFDM based systems. Once one has a strong understanding of these basics, the combination of the two can be discussed in regard to object classification. I will separate the literature review into multiple distinct and vastly different sections, with the first being RADAR.
+In this chapter, I aim to explore the existing literature that delves into the fundamentals of the various elements involved within this project, starting with \gls{radar}, and more specifically, \gls{ar}. Then I delve into \gls{ofdm}, followed by \gls{sdr} and it's working and uses within the world of RADAR. Then, I look into OFDM based AR, and finally, I look into OFDM based classification RADAR. My aim for this review of the literature is to add context to the broader paper, and hopefully give you, the reader, a more in depth understanding of the core concepts one has to understand to fully grasp the overall workings of the project. Especially as we move towards the latter parts of the project, where classification is involved, it is important to grasp the fundamentals.
+
+I will separate the literature review into distinct sections, where I will explore the history behind each concept and the theory involved within. I will also explore and analyze the advantages and disadvantages of each topic and then finally, provide a critique of the literature towards the end.
 
 
 
 \section{RADAR}
-\subsection{History}
+\subsection{Brief History}
 The fundamental idea behind RADAR systems and the technology itself were first theorized during the classical electromagnetic radiation experiments of the 1880s performed by Heinrich Hertz \cite{skolnik_radar_2024}. These experiments set out to prove the previous theoretical work achieved by James Clerk Maxwell. Maxwell came up with the formulae that described electromagnetic fields, and he hypothesized that this formula would apply to both light and radio waves since they were both examples of electromagnetic radiation just at vastly different frequencies. This has obviously since been proved, with visible light roughly falling into the 400THz to 700THz frequency range. The work done by Maxwell led to the discovery that electromagnetic waves can be reflected by metallic objects and refracted by a dielectric medium, just like light can \cite{skolnik_radar_2024}. This work did not go unnoticed and a patent for an "an obstacle detector and ship navigation device" was issued in 1904 to Christian Hülsmeyer, a German engineer \cite{skolnik_radar_2024}. Work on RADAR then slowed down due to a lack of interest from governmental authorities until the early 1930s, when the development of long-range bombers prompted the major powers of the world to develop technologies which could detect these hostile aircraft, which would be useful for the coming second world war.
 
 
 
-\subsection{RADAR Basics}
+\subsection{RADAR Workings}
 At its core, a RADAR is defined as an instrument that can detect surrounding objects using radio waves. Do achieve this, there are multiple different setups of RADAR systems, which will be discussed later. These RADAR setups however all rely on the follwoing fundamental laws of physics which are listed below \cite{christian_wolff_physical_2024}:
 
 \begin{enumerate}
@@ -28,11 +30,35 @@ At its core, a RADAR is defined as an instrument that can detect surrounding obj
     \item \textbf{Electromagnetic energy normally travels through space in a straight line}: This describes how the energy transmitted by an antenna in a radar system propagates through space in a straight line. This is important because it means that the energy of the RADAR system can be directed in a specific direction by the antenna system, which means that the reflecting object's direction (azimuth and elevation) can be determined.
 \end{enumerate}
 
-Using the above-mentioned physical properties, the distance, azimuth, and elevation of the object that is being looked at by the radar system can be determined. Since RADAR utilizes the electromagnetic spectrum, there are distinct advantages concerning the use of RADAR systems \cite{christian_wolff_physical_2024}. The main advantage is that, unlike humans, RADAR systems can operate day and night, 24/7, over far distances, in good or bad weather. Compared to human eyes, this is obviously a lot better.
+Using the above-mentioned physical properties, the distance, azimuth, and elevation of the object that is being observed by the radar system can be determined.
+
+Classical RADAR systems can be separated into a few different categories \cite{christian_wolff_classification_nodate}. Broadly, you get primary and secondary RADARs that are separated into imaging and non-imaging RADARs. An imaging RADAR is one which desires to draw an image, such as a weather RADAR, and a non-imaging RADAR is one which does not draw an image but rather infers information about a target based on processing techniques. Primary RADARs rely on echos from a target that come from it's own transmitted pulse, whereas a secondary radar relies on a RADAR response signal from a target. This is usually only possible for "friendly" targets.
+
+This can be seen in figure \ref{fig:classification_of_radar_systems} below:
+
+
+
+\begin{figure}[H]
+\centering
+\includegraphics[width = 0.7\linewidth]{../Images/Literature/classification_of_radar.png}
+\caption{Classification of Radar Systems \cite{christian_wolff_classification_nodate}}
+\label{fig:classification_of_radar_systems}
+\end{figure}
+
+
+
+
+
+\subsection{Advantages and Disadvantages of RADAR}
+Since RADAR utilizes the electromagnetic spectrum, there are distinct advantages concerning the use of RADAR systems \cite{christian_wolff_physical_2024}. The main advantage is that, unlike humans, RADAR systems can operate day and night, 24/7, over far distances, in good or bad weather. Compared to human eyes, this is obviously a lot better.
+
+
+
+
 
 
 \section{OFDM}
-\subsection{History}
+\subsection{Brief History}
 The broad idea of OFDM transmission techniques has been around for many years, however, it was never implemented in communication channels until the appearance of mass market applications coincided with the availability of efficient software and electronic technologies \cite{weinstein_history_2009}. Before OFDM was implemented in the mass market telecommunication industry however, there was \gls{fdm}.
 
 \subsubsection{FDM}
@@ -70,7 +96,13 @@ As mentioned before, \gls{ofdm} is a method of data transmission that breaks inf
 The above figure gives a broad idea of what goes into an OFDM-based signal, however in practice, the signal used will have vastly more complexity added on concerning error correction and data formats in general. The base signal however will still revolve around the idea of orthogonal carriers.
 
 
-\section{Utilization of OFDM Signals in RADAR}
+\subsection{Advantages and Disadvantages of OFDM}
+
+
+
+\section{OFDM based RADAR}
+\subsection{Brief History of OFDM based RADAR}
+\subsection{Implementation of OFDM based RADAR}
 There is an ever evolving area of RADAR research that involves the combination of RADAR systems and telecommunication systems. This is colloquially known as \gls{radcom}. Radcom aims to combine radar and telecommunications because this could potentially lead to system that are more spectrally efficient, and lightweight. In essence, one could imagine a RADAR system that can communicate with other base stations, as well as performing usual RADAR tasks, all from a single system. An attempt at creating a system like this was attempted by Dr Stephen Paine and Grant Norrie in \cite{Design_and_Demonstration_of_an_OFDM_Based_RadCom_System}. They set out to create a RADAR system that utilizes the previously mentioned OFDM signal structure in a radcom setup. They wanted to base the system around an OFDM signal because of the ever-increasing popularity of OFDM signals in communication networks. They mention that communication signals are often used in passive RADARs, by exploiting \gls{ioo}. An IOO is a transmitter that is not intended for RADAR purposes, but rather other applications, with the most popular being telecommunications purposes. They pose the question, if a passive RADAR system can use existing communication signals to detect objects, why can an active system not do the same?
 
 They explored the use of the OFDM based \gls{dab} modulation scheme as the backbone of the system. Part of the reason for this, is the fact that DAB is a very popular and well-defined. They designed and documented an entire toolchain that consisted of the following parts.
@@ -119,6 +151,8 @@ In \cite{lellouch_waveform_2015}, Gabriel Lellouch
 
 
 
+
+\subsection{Advantages and Disadvantages of OFDM based RADAR}
 
 
 

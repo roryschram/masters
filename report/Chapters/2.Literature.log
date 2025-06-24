@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.26 (TeX Live 2024) (preloaded format=pdflatex 2024.4.24)  2 JUN 2025 17:33
+This is pdfTeX, Version 3.141592653-2.6-1.40.26 (TeX Live 2024) (preloaded format=pdflatex 2024.4.24)  24 JUN 2025 12:19
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -554,7 +554,7 @@ Package: nextpage 2009/09/03 v1.1a additional page commands
 \epigraphrule=\skip65
 )
 
-Package xcolor Warning: Package option `usenames' is obsolete and ignored on input line 64.
+Package xcolor Warning: Package option `usenames' is obsolete and ignored on input line 68.
 
 (/usr/local/texlive/2024/texmf-dist/tex/latex/hyperref/hyperref.sty
 Package: hyperref 2024-01-20 v7.01h Hypertext links for LaTeX
@@ -658,7 +658,7 @@ Package: hypcap 2016/05/16 v1.12 Adjusting the anchors of captions (HO)
  (/usr/local/texlive/2024/texmf-dist/tex/latex/letltxmacro/letltxmacro.sty
 Package: letltxmacro 2019/12/03 v1.6 Let assignment for LaTeX macros (HO)
 ))
-Package hyperref Info: Option `colorlinks' set `true' on input line 75.
+Package hyperref Info: Option `colorlinks' set `true' on input line 79.
  (/usr/local/texlive/2024/texmf-dist/tex/latex/csquotes/csquotes.sty
 Package: csquotes 2022-09-14 v5.2n context-sensitive quotations (JAW)
 \csq@reset=\count348
@@ -1186,65 +1186,76 @@ Chapter 1.
 
 
 {/usr/local/texlive/2024/texmf-var/fonts/map/pdftex/updmap/pdftex.map}{/usr/local/texlive/2024/texmf-dist/fonts/enc/dvips/lm/lm-ec.enc}]
-LaTeX Font Info:    Trying to load font information for OT1+lmr on input line 27.
+LaTeX Font Info:    Trying to load font information for OT1+lmr on input line 29.
  (/usr/local/texlive/2024/texmf-dist/tex/latex/lm/ot1lmr.fd
 File: ot1lmr.fd 2015/05/01 v1.6.1 Font defs for Latin Modern
 )
-LaTeX Font Info:    Trying to load font information for OML+lmm on input line 27.
+LaTeX Font Info:    Trying to load font information for OML+lmm on input line 29.
  (/usr/local/texlive/2024/texmf-dist/tex/latex/lm/omllmm.fd
 File: omllmm.fd 2015/05/01 v1.6.1 Font defs for Latin Modern
 )
-LaTeX Font Info:    Trying to load font information for OMS+lmsy on input line 27.
+LaTeX Font Info:    Trying to load font information for OMS+lmsy on input line 29.
  (/usr/local/texlive/2024/texmf-dist/tex/latex/lm/omslmsy.fd
 File: omslmsy.fd 2015/05/01 v1.6.1 Font defs for Latin Modern
 )
-LaTeX Font Info:    Trying to load font information for OMX+lmex on input line 27.
+LaTeX Font Info:    Trying to load font information for OMX+lmex on input line 29.
  (/usr/local/texlive/2024/texmf-dist/tex/latex/lm/omxlmex.fd
 File: omxlmex.fd 2015/05/01 v1.6.1 Font defs for Latin Modern
 )
 LaTeX Font Info:    External font `lmex10' loaded for size
-(Font)              <10.95> on input line 27.
+(Font)              <10.95> on input line 29.
 LaTeX Font Info:    External font `lmex10' loaded for size
-(Font)              <8> on input line 27.
+(Font)              <8> on input line 29.
 LaTeX Font Info:    External font `lmex10' loaded for size
-(Font)              <6> on input line 27.
-LaTeX Font Info:    Trying to load font information for U+msa on input line 27.
+(Font)              <6> on input line 29.
+LaTeX Font Info:    Trying to load font information for U+msa on input line 29.
  (/usr/local/texlive/2024/texmf-dist/tex/latex/amsfonts/umsa.fd
 File: umsa.fd 2013/01/14 v3.01 AMS symbols A
 ) (/usr/local/texlive/2024/texmf-dist/tex/latex/microtype/mt-msa.cfg
 File: mt-msa.cfg 2006/02/04 v1.1 microtype config. file: AMS symbols (a) (RS)
 )
-LaTeX Font Info:    Trying to load font information for U+msb on input line 27.
+LaTeX Font Info:    Trying to load font information for U+msb on input line 29.
  (/usr/local/texlive/2024/texmf-dist/tex/latex/amsfonts/umsb.fd
 File: umsb.fd 2013/01/14 v3.01 AMS symbols B
 ) (/usr/local/texlive/2024/texmf-dist/tex/latex/microtype/mt-msb.cfg
 File: mt-msb.cfg 2005/06/01 v1.0 microtype config. file: AMS symbols (b) (RS)
 )
-LaTeX Font Info:    Trying to load font information for U+rsfs on input line 27.
+LaTeX Font Info:    Trying to load font information for U+rsfs on input line 29.
  (/usr/local/texlive/2024/texmf-dist/tex/latex/jknapltx/ursfs.fd
 File: ursfs.fd 1998/03/24 rsfs font definition file (jk)
 ) [2{/usr/local/texlive/2024/texmf-dist/fonts/enc/dvips/lm/lm-mathit.enc}{/usr/local/texlive/2024/texmf-dist/fonts/enc/dvips/lm/lm-mathsy.enc}{/usr/local/texlive/2024/texmf-dist/fonts/enc/dvips/lm/lm-rm.enc}]
-<../Images/Literature/ofdm.png, id=104, 578.16pt x 433.62pt>
+<../Images/Literature/classification_of_radar.png, id=111, 846.16125pt x 380.42125pt>
+File: ../Images/Literature/classification_of_radar.png Graphic file (type png)
+<use ../Images/Literature/classification_of_radar.png>
+Package pdftex.def Info: ../Images/Literature/classification_of_radar.png  used on input line 43.
+(pdftex.def)             Requested size: 338.58632pt x 152.21803pt.
+ [3 <../Images/Literature/classification_of_radar.png>]
+<../Images/Literature/ofdm.png, id=138, 578.16pt x 433.62pt>
 File: ../Images/Literature/ofdm.png Graphic file (type png)
 <use ../Images/Literature/ofdm.png>
-Package pdftex.def Info: ../Images/Literature/ofdm.png  used on input line 56.
+Package pdftex.def Info: ../Images/Literature/ofdm.png  used on input line 82.
 (pdftex.def)             Requested size: 241.84843pt x 181.38472pt.
-<../Images/Literature/fdm.png, id=106, 578.16pt x 433.62pt>
+<../Images/Literature/fdm.png, id=139, 578.16pt x 433.62pt>
 File: ../Images/Literature/fdm.png Graphic file (type png)
 <use ../Images/Literature/fdm.png>
-Package pdftex.def Info: ../Images/Literature/fdm.png  used on input line 62.
+Package pdftex.def Info: ../Images/Literature/fdm.png  used on input line 88.
 (pdftex.def)             Requested size: 241.84843pt x 181.38472pt.
- [3 <../Images/Literature/ofdm.png> <../Images/Literature/fdm.png>]
-<../Images/Literature/norrie_paine_static_test.png, id=125, 970.12437pt x 526.46687pt>
+
+
+Package caption Warning: Ambiguous sub-caption(s), use \nextfloat on input line 92.
+See the caption package documentation for explanation.
+
+[4] [5 <../Images/Literature/ofdm.png> <../Images/Literature/fdm.png>] [6]
+<../Images/Literature/norrie_paine_static_test.png, id=179, 970.12437pt x 526.46687pt>
 File: ../Images/Literature/norrie_paine_static_test.png Graphic file (type png)
 <use ../Images/Literature/norrie_paine_static_test.png>
-Package pdftex.def Info: ../Images/Literature/norrie_paine_static_test.png  used on input line 110.
+Package pdftex.def Info: ../Images/Literature/norrie_paine_static_test.png  used on input line 142.
 (pdftex.def)             Requested size: 386.95897pt x 209.99658pt.
- [4] (./2.Literature.bbl [5 <../Images/Literature/norrie_paine_static_test.png>])
+ (./2.Literature.bbl [7 <../Images/Literature/norrie_paine_static_test.png>])
 Using TeX to sort glossary entries---this may take a while
-[6
+[8
 
-] [7
+] [9
 
 
 ] (./2.Literature.aux)
@@ -1253,21 +1264,21 @@ LaTeX2e <2023-11-01> patch level 1
 L3 programming layer <2024-02-20>
  ***********
 Package rerunfilecheck Info: File `2.Literature.out' has not changed.
-(rerunfilecheck)             Checksum: 44310DA98B25BB4F2C0D60E4B8E8E0E3;1387.
+(rerunfilecheck)             Checksum: 70D7BCAAA1994DE1103F987BBA373684;2673.
  ) 
 Here is how much of TeX's memory you used:
- 55461 strings out of 474116
- 1233788 string characters out of 5743682
- 1939187 words of memory out of 5000000
- 76813 multiletter control sequences out of 15000+600000
- 613537 words of font info for 126 fonts, out of 8000000 for 9000
+ 55530 strings out of 474116
+ 1235102 string characters out of 5743682
+ 1936187 words of memory out of 5000000
+ 76867 multiletter control sequences out of 15000+600000
+ 613703 words of font info for 128 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 114i,12n,120p,2494b,1234s stack positions out of 10000i,1000n,20000p,200000b,200000s
+ 114i,12n,120p,2494b,1224s stack positions out of 10000i,1000n,20000p,200000b,200000s
 </usr/local/texlive/2024/texmf-dist/fonts/type1/public/lm/lmbx10.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/lm/lmbx12.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/lm/lmmi10.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/lm/lmr10.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/lm/lmr8.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/lm/lmri10.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/lm/lmsy8.pfb>
-Output written on 2.Literature.pdf (7 pages, 404254 bytes).
+Output written on 2.Literature.pdf (9 pages, 675216 bytes).
 PDF statistics:
- 217 PDF objects out of 1000 (max. 8388607)
- 186 compressed objects within 2 object streams
- 50 named destinations out of 1000 (max. 500000)
- 30844 words of extra memory for PDF output out of 35830 (max. 10000000)
+ 262 PDF objects out of 1000 (max. 8388607)
+ 225 compressed objects within 3 object streams
+ 61 named destinations out of 1000 (max. 500000)
+ 30889 words of extra memory for PDF output out of 35830 (max. 10000000)
 
