@@ -32,16 +32,16 @@ def gen_simple_signal(scaler, sampling_rate, frequency, duration=1.0):
     return signal
 
 
-sampling_rate = 25_000_000  # 25 MHz
-duration = 0.001             # 40 ms
-num_pilots = 80            # The number of carriers (pilots in my case --> Reid says that an LTE subframe has 400 pilots :) ) in the signal
-subcarrier_spacing = 125000  # 20 kHz
+sampling_rate = 50_000_000  # 25 MHz
+duration = 0.0001             # 40 ms
+num_pilots = 40            # The number of carriers (pilots in my case --> Reid says that an LTE subframe has 400 pilots :) ) in the signal
+subcarrier_spacing = 250000  # 20 kHz
 
 # Generate 501 subcarriers centered around 0 Hz with 10MHz of bandwidth
-frequencies = np.linspace(-subcarrier_spacing * num_pilots / 2,subcarrier_spacing * (num_pilots / 2 - 1) ,num_pilots)
-frequencies = np.append(frequencies,[5000000])
+# frequencies = np.linspace(-subcarrier_spacing * num_pilots / 2,subcarrier_spacing * (num_pilots / 2 - 1) ,num_pilots)
+# frequencies = np.append(frequencies,[5000000])
 
-# frequencies = np.array([-10000,10000,25000])
+frequencies = np.array([-1000000,1000000])
 
 # Remove DC signal
 frequencies = frequencies[frequencies != 0]
@@ -56,7 +56,8 @@ simple_sig = np.zeros(int(duration * sampling_rate), dtype=np.complex128)
 # Sum the tones
 for f in frequencies:
     rand = np.random.uniform(-1, 1)
-    simple_sig += gen_simple_signal(rand, sampling_rate, f, duration)
+    data = np.random.choice([1+1j, 1-1j, -1+1j, -1-1j], size=active_subcarriers)
+    simple_sig += gen_simple_signal(0.1, sampling_rate, f, duration)
 
 
 
