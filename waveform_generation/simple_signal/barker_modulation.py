@@ -38,10 +38,10 @@ num_pilots = 40            # The number of carriers (pilots in my case --> Reid 
 subcarrier_spacing = 250000  # 20 kHz
 
 # Generate 501 subcarriers centered around 0 Hz with 10MHz of bandwidth
-# frequencies = np.linspace(-subcarrier_spacing * num_pilots / 2,subcarrier_spacing * (num_pilots / 2 - 1) ,num_pilots)
-# frequencies = np.append(frequencies,[5000000])
+frequencies = np.linspace(-subcarrier_spacing * num_pilots / 2,subcarrier_spacing * (num_pilots / 2 - 1) ,num_pilots)
+frequencies = np.append(frequencies,[5000000])
 
-frequencies = np.array([-1000000,1000000])
+# frequencies = np.array([-1000000,1000000])
 
 # Remove DC signal
 frequencies = frequencies[frequencies != 0]
@@ -56,8 +56,8 @@ simple_sig = np.zeros(int(duration * sampling_rate), dtype=np.complex128)
 # Sum the tones
 for f in frequencies:
     rand = np.random.uniform(-1, 1)
-    data = np.random.choice([1+1j, 1-1j, -1+1j, -1-1j], size=active_subcarriers)
-    simple_sig += gen_simple_signal(0.1, sampling_rate, f, duration)
+    data = np.random.choice([1+1j, 1-1j, -1+1j, -1-1j], size=1)
+    simple_sig += gen_simple_signal(data, sampling_rate, f, duration)
 
 
 
