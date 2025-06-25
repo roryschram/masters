@@ -1,6 +1,6 @@
 import numpy as np
 import matplotlib
-matplotlib.use("TkAgg")
+# matplotlib.use("TkAgg")
 import matplotlib.pyplot as plt
 from matplotlib.axes import Axes
 from matplotlib.gridspec import GridSpec
@@ -21,7 +21,7 @@ def read_complex_data_from_dat(filename):
 
 
 # Enter the capture number that we want to check
-capture_num = 350
+capture_num = 2
 
 # Load the data
 raw_data = read_complex_data_from_dat(f"../masters_large_data/received_data/multi_receive/raw_captures/receive{capture_num}.dat")
