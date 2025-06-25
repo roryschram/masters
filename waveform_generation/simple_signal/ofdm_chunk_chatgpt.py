@@ -64,9 +64,10 @@ plt.grid()
 plt.show()
 
 # === Plot Time Domain Signal ===
-plt.plot(np.abs(np.fft.fft(ofdm_symbol)), label='I (real)')
-plt.title("10 MHz OFDM Time Domain Signal")
-plt.xlabel("Sample Index")
+freqs = np.fft.fftfreq(len(ofdm_symbol))
+plt.plot(freqs, np.fft.fft(ofdm_symbol))
+plt.title("FFT of OFDM Time Domain Signal")
+plt.xlabel("Freq (Hz)")
 plt.ylabel("Amplitude")
 plt.legend()
 plt.grid()
