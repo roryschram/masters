@@ -6,31 +6,36 @@ bw = 10e6  # Bandwidth = 10 MHz
 subcarrier_spacing = 15e3  # 15 kHz LTE spacing
 n_subcarriers = 1024  # FFT size
 fs = subcarrier_spacing * n_subcarriers  # Sampling rate = 15.36 MHz
-
 cp_len = int(n_subcarriers * 1/8)  # Cyclic Prefix (12.5%)
 
-# === Generate Random QPSK Symbols ===
-active_subcarriers = 600  # LTE uses only part of the FFT (guard bands)
-data = np.random.choice([1+1j, 1-1j, -1+1j, -1-1j], size=active_subcarriers)
+# === Data and Pilot Parameters ===
+active_subcarriers = 600
+n_pilots = 75
+n_data = active_subcarriers - n_pilots
 
-# === Insert into full IFFT bin ===
+# === Generate pilot and data symbols ===
+pilot_symbols = np.random.choice([1+1j, 1+1j], size=n_pilots)  # BPSK pilots
+data_symbols = np.random.choice([1+1j, 1-1j, -1+1j, -1-1j], size=n_data)  # QPSK data
+
+# === Insert pilots evenly across the 600 active subcarriers ===
+ofdm_symbols = np.zeros(active_subcarriers, dtype=complex)
+pilot_indices = np.round(np.linspace(0, active_subcarriers - 1, n_pilots)).astype(int)
+data_iter = iter(data_symbols)
+
+for i in range(active_subcarriers):
+    if i in pilot_indices:
+        ofdm_symbols[i] = pilot_symbols[np.where(pilot_indices == i)[0][0]]
+    else:
+        ofdm_symbols[i] = next(data_iter)
+
+# === Map to full IFFT input (zero out DC) ===
 ifft_input = np.zeros(n_subcarriers, dtype=complex)
-
-# Put data in the center of the IFFT input (Hermitian symmetry not needed for complex data)
-start = n_subcarriers//2 - active_subcarriers//2
-ifft_input[start:start+active_subcarriers] = data
+half = active_subcarriers // 2
+ifft_input[1:1+half] = ofdm_symbols[:half]          # Positive freqs
+ifft_input[-half:] = ofdm_symbols[half:]            # Negative freqs
 
 # === Time Domain OFDM Symbol ===
-ofdm_symbol = np.fft.ifft(np.fft.fftshift(ifft_input), n=n_subcarriers)
-
-# === Add Cyclic Prefix ===
-ofdm_with_cp = np.concatenate([ofdm_symbol[-cp_len:], ofdm_symbol])
-
-# === Normalize Power ===
-ofdm_with_cp /= np.sqrt(np.mean(np.abs(ofdm_with_cp)**2))
-
-
-
+ofdm_symbol = np.fft.ifft((ifft_input), n=n_subcarriers)
 
 # Normalize to avoid clipping or excessive amplitude
 normalize_ratio = np.max(np.abs(ofdm_symbol))
