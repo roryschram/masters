@@ -33,9 +33,9 @@ def gen_simple_signal(scaler, sampling_rate, frequency, duration=1.0):
 
 
 sampling_rate = 25_000_000  # 25 MHz
-duration = 0.04             # 40 ms
-num_pilots = 320              # The number of carriers (pilots in my case --> Reid says that an LTE subframe has 400 pilots :) ) in the signal
-subcarrier_spacing = 31250  # 20 kHz
+duration = 0.001             # 40 ms
+num_pilots = 80            # The number of carriers (pilots in my case --> Reid says that an LTE subframe has 400 pilots :) ) in the signal
+subcarrier_spacing = 125000  # 20 kHz
 
 # Generate 501 subcarriers centered around 0 Hz with 10MHz of bandwidth
 frequencies = np.linspace(-subcarrier_spacing * num_pilots / 2,subcarrier_spacing * (num_pilots / 2 - 1) ,num_pilots)
