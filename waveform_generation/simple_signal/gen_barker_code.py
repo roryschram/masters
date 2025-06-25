@@ -10,6 +10,21 @@ autocorr = np.correlate(barker_13, barker_13, mode='full')
 # X-axis lags
 lags = np.arange(-len(barker_13)+1, len(barker_13))
 
+
+
+# Plot
+plt.figure(figsize=(10, 4))
+plt.stem(barker_13)
+plt.title("13-Digit Barker Code")
+plt.xlabel("Sample")
+plt.ylabel("Barker Code")
+plt.grid(True)
+plt.tight_layout()
+plt.show()
+
+
+
+
 # Plot
 plt.figure(figsize=(10, 4))
 plt.stem(lags, autocorr, basefmt=" ")

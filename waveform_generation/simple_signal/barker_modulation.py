@@ -56,7 +56,7 @@ simple_sig = np.zeros(int(duration * sampling_rate), dtype=np.complex128)
 # Sum the tones
 for f in frequencies:
     rand = np.random.uniform(-1, 1)
-    simple_sig += gen_simple_signal(1.0, sampling_rate, f, duration)
+    simple_sig += gen_simple_signal(rand, sampling_rate, f, duration)
 
 
 
@@ -64,26 +64,26 @@ for f in frequencies:
 auto1 = scipy.signal.correlate(simple_sig,simple_sig)
 
 
-# 13-digit Barker code
-barker_13 = np.array([1, 1, 1, 1, 1, -1, -1, 1, 1, -1, 1, -1, 1])
+# # 13-digit Barker code
+# barker_13 = np.array([1, 1, 1, 1, 1, -1, -1, 1, 1, -1, 1, -1, 1])
 
-# Split signal into 13 equal segments
-num_segments = len(barker_13)
-segment_length = len(simple_sig) // num_segments
-
-
-print("Num Segmants: "+str(num_segments))
-print("Segment Length: "+str(segment_length))
+# # Split signal into 13 equal segments
+# num_segments = len(barker_13)
+# segment_length = len(simple_sig) // num_segments
 
 
-# Trim signal to exactly 13 segments (optional: pad if needed)
-simple_sig = simple_sig[:segment_length * num_segments]
+# print("Num Segmants: "+str(num_segments))
+# print("Segment Length: "+str(segment_length))
 
-# Apply Barker code scaling
-for i in range(num_segments):
-    start = i * segment_length
-    end = start + segment_length
-    simple_sig[start:end] *= barker_13[i]
+
+# # Trim signal to exactly 13 segments (optional: pad if needed)
+# simple_sig = simple_sig[:segment_length * num_segments]
+
+# # Apply Barker code scaling
+# for i in range(num_segments):
+#     start = i * segment_length
+#     end = start + segment_length
+#     simple_sig[start:end] *= barker_13[i]
 
 
 

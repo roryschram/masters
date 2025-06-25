@@ -35,7 +35,7 @@ frequencies = np.append(frequencies,[5000000])
 
 # frequencies = np.array([-60000,-40000,-20000,20000,40000,60000])
 
-
+carrier = gen_simple_signal(1000000000,100000000,0.0001)
 
 # Remove DC signal
 frequencies = frequencies[frequencies != 0]
@@ -55,12 +55,9 @@ for f in frequencies:
 normalize_ratio = np.max(np.abs(simple_sig))
 simple_sig /= normalize_ratio
 
-
-print(frequencies)
-print("The amount that was divided by to normalize was: "+str(normalize_ratio))
-print("The length of the signal generated is: "+str(len(simple_sig)))
-
-
+simple_sig = np.array(simple_sig)
+carrier = np.array(carrier)
+simple_sig = simple_sig[0:100000] * carrier[0:100000]
 
 
 
@@ -71,51 +68,10 @@ axs1.plot(np.real(simple_sig),label="Real Part")  # Adjust the portion as needed
 axs1.plot(np.imag(simple_sig),label="Imag Part") 
 axs1.set_xlabel("Samples")
 axs1.set_ylabel("Amplitude")
-axs1.set_title("Real and Imag parts of OFDM signal")
+axs1.legend()
+axs1.set_title("Real and Imag parts of upmixed OFDM signal")
 
 plt.tight_layout()
 plt.show()
 
-
-fig2, axs2 = plt.subplots(2,1)
-
-fft_vals = np.fft.fft(simple_sig)
-freqs = np.fft.fftfreq(len(simple_sig),1/25000000)
-# fft_vals_abs = np.abs(fft_vals)
-
-# dBV = 20 * np.log10(fft_vals_abs + 1e-12)
-
-# np.save("../masters_large_data/processing/simple_signal_dBV_transmit.npy",np.fft.fftshift(dBV))
-
-# Plot the spectra of the generated OFDM signal
-axs2[0].plot(freqs,fft_vals) # Adjust the portion as needed
-axs2[0].set_xlabel("Freq (Hz)")
-axs2[0].set_ylabel("Magnitude (V)")
-axs2[0].set_title("FFT of generated OFDM signal")
-
-axs2[1].plot(freqs,np.angle(np.fft.fft(simple_sig))) # Adjust the portion as needed
-axs2[1].set_xlabel("Freq (Hz)")
-axs2[1].set_ylabel("Phase")
-axs2[1].set_title("Phase of FFT of generated OFDM signal")
-
-
-plt.tight_layout()
-plt.show()
-
-
-
-
-
-
-
-# Open a .dat file in binary write mode
-with open("../masters_large_data/transmitted_data/transmit.dat", 'wb') as f:
-    for sample in simple_sig:
-        # Write the real part (I) as 64-bit double
-        f.write(np.double(sample.real).tobytes())
-        # Write the imaginary part (Q) as 64-bit double
-        f.write(np.double(sample.imag).tobytes())
-
-
-np.save("../masters_large_data/transmitted_data/simple_signal.npy",simple_sig)
 
