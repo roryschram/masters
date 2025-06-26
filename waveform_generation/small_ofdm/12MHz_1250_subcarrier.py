@@ -3,10 +3,10 @@ import matplotlib.pyplot as plt
 
 
 # === OFDM Parameters ===
-bw = 15e6  # Bandwidth = 10 MHz
-subcarrier_spacing = 15e3  # 15 kHz LTE spacing
-n_subcarriers = 1536  # FFT size
-fs = subcarrier_spacing * n_subcarriers  # Sampling rate = 15.36 MHz
+bw = 12e6  # Bandwidth = 10 MHz
+subcarrier_spacing = 13.33333334e3  # 15 kHz LTE spacing
+n_subcarriers = 1250  # FFT size
+fs = subcarrier_spacing * n_subcarriers  # Sampling rate fs => 16.66666667MHz
 cp_len = int(n_subcarriers * 1/8)  # Cyclic Prefix (12.5%)
 
 # === Data and Pilot Parameters ===

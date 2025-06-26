@@ -6,7 +6,7 @@ import matplotlib.pyplot as plt
 bw = 18e6  # Bandwidth = 10 MHz
 subcarrier_spacing = 20e3  # 15 kHz LTE spacing
 n_subcarriers = 1250  # FFT size
-fs = subcarrier_spacing * n_subcarriers  # Sampling rate = 15.36 MHz
+fs = subcarrier_spacing * n_subcarriers  # Sampling rate = 15.36 MHz fs => 25MHz
 cp_len = int(n_subcarriers * 1/8)  # Cyclic Prefix (12.5%)
 
 # === Data and Pilot Parameters ===
@@ -96,7 +96,7 @@ plt.show()
 # === Plot Time Domain Signal ===
 plt.figure(figsize=(10, 4))
 freqs = np.fft.fftfreq(len(ofdm_symbol))
-plt.plot(freqs, np.fft.fft(ofdm_symbol))
+plt.plot(np.fft.fftshift(np.fft.fft(ofdm_symbol)))
 plt.title("FFT of OFDM Time Domain Signal")
 plt.xlabel("Freq (Hz)")
 plt.ylabel("Amplitude")

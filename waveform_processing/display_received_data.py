@@ -23,10 +23,16 @@ def read_complex_data_from_dat(filename):
 # Get received usrp data
 received_data = read_complex_data_from_dat("../masters_large_data/received_data/receive.dat")
 transmitted_data = read_complex_data_from_dat("../masters_large_data/transmitted_data/transmit.dat")
+
+# Get correlation
 corr = signal.correlate(received_data,transmitted_data)
 corr = np.abs(corr)
 
+# Get maximum of correlation
+pos_max = np.argmax(corr)
+print("Position of maximum in correlation: "+str(pos_max))
 
+# Extract frame
 
 fig, axis = plt.subplots(2,1)
 
