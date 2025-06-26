@@ -15,7 +15,7 @@ n_pilots = 75
 n_data = active_subcarriers - n_pilots
 
 # === Generate pilot and data symbols ===
-pilot_symbols = np.random.choice([1+1j, 1+1j], size=n_pilots)  # BPSK pilots
+pilot_symbols = np.random.choice([2+2j, 2+2j], size=n_pilots)  # BPSK pilots
 data_symbols = np.random.choice([1+1j, 1-1j, -1+1j, -1-1j], size=n_data)  # QPSK data
 
 # === Insert pilots evenly across the 600 active subcarriers ===
@@ -32,8 +32,8 @@ for i in range(active_subcarriers):
 # === Map to full IFFT input (zero out DC) ===
 ifft_input = np.zeros(n_subcarriers, dtype=complex)
 half = active_subcarriers // 2
-ifft_input[1:1+half] = ofdm_symbols[:half]          # Positive freqs
-ifft_input[-half:] = ofdm_symbols[half:]            # Negative freqs
+ifft_input[0:half] = ofdm_symbols[:half]          # Positive freqs
+ifft_input[-half-1:] = ofdm_symbols[half-1:]            # Negative freqs
 
 # === Time Domain OFDM Symbol ===
 ofdm_symbol = np.fft.ifft((ifft_input), n=n_subcarriers)

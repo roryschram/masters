@@ -18,11 +18,14 @@ def read_complex_data_from_dat(filename):
     # Reshape the data into pairs of (I, Q) values
     complex_data = double_data[0::2] + 1j * double_data[1::2]
 
-    return complex_data
+    return np.array(complex_data)
 
 # Get received usrp data
 received_data = read_complex_data_from_dat("../masters_large_data/received_data/receive.dat")
 transmitted_data = read_complex_data_from_dat("../masters_large_data/transmitted_data/transmit.dat")
+
+received_data = received_data[1000000:]
+
 
 # Get correlation
 corr = signal.correlate(received_data,transmitted_data)
@@ -56,17 +59,84 @@ n_pilots = 75
 pilot_indices = np.round(np.linspace(0, active_subcarriers - 1, n_pilots)).astype(int)
 print(pilot_indices)
 
-# Map active subcarriers: first 450 go to positive freqs, next 450 to negative
-pilot_indices_pos = pilot_indices[pilot_indices < 450]
-pilot_indices_neg = pilot_indices[pilot_indices >= 450]
 
-# Convert to FFT bin positions
-fft_bins_pos = 1 + pilot_indices_pos
-fft_bins_neg = -450 + (pilot_indices_neg - 450) + 1250  # wrap-around for negative freqs
 
-# Combine both into full FFT bin indices
-pilot_fft_bins = np.concatenate([fft_bins_pos, fft_bins_neg])
-print(pilot_fft_bins)
+
+
+
+
+
+
+
+
+
+# ######################## Experimental # ###################
+# === OFDM Parameters ===
+bw = 18e6  # Bandwidth = 10 MHz
+subcarrier_spacing = 20e3  # 15 kHz LTE spacing
+n_subcarriers = 1250  # FFT size
+fs = subcarrier_spacing * n_subcarriers  # Sampling rate = 15.36 MHz fs => 25MHz
+cp_len = int(n_subcarriers * 1/8)  # Cyclic Prefix (12.5%)
+
+# === Data and Pilot Parameters ===
+active_subcarriers = 900
+n_pilots = 75
+n_data = active_subcarriers - n_pilots
+
+
+pilot_symbols = np.random.choice([1+1j, 1+1j], size=n_pilots)  # BPSK pilots
+data_symbols = np.random.choice([1+1j, 1-1j, -1+1j, -1-1j], size=n_data)  # QPSK data
+
+# === Insert pilots evenly across the 600 active subcarriers ===
+ofdm_symbols = np.zeros(active_subcarriers, dtype=complex)
+pilot_indices = np.round(np.linspace(0, active_subcarriers - 1, n_pilots)).astype(int)
+data_iter = iter(data_symbols)
+
+for i in range(active_subcarriers):
+    if i in pilot_indices:
+        ofdm_symbols[i] = 1
+    else:
+        ofdm_symbols[i] = 0
+
+# === Map to full IFFT input (zero out DC) ===
+ifft_input = np.zeros(n_subcarriers, dtype=complex)
+half = active_subcarriers // 2
+ifft_input[1:1+half] = ofdm_symbols[:half]          # Positive freqs
+ifft_input[-half:] = ofdm_symbols[half:]            # Negative freqs
+
+# ######################## Experimental # ###################
+
+
+ifft_input = np.fft.fftshift(ifft_input)
+print(ifft_input)
+# Get indices where pilots exist
+pilot_bins = np.where(ifft_input == 1)[0]
+
+# Get the corresponding magnitudes
+pilot_mags = spectrum_magnitude_db[pilot_bins]
+
+# Plot
+plt.figure(figsize=(10, 4))
+plt.plot(pilot_bins, pilot_mags)
+plt.xlabel("FFT Bin Index")
+plt.ylabel("Magnitude (dB)")
+plt.ylim(-60,0)
+plt.title("FFT Magnitude at Pilot Positions")
+plt.grid()
+plt.tight_layout()
+plt.show()
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 fig, axis = plt.subplots(2,1)
@@ -105,10 +175,13 @@ ax.set_xlabel("Samples")
 ax.set_ylabel("Amplitude")
 
 ax = axis[1]
-ax.plot(freq_axis,spectrum_magnitude_db)
+ax.plot(spectrum_magnitude_db)
 ax.set_title("FFt of roughly extracted frame")
 ax.set_xlabel("Freq (Hz)")
 ax.set_ylabel("Amplitude")
+
+for bin_idx in pilot_bins:
+    ax.axvline(x=bin_idx, color='red', linestyle='--', linewidth=0.5, alpha=0.7)
 
 # twin = ax.twiny()
 # # twin.set_xlim(ax.get_xlim())
