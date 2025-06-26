@@ -17,12 +17,12 @@ if not os.path.exists("../masters_large_data/received_data"):
 graphs = True
 
 
-K = 5000000 # number of OFDM subcarriers
+K = 1250 # number of OFDM subcarriers
 
 # CP = K//4  # length of the cyclic prefix: 25% of the block
 
-P = 5000 # number of pilot carriers per OFDM block
-pilotValue = 120+60j # The known value each pilot transmits
+P = 75 # number of pilot carriers per OFDM block
+pilotValue = 2+2j # The known value each pilot transmits
 
 
 allCarriers = np.arange(K)  # indices of all subcarriers ([0, 1, ... K-1])
@@ -57,22 +57,22 @@ mu = 4 # bits per symbol (i.e. 16QAM)
 payloadBits_per_OFDM = len(dataCarriers)*mu  # number of payload bits per OFDM symbol
 
 mapping_table = {
-    (0,0,0,0) : -60-60j,
-    (0,0,0,1) : -60-20j,
-    (0,0,1,0) : -60+60j,
-    (0,0,1,1) : -60+20j,
-    (0,1,0,0) : -20-60j,
-    (0,1,0,1) : -20-20j,
-    (0,1,1,0) : -20+60j,
-    (0,1,1,1) : -20+20j,
-    (1,0,0,0) :  60-60j,
-    (1,0,0,1) :  60-20j,
-    (1,0,1,0) :  60+60j,
-    (1,0,1,1) :  60+20j,
-    (1,1,0,0) :  20-60j,
-    (1,1,0,1) :  20-20j,
-    (1,1,1,0) :  20+60j,
-    (1,1,1,1) :  20+20j
+    (0,0,0,0) : -3-3j,
+    (0,0,0,1) : -3-1j,
+    (0,0,1,0) : -3+3j,
+    (0,0,1,1) : -3+1j,
+    (0,1,0,0) : -1-3j,
+    (0,1,0,1) : -1-1j,
+    (0,1,1,0) : -1+3j,
+    (0,1,1,1) : -1+1j,
+    (1,0,0,0) :  3-3j,
+    (1,0,0,1) :  3-1j,
+    (1,0,1,0) :  3+3j,
+    (1,0,1,1) :  3+1j,
+    (1,1,0,0) :  1-3j,
+    (1,1,0,1) :  1-1j,
+    (1,1,1,0) :  1+3j,
+    (1,1,1,1) :  1+1j
 }
 
 if graphs:
@@ -89,8 +89,8 @@ if graphs:
     plt.title("16 QAM Constellation with Grey-Mapping")
     plt.xlabel("Real Part (I)")
     plt.ylabel("Imaginary Part (Q)")
-    plt.ylim(-80,80)
-    plt.xlim(-80,80)
+    plt.ylim(-4,4)
+    plt.xlim(-4,4)
     plt.grid()
     plt.show()
 
@@ -156,7 +156,7 @@ if graphs:
 
 
 def IDFT(OFDM_data):
-    return np.fft.ifft(OFDM_data)
+    return np.fft.ifft(np.pad(np.fft.fftshift(OFDM_data)),(1000,100), mode='constant', constant_values=0+0j)
 OFDM_time = IDFT(OFDM_data)
 print ("Number of OFDM samples in time-domain before CP: ", len(OFDM_time))
 
