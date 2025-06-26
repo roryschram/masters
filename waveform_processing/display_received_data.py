@@ -2,6 +2,8 @@ import numpy as np
 import matplotlib
 matplotlib.use('TkAgg')
 import matplotlib.pyplot as plt
+from matplotlib.axes import Axes
+from scipy import signal
 
 
 
@@ -19,14 +21,30 @@ def read_complex_data_from_dat(filename):
     return complex_data
 
 # Get received usrp data
-received_data1 = read_complex_data_from_dat("../masters_large_data/received_data/multi_receive/raw_captures/receive1.dat")
+received_data = read_complex_data_from_dat("../masters_large_data/received_data/receive.dat")
+transmitted_data = read_complex_data_from_dat("../masters_large_data/transmitted_data/transmit.dat")
+corr = signal.correlate(received_data,transmitted_data)
+corr = np.abs(corr)
 
 
 
-plt.plot(np.real(received_data1))
-plt.plot(np.imag(received_data1))
+fig, axis = plt.subplots(2,1)
 
-plt.title("Received signal")
-plt.xlabel("Samples")
-plt.ylabel("|received|")
+ax:Axes = axis[0]
+
+ax.plot(np.real(received_data),label = "Real")
+ax.plot(np.imag(received_data), label = "Imag")
+ax.legend()
+ax.set_title("Raw received signal")
+ax.set_xlabel("Samples")
+ax.set_ylabel("received")
+
+ax = axis[1]
+ax.plot(corr)
+ax.set_title("Correlation of transmitted and received")
+ax.set_xlabel("Samples")
+ax.set_ylabel("|corr|")
+
+
+plt.tight_layout()
 plt.show()
