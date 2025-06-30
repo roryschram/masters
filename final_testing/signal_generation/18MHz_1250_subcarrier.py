@@ -4,19 +4,17 @@ import matplotlib.pyplot as plt
 
 
 '''
-Below is my offcial code to generate an OFDM like waveform that has 1250 carriers spaced over 12MHz of spectrum.
-
-
+Below is my offcial code to generate an OFDM like waveform that has 1250 carriers spaced over 14.4MHz of spectrum.
 
 '''
 
 
 
 # === OFDM Parameters ===
-bw = 12e6  # Bandwidth = 10 MHz
-subcarrier_spacing = 13.33333334e3  # 15 kHz LTE spacing
+bw = 18e6  # Bandwidth = 10 MHz
+subcarrier_spacing = 20e3  # 15 kHz LTE spacing
 n_subcarriers = 1250  # FFT size
-fs = subcarrier_spacing * n_subcarriers  # Sampling rate fs => 16.66666667MHz
+fs = subcarrier_spacing * n_subcarriers  # Sampling rate fs => 25MHz
 
 # === Data and Pilot Parameters ===
 active_subcarriers = 900
@@ -133,7 +131,7 @@ spectrum_magnitude_db = 20 * np.log10(np.abs(spectrum) + 1e-12)  # avoid log(0)
 freq_axis = np.linspace(-fs/2, fs/2, n_fft_plot) / 1e6
 
 # === Plot Spectrum ===
-plt.figure(figsize=(10, 4))
+# plt.figure(figsize=(10, 4))
 plt.plot(freq_axis, spectrum_magnitude_db)
 plt.title("FFT of OFDM Signal (Magnitude Spectrum)")
 plt.xlabel("Frequency (MHz)")
@@ -144,24 +142,8 @@ plt.tight_layout()
 plt.show()
 
 
-# # Normalize to avoid clipping or excessive amplitude
-# normalize_ratio = np.max(np.abs(ofdm_symbol))
-# ofdm_symbol /= normalize_ratio
-
-# Open a .dat file in binary write mode
-with open("../masters_large_data/transmitted_data/transmit.dat", 'wb') as f:
-    for sample in ofdm_symbol:
-        # Write the real part (I) as 64-bit double
-        f.write(np.double(sample.real).tobytes())
-        # Write the imaginary part (Q) as 64-bit double
-        f.write(np.double(sample.imag).tobytes())
-
-
-
-
-
 # === Plot Time Domain Signal ===
-plt.figure(figsize=(10, 4))
+# plt.figure(figsize=(10, 4))
 plt.plot(np.real(ofdm_symbol), label='I (real)')
 plt.plot(np.imag(ofdm_symbol), label='Q (imag)')
 plt.title("10 MHz OFDM Time Domain Signal")
@@ -171,25 +153,22 @@ plt.legend()
 plt.grid()
 plt.show()
 
-# === Plot Time Domain Signal ===
-plt.figure(figsize=(10, 4))
-freqs = np.fft.fftfreq(len(ofdm_symbol))
-plt.plot(freqs, np.fft.fft(ofdm_symbol))
-plt.title("FFT of OFDM Time Domain Signal")
-plt.xlabel("Freq (Hz)")
-plt.ylabel("Amplitude")
-plt.legend()
-plt.grid()
-plt.show()
 
 
 # === Plot Time Domain Signal ===
-plt.figure(figsize=(10, 4))
-plt.plot(np.correlate(ofdm_symbol,ofdm_symbol,mode="full"), label='I (real)')
-plt.title("10 MHz OFDM Time Domain Signal")
+# plt.figure(figsize=(10, 4))
+plt.plot(np.abs(np.correlate(ofdm_symbol,ofdm_symbol,mode="full")))
+plt.title("Auto correlation of OFDM symbol")
 plt.xlabel("Sample Index")
 plt.ylabel("Amplitude")
-plt.legend()
 plt.grid()
 plt.show()
+
+# Open a .dat file in binary write mode
+with open("../masters_large_data/transmitted_data/transmit.dat", 'wb') as f:
+    for sample in ofdm_symbol:
+        # Write the real part (I) as 64-bit double
+        f.write(np.double(sample.real).tobytes())
+        # Write the imaginary part (Q) as 64-bit double
+        f.write(np.double(sample.imag).tobytes())
 

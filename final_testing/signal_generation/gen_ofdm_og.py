@@ -17,12 +17,12 @@ if not os.path.exists("../masters_large_data/received_data"):
 graphs = True
 
 
-K = 1250 # number of OFDM subcarriers
+K = 900 # number of OFDM subcarriers
 
 # CP = K//4  # length of the cyclic prefix: 25% of the block
 
 P = 75 # number of pilot carriers per OFDM block
-pilotValue = 2+2j # The known value each pilot transmits
+pilotValue = 1+1j # The known value each pilot transmits
 
 
 allCarriers = np.arange(K)  # indices of all subcarriers ([0, 1, ... K-1])
@@ -137,7 +137,7 @@ def OFDM_symbol(QAM_payload):
 OFDM_data = OFDM_symbol(QAM)
 print ("Number of OFDM carriers in frequency domain: ", len(OFDM_data))
 
-
+OFDM_data = np.pad(OFDM_data,(175,175), mode='constant', constant_values=0+0j)
 
 
 
@@ -156,7 +156,7 @@ if graphs:
 
 
 def IDFT(OFDM_data):
-    return np.fft.ifft(np.pad((np.fft.fftshift(OFDM_data))),(1000,1000), mode='constant', constant_values=0+0j)
+    return np.fft.ifft(np.fft.fftshift(OFDM_data))
 OFDM_time = IDFT(OFDM_data)
 print ("Number of OFDM samples in time-domain before CP: ", len(OFDM_time))
 
