@@ -10,20 +10,20 @@ Below is my offcial code to generate an OFDM like waveform that has 1250 carrier
 
 
 
-# === OFDM Parameters ===
+# Parameters of the OFDM signal
 bw = 12e6  # Bandwidth = 10 MHz
 subcarrier_spacing = 13.33333334e3  # 15 kHz LTE spacing
 n_subcarriers = 1250  # FFT size
 fs = subcarrier_spacing * n_subcarriers  # Sampling rate fs => 16.66666667MHz
 
-# === Data and Pilot Parameters ===
+# Here I define the number of active subcarriers and pilots
 active_subcarriers = 900
 n_pilots = 75
 n_data = active_subcarriers - n_pilots
 
-# === Generate data bits ===
 
-mu = 4 # bits per symbol (i.e. 16QAM)
+# Now I define the bits per symbol, mu. In this case it is 4 -> 16 QAM
+mu = 4
 payloadBits_per_OFDM = n_data*mu  # number of payload bits per OFDM symbol
 
 # 16 QAM mapping table
@@ -66,7 +66,7 @@ plt.show()
 
 
 
-# generate and save random bits of length n_data*4 = 3300
+# Generate and save random bits of length n_data*4 = 3300
 bits = np.random.binomial(n=1, p=0.5, size=(payloadBits_per_OFDM, ))
 np.save("../masters_large_data/final_testing/com_testing/bits.npy",bits)
 
@@ -111,37 +111,26 @@ for i in range(active_subcarriers):
         ofdm_symbols[i] = next(data_iter)
 
 
-plt.plot(ofdm_symbols)
-for bin_idx in pilot_indices:
-    plt.axvline(x=bin_idx, color='red', linestyle='--', linewidth=0.5, alpha=0.7)
-plt.show()
-
-
 
 pilot_indices_shifted = pilot_indices + 175
-print(pilot_indices_shifted)
-
-
 ofdm_symbols = np.pad(ofdm_symbols,(175,175),mode="constant")
-plt.plot(ofdm_symbols)
+
+
+
+plt.plot(np.abs(ofdm_symbols))
+plt.title("Full symbol in frequency domain")
+plt.xlabel("Frequency bins")
+plt.ylabel("Value")
 for bin_idx in pilot_indices_shifted:
     plt.axvline(x=bin_idx, color='red', linestyle='--', linewidth=0.5, alpha=0.7)
 plt.show()
 
-
-
-# # === Map to full IFFT input (zero out DC) ===
-# ifft_input = np.zeros(n_subcarriers, dtype=complex)
-# half = active_subcarriers // 2
-# ifft_input[1:1+half] = ofdm_symbols[:half]          # Positive freqs
-# ifft_input[-half:] = ofdm_symbols[half:]            # Negative freqs
 
 # === Time Domain OFDM Symbol ===
 ofdm_symbol = np.fft.ifft(np.fft.fftshift(ofdm_symbols), n=n_subcarriers)
 
 
 # === Normalize ===
-# ofdm_symbol -= np.mean(ofdm_symbol)  # Remove any DC offset
 ofdm_symbol /= np.max(np.abs(ofdm_symbol))  # Avoid clipping
 
 
@@ -157,12 +146,12 @@ freq_axis = np.linspace(-fs/2, fs/2, n_fft_plot) / 1e6
 # plt.figure(figsize=(10, 4))
 plt.plot(spectrum_magnitude_db)
 plt.title("FFT of OFDM Signal (Magnitude Spectrum)")
-plt.xlabel("Frequency (MHz)")
+plt.xlabel("Frequency bins")
 plt.ylabel("Magnitude (dB)")
 plt.grid()
 # plt.ylim(-100,50)
 
-for bin_idx in pilot_indices:
+for bin_idx in pilot_indices_shifted:
     plt.axvline(x=bin_idx, color='red', linestyle='--', linewidth=0.5, alpha=0.7)
 
 plt.tight_layout()
@@ -173,7 +162,7 @@ plt.show()
 # plt.figure(figsize=(10, 4))
 plt.plot(np.real(ofdm_symbol), label='I (real)')
 plt.plot(np.imag(ofdm_symbol), label='Q (imag)')
-plt.title("10 MHz OFDM Time Domain Signal")
+plt.title("12 MHz OFDM Time Domain Signal")
 plt.xlabel("Sample Index")
 plt.ylabel("Amplitude")
 plt.legend()

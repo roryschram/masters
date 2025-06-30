@@ -10,7 +10,7 @@
     "TEST_TYPE": "MAIN",
     "TX_FREQ":2.784e9,
     "RX_FREQ":2.784e9,
-    "TX_RATE":20e6,
+    "TX_RATE":25e6,
     "RX_RATE":0e6,
     "TX_BW":0e6,
     "RX_BW":0e6,
