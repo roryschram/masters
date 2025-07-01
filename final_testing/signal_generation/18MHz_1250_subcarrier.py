@@ -93,7 +93,7 @@ print (QAM[:5])
 
 
 # === Generate pilot and data symbols ===
-pilot_symbols = np.random.choice([3+3j, 3+3j], size=n_pilots)  # BPSK pilots
+pilot_symbols = np.random.choice([3-1j, 3-1j], size=n_pilots)  # BPSK pilots
 # data_symbols = np.random.choice([1+1j, 1-1j, -1+1j, -1-1j], size=n_data)  # QPSK data
 data_symbols = QAM
 
