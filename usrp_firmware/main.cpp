@@ -17,6 +17,7 @@
 #include <chrono>
 
 
+
 std::atomic<bool> isSetupComplete(false);
 
 std::vector<std::complex<double>> readComplexDataFromFile(const std::string& filename) {
@@ -119,9 +120,10 @@ void transmit_vector(uhd::usrp::multi_usrp::sptr tx_usrp, std::vector<std::compl
     if(fullBufferLength<=maxTransmitSize){
         // std::cout<<"OUT OF WHILE LOOP: "<<maxTransmitSize<<"\n";
         std::vector<std::complex<double>*> pBuffs(1,&buffers.front());
+        md.has_time_spec=false; //dont want subsequent packets to wait
         tx_stream->send(pBuffs,buffers.size(),md,0.1);
-        //md.end_of_burst=true;
-        //tx_stream->send("",0,md,0.1);
+        md.end_of_burst=true;
+        tx_stream->send("",0,md,0.1);
         return;
     }else{
         //std::cout<<"IN WHILE LOOP: "<<maxTransmitSize<<"\n";
@@ -190,6 +192,7 @@ std::vector<std::complex<double>> receive_vector(uhd::usrp::multi_usrp::sptr rx_
     // allocate buffers to receive with samples (one buffer per channel)
     std::vector<std::complex<double>> sampleBuffer;
     sampleBuffer.reserve(samps_per_buff);
+
 
     // creating a pointer to sample buffer
     std::complex<double>* psampleBuffer = &sampleBuffer[0];

@@ -10,7 +10,7 @@ from scipy import interpolate
 fs = 16.67e6
 fft_bins = 1250
 allCarriers = np.arange(900)
-pilot_value = 3+3j
+pilot_value = 3+1j
 
 
 
@@ -148,7 +148,6 @@ print(pilot_indices_shifted)
 
 
 plt.plot(np.abs(spectrum[pilot_indices_shifted]))
-plt.ylim(-10,10)
 plt.show()
 
 print(allCarriers)
@@ -168,7 +167,6 @@ def channelEstimate(OFDM_demod):
     plt.plot(allCarriers, np.abs(Hest), label='Estimated channel via interpolation')
     plt.title("Channel estimation based on pilots")
     plt.grid(True); plt.xlabel('Carrier index'); plt.ylabel('$|H(f)|$')
-    plt.ylim(-5,15)
     plt.show()
     
     return Hest

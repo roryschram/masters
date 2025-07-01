@@ -81,6 +81,13 @@
         "random": "cpp",
         "ranges": "cpp",
         "valarray": "cpp",
-        "*.ipp": "cpp"
+        "*.ipp": "cpp",
+        "csignal": "cpp",
+        "bitset": "cpp",
+        "cfenv": "cpp",
+        "coroutine": "cpp",
+        "regex": "cpp",
+        "slist": "cpp",
+        "future": "cpp"
     }
 }

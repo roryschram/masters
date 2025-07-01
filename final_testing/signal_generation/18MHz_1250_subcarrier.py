@@ -18,7 +18,7 @@ fs = subcarrier_spacing * n_subcarriers  # Sampling rate fs => 16.66666667MHz
 
 # Here I define the number of active subcarriers and pilots
 active_subcarriers = 900
-n_pilots = 75
+n_pilots = 850
 n_data = active_subcarriers - n_pilots
 
 
@@ -93,7 +93,7 @@ print (QAM[:5])
 
 
 # === Generate pilot and data symbols ===
-pilot_symbols = np.random.choice([3-1j, 3-1j], size=n_pilots)  # BPSK pilots
+pilot_symbols = np.random.choice([3+1j, 3+1j], size=n_pilots)  # BPSK pilots
 # data_symbols = np.random.choice([1+1j, 1-1j, -1+1j, -1-1j], size=n_data)  # QPSK data
 data_symbols = QAM
 
