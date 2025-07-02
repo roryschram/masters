@@ -7,10 +7,10 @@ from scipy import signal
 from scipy import interpolate
 
 # Input signal parameters here
-fs = 16.67e6
+fs = 25e6
 fft_bins = 1250
 allCarriers = np.arange(900)
-pilot_value = 3+1j
+pilot_value = 3+3j
 
 
 
@@ -35,8 +35,9 @@ received_data = read_complex_data_from_dat("../masters_large_data/received_data/
 transmitted_data = read_complex_data_from_dat("../masters_large_data/transmitted_data/transmit.dat")
 
 
+
 # Cut off first cool down period of capture
-received_data = received_data[1000000:]
+# received_data = received_data[1000000:]
 
 
 # received_data = np.pad(received_data,(100000,100000),mode="constant",constant_values=0+0j)
@@ -55,7 +56,7 @@ pos_max = np.argmax(corr_abs)
 print("Position of start of frame: "+str(pos_max))
 
 # Extract rough frame
-frame = np.array(received_data[pos_max-1250-23:pos_max-23])
+frame = np.array(received_data[pos_max-1250:pos_max])
 
 
 # === Compute FFT of the OFDM signal (with CP) ===
@@ -152,15 +153,18 @@ plt.show()
 
 print(allCarriers)
 
+pilot_symbols = np.load("../masters_large_data/final_testing/com_testing/pilot_symbols.npy")
+
+print(pilot_symbols)
 def channelEstimate(OFDM_demod):
     pilots = OFDM_demod[pilot_indices_shifted]  # extract the pilot values from the RX signal
-    Hest_at_pilots = pilots / pilot_value # divide by the transmitted pilot values
+    Hest_at_pilots = pilots / pilot_symbols # divide by the transmitted pilot values
     
     # Perform interpolation between the pilot carriers to get an estimate
     # of the channel in the data carriers. Here, we interpolate absolute value and phase 
     # separately
-    Hest_abs = interpolate.interp1d((pilot_indices_shifted-175), np.abs(Hest_at_pilots),kind="cubic",fill_value="extrapolate")(allCarriers)
-    Hest_phase = interpolate.interp1d((pilot_indices_shifted-175), np.angle(Hest_at_pilots),kind="cubic",fill_value="extrapolate")(allCarriers)
+    Hest_abs = interpolate.interp1d((pilot_indices_shifted-175), np.abs(Hest_at_pilots),kind="cubic")(allCarriers)
+    Hest_phase = interpolate.interp1d((pilot_indices_shifted-175), np.angle(Hest_at_pilots),kind="cubic")(allCarriers)
     Hest = Hest_abs * np.exp(1j*Hest_phase)
     
     # plt.stem(pilotCarriers, np.fft.fftshift(abs(Hest_at_pilots)), label='Pilot estimates')
@@ -203,23 +207,13 @@ plt.show()
 
 
 
+
+# 16 QAM mapping table
 mapping_table = {
-    (0,0,0,0) : -3-3j,
-    (0,0,0,1) : -3-1j,
-    (0,0,1,0) : -3+3j,
-    (0,0,1,1) : -3+1j,
-    (0,1,0,0) : -1-3j,
-    (0,1,0,1) : -1-1j,
-    (0,1,1,0) : -1+3j,
-    (0,1,1,1) : -1+1j,
-    (1,0,0,0) :  3-3j,
-    (1,0,0,1) :  3-1j,
-    (1,0,1,0) :  3+3j,
-    (1,0,1,1) :  3+1j,
-    (1,1,0,0) :  1-3j,
-    (1,1,0,1) :  1-1j,
-    (1,1,1,0) :  1+3j,
-    (1,1,1,1) :  1+1j
+    (0,0) : -1-1j,
+    (0,1) :  1-1j,
+    (1,0) : -1+1j,
+    (1,1) :  1+1j,
 }
 
 demapping_table = {v : k for k, v in mapping_table.items()}

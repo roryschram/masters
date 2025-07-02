@@ -42,7 +42,7 @@ def chirp(fs_Hz, rep_Hz, f0_Hz, f1_Hz, periods=1, phase_rad=0):
     phi_rad += phase_rad # Offset by user-specified initial phase.
     return np.tile(np.exp(1j * phi_rad), periods) # Complex I/Q.
 
-sweep_signal = chirp(25e6,75,-4e6,4e6)
+sweep_signal = chirp(25e6,1000,100e3,100e3)
 
 
 padded_sweep_signal = np.pad(sweep_signal, pad_width=(0,0), mode="constant", constant_values=0+0j)
@@ -54,6 +54,7 @@ plt.plot(np.real(padded_sweep_signal),label="Real Part")  # Adjust the portion a
 plt.plot(np.imag(padded_sweep_signal),label="Imag Part") 
 plt.xlabel("Time (s)")
 plt.ylabel("Amplitude")
+plt.legend()
 plt.title("Sweep signal")
 plt.show()
 

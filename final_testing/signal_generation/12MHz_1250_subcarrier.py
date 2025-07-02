@@ -23,37 +23,23 @@ n_data = active_subcarriers - n_pilots
 
 
 # Now I define the bits per symbol, mu. In this case it is 4 -> 16 QAM
-mu = 4
+mu = 2
 payloadBits_per_OFDM = n_data*mu  # number of payload bits per OFDM symbol
 
 # 16 QAM mapping table
 mapping_table = {
-    (0,0,0,0) : -3-3j,
-    (0,0,0,1) : -3-1j,
-    (0,0,1,0) : -3+3j,
-    (0,0,1,1) : -3+1j,
-    (0,1,0,0) : -1-3j,
-    (0,1,0,1) : -1-1j,
-    (0,1,1,0) : -1+3j,
-    (0,1,1,1) : -1+1j,
-    (1,0,0,0) :  3-3j,
-    (1,0,0,1) :  3-1j,
-    (1,0,1,0) :  3+3j,
-    (1,0,1,1) :  3+1j,
-    (1,1,0,0) :  1-3j,
-    (1,1,0,1) :  1-1j,
-    (1,1,1,0) :  1+3j,
-    (1,1,1,1) :  1+1j
+    (0,0) : -1-1j,
+    (0,1) :  1-1j,
+    (1,0) : -1+1j,
+    (1,1) :  1+1j,
 }
 
-for b3 in [0, 1]:
-    for b2 in [0, 1]:
-        for b1 in [0, 1]:
-            for b0 in [0, 1]:
-                B = (b3, b2, b1, b0)
-                Q = mapping_table[B]
-                plt.plot(Q.real, Q.imag, 'bo')
-                plt.text(Q.real, Q.imag+0.2, "".join(str(x) for x in B), ha='center')
+for b1 in [0, 1]:
+    for b0 in [0, 1]:
+        B = (b1, b0)
+        Q = mapping_table[B]
+        plt.plot(Q.real, Q.imag, 'bo')
+        plt.text(Q.real, Q.imag+0.2, "".join(str(x) for x in B), ha='center')
 
 
 plt.title("16 QAM Constellation with Grey-Mapping")
@@ -91,9 +77,9 @@ print (bits_SP[:5,:])
 print (QAM[:5])
 
 
-
+pilots_choice = [-1-1j, 1-1j,-1+1j, 1+1j]
 # === Generate pilot and data symbols ===
-pilot_symbols = np.random.choice([3+3j, 3+3j], size=n_pilots)  # BPSK pilots
+pilot_symbols = np.random.choice(pilots_choice, size=n_pilots, replace=True)  # BPSK pilots
 # data_symbols = np.random.choice([1+1j, 1-1j, -1+1j, -1-1j], size=n_data)  # QPSK data
 data_symbols = QAM
 
@@ -114,6 +100,10 @@ for i in range(active_subcarriers):
 
 pilot_indices_shifted = pilot_indices + 175
 ofdm_symbols = np.pad(ofdm_symbols,(175,175),mode="constant")
+
+np.save("../masters_large_data/final_testing/com_testing/pilot_indices_shifted.npy",pilot_indices_shifted)
+np.save("../masters_large_data/final_testing/com_testing/pilot_symbols.npy",pilot_symbols)
+
 
 
 
@@ -162,7 +152,7 @@ plt.show()
 # plt.figure(figsize=(10, 4))
 plt.plot(np.real(ofdm_symbol), label='I (real)')
 plt.plot(np.imag(ofdm_symbol), label='Q (imag)')
-plt.title("12 MHz OFDM Time Domain Signal")
+plt.title("18 MHz OFDM Time Domain Signal")
 plt.xlabel("Sample Index")
 plt.ylabel("Amplitude")
 plt.legend()

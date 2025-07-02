@@ -18,7 +18,7 @@ fs = subcarrier_spacing * n_subcarriers  # Sampling rate fs => 16.66666667MHz
 
 # Here I define the number of active subcarriers and pilots
 active_subcarriers = 900
-n_pilots = 850
+n_pilots = 75
 n_data = active_subcarriers - n_pilots
 
 
@@ -91,9 +91,11 @@ print (bits_SP[:5,:])
 print (QAM[:5])
 
 
+pilots_choice = [-3-3j,-3-1j,-3+3j,-3+1j,-1-3j,-1-1j,-1+3j,-1+1j, 3-3j, 3-1j, 3+3j, 3+1j, 1-3j, 1-1j, 1+3j, 1+1j]
+
 
 # === Generate pilot and data symbols ===
-pilot_symbols = np.random.choice([3+1j, 3+1j], size=n_pilots)  # BPSK pilots
+pilot_symbols = np.random.choice(pilots_choice, size=n_pilots, replace=True)  # BPSK pilots
 # data_symbols = np.random.choice([1+1j, 1-1j, -1+1j, -1-1j], size=n_data)  # QPSK data
 data_symbols = QAM
 
@@ -116,6 +118,7 @@ pilot_indices_shifted = pilot_indices + 175
 ofdm_symbols = np.pad(ofdm_symbols,(175,175),mode="constant")
 
 np.save("../masters_large_data/final_testing/com_testing/pilot_indices_shifted.npy",pilot_indices_shifted)
+np.save("../masters_large_data/final_testing/com_testing/pilot_symbols.npy",pilot_symbols)
 
 
 
