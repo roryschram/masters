@@ -203,6 +203,13 @@ def equalize(OFDM_demod, Hest):
 equalized_Hest = equalize(spectrum[all_carriers_shifted], Hest)
 
 
+plt.plot(np.abs(equalized_Hest))
+plt.title("Equalised Carriers Absoluted")
+plt.xlabel("Samples")
+plt.ylabel("|H(f)|")
+plt.tight_layout()
+plt.show()
+
 
 print(allCarriers)
 print((pilot_indices_shifted))
