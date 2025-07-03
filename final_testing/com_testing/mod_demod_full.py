@@ -2,10 +2,10 @@ import numpy as np
 import matplotlib.pyplot as plt
 import scipy
 
-SNRdb = 20
-K = 900 # number of OFDM subcarriers
+SNRdb = 10
+K = 10000 # number of OFDM subcarriers
 CP = K//4  # length of the cyclic prefix: 25% of the block
-P = 75 # number of pilot carriers per OFDM block
+P = 2000 # number of pilot carriers per OFDM block
 pilotValue = 3+3j # The known value each pilot transmits
 
 allCarriers = np.arange(K)  # indices of all subcarriers ([0, 1, ... K-1])
@@ -231,9 +231,9 @@ def Demapping(QAM):
     return np.vstack([demapping_table[C] for C in hardDecision]), hardDecision
 
 PS_est, hardDecision = Demapping(QAM_est)
-for qam, hard in zip(QAM_est, hardDecision):
-    plt.plot([qam.real, hard.real], [qam.imag, hard.imag], 'b-o');
-    plt.plot(hardDecision.real, hardDecision.imag, 'ro')
+# for qam, hard in zip(QAM_est, hardDecision):
+#     plt.plot([qam.real, hard.real], [qam.imag, hard.imag], 'b-o')
+#     plt.plot(hardDecision.real, hardDecision.imag, 'ro')
 
 plt.show()
 
