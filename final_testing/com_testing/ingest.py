@@ -8,8 +8,8 @@ from scipy import interpolate
 
 # Input signal parameters here
 fs = 25e6
-fft_bins = 1250
-allCarriers = np.arange(900)
+fft_bins = 16384
+allCarriers = np.arange(10000)
 pilot_value = 3+3j
 
 
@@ -56,7 +56,7 @@ pos_max = np.argmax(corr_abs)
 print("Position of start of frame: "+str(pos_max))
 
 # Extract rough frame
-frame = np.array(received_data[pos_max-1250:pos_max])
+frame = np.array(received_data[pos_max-fft_bins:pos_max])
 
 
 # === Compute FFT of the OFDM signal (with CP) ===
@@ -148,23 +148,34 @@ print(pilot_indices_shifted)
 
 
 
-plt.plot(np.abs(spectrum[pilot_indices_shifted]))
+plt.plot(np.abs(spectrum))
 plt.show()
 
 print(allCarriers)
 
 pilot_symbols = np.load("../masters_large_data/final_testing/com_testing/pilot_symbols.npy")
+pilot_indices_shifted = np.load("../masters_large_data/final_testing/com_testing/pilot_indices_shifted.npy")
+pilot_indices = np.load("../masters_large_data/final_testing/com_testing/pilot_indices.npy")
+
+print(pilot_indices)
+print(pilot_indices_shifted)
+
+plt.plot(spectrum)
+plt.show()
+
+print(str(len(pilot_indices)))
+print(str(len(pilot_symbols)))
 
 print(pilot_symbols)
 def channelEstimate(OFDM_demod):
-    pilots = OFDM_demod[pilot_indices_shifted]  # extract the pilot values from the RX signal
+    pilots = OFDM_demod[pilot_indices]  # extract the pilot values from the RX signal
     Hest_at_pilots = pilots / pilot_symbols # divide by the transmitted pilot values
     
     # Perform interpolation between the pilot carriers to get an estimate
     # of the channel in the data carriers. Here, we interpolate absolute value and phase 
     # separately
-    Hest_abs = interpolate.interp1d((pilot_indices_shifted-175), np.abs(Hest_at_pilots),kind="cubic")(allCarriers)
-    Hest_phase = interpolate.interp1d((pilot_indices_shifted-175), np.angle(Hest_at_pilots),kind="cubic")(allCarriers)
+    Hest_abs = interpolate.interp1d(pilot_indices, np.abs(Hest_at_pilots),kind="cubic")(allCarriers)
+    Hest_phase = interpolate.interp1d(pilot_indices, np.angle(Hest_at_pilots),kind="cubic")(allCarriers)
     Hest = Hest_abs * np.exp(1j*Hest_phase)
     
     # plt.stem(pilotCarriers, np.fft.fftshift(abs(Hest_at_pilots)), label='Pilot estimates')
@@ -174,36 +185,36 @@ def channelEstimate(OFDM_demod):
     plt.show()
     
     return Hest
-Hest = channelEstimate(spectrum)
+
+all_carriers_shifted = np.load("../masters_large_data/final_testing/com_testing/all_carriers_shifted.npy")
+
+temp = spectrum[all_carriers_shifted]
+Hest = channelEstimate(temp)
 
 
 
-plt.plot(spectrum[allCarriers+175])
+plt.plot(spectrum)
 plt.show()
 
 def equalize(OFDM_demod, Hest):
     return OFDM_demod / Hest
     # return OFDM_demod   
-equalized_Hest = equalize(spectrum[allCarriers+175], Hest)
+
+equalized_Hest = equalize(spectrum[all_carriers_shifted], Hest)
 
 
 
 print(allCarriers)
-print((pilot_indices_shifted-175))
+print((pilot_indices_shifted))
 
-data_indices = np.setdiff1d(allCarriers, (pilot_indices_shifted-175))
+data_indices = np.setdiff1d(allCarriers, pilot_indices)
 
-print(data_indices)
+print(data_indices[:20])
 
 
 def get_payload(equalized):
     return equalized[data_indices]
 QAM_est = get_payload(equalized_Hest)
-plt.plot(QAM_est.real, QAM_est.imag, 'bo')
-plt.title("Received Constelation")
-plt.xlabel("Real Part (I)")
-plt.ylabel("Imaginary Part (Q)")
-plt.show()
 
 
 
@@ -216,8 +227,23 @@ mapping_table = {
     (1,1) :  1+1j,
 }
 
+constellation_points = np.array(list(mapping_table.values()))
+
+
+plt.plot(QAM_est.real, QAM_est.imag, 'bo')
+plt.plot(constellation_points.real, constellation_points.imag, 'ro')
+plt.title("Received Constelation")
+plt.xlabel("Real Part (I)")
+plt.ylabel("Imaginary Part (Q)")
+plt.show()
+
+
+
+
+
 demapping_table = {v : k for k, v in mapping_table.items()}
 
+print(demapping_table)
 
 def Demapping(QAM):
     # array of possible constellation points
@@ -238,14 +264,16 @@ def Demapping(QAM):
 
 PS_est, hardDecision = Demapping(QAM_est)
 
+print(str(len(PS_est)))
 
-for qam, hard in zip(QAM_est, hardDecision):
-    plt.plot([qam.real, hard.real], [qam.imag, hard.imag], 'b-o')
-    plt.plot(hardDecision.real, hardDecision.imag, 'ro')
-plt.title("Hard Decision Mapping")
-plt.xlabel("Real Part (I)")
-plt.ylabel("Imaginary Part (Q)")
-plt.show()
+
+# for qam, hard in zip(QAM_est, hardDecision):
+#     plt.plot([qam.real, hard.real], [qam.imag, hard.imag], 'b-o')
+#     plt.plot(hardDecision.real, hardDecision.imag, 'ro')
+# plt.title("Hard Decision Mapping")
+# plt.xlabel("Real Part (I)")
+# plt.ylabel("Imaginary Part (Q)")
+# plt.show()
 
 
 # Removed the bit error calc because ti took lots of compute
@@ -256,6 +284,7 @@ bits = np.load("../masters_large_data/final_testing/com_testing/bits.npy")
 
 def PS(bits):
     return bits.reshape((-1,))
+
 bits_est = PS(PS_est)
 print ("Obtained Bit error rate: ", np.sum(abs(bits-bits_est))/len(bits))
 

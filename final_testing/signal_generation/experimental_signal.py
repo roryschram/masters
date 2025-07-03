@@ -14,6 +14,7 @@ Below is my offcial code to generate an OFDM like waveform that has 1250 carrier
 bw = 12e6  # Bandwidth = 10 MHz
 subcarrier_spacing = 1525.87891
 n_subcarriers = 16384  # FFT size
+all_carriers = np.arange(10000)
 fs = subcarrier_spacing * n_subcarriers  # Sampling rate fs => 16.66666667MHz
 
 # Here I define the number of active subcarriers and pilots
@@ -90,6 +91,7 @@ data_iter = iter(data_symbols)
 
 print("Pilot Indices:")
 print(pilot_indices)
+np.save("../masters_large_data/final_testing/com_testing/pilot_indices.npy",pilot_indices)
 
 for i in range(active_subcarriers):
     if i in pilot_indices:
@@ -99,16 +101,24 @@ for i in range(active_subcarriers):
 
 
 
-pilot_indices_shifted = pilot_indices
-# ofdm_symbols = np.pad(ofdm_symbols,(175,175),mode="constant")
 
-np.save("../masters_large_data/final_testing/com_testing/pilot_indices_shifted.npy",pilot_indices_shifted)
+# ofdm_symbols = np.pad(ofdm_symbols,(175,175),mode="constant")
 np.save("../masters_large_data/final_testing/com_testing/pilot_symbols.npy",pilot_symbols)
 
 
 
 
-plt.plot(np.abs(ofdm_symbols))
+# === Time Domain OFDM Symbol ===
+pad_amount = (n_subcarriers-active_subcarriers)//2
+print("Pad amount: "+str(pad_amount))
+ofdm_symbol = np.pad(ofdm_symbols,(pad_amount,pad_amount),mode="constant",constant_values=0+0j)
+pilot_indices_shifted = pilot_indices + pad_amount
+all_carriers_shifted = all_carriers + pad_amount
+np.save("../masters_large_data/final_testing/com_testing/all_carriers_shifted.npy",all_carriers_shifted)
+np.save("../masters_large_data/final_testing/com_testing/pilot_indices_shifted.npy",pilot_indices_shifted)
+
+
+plt.plot(np.abs(ofdm_symbol))
 plt.title("Full symbol in frequency domain")
 plt.xlabel("Frequency bins")
 plt.ylabel("Value")
@@ -117,15 +127,7 @@ for bin_idx in pilot_indices_shifted:
 plt.show()
 
 
-# === Time Domain OFDM Symbol ===
-pad_amount = (n_subcarriers-active_subcarriers)//2
-print("Pad amount: "+str(pad_amount))
-ofdm_symbol = np.pad(ofdm_symbols,(pad_amount,pad_amount),mode="constant",constant_values=0+0j)
-
-plt.plot(np.abs(ofdm_symbol))
-plt.show()
-
-ofdm_symbol_time = np.fft.fft(np.fft.fftshift(ofdm_symbol))
+ofdm_symbol_time = np.fft.ifft(np.fft.fftshift(ofdm_symbol))
 
 plt.plot(np.real(ofdm_symbol_time))
 plt.plot(np.imag(ofdm_symbol_time))
@@ -136,12 +138,12 @@ ofdm_symbol_time /= np.max(np.abs(ofdm_symbol_time))  # Avoid clipping
 
 
 # === Compute FFT of the OFDM signal (with CP) ===
-n_fft_plot = n_subcarriers  # Use zero-padding for better resolution
-spectrum = np.fft.fftshift(np.fft.fft(ofdm_symbol_time, n=n_fft_plot))
+# n_fft_plot = n_subcarriers  # Use zero-padding for better resolution
+spectrum = np.fft.fftshift(np.fft.fft(ofdm_symbol_time))
 spectrum_magnitude_db = 20 * np.log10(np.abs(spectrum) + 1e-12)  # avoid log(0)
 
 # Frequency axis in MHz
-freq_axis = np.linspace(-fs/2, fs/2, n_fft_plot) / 1e6
+# freq_axis = np.linspace(-fs/2, fs/2, n_fft_plot) / 1e6
 
 # === Plot Spectrum ===
 # plt.figure(figsize=(10, 4))
@@ -183,7 +185,7 @@ plt.show()
 
 # Open a .dat file in binary write mode
 with open("../masters_large_data/transmitted_data/transmit.dat", 'wb') as f:
-    for sample in ofdm_symbol:
+    for sample in ofdm_symbol_time:
         # Write the real part (I) as 64-bit double
         f.write(np.double(sample.real).tobytes())
         # Write the imaginary part (Q) as 64-bit double
