@@ -18,9 +18,9 @@ from matplotlib.axes import Axes
 
 # Input parameters
 fs = 25e6
-n_subcarriers = 16384  # FFT size
-active_subcarriers = 10000
-n_pilots = 2000
+n_subcarriers = 32768  # FFT size
+active_subcarriers = 24000
+n_pilots = 4000
 n_data = active_subcarriers - n_pilots
 
 

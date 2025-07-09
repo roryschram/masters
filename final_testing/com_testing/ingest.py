@@ -8,8 +8,8 @@ from scipy import interpolate
 
 # Input signal parameters here
 fs = 25e6
-fft_bins = 16384
-allCarriers = np.arange(10000)
+fft_bins = 32768
+allCarriers = np.arange(24000)
 pilot_value = 3+3j
 
 
@@ -198,7 +198,7 @@ plt.show()
 
 def equalize(OFDM_demod, Hest):
     return OFDM_demod / Hest
-    # return OFDM_demod   
+    # return OFDM_demod
 
 equalized_Hest = equalize(spectrum[all_carriers_shifted], Hest)
 
