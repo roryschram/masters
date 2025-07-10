@@ -12,7 +12,7 @@ fft_bins = 32768
 allCarriers = np.arange(24000)
 pilot_value = 3+3j
 
-
+graphs = True
 
 
 
@@ -33,15 +33,6 @@ def read_complex_data_from_dat(filename):
 received_data = read_complex_data_from_dat("../masters_large_data/received_data/receive.dat")
 # received_data = read_complex_data_from_dat("../masters_large_data/transmitted_data/transmit.dat")
 transmitted_data = read_complex_data_from_dat("../masters_large_data/transmitted_data/transmit.dat")
-
-
-
-# Cut off first cool down period of capture
-# received_data = received_data[1000000:]
-
-
-# received_data = np.pad(received_data,(100000,100000),mode="constant",constant_values=0+0j)
-
 
 
 
@@ -70,86 +61,8 @@ freq_axis = np.linspace(-fs/2, fs/2, fft_bins) / 1e6
 pilot_indices_shifted = np.load("../masters_large_data/final_testing/com_testing/pilot_indices_shifted.npy")
 
 
-fig, axis = plt.subplots(2,1)
-ax:Axes = axis[0]
-
-ax.plot(spectrum_magnitude_db)
-ax.set_title("FFT of data frame")
-ax.set_xlabel("FFT bins")
-ax.set_ylabel("Magnitude (dB)")
-for bin_idx in pilot_indices_shifted:
-    ax.axvline(x=bin_idx, color='red', linestyle='--', linewidth=0.8, alpha=0.7)
-
-
-ax = axis[1]
-
-ax.plot(np.abs(spectrum))
-ax.set_title("Absolute of FFT of data frame")
-ax.set_xlabel("FFT bins")
-ax.set_ylabel("Magnitude")
-for bin_idx in pilot_indices_shifted:
-    ax.axvline(x=bin_idx, color='red', linestyle='--', linewidth=0.8, alpha=0.7)
-
-
-plt.tight_layout()
-plt.show()
-
-
-
-
-fig, axis = plt.subplots(2,1)
-
-axis = axis.flatten()
-ax:Axes = axis[0]
-
-ax.plot(np.real(received_data),label = "Real")
-ax.plot(np.imag(received_data), label = "Imag")
-ax.legend()
-ax.set_title("Raw received signal")
-ax.set_xlabel("Samples")
-ax.set_ylabel("Amplitude")
-
-ax = axis[1]
-ax.plot(np.abs(corr))
-ax.set_title("Correlation of transmitted and received")
-ax.set_xlabel("Samples")
-ax.set_ylabel("|corr|")
-
-plt.tight_layout()
-plt.show()
-
-
-fig, axis = plt.subplots(2,1)
-
-axis = axis.flatten()
-ax:Axes = axis[0]
-
-ax = axis[0]
-ax.plot(np.real(frame),label = "Real")
-ax.plot(np.imag(frame), label = "Imag")
-ax.legend()
-ax.set_title("Roughly extracted frame")
-ax.set_xlabel("Samples")
-ax.set_ylabel("Amplitude")
-
-ax = axis[1]
-ax.plot(spectrum_magnitude_db)
-ax.set_title("FFt of roughly extracted frame")
-ax.set_xlabel("Freq (Hz)")
-ax.set_ylabel("Amplitude")
-
-for bin_idx in pilot_indices_shifted:
-    ax.axvline(x=bin_idx, color='red', linestyle='--', linewidth=0.5, alpha=0.7)
-
-plt.tight_layout()
-plt.show()
-
 print(pilot_indices_shifted)
 
-
-
-plt.plot(np.abs(spectrum))
-plt.show()
 
 print(allCarriers)
 
@@ -159,9 +72,6 @@ pilot_indices = np.load("../masters_large_data/final_testing/com_testing/pilot_i
 
 print(pilot_indices)
 print(pilot_indices_shifted)
-
-plt.plot(spectrum)
-plt.show()
 
 print(str(len(pilot_indices)))
 print(str(len(pilot_symbols)))
@@ -179,10 +89,10 @@ def channelEstimate(OFDM_demod):
     Hest = Hest_abs * np.exp(1j*Hest_phase)
     
     # plt.stem(pilotCarriers, np.fft.fftshift(abs(Hest_at_pilots)), label='Pilot estimates')
-    plt.plot(allCarriers, np.abs(Hest), label='Estimated channel via interpolation')
-    plt.title("Channel estimation based on pilots")
-    plt.grid(True); plt.xlabel('Carrier index'); plt.ylabel('$|H(f)|$')
-    plt.show()
+    # plt.plot(allCarriers, np.abs(Hest), label='Estimated channel via interpolation')
+    # plt.title("Channel estimation based on pilots")
+    # plt.grid(True); plt.xlabel('Carrier index'); plt.ylabel('$|H(f)|$')
+    # plt.show()
     
     return Hest
 
@@ -192,23 +102,11 @@ temp = spectrum[all_carriers_shifted]
 Hest = channelEstimate(temp)
 
 
-
-plt.plot(spectrum)
-plt.show()
-
 def equalize(OFDM_demod, Hest):
     return OFDM_demod / Hest
     # return OFDM_demod
 
 equalized_Hest = equalize(spectrum[all_carriers_shifted], Hest)
-
-
-plt.plot(np.abs(equalized_Hest))
-plt.title("Equalised Carriers Absoluted")
-plt.xlabel("Samples")
-plt.ylabel("|H(f)|")
-plt.tight_layout()
-plt.show()
 
 
 print(allCarriers)
@@ -235,17 +133,6 @@ mapping_table = {
 }
 
 constellation_points = np.array(list(mapping_table.values()))
-
-
-plt.plot(QAM_est.real, QAM_est.imag, 'bo')
-plt.plot(constellation_points.real, constellation_points.imag, 'ro')
-plt.title("Received Constelation")
-plt.xlabel("Real Part (I)")
-plt.ylabel("Imaginary Part (Q)")
-plt.show()
-
-
-
 
 
 demapping_table = {v : k for k, v in mapping_table.items()}
@@ -299,8 +186,85 @@ print ("Obtained Bit error rate: ", (np.sum(bits != bits_est)/len(bits)*100))
 sent = bits
 recv = bits_est
 
-print("Sent: ", ''.join(str(b) for b in sent))
+# print("Sent: ", ''.join(str(b) for b in sent))
 print("Recv: ", ''.join(str(b) if b == s else f"\033[91m{b}\033[0m"
                      for b, s in zip(recv, sent)))  # red highlight
+
+
+
+
+if graphs :
+    fig , axes = plt.subplots(2,4)
+    axes = axes.flatten()
+
+
+    ax:Axes = axes[0]
+    ax.plot(np.real(received_data),label = "Real")
+    ax.plot(np.imag(received_data), label = "Imag")
+    ax.legend(loc='upper right')
+    ax.set_title("Raw received signal")
+    ax.set_xlabel("Samples")
+    ax.set_ylabel("Amplitude")
+
+    ax = axes[1]
+    ax.plot(np.abs(corr))
+    ax.set_title("Correlation of transmitted and received")
+    ax.set_xlabel("Samples")
+    ax.set_ylabel("Magnitude")
+
+
+    ax = axes[2]
+    ax.plot(np.abs(corr))
+    ax.set_title("Correlation of transmitted and received")
+    ax.set_xlabel("Samples")
+    ax.set_ylabel("Magnitude")
+    ax.set_xlim(pos_max-20,pos_max+20)
+
+    ax = axes[3]
+    ax.plot(np.real(frame),label = "Real")
+    ax.plot(np.imag(frame), label = "Imag")
+    ax.legend(loc='upper right')
+    ax.set_title("Extracted Frame")
+    ax.set_xlabel("Samples")
+    ax.set_ylabel("Amplitude")
+
+
+
+    ax = axes[4]
+    ax.plot(np.real(spectrum), label="Real")
+    ax.plot(np.imag(spectrum), label="Imag")
+    ax.set_title("FFT of data frame")
+    ax.set_xlabel("FFT Bins")
+    ax.set_ylabel("Value")
+    ax.legend(loc='upper right')
+    # for bin_idx in pilot_indices_shifted:
+    #     ax.axvline(x=bin_idx, color='red', linestyle='--', linewidth=0.4)
+
+
+    ax = axes[5]
+    ax.plot(spectrum_magnitude_db)
+    ax.set_title("FFT of extracted frame")
+    ax.set_xlabel("FFT Bins")
+    ax.set_ylabel("dB")
+
+
+    ax = axes[6]
+    ax.plot(np.abs(Hest))
+    ax.set_title("Channel Estimate")
+    ax.set_xlabel("FFT Bins")
+    ax.set_ylabel("Magnitude")
+
+
+    ax = axes[7]
+    ax.plot(QAM_est.real, QAM_est.imag, 'bo')
+    ax.plot(constellation_points.real, constellation_points.imag, 'ro')
+    ax.set_title("Received Constelation")
+    ax.set_xlabel("Real Part (I)")
+    ax.set_ylabel("Imaginary Part (Q)")
+
+
+    fig.set_size_inches(15,8)
+    plt.tight_layout()
+    plt.show()
 
 
