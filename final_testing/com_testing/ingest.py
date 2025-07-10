@@ -180,15 +180,15 @@ def PS(bits):
     return bits.reshape((-1,))
 
 bits_est = PS(PS_est)
-print ("Obtained Bit error rate: ", (np.sum(bits != bits_est)/len(bits)*100))
+print ("Obtained Bit error rate: " + str(np.sum(bits != bits_est)/len(bits)*100) + "%")
 
 
 sent = bits
 recv = bits_est
 
 # print("Sent: ", ''.join(str(b) for b in sent))
-print("Recv: ", ''.join(str(b) if b == s else f"\033[91m{b}\033[0m"
-                     for b, s in zip(recv, sent)))  # red highlight
+# print("Recv: ", ''.join(str(b) if b == s else f"\033[91m{b}\033[0m"
+#                      for b, s in zip(recv, sent)))  # red highlight
 
 
 
@@ -266,5 +266,10 @@ if graphs :
     fig.set_size_inches(15,8)
     plt.tight_layout()
     plt.show()
+
+
+
+print()
+print(str(pos_max))
 
 

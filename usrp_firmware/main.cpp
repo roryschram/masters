@@ -104,6 +104,7 @@ void transmit_vector(uhd::usrp::multi_usrp::sptr tx_usrp, std::vector<std::compl
     uhd::stream_args_t stream_args("fc64","sc16");
     // stream_args.args["underflow_policy"] = "next_burst";
     uhd::tx_streamer::sptr tx_stream = tx_usrp->get_tx_stream(stream_args);
+    
         
     uhd::tx_metadata_t md;
     md.has_time_spec = true;
@@ -124,6 +125,7 @@ void transmit_vector(uhd::usrp::multi_usrp::sptr tx_usrp, std::vector<std::compl
         tx_stream->send(pBuffs,buffers.size(),md,0.1);
         md.end_of_burst=true;
         tx_stream->send("",0,md,0.1);
+
         return;
     }else{
         //std::cout<<"IN WHILE LOOP: "<<maxTransmitSize<<"\n";
@@ -223,8 +225,32 @@ std::vector<std::complex<double>> receive_vector(uhd::usrp::multi_usrp::sptr rx_
         //increment num samples receieved
         numSamplesReceived+=numNewSamples;
         rxMetaData.has_time_spec=false; //dont want subsequent packets to wait
-        // rxMetaData.start_of_burst=false;
-        // std::cout<<"Samps received: "<<numSamplesReceived<<"\n";
+
+
+
+
+        if (rxMetaData.error_code != uhd::rx_metadata_t::ERROR_CODE_NONE) {
+            std::cerr << "[RX ERROR] Code: " << rxMetaData.strerror() << std::endl;
+
+            if (rxMetaData.error_code == uhd::rx_metadata_t::ERROR_CODE_TIMEOUT) {
+                std::cerr << "Timeout while streaming — no samples received in time.\n";
+            } else if (rxMetaData.error_code == uhd::rx_metadata_t::ERROR_CODE_OVERFLOW) {
+                std::cerr << "Overflow — samples dropped. Consider lowering rate or increasing buffer size.\n";
+            } else if (rxMetaData.error_code == uhd::rx_metadata_t::ERROR_CODE_LATE_COMMAND) {
+                std::cerr << "Late command — command missed scheduling deadline.\n";
+            } else if (rxMetaData.error_code == uhd::rx_metadata_t::ERROR_CODE_BROKEN_CHAIN) {
+                std::cerr << "Broken chain — data stream was disrupted.\n";
+            } else if (rxMetaData.error_code == uhd::rx_metadata_t::ERROR_CODE_BAD_PACKET) {
+                std::cerr << "Bad packet — corrupted data detected.\n";
+            } else if (rxMetaData.error_code == uhd::rx_metadata_t::ERROR_CODE_ALIGNMENT) {
+                std::cerr << "Alignment error — misalignment in stream timing.\n";
+            } else {
+                std::cerr << "Unknown or unhandled error code.\n";
+            }
+
+        }
+
+
     }
 
     // stream_cmd.stream_now = false;
@@ -298,11 +324,9 @@ int UHD_SAFE_MAIN(int argc, char *argv[]) {
     
     
     
-    tx_usrp->set_sync_source(uhd::device_addr_t("clock_source=internal,time_source=none"));
-    rx_usrp->set_sync_source(uhd::device_addr_t("clock_source=mimo,time_source=mimo"));
-    // rx_usrp->set_clock_source(CONFIG::RX_CLOCK);
-    // rx_usrp->set_time_source("mimo");
-    std::cout<<"\nREF CLOCK SET AND RX CLOCK SET";
+
+
+
 
     
 
@@ -338,6 +362,13 @@ int UHD_SAFE_MAIN(int argc, char *argv[]) {
     // Ridiculously important statement that giets rid of weird noise in beginning of record
     //tx_usrp->set_tx_dc_offset(1.0);
     //rx_usrp->set_rx_dc_offset(1.0);
+
+    tx_usrp->set_sync_source(uhd::device_addr_t("clock_source=internal,time_source=none"));
+    rx_usrp->set_sync_source(uhd::device_addr_t("clock_source=mimo,time_source=mimo"));
+
+
+    // tx_usrp->set_time_now(uhd::time_spec_t(0.0));
+    // rx_usrp->set_time_now(uhd::time_spec_t(0.0));
 
 
 
@@ -397,10 +428,10 @@ int UHD_SAFE_MAIN(int argc, char *argv[]) {
 /////////////////////////////////////////////////////////////////////
 
 
-    tx_usrp->set_time_now(uhd::time_spec_t(0.0));
+    // tx_usrp->set_time_now(uhd::time_spec_t(0.0));
     //////////// Global variables //////////
     auto time_now = tx_usrp->get_time_now();
-    std::cout<<"\nTime now: "<<time_now.get_full_secs() + time_now.get_frac_secs()<<"\n";
+    // std::cout<<"\nTime now: "<<time_now.get_full_secs() + time_now.get_frac_secs()<<"\n";
 
 
 /////////////////////////////////////////////////////////////////////
@@ -411,7 +442,7 @@ int UHD_SAFE_MAIN(int argc, char *argv[]) {
 
 
     std::thread transmit_thread([&]() {
-        //tx_usrp->set_time_unknown_pps(uhd::time_spec_t(0.0));
+        tx_usrp->set_time_now(uhd::time_spec_t(0.0));
         transmit_vector(tx_usrp, transmitVector, time_now, 0.1);
     });
 

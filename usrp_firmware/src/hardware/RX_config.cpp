@@ -73,7 +73,7 @@ namespace RX{
         std::cout << "Actual RX Gain (dB) : " << rx_usrp->get_rx_gain() <<". Out of a possible range:"<< rx_usrp->get_rx_gain_range().to_pp_string()<< std::endl;
         // make sure LO locked (give it a few attempts)
         size_t numlockAttempts=0;
-        while( numlockAttempts<5&&!confirmRxOscillatorsLocked(rx_usrp,CONFIG::RX_CLOCK)){
+        while( numlockAttempts<10&&!confirmRxOscillatorsLocked(rx_usrp,CONFIG::RX_CLOCK)){
             numlockAttempts++;
         }
         
