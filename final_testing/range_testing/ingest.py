@@ -60,17 +60,12 @@ spectrum_magnitude_db = 20 * np.log10(np.abs(spectrum)/len(spectrum) + 1e-12)  #
 freq_axis = np.linspace(-fs/2, fs/2, fft_bins) / 1e6
 
 
-pilot_indices_shifted = np.load("../masters_large_data/final_testing/com_testing/pilot_indices_shifted.npy")
-
-
-print(pilot_indices_shifted)
-
 
 print(allCarriers)
 
-pilot_symbols = np.load("../masters_large_data/final_testing/com_testing/pilot_symbols.npy")
-pilot_indices_shifted = np.load("../masters_large_data/final_testing/com_testing/pilot_indices_shifted.npy")
-pilot_indices = np.load("../masters_large_data/final_testing/com_testing/pilot_indices.npy")
+pilot_symbols = np.load("../masters_large_data/final_testing/range_testing/pilot_symbols.npy")
+pilot_indices_shifted = np.load("../masters_large_data/final_testing/range_testing/pilot_indices_shifted.npy")
+pilot_indices = np.load("../masters_large_data/final_testing/range_testing/pilot_indices.npy")
 
 print(pilot_indices)
 print(pilot_indices_shifted)
@@ -98,7 +93,7 @@ def channelEstimate(OFDM_demod):
     
     return Hest
 
-all_carriers_shifted = np.load("../masters_large_data/final_testing/com_testing/all_carriers_shifted.npy")
+all_carriers_shifted = np.load("../masters_large_data/final_testing/range_testing/all_carriers_shifted.npy")
 
 temp = spectrum[all_carriers_shifted]
 Hest = channelEstimate(temp)
@@ -174,7 +169,7 @@ print(str(len(PS_est)))
 
 # Removed the bit error calc because ti took lots of compute
 
-bits = np.load("../masters_large_data/final_testing/com_testing/bits.npy")
+bits = np.load("../masters_large_data/final_testing/range_testing/bits.npy")
 
 
 
