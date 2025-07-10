@@ -35,6 +35,8 @@ received_data = read_complex_data_from_dat("../masters_large_data/received_data/
 transmitted_data = read_complex_data_from_dat("../masters_large_data/transmitted_data/transmit.dat")
 
 
+received_data = received_data[1000000:]
+
 
 # Get correlation
 corr = signal.correlate(received_data,transmitted_data)
@@ -52,7 +54,7 @@ frame = np.array(received_data[pos_max-fft_bins:pos_max])
 
 # === Compute FFT of the OFDM signal (with CP) ===
 spectrum = np.fft.fftshift(np.fft.fft(frame, n=fft_bins))
-spectrum_magnitude_db = 20 * np.log10(np.abs(spectrum) + 1e-12)  # avoid log(0)
+spectrum_magnitude_db = 20 * np.log10(np.abs(spectrum)/len(spectrum) + 1e-12)  # avoid log(0)
 
 # Frequency axis in MHz
 freq_axis = np.linspace(-fs/2, fs/2, fft_bins) / 1e6
@@ -245,7 +247,7 @@ if graphs :
     ax.plot(spectrum_magnitude_db)
     ax.set_title("FFT of extracted frame")
     ax.set_xlabel("FFT Bins")
-    ax.set_ylabel("dB")
+    ax.set_ylabel("dBV")
 
 
     ax = axes[6]
