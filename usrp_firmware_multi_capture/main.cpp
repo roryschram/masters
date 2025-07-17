@@ -343,7 +343,7 @@ int UHD_SAFE_MAIN(int argc, char *argv[]) {
     received_data.reserve(CONFIG::NUM_SAMPS);
 
 
-    for (int i = 341; i < 441; i++) {
+    for (int i = 31; i < 41; i++) {
         auto capture_number = std::to_string(i);
 
 
@@ -373,8 +373,7 @@ int UHD_SAFE_MAIN(int argc, char *argv[]) {
         receive_thread.join();
 
 
-        saveComplexDataToFile("../../../masters_large_data/received_data/multi_receive/raw_captures/receive"+capture_number+".dat",received_data);
-        
+        saveComplexDataToFile("../../../masters_large_data/final_testing/classification_testing/raw_captures/receive"+capture_number+".dat",received_data);
     }
 
     return EXIT_SUCCESS;
