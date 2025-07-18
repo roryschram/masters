@@ -343,7 +343,7 @@ int UHD_SAFE_MAIN(int argc, char *argv[]) {
     received_data.reserve(CONFIG::NUM_SAMPS);
 
 
-    for (int i = 31; i < 41; i++) {
+    for (int i = 101; i < 151; i++) {
         auto capture_number = std::to_string(i);
 
 
