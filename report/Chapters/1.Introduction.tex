@@ -11,43 +11,26 @@
 %    {\emph{---Daniel Jones}}
 %\vspace{0.5cm}
 % ----------------------------------------------------
-This report outlines the design and implementation of a single pulse classification \gls{radar} that uses an \gls{ofdm} 
-based signal with a flat top spectra. A literature review of RADAR and OFDM is presented, followed by the literature concerned with 
-using OFDM signals in classification RADARs. Next, the design of the surrounding system to transmit and receive data, process 
-the data, and analyse the results is presented. Following this, an experimental design is layed out and explained in detail. Next a 
-simulation is performed and then the real world testing is performed. The results and comparison of the simulation and real world 
-experiment are then discussed.
+This report outlines the design and implementation of a single pulse classification \gls{radar} that uses an \gls{ofdm} based signal with a flat top spectra. A literature review of RADAR and OFDM is presented, followed by the literature concerned with using OFDM signals in classification RADARs. Next, the design of the surrounding system to transmit and receive data, process the data, and analyse the results is presented. Following this, an experimental design is layed out and explained in detail. Next a simulation is performed and then the real world testing is performed. The results and comparison of the simulation and real world experiment are then discussed.
 
 \section{Background}
-RADAR technology has unlocked the ability for humans to be able to see the world around us with a new perspective. 
-This ability to be able to see objects and more specifically, to see information such as position and velocity about 
-these objects has helped with the development of devices and services that are of paramount importance to society. 
-All the current use cases of RADAR do however lack the ability to determine exactly what object is being seen by the 
-overall RADAR system. That is where the use of the OFDM waveform in a RADAR system becomes useful.
+RADAR technology has unlocked the ability for humans to be able to see the world around us with a new perspective. This ability to be able to see objects and more specifically, to see information such as position and velocity about 
+these objects has helped with the development of devices and services that are of paramount importance to society. All the current use cases of RADAR do however lack the ability to determine exactly what object is being seen by the overall RADAR system. That is where the use of the OFDM waveform in a RADAR system becomes useful.
 
 
 
 \section{Problem Statement}
-Current RADAR technology works very well when determining the distance and direction of an object, however, it does 
-not cope well with specific object classification tasks. One of the reasons for this is that current RADAR utilize 
-either a pulse, continuous wave, or chirp waveform, which does not allow for object detection through statistical 
-analysis due to the simple nature of the waveform. This is a drawback of using RADAR systems, since if object 
-classification is desired, then a combination of radar and some other technology such as cameras would have to 
-be used which increases the cost and complexity of the system as a whole.
+Current RADAR technology works very well when determining the distance and direction of an object, however, it does not cope well with specific object classification tasks. One of the reasons for this is that current RADAR utilize either a pulse, continuous wave, or chirp waveform, which does not allow for object detection through statistical analysis due to the simple nature of the waveform. This is a drawback of using RADAR systems, since if object  classification is desired, then a combination of radar and some other technology such as cameras would have to be used which increases the cost and complexity of the system as a whole.
 
 \section{Objectives}
-The goal of this project is to build a RADAR system that can simultaneously act as a normal RADAR which can determine 
-the distance and direction of an object, as well as classify the specific object that it is looking at when compared 
-to other example objects. The aim is to implement an OFDM based waveform into a RADAR system that would give the 
-flexibility to analyze the returned signal statistically and determine what exactly the object is. The goal is 
-to make a non-realtime system, that can distinguish between three different objects.
+The goal of this project is to build a RADAR system that can simultaneously act as a normal RADAR which can determine the distance and direction of an object, as well as classify the specific object that it is looking at when compared to other example objects. The aim is to implement an OFDM based waveform into a RADAR system that would give the flexibility to analyze the returned signal statistically and determine what exactly the object is. The goal is to make a non-realtime system, that can distinguish between three different objects.
 
 
 \section{System Requirements}
 The RADAR project has the following requirements:
 
 \subsection{Hardware Requirements}
-The main hardware for the project should be widely available computer/scientific equipment. The availability of computer equipment is generally larger than most of the other required equipment such as the \gls{sdr} equipment. The SDR equipment is much less widely available due to the high price of the equipment itself. This is fine however, since the \gls{uct} has in their control multiple \gls{usrp} N210 devices designed and manufactured by Ettus research which will be perfect for my project.
+The main hardware for the project should be widely available computer scientific equipment. The availability of computer equipment is generally larger than most of the other required equipment such as the \gls{sdr} equipment. The SDR equipment is much less widely available due to the high price of the equipment itself. This is fine however, since the \gls{uct} has in their control multiple \gls{usrp} N210 devices designed and manufactured by Ettus research which will be perfect for my project.
 
 test 1234
 
@@ -57,11 +40,7 @@ test 1234
 \end{enumerate}
 
 \section{Scope and Limitations}
-The scope of this project has been set to not include design of RADAR hardware specifically. This is because 
-design of RADAR hardware is a complex task that would probably encompass an entire masters project in and of 
-itself. Therefore, the RADAR hardware portion of the project will be handled by a \gls{sdr}. This extrapolates 
-the complec RADAR hardware design aspect away from the project and allows me to focus on the data collection and 
-processing aspect of the project.
+The scope of this project has been set to not include design of RADAR hardware specifically. This is because design of RADAR hardware is a complex task that would probably encompass an entire masters project in and of itself. Therefore, the RADAR hardware portion of the project will be handled by a \gls{sdr}. This extrapolates the complex RADAR hardware design aspect away from the project and allows me to focus on the data collection and processing aspect of the project.
 
 % ----------------------------------------------------
 \ifstandalone
