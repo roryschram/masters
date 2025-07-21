@@ -12,9 +12,9 @@ fft_bins = 32768
 allCarriers = np.arange(24000)
 pilot_value = 3+3j
 
-graphs = False
+graphs = True
 
-capture_number = 1
+capture_number = 171
 
 
 

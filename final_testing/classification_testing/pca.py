@@ -11,13 +11,13 @@ from mpl_toolkits.mplot3d import Axes3D
 # Settings for PCA
 
 # Number of captures to ingest
-ingest_number = 150
+ingest_number = 200
 
 # Number of captures per target
 captures_per_target = 50
 
 # Labels
-labels_pre = ['1st','2nd','3rd']
+labels_pre = ['Nothing','Me standing','Me standing again','Me and Khivvy']
 
 
 
@@ -26,15 +26,30 @@ labels_pre = ['1st','2nd','3rd']
 channel_ests = []
 
 
+# fig = plt.subplot()
+
 for i in range(1,ingest_number+1,1):
     input = np.load("../masters_large_data/final_testing/classification_testing/channel_ests/channel_est"+str(i)+".npy")
     channel_ests.append(np.abs(input))
-#     axs.plot(np.abs(input))
+    # plt.plot(np.abs(input))
 
-# axs.set_title("40 Channel Estimations")
-# axs.set_xlabel("Channels")
-# axs.set_ylabel("Channel Est")
+# plt.title("40 Channel Estimations")
+# plt.xlabel("Channels")
+# plt.ylabel("Channel Est")
 # plt.show()
+
+
+
+channel_est_cutout = channel_ests[150:200]
+row_means = np.mean(channel_est_cutout, axis=1,keepdims=True)   # Step 1: Mean of each row
+overall_mean = np.mean(row_means)  # Step 2: Mean of the row means
+
+
+centered_arr = channel_est_cutout - row_means + overall_mean  # broadcasting handles dimensions
+# channel_ests[150:200] = centered_arr
+
+
+
 
 
 labels = []
@@ -60,7 +75,7 @@ scaler = StandardScaler()
 X_scaled = scaler.fit_transform(X)
 
 # Apply PCA
-pca = PCA(n_components=20)
+pca = PCA(n_components=10)
 X_pca = pca.fit_transform(X_scaled)
 
 # print(pca.explained_variance_ratio_)
