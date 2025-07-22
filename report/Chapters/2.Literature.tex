@@ -15,14 +15,14 @@ I will separate the literature review into distinct sections, where I will explo
 
 
 
-\section{RADAR}
+\section{Classical RADAR}
 \subsection{Brief History}
 The fundamental idea behind RADAR systems and the technology itself were first theorized during the classical electromagnetic radiation experiments of the 1880s performed by Heinrich Hertz \cite{skolnik_radar_2024}. These experiments set out to prove the previous theoretical work achieved by James Clerk Maxwell. Maxwell came up with the formulae that described electromagnetic fields, and he hypothesized that this formula would apply to both light and radio waves since they were both examples of electromagnetic radiation just at vastly different frequencies. This has obviously since been proved, with visible light roughly falling into the 400THz to 700THz frequency range. The work done by Maxwell led to the discovery that electromagnetic waves can be reflected by metallic objects and refracted by a dielectric medium, just like light can \cite{skolnik_radar_2024}. This work did not go unnoticed and a patent for an "an obstacle detector and ship navigation device" was issued in 1904 to Christian Hülsmeyer, a German engineer \cite{skolnik_radar_2024}. Work on RADAR then slowed down due to a lack of interest from governmental authorities until the early 1930s, when the development of long-range bombers prompted the major powers of the world to develop technologies which could detect these hostile aircraft, which would be useful for the coming second world war.
 
 
 
 \subsection{RADAR Workings}
-At its core, a RADAR is defined as an instrument that can detect surrounding objects using radio waves. Do achieve this, there are multiple different setups of RADAR systems, which will be discussed later. These RADAR setups however all rely on the follwoing fundamental laws of physics which are listed below \cite{christian_wolff_physical_2024}:
+At its core, a RADAR is defined as an instrument that can detect surrounding objects using radio waves. To achieve this, there are multiple different setups of RADAR systems, which will be discussed later. These RADAR setups however all rely on the following fundamental laws of physics which are listed below \cite{christian_wolff_physical_2024}:
 
 \begin{enumerate}
     \item \textbf{Reflection of electromagnetic waves}: This rule describes how a radio wave will be reflected back towards a transmitter of said radio wave if the object is placed directly in front of the transmitter. This reflection indicates that the object is in front of the transmitter.
@@ -30,11 +30,9 @@ At its core, a RADAR is defined as an instrument that can detect surrounding obj
     \item \textbf{Electromagnetic energy normally travels through space in a straight line}: This describes how the energy transmitted by an antenna in a radar system propagates through space in a straight line. This is important because it means that the energy of the RADAR system can be directed in a specific direction by the antenna system, which means that the reflecting object's direction (azimuth and elevation) can be determined.
 \end{enumerate}
 
-Using the above-mentioned physical properties, the distance, azimuth, and elevation of the object that is being observed by the radar system can be determined.
+In a classic pulsed RADAR, essentially the most simple kind of RADAR that is used today, by using the above-mentioned physical properties, the distance, azimuth, and elevation of the object that is being observed by the radar system can be determined. The best example of this sort of RADAR system is an airport RADAR. An \gls{asr} is used at airports to determine the presence and position of aircraft in the vicinity of an airport. Typically, ASR systems are capable of reliably detecting and tracking aircraft at altitudes below 25,000 feet (7,620 meters) and within 40 to 60 nautical miles (75 to 110 km) of the airport \cite{everythingrf_what_2022}.
 
-Classical RADAR systems can be separated into a few different categories \cite{christian_wolff_classification_nodate}. Broadly, you get primary and secondary RADARs that are separated into imaging and non-imaging RADARs. An imaging RADAR is one which desires to draw an image, such as a weather RADAR, and a non-imaging RADAR is one which does not draw an image but rather infers information about a target based on processing techniques. Primary RADARs rely on echos from a target that come from it's own transmitted pulse, whereas a secondary radar relies on a RADAR response signal from a target. This is usually only possible for "friendly" targets.
-
-This can be seen in figure \ref{fig:classification_of_radar_systems} below:
+Classical RADAR systems can be separated into a few different categories \cite{christian_wolff_classification_nodate}. Broadly, you get primary and secondary RADARs that are separated into imaging and non-imaging RADARs. An imaging RADAR is one which desires to draw an image, such as a weather RADAR, and a non-imaging RADAR is one which does not draw an image but rather infers information about a target based on processing techniques. Primary RADARs rely on echos from a target that come from it's own transmitted pulse, whereas a secondary radar relies on a RADAR response signal from a target. Sometimes, the ASR systems mentioned previously have secondary radar systems built-in which allow the aircraft being detected to broadcast vital information to aid with air traffic control. This is usually only possible for "friendly" targets. The various catagorizations of RADAR types can be seen in figure \ref{fig:classification_of_radar_systems} below:
 
 
 
@@ -45,12 +43,14 @@ This can be seen in figure \ref{fig:classification_of_radar_systems} below:
 \label{fig:classification_of_radar_systems}
 \end{figure}
 
+\textbf{\textcolor{red}{Note to self, I don't think I like this image}}
+
 
 
 
 
 \subsection{Advantages and Disadvantages of RADAR}
-Since RADAR utilizes the electromagnetic spectrum, there are distinct advantages concerning the use of RADAR systems \cite{christian_wolff_physical_2024}. The main advantage is that, unlike humans, RADAR systems can operate day and night, 24/7, over far distances, in good or bad weather. Compared to human eyes, this is obviously a lot better.
+Since RADAR utilizes the electromagnetic spectrum, there are distinct advantages concerning the use of RADAR systems \cite{christian_wolff_physical_2024}. The main advantage is that, unlike humans, RADAR systems can operate day and night, 24/7, over far distances, in good or bad weather. Compared to human eyes, this is obviously a lot better. Some other advantages of classic RADAR is that it can generally "see" through insulators, and it can also distinguish the difference between fixed and moving targets \cite{mishra_radar_2024}. Some disadvantages however, are that classical RADAR systems generally struggle to resolve targets that are very close to the transmitter, and they cannot penetrate water very well \cite{mishra_radar_2024}. Classical RADAR systems also fail to distinguish between shapes of object that they are looking at.
 
 
 
@@ -59,10 +59,10 @@ Since RADAR utilizes the electromagnetic spectrum, there are distinct advantages
 
 \section{OFDM}
 \subsection{Brief History}
-The broad idea of OFDM transmission techniques has been around for many years, however, it was never implemented in communication channels until the appearance of mass market applications coincided with the availability of efficient software and electronic technologies \cite{weinstein_history_2009}. Before OFDM was implemented in the mass market telecommunication industry however, there was \gls{fdm}.
+The general working principles, and the mathematics required for OFDM were originally described by Robert Chang in 1966 while he was working at Bell Labs \cite{computer_science_lessons_ofdm}. While the idea of OFDM was smart, it didn't become popular until sufficiently cheap microprocessors entered the market \cite{computer_science_lessons_ofdm}. OFDM was never implemented in commercial communication channels until the appearance of mass market applications coincided with the availability of efficient software and electronic technologies \cite{weinstein_history_2009}.
 
-\subsubsection{FDM}
-FDM system innovation was driven out of necessity due to telegraph companies hoping to increase the amount of users that could utilize their transmission lines to increase profits from their systems \cite{weinstein_history_2009}. Transmission companies were in search of a method to have multiple messages being sent on the same transmission line at simultaneously. Other methods had been used such as \gls{tdm}, and \gls{tdma}. These methods were however limited by burst speed which was itself limited by inter-symbol interference. Around the 1920s, FDM became the main carrier system for telephone companies. The first major company to deploy the system was \gls{att}. This initial deployment of the system used 8kHz subchannels with 4kHz allocated to each channel. This form of transmission system later developed into systems that had more subcarrier channels with less subcarrier spacing. There were however some drawbacks to FDM, which are highlighted below:
+\subsubsection{Previous Transmission Techniques}
+Before OFDM there was \gls{fdm}. FDM system innovation was driven out of necessity due to telegraph companies hoping to increase the amount of users that could utilize their transmission lines to increase profits from their systems \cite{weinstein_history_2009}. Transmission companies were in search of a method to have multiple messages being sent on the same transmission line at simultaneously. Other methods had been used such as \gls{tdm}, and \gls{tdma}. These methods were however limited by burst speed which was itself limited by inter-symbol interference. Around the 1920s, FDM became the main carrier system for telephone companies. The first major company to deploy the system was \gls{att}. This initial deployment of the system used 8kHz subchannels with 4kHz allocated to each channel. This form of transmission system later developed into systems that had more subcarrier channels with less subcarrier spacing. There were however some drawbacks to FDM, which are highlighted below:
 
 \begin{enumerate}
     \item \textbf{Waste of frequency}: Due to the large subcarrier spacing, FDM wasted a lot of precious frequency spectrum to these so-called "guard" bands on either side of the carrier. As the frequency spectrum became more crowded throughout the years, these guard bands became a liability due to demand for spectrum being to high, and the guard bands were not effciently using the spectrum.
@@ -73,30 +73,47 @@ To compensate for this inefficient use of the frequency spectrum, OFDM was intro
 
 
 \subsubsection{OFDM}
-As mentioned before, \gls{ofdm} is a method of data transmission that breaks information into bit chunks that are sent in parallel over multiple channels \cite{wright_what_nodate}. The OFDM transmission scheme builds upon FDM where multiple channels are created over a specific bandwidth, and bits of information are sent on each channel in parallel. The main difference between FDM and OFDM is therefore the orthogonality of the OFDM signal. Pictured below in figure \ref{fig:ofdmandfdmwaveforms} is an OFDM, and FDM based waveform. As can be seen, all the peaks of the OFDM waveform have zero interference with any other part of the signal, whereas, with the FDM waveform, the peaks have significant interference from the other channels since the channels are not spaced orthogonally in regard to each other. 
+As mentioned before, \gls{ofdm} is a transmission method that uses the spectrum in a more efficient manor to transmit as much information as possible over a single transmission line. The transmission of information is commonly done using various modulation schemes such as QAM encoding that breaks information into bit chunks that are sent in parallel over multiple channels \cite{wright_what_nodate}. The OFDM transmission scheme builds upon FDM where multiple channels are created over a specific bandwidth, and bits of information are sent on each channel in parallel. The main difference between FDM and OFDM is therefore the orthogonality of the OFDM signal. I have created a crude example below in figure \ref{fig:ofdmandfdmwaveforms}. In fig 1.2a, a crude mockup of an OFDM signal can be seen in the frequency domain. As can be seen, all the peaks of the OFDM waveform have zero interference with any other part of the signal. This is due to the various carriers being orthogonal to each other. Conversely, with the FDM waveform, the peaks have significant interference from the other channels since the channels are not spaced orthogonally in regard to each other.
 
 \begin{figure}[H]
 \centering
-\begin{subfigure}{.5\textwidth}
+\begin{subfigure}{0.49\textwidth}
     \centering
-    \includegraphics[width = 1.0\linewidth]{../Images/Literature/ofdm.png}
-    \caption{OFDM}
+    \includegraphics[width = \linewidth]{../Images/Literature/ofdm.png}
+    \subcaption{OFDM}
     \label{fig:ofdmwaveform}
-\end{subfigure}%
-\begin{subfigure}{.5\textwidth}
+\end{subfigure}
+\hfill
+\begin{subfigure}{0.49\textwidth}
     \centering
-    \includegraphics[width = 1.0\linewidth]{../Images/Literature/fdm.png}
-    \caption{FDM}
+    \includegraphics[width = \linewidth]{../Images/Literature/fdm.png}
+    \subcaption{FDM}
     \label{fig:fdmwaveform}
 \end{subfigure}
 \caption{OFDM and FDM Waveforms}
 \label{fig:ofdmandfdmwaveforms}
 \end{figure}
 
-The above figure gives a broad idea of what goes into an OFDM-based signal, however in practice, the signal used will have vastly more complexity added on concerning error correction and data formats in general. The base signal however will still revolve around the idea of orthogonal carriers.
+I want to touch on the idea of orthogonality. In practice, all it means is that in a signal with multiple sinusoidal carriers, each carrier has a frequency that is a whole number multiple of some fundamental frequency \cite{computer_science_lessons_ofdm}. The time domain voltage signal of an OFDM signal can be described by equation \ref{eq:ofdmequation} below:
 
+\begin{equation}
+    v(t) = \sum_{k=0}^{N-1} X_k e^{\frac{\mathrm{j} 2 \pi k t}{T}}\quad,\quad0 \leqq t < T   \label{eq:ofdmequation}
+\end{equation}
+
+
+\[
+\textbf{where} \quad
+\begin{aligned}
+N & = \text{Number of subcarriers} \\
+X_k & = \text{Data symbols in the frequency domain} \\
+T & = \text{OFDM symbol time (s)}
+\end{aligned}
+\]
+
+The subcarrier spacing of \(\frac{1}{T}\) ensures carrier orthogonality over the OFDM frame, or symbol. In practice, real world implementations of OFDM signals will have vastly more complex components added on concerning error correction and data modulation techniques in general. The base signal however will still revolve around the idea of orthogonal carriers.
 
 \subsection{Advantages and Disadvantages of OFDM}
+As can be seen in the above sections, OFDM is a very useful and versatile transmission technique that is used in a variety of real world applications. While OFDM is a widely used and very good transmission technique, is does come with some pros and cons \cite{rfwirelessworld_ofdm_advantages_disadvantages}. The biggest pro for OFDM, particularly with its use within the telecommunications industry, is the spectral efficiency that can be achieved. Real world OFDM system are also resistant to multipath fading due to the cyclic prefix that these systems implement. Modern OFDM systems can allow for easy equalization with embedded pilot symbols. Equalization is much harder to achieve in a single carrier system. Some cons of OFDM systems however include the following. Firstly, an OFDM transmission can have a high \gls{papr}. This is due to an OFDM signal's noise-like amplitude with a large dynamic range \cite{rfwirelessworld_ofdm_advantages_disadvantages}. Another problem is that OFDM systems are susceptible to carrier frequency offset due to local oscillators not being able to perfectly operate at the same frequency on the transmitter and receiver. 
 
 
 
