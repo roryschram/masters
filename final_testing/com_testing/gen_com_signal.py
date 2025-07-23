@@ -23,7 +23,7 @@ active_subcarriers = 24000
 n_pilots = 4000
 n_data = active_subcarriers - n_pilots
 
-graphs = False
+graphs = True
 
 
 
