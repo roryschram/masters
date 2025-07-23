@@ -228,6 +228,8 @@ if graphs :
 print()
 print("Saving Transmit Signal")
 
+np.save("../masters_large_data/final_testing/com_testing/ofdm_symbol_time.npy",ofdm_symbol_time)
+
 # Open a .dat file in binary write mode
 with open("../masters_large_data/transmitted_data/transmit.dat", 'wb') as f:
     for sample in ofdm_symbol_time:
