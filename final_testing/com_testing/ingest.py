@@ -51,10 +51,12 @@ print("Position of start of frame: "+str(pos_max))
 # Extract rough frame
 frame = np.array(received_data[pos_max-fft_bins:pos_max])
 
+frame = frame - np.mean(frame)
+
 
 # === Compute FFT of the OFDM signal (with CP) ===
 spectrum = np.fft.fftshift(np.fft.fft(frame, n=fft_bins))
-spectrum_magnitude_db = 20 * np.log10(np.abs(spectrum)/len(spectrum) + 1e-12)  # avoid log(0)
+spectrum_magnitude_db = np.log10(np.abs(spectrum)/1.4142135623730951 + 1e-12)  # avoid log(0)
 
 # Frequency axis in MHz
 freq_axis = np.linspace(-fs/2, fs/2, fft_bins) / 1e6
@@ -125,7 +127,6 @@ QAM_est = get_payload(equalized_Hest)
 
 
 
-
 # 16 QAM mapping table
 mapping_table = {
     (0,0) : -1-1j,
@@ -139,7 +140,6 @@ constellation_points = np.array(list(mapping_table.values()))
 
 demapping_table = {v : k for k, v in mapping_table.items()}
 
-print(demapping_table)
 
 def Demapping(QAM):
     # array of possible constellation points
@@ -160,7 +160,6 @@ def Demapping(QAM):
 
 PS_est, hardDecision = Demapping(QAM_est)
 
-print(str(len(PS_est)))
 
 
 # for qam, hard in zip(QAM_est, hardDecision):
@@ -177,13 +176,15 @@ print(str(len(PS_est)))
 bits = np.load("../masters_large_data/final_testing/com_testing/bits.npy")
 
 
-
 def PS(bits):
     return bits.reshape((-1,))
-
 bits_est = PS(PS_est)
-print ("Obtained Bit error rate: " + str(np.sum(bits != bits_est)/len(bits)*100) + "%")
 
+
+
+
+print ("Obtained Bit error rate: " + str(np.sum(bits != bits_est)/len(bits)*100) + "%")
+print(len(bits))
 
 sent = bits
 recv = bits_est
