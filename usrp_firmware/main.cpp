@@ -18,7 +18,8 @@
 
 
 
-std::atomic<bool> isSetupComplete(false);
+std::atomic<bool> isTXsetupComplete(false);
+std::atomic<bool> isRXsetupComplete(false);
 
 std::vector<std::complex<double>> readComplexDataFromFile(const std::string& filename) {
     std::vector<std::complex<double>> complexData;
@@ -110,7 +111,7 @@ void transmit_vector(uhd::usrp::multi_usrp::sptr tx_usrp, std::vector<std::compl
     md.has_time_spec = true;
     md.end_of_burst = false;
     md.time_spec = uhd::time_spec_t(secondsInFuture);
-    md.start_of_burst = false;
+    md.start_of_burst = true;
 
     size_t maxTransmitSize=tx_stream->get_max_num_samps(); //not entirely sure where this comes from
     //std::cout<<"Max Transmit Buffer Size: "<<maxTransmitSize<<"\n";
@@ -118,13 +119,18 @@ void transmit_vector(uhd::usrp::multi_usrp::sptr tx_usrp, std::vector<std::compl
 
     //std::cout<<"full buffer length "<<fullBufferLength<<"\n";
 
+    isTXsetupComplete.store(true);
+
+    while (!isRXsetupComplete) {
+
+    }
+
     if(fullBufferLength<=maxTransmitSize){
         // std::cout<<"OUT OF WHILE LOOP: "<<maxTransmitSize<<"\n";
         std::vector<std::complex<double>*> pBuffs(1,&buffers.front());
-        md.has_time_spec=false; //dont want subsequent packets to wait
         tx_stream->send(pBuffs,buffers.size(),md,0.1);
         md.end_of_burst=true;
-        tx_stream->send("",0,md,0.1);
+        tx_stream->send("",0,md, 0.1);
 
         return;
     }else{
@@ -175,14 +181,19 @@ void transmit_vector(uhd::usrp::multi_usrp::sptr tx_usrp, std::vector<std::compl
 std::vector<std::complex<double>> receive_vector(uhd::usrp::multi_usrp::sptr rx_usrp,size_t numSamples,uhd::time_spec_t time_now, double secondsInFuture){
     //set up receive streamer
     uhd::stream_args_t stream_args("fc64","sc16");
-    // stream_args.args["underflow_policy"] = "next_burst";
     uhd::rx_streamer::sptr rx_stream = rx_usrp->get_rx_stream(stream_args);
+
+    uhd::stream_cmd_t stream_cmd = uhd::stream_cmd_t::STREAM_MODE_START_CONTINUOUS;
+    stream_cmd.stream_now = true;
+    stream_cmd.time_spec = uhd::time_spec_t(secondsInFuture);
+    rx_usrp->issue_stream_cmd(stream_cmd);
+
 
     uhd::rx_metadata_t rxMetaData;
     rxMetaData.has_time_spec = true;
     rxMetaData.end_of_burst = false;
     rxMetaData.time_spec = uhd::time_spec_t(secondsInFuture);
-    rxMetaData.start_of_burst = false;
+    rxMetaData.start_of_burst = true;
 
 
     size_t samps_per_buff=rx_stream->get_max_num_samps();
@@ -200,16 +211,21 @@ std::vector<std::complex<double>> receive_vector(uhd::usrp::multi_usrp::sptr rx_
     std::complex<double>* psampleBuffer = &sampleBuffer[0];
 
 
-    uhd::stream_cmd_t stream_cmd=uhd::stream_cmd_t::STREAM_MODE_START_CONTINUOUS;
-    // // stream_cmd.num_samps  = numSamples;
-    // stream_cmd.stream_now = false;
-    // stream_cmd.time_spec  = uhd::time_spec_t(time_now + secondsInFuture - 0.03);
-    rx_stream->issue_stream_cmd(stream_cmd);
+    // uhd::stream_cmd_t stream_cmd=uhd::stream_cmd_t::STREAM_MODE_START_CONTINUOUS;
+    // // // stream_cmd.num_samps  = numSamples;
+    // stream_cmd.stream_now = true;
+    // // stream_cmd.time_spec  = uhd::time_spec_t(time_now + secondsInFuture - 0.03);
+    // rx_stream->issue_stream_cmd(stream_cmd);
 
 
     // 
     size_t numSamplesReceived=0;
     
+    isRXsetupComplete.store(true);
+
+    while (!isTXsetupComplete) {
+
+    }
         
 
     while (numSamplesReceived<numSamples){
@@ -437,7 +453,7 @@ int UHD_SAFE_MAIN(int argc, char *argv[]) {
 /////////////////////////////////////////////////////////////////////
 ////////////////////// THREAD SECTION ///////////////////////////////
 /////////////////////////////////////////////////////////////////////
-    isSetupComplete.store(true);
+
 
 
 

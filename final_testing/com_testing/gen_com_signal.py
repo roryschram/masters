@@ -140,13 +140,17 @@ ofdm_symbol_time_unnormalised = np.fft.ifft(np.fft.fftshift(ofdm_symbol))
 
 
 # === Normalize ===
-ofdm_symbol_time = ofdm_symbol_time_unnormalised/np.max(np.abs(ofdm_symbol_time_unnormalised))  # Avoid clipping
+# ofdm_symbol_time = ofdm_symbol_time_unnormalised/np.max(np.abs(ofdm_symbol_time_unnormalised))  # Avoid clipping
+ofdm_symbol_time = ofdm_symbol_time_unnormalised
 
 
 # === Compute FFT of the OFDM signal (with CP) ===
 # n_fft_plot = n_subcarriers  # Use zero-padding for better resolution
+
+max = np.max(np.abs(ofdm_symbol))
+
 spectrum = np.fft.fftshift(np.fft.fft(ofdm_symbol_time))
-spectrum_magnitude_db = 20 * np.log10(np.abs(spectrum) + 1e-12)  # avoid log(0)
+spectrum_magnitude_db = np.log10(np.abs(spectrum)/max + 1e-12)
 
 
 
