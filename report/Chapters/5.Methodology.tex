@@ -7,23 +7,38 @@
 \begin{document}
 % ----------------------------------------------------
 \chapter{Methodology \label{ch:methodology}}
+In the following chapter, I would like to highlight my testing procedure, but more importantly the reasoning behind why I make the specific choices that I do as it pertains to experimental setup. The aim of the experiments that are detailed in this chapter is to validate theoretical work, and to ensure that said theoretical work works.
 
-\cite{christian_wolff_physical_2024}
+\section{Experimental Design}
+\subsection{Overview}
+Since the classification capabilities of my RADAR system are based on the principles of OFDM based communication signals, it felt incomplete to do tests which pertain only to the classification capabilities of the designed system. Therefore, I have come up with three completely separate sections of testing, which are listed below:
 
-\section{Research Design and Approach}
- 
+\begin{enumerate}
+    \item \textbf{Communication Testing}: This test is all about how well the system can operate as a bare-bones communication system. The reason I have decided to include this as a test is because, as mentioned before, my entire classification pipeline is built upon OFDM communication principles (namely the use of pilot symbols in determining channel estimation data), and since these OFDM principles are so vital to my project, I thought it would be fitting to make sure that my system can actually operate as a data transmission system. This is also a good way to validate that my channel response, and therefore my equalization principles, are properly working.
+    \item \textbf{Range Testing}: The purpose of the range test will be to determine if the RADAR system can operate as just that, a simple RADAR. This test will be simple, I want to determine if the system can detect object at set distances away from the antenna setup.
+    \item \textbf{Classification Testing}: This is the main testing that will take place for my RADAR system. The idea is that I will take multiple captures of different targets in a specific scene, and try to correctly classify the objects based on their channel responses. 
+\end{enumerate}
 
-\section{Data Collection}\label{sec:datacollection}
+In the following sections, I want to go into detail about the exact testing procedure for each test.
 
-\section{Shorter Range Tests}
+\subsection{Communication Test}
+The communication testing procedure will be paramount in determining if my system is working properly as a communication system, and therefore it is important to check the communication ability to determine if the calculated channel responses are valid.
 
+As mentioned in chapter \ref{ch:systemdesign}, one frame of my OFDM based signal is 32768 samples long. That means that there are 4384 samples either side of my "signal block" that have values equal to zero. These are my guard bands. That leaves 24000 samples for data and pilot symbols. I made my signal have 4000 pilots and 20000 data carriers. Based on this setup, I can transmit 40000 bits at a time. On the reception side, I am able to read ingest raw data, which I can then decode and get my transmitted bits out of. Bearing this in mind, since I have the bits that I transmitted, and the bits that I have received, I am able to compute a BER for the transmission. The performance of the system changes drastically as the overall \gls{snr} of the transmission changes.
 
-\section{Long-Range Test}
+To try and manipulate the SNR of the transmission, I want to perform multiple tests at various amplification levels. At severely low amplification levels, one can deduce that there will be very little signal being transmitted through the system.
+
+\subsection{Range Test Tests}
+
+\subsection{Classification Test}
 
 
 
 % ----------------------------------------------------
 \ifstandalone
+
+\nocite{*}
+
 \bibliography{../Bibliography/References}
 \printnoidxglossary[type=\acronymtype,nonumberlist]
 \fi

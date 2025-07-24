@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.26 (TeX Live 2024) (preloaded format=pdflatex 2024.4.24)  4 NOV 2024 12:15
+This is pdfTeX, Version 3.141592653-2.6-1.40.26 (TeX Live 2024) (preloaded format=pdflatex 2024.4.24)  24 JUL 2025 17:17
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -554,7 +554,7 @@ Package: nextpage 2009/09/03 v1.1a additional page commands
 \epigraphrule=\skip65
 )
 
-Package xcolor Warning: Package option `usenames' is obsolete and ignored on input line 64.
+Package xcolor Warning: Package option `usenames' is obsolete and ignored on input line 69.
 
 (/usr/local/texlive/2024/texmf-dist/tex/latex/hyperref/hyperref.sty
 Package: hyperref 2024-01-20 v7.01h Hypertext links for LaTeX
@@ -658,7 +658,7 @@ Package: hypcap 2016/05/16 v1.12 Adjusting the anchors of captions (HO)
  (/usr/local/texlive/2024/texmf-dist/tex/latex/letltxmacro/letltxmacro.sty
 Package: letltxmacro 2019/12/03 v1.6 Let assignment for LaTeX macros (HO)
 ))
-Package hyperref Info: Option `colorlinks' set `true' on input line 75.
+Package hyperref Info: Option `colorlinks' set `true' on input line 80.
  (/usr/local/texlive/2024/texmf-dist/tex/latex/csquotes/csquotes.sty
 Package: csquotes 2022-09-14 v5.2n context-sensitive quotations (JAW)
 \csq@reset=\count348
@@ -1182,10 +1182,14 @@ Package caption Info: supertabular package is loaded.
 Package caption Info: End \AtBeginDocument code.
 
 Chapter 1.
-(./5.Methodology.bbl [1
+[1
 
 
 {/usr/local/texlive/2024/texmf-var/fonts/map/pdftex/updmap/pdftex.map}{/usr/local/texlive/2024/texmf-dist/fonts/enc/dvips/lm/lm-ec.enc}]
+
+LaTeX Warning: Reference `ch:systemdesign' on page 2 undefined on input line 27.
+
+(./5.Methodology.bbl [2]
 LaTeX Font Info:    Trying to load font information for OT1+lmr on input line 25.
  (/usr/local/texlive/2024/texmf-dist/tex/latex/lm/ot1lmr.fd
 File: ot1lmr.fd 2015/05/01 v1.6.1 Font defs for Latin Modern
@@ -1223,13 +1227,11 @@ File: mt-msb.cfg 2005/06/01 v1.0 microtype config. file: AMS symbols (b) (RS)
 LaTeX Font Info:    Trying to load font information for U+rsfs on input line 25.
  (/usr/local/texlive/2024/texmf-dist/tex/latex/jknapltx/ursfs.fd
 File: ursfs.fd 1998/03/24 rsfs font definition file (jk)
-)) [2
-
-]
-
-Package glossaries Warning: Empty glossary for \printnoidxglossary[type={main}]. Rerun may be required (or you may have forgotten to use commands like \gls) on input line 28.
-
+))
+Using TeX to sort glossary entries---this may take a while
 [3
+
+] [4
 
 
 ] (./5.Methodology.aux)
@@ -1237,22 +1239,26 @@ Package glossaries Warning: Empty glossary for \printnoidxglossary[type={main}].
 LaTeX2e <2023-11-01> patch level 1
 L3 programming layer <2024-02-20>
  ***********
+
+
+LaTeX Warning: There were undefined references.
+
 Package rerunfilecheck Info: File `5.Methodology.out' has not changed.
-(rerunfilecheck)             Checksum: 9F055A4061E94646BCF0EE00C8378E63;916.
+(rerunfilecheck)             Checksum: 0A85B8CF304031BACDF4D498C1ACBF0E;1007.
  ) 
 Here is how much of TeX's memory you used:
- 54957 strings out of 474116
- 1225496 string characters out of 5743682
- 1929187 words of memory out of 5000000
- 76427 multiletter control sequences out of 15000+600000
- 593956 words of font info for 83 fonts, out of 8000000 for 9000
+ 55492 strings out of 474116
+ 1233919 string characters out of 5743682
+ 1938187 words of memory out of 5000000
+ 76891 multiletter control sequences out of 15000+600000
+ 609598 words of font info for 113 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 114i,5n,120p,2495b,1087s stack positions out of 10000i,1000n,20000p,200000b,200000s
-</usr/local/texlive/2024/texmf-dist/fonts/type1/public/lm/lmbx12.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/lm/lmr10.pfb>
-Output written on 5.Methodology.pdf (3 pages, 58293 bytes).
+ 114i,11n,120p,2495b,1099s stack positions out of 10000i,1000n,20000p,200000b,200000s
+</usr/local/texlive/2024/texmf-dist/fonts/type1/public/lm/lmbx10.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/lm/lmbx12.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/lm/lmr10.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/lm/lmri10.pfb>
+Output written on 5.Methodology.pdf (4 pages, 114244 bytes).
 PDF statistics:
- 72 PDF objects out of 1000 (max. 8388607)
- 62 compressed objects within 1 object stream
- 13 named destinations out of 1000 (max. 500000)
- 20549 words of extra memory for PDF output out of 20736 (max. 10000000)
+ 121 PDF objects out of 1000 (max. 8388607)
+ 105 compressed objects within 2 object streams
+ 30 named destinations out of 1000 (max. 500000)
+ 28749 words of extra memory for PDF output out of 29859 (max. 10000000)
 

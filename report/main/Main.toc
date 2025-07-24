@@ -44,7 +44,7 @@
 \contentsline {subsection}{\numberline {4.1.2}Receiver Validation}{12}{subsection.4.1.2}%
 \contentsline {section}{\numberline {4.2}Simulation}{12}{section.4.2}%
 \contentsline {chapter}{\numberline {5}Methodology }{13}{chapter.5}%
-\contentsline {section}{\numberline {5.1}Research Design and Approach}{13}{section.5.1}%
+\contentsline {section}{\numberline {5.1}Experimental Plan}{13}{section.5.1}%
 \contentsline {section}{\numberline {5.2}Data Collection}{13}{section.5.2}%
 \contentsline {section}{\numberline {5.3}Shorter Range Tests}{13}{section.5.3}%
 \contentsline {section}{\numberline {5.4}Long-Range Test}{13}{section.5.4}%
