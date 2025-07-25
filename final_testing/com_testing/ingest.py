@@ -46,7 +46,7 @@ corr_abs = np.abs(corr)
 pos_max = np.argmax(corr_abs)
 
 # Get corresponding lag value
-print("Position of start of frame: "+str(pos_max))
+# print("Position of start of frame: "+str(pos_max))
 
 # Extract rough frame
 frame = np.array(received_data[pos_max-fft_bins:pos_max])
@@ -65,22 +65,22 @@ freq_axis = np.linspace(-fs/2, fs/2, fft_bins) / 1e6
 pilot_indices_shifted = np.load("../masters_large_data/final_testing/com_testing/pilot_indices_shifted.npy")
 
 
-print(pilot_indices_shifted)
+# print(pilot_indices_shifted)
 
 
-print(allCarriers)
+# print(allCarriers)
 
 pilot_symbols = np.load("../masters_large_data/final_testing/com_testing/pilot_symbols.npy")
 pilot_indices_shifted = np.load("../masters_large_data/final_testing/com_testing/pilot_indices_shifted.npy")
 pilot_indices = np.load("../masters_large_data/final_testing/com_testing/pilot_indices.npy")
 
-print(pilot_indices)
-print(pilot_indices_shifted)
+# print(pilot_indices)
+# print(pilot_indices_shifted)
 
-print(str(len(pilot_indices)))
-print(str(len(pilot_symbols)))
+# print(str(len(pilot_indices)))
+# print(str(len(pilot_symbols)))
 
-print(pilot_symbols)
+# print(pilot_symbols)
 def channelEstimate(OFDM_demod):
     pilots = OFDM_demod[pilot_indices]  # extract the pilot values from the RX signal
     Hest_at_pilots = pilots / pilot_symbols # divide by the transmitted pilot values
@@ -112,7 +112,7 @@ def equalize(OFDM_demod, Hest):
 
 equalized_Hest = equalize(spectrum[all_carriers_shifted], Hest)
 
-print(all_carriers_shifted)
+# print(all_carriers_shifted)
 
 
 
@@ -122,7 +122,7 @@ a = all_carriers_shifted# values to exclude
 b = np.arange(fft_bins)           # full array
 zero_padding_indices = np.setdiff1d(b, a)
 
-print(zero_padding_indices)
+# print(zero_padding_indices)
 
 print()
 
@@ -138,9 +138,6 @@ print()
 
 print(f"snr_dB: {snr_dB}")
 print(f"snr_linear: {snr_linear}")
-
-print()
-
 
 
 
@@ -276,6 +273,12 @@ if graphs :
     ax.set_title("FFT of extracted frame")
     ax.set_xlabel("FFT Bins")
     ax.set_ylabel("dBV")
+
+    ax.axhline(y=received_signal_avg_dBV, color='red', linestyle='--', linewidth=1.5)
+    ax.text(8, received_signal_avg_dBV + 2, 'Signal Avg', color='red', fontsize=10)
+
+    ax.axhline(y=received_noise_avd_dBV, color='red', linestyle='--', linewidth=1.5)
+    ax.text(15000, received_noise_avd_dBV - 4, 'Noise Avg', color='red', fontsize=10)
 
 
     ax = axes[6]
