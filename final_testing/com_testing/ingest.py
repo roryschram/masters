@@ -51,12 +51,12 @@ print("Position of start of frame: "+str(pos_max))
 # Extract rough frame
 frame = np.array(received_data[pos_max-fft_bins:pos_max])
 
-frame = frame - np.mean(frame)
+# frame = frame - np.mean(frame)
 
 
 # === Compute FFT of the OFDM signal (with CP) ===
 spectrum = np.fft.fftshift(np.fft.fft(frame, n=fft_bins))
-spectrum_magnitude_db = np.log10(np.abs(spectrum)/1.4142135623730951 + 1e-12)  # avoid log(0)
+spectrum_magnitude_db = 20 * np.log10(np.abs(spectrum)/len(spectrum))  # avoid log(0)
 
 # Frequency axis in MHz
 freq_axis = np.linspace(-fs/2, fs/2, fft_bins) / 1e6
@@ -112,13 +112,41 @@ def equalize(OFDM_demod, Hest):
 
 equalized_Hest = equalize(spectrum[all_carriers_shifted], Hest)
 
+print(all_carriers_shifted)
 
-print(allCarriers)
-print((pilot_indices_shifted))
+
+
+
+# Noise section
+a = all_carriers_shifted# values to exclude
+b = np.arange(fft_bins)           # full array
+zero_padding_indices = np.setdiff1d(b, a)
+
+print(zero_padding_indices)
+
+print()
+
+received_signal_avg_dBV = np.mean(spectrum_magnitude_db[all_carriers_shifted])
+received_noise_avd_dBV = np.mean(spectrum_magnitude_db[zero_padding_indices])
+snr_dB = received_signal_avg_dBV - received_noise_avd_dBV
+snr_linear = 10**(snr_dB/20)
+
+print(f"received_signal_avg_dBV: {received_signal_avg_dBV}")
+print(f"received_noise_avd_dBV: {received_noise_avd_dBV}")
+
+print()
+
+print(f"snr_dB: {snr_dB}")
+print(f"snr_linear: {snr_linear}")
+
+print()
+
+
+
+
 
 data_indices = np.setdiff1d(allCarriers, pilot_indices)
 
-print(data_indices[:20])
 
 
 def get_payload(equalized):
@@ -184,7 +212,6 @@ bits_est = PS(PS_est)
 
 
 print ("Obtained Bit error rate: " + str(np.sum(bits != bits_est)/len(bits)*100) + "%")
-print(len(bits))
 
 sent = bits
 recv = bits_est
@@ -271,8 +298,5 @@ if graphs :
     plt.show()
 
 
-
-print()
-print(str(pos_max))
 
 

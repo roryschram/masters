@@ -119,7 +119,7 @@ print("Saving Pilot Symbols")
 np.save("../masters_large_data/final_testing/com_testing/pilot_symbols.npy",pilot_symbols)
 
 
-
+np.save("../masters_large_data/final_testing/com_testing/ofdm_symbols.npy",ofdm_symbols)
 
 # === Time Domain OFDM Symbol ===
 pad_amount = (n_subcarriers-active_subcarriers)//2
@@ -140,16 +140,17 @@ ofdm_symbol_time_unnormalised = np.fft.ifft(np.fft.fftshift(ofdm_symbol))
 
 
 # === Normalize ===
-# ofdm_symbol_time = ofdm_symbol_time_unnormalised/np.max(np.abs(ofdm_symbol_time_unnormalised))  # Avoid clipping
-ofdm_symbol_time = ofdm_symbol_time_unnormalised
+ofdm_symbol_time = ofdm_symbol_time_unnormalised/np.max(np.abs(ofdm_symbol_time_unnormalised))  # Avoid clipping
+# ofdm_symbol_time = ofdm_symbol_time_unnormalised
 
 
 # === Compute FFT of the OFDM signal (with CP) ===
 # n_fft_plot = n_subcarriers  # Use zero-padding for better resolution
 
-max = np.max(np.abs(ofdm_symbol))
+
 
 spectrum = np.fft.fftshift(np.fft.fft(ofdm_symbol_time))
+max = np.max(np.abs(spectrum))
 spectrum_magnitude_db = np.log10(np.abs(spectrum)/max + 1e-12)
 
 
