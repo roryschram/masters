@@ -214,8 +214,8 @@ sent = bits
 recv = bits_est
 
 # print("Sent: ", ''.join(str(b) for b in sent))
-# print("Recv: ", ''.join(str(b) if b == s else f"\033[91m{b}\033[0m"
-#                      for b, s in zip(recv, sent)))  # red highlight
+print("Recv: ", ''.join(str(b) if b == s else f"\033[91m{b}\033[0m"
+                     for b, s in zip(recv, sent)))  # red highlight
 
 
 
@@ -282,7 +282,7 @@ if graphs :
 
 
     ax = axes[6]
-    ax.plot(np.abs(Hest))
+    ax.plot(Hest)
     ax.set_title("Channel Estimate")
     ax.set_xlabel("FFT Bins")
     ax.set_ylabel("Magnitude")

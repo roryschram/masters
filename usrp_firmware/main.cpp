@@ -103,7 +103,13 @@ void saveComplexDataToFile(const std::string& filename, const std::vector<std::c
 void transmit_vector(uhd::usrp::multi_usrp::sptr tx_usrp, std::vector<std::complex<double>> buffers, uhd::time_spec_t time_now, double secondsInFuture){
     //set up transmit streamer
     uhd::stream_args_t stream_args("fc64","sc16");
-    // stream_args.args["underflow_policy"] = "next_burst";
+
+    // Set additional key-value options
+    stream_args.args["underflow_policy"] = "next_packet";           // Drop on overflow (if supported)
+
+
+
+
     uhd::tx_streamer::sptr tx_stream = tx_usrp->get_tx_stream(stream_args);
     
         
@@ -181,6 +187,13 @@ void transmit_vector(uhd::usrp::multi_usrp::sptr tx_usrp, std::vector<std::compl
 std::vector<std::complex<double>> receive_vector(uhd::usrp::multi_usrp::sptr rx_usrp,size_t numSamples,uhd::time_spec_t time_now, double secondsInFuture){
     //set up receive streamer
     uhd::stream_args_t stream_args("fc64","sc16");
+
+    // Set additional key-value options
+
+    stream_args.args["underflow_policy"] = "next_packet";           // Drop on overflow (if supported)
+
+
+
     uhd::rx_streamer::sptr rx_stream = rx_usrp->get_rx_stream(stream_args);
 
     uhd::stream_cmd_t stream_cmd = uhd::stream_cmd_t::STREAM_MODE_START_CONTINUOUS;
@@ -234,7 +247,7 @@ std::vector<std::complex<double>> receive_vector(uhd::usrp::multi_usrp::sptr rx_
             samplesForThisBlock=samps_per_buff;
         }
             
-        size_t numNewSamples=rx_stream->recv(psampleBuffer,samplesForThisBlock,rxMetaData,0.1);
+        size_t numNewSamples=rx_stream->recv(psampleBuffer,samplesForThisBlock,rxMetaData,0.1,true);
 
         //append received data to rest of buffer
         entireSample.insert(entireSample.begin()+numSamplesReceived, sampleBuffer.begin(), sampleBuffer.begin()+numNewSamples);
