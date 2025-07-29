@@ -7,7 +7,6 @@ from scipy import signal
 from scipy import interpolate
 
 
-
 # Input signal parameters here
 fs = 25e6
 fft_bins = 32768
