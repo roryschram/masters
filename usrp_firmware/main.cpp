@@ -198,14 +198,14 @@ std::vector<std::complex<double>> receive_vector(uhd::usrp::multi_usrp::sptr rx_
 
     uhd::stream_cmd_t stream_cmd = uhd::stream_cmd_t::STREAM_MODE_START_CONTINUOUS;
     stream_cmd.stream_now = true;
-    stream_cmd.time_spec = uhd::time_spec_t(secondsInFuture);
+    stream_cmd.time_spec = uhd::time_spec_t(secondsInFuture-secondsInFuture);
     rx_usrp->issue_stream_cmd(stream_cmd);
 
 
     uhd::rx_metadata_t rxMetaData;
     rxMetaData.has_time_spec = true;
     rxMetaData.end_of_burst = false;
-    rxMetaData.time_spec = uhd::time_spec_t(secondsInFuture);
+    rxMetaData.time_spec = uhd::time_spec_t(secondsInFuture-secondsInFuture);
     rxMetaData.start_of_burst = true;
 
 

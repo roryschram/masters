@@ -341,10 +341,13 @@ plt.show()
 
 try:
     while True:
-        process_and_plot(axes)
-        plt.pause(0.5)  # Pause for half a second (adjust as needed)
-except KeyboardInterrupt:
-    print("Stopped by user.")
+        try:
+            process_and_plot(axes)
+            plt.pause(0.5)  # Pause for half a second (adjust as needed)
+        except Exception as e:
+            print(e)
+except Exception as e:
+    print(e)
 
 
 
