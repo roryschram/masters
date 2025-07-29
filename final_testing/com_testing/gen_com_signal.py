@@ -95,6 +95,13 @@ data_symbols = QAM
 # === Insert pilots evenly across the 600 active subcarriers ===
 ofdm_symbols = np.zeros(active_subcarriers, dtype=complex)
 pilot_indices = np.round(np.linspace(0, active_subcarriers - 1, n_pilots)).astype(int)
+
+
+
+
+print("Pilot indices")
+print(pilot_indices)
+
 data_iter = iter(data_symbols)
 
 print("Pilot Indices:")
@@ -111,7 +118,7 @@ for i in range(active_subcarriers):
         ofdm_symbols[i] = next(data_iter)
 
 
-
+# print(ofdm_symbols)
 
 # ofdm_symbols = np.pad(ofdm_symbols,(175,175),mode="constant")
 print()

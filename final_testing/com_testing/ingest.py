@@ -6,6 +6,7 @@ from matplotlib.axes import Axes
 from scipy import signal
 from scipy import interpolate
 
+
 # Input signal parameters here
 fs = 25e6
 fft_bins = 32768
@@ -38,6 +39,7 @@ transmitted_data = read_complex_data_from_dat("../masters_large_data/transmitted
 received_data = received_data[1000000:]
 
 
+
 # Get correlation
 corr = signal.correlate(received_data,transmitted_data)
 corr_abs = np.abs(corr)
@@ -51,11 +53,15 @@ pos_max = np.argmax(corr_abs)
 # Extract rough frame
 frame = np.array(received_data[pos_max-fft_bins:pos_max])
 
-# frame = frame - np.mean(frame)
+frame = frame - np.mean(frame)
 
 
 # === Compute FFT of the OFDM signal (with CP) ===
 spectrum = np.fft.fftshift(np.fft.fft(frame, n=fft_bins))
+
+# spectrum[16384] = spectrum[16384 + 5]
+# spectrum[len(spectrum)//2] = 0.0001+0.0001j
+
 spectrum_magnitude_db = 20 * np.log10(np.abs(spectrum)/len(spectrum))  # avoid log(0)
 
 # Frequency axis in MHz
@@ -102,6 +108,7 @@ def channelEstimate(OFDM_demod):
 
 all_carriers_shifted = np.load("../masters_large_data/final_testing/com_testing/all_carriers_shifted.npy")
 
+
 temp = spectrum[all_carriers_shifted]
 Hest = channelEstimate(temp)
 
@@ -144,11 +151,13 @@ print(f"snr_linear: {snr_linear}")
 
 data_indices = np.setdiff1d(allCarriers, pilot_indices)
 
-
+# equalized_Hest_removed_dc_carrier = np.delete(equalized_Hest,len(equalized_Hest)//2)
 
 def get_payload(equalized):
     return equalized[data_indices]
 QAM_est = get_payload(equalized_Hest)
+
+
 
 
 
@@ -185,6 +194,8 @@ def Demapping(QAM):
 
 PS_est, hardDecision = Demapping(QAM_est)
 
+QAM_est = np.delete(QAM_est, len(QAM_est)//2)
+
 
 
 # for qam, hard in zip(QAM_est, hardDecision):
@@ -200,10 +211,18 @@ PS_est, hardDecision = Demapping(QAM_est)
 
 bits = np.load("../masters_large_data/final_testing/com_testing/bits.npy")
 
+temp = bits.reshape((-1,2))
+temp = np.delete(temp, len(temp)//2, axis=0)
+temp = temp.reshape((-1,))
+bits = temp
+
+PS_est = np.delete(PS_est, len(PS_est)//2, axis=0)
+
 
 def PS(bits):
     return bits.reshape((-1,))
 bits_est = PS(PS_est)
+
 
 
 
@@ -214,8 +233,8 @@ sent = bits
 recv = bits_est
 
 # print("Sent: ", ''.join(str(b) for b in sent))
-print("Recv: ", ''.join(str(b) if b == s else f"\033[91m{b}\033[0m"
-                     for b, s in zip(recv, sent)))  # red highlight
+# print("Recv: ", ''.join(str(b) if b == s else f"\033[91m{b}\033[0m"
+#                      for b, s in zip(recv, sent)))  # red highlight
 
 
 
