@@ -32,8 +32,8 @@ def read_complex_data_from_dat(filename):
     return np.array(complex_data)
 
 # Get received usrp data
-received_data = read_complex_data_from_dat("../masters_large_data/received_data/receive.dat")
-# received_data = read_complex_data_from_dat("../masters_large_data/transmitted_data/transmit.dat")
+# received_data = read_complex_data_from_dat("../masters_large_data/received_data/receive.dat")
+received_data = read_complex_data_from_dat("../masters_large_data/final_testing/com_testing/raw_captures/receive1.dat")
 transmitted_data = read_complex_data_from_dat("../masters_large_data/transmitted_data/transmit.dat")
 
 
