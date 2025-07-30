@@ -305,7 +305,7 @@ if graphs :
 
 
     ax = axes[6]
-    ax.plot(np.abs(Hest))
+    ax.plot(np.imag(Hest))
     ax.set_title("Channel Estimate")
     ax.set_xlabel("FFT Bins")
     ax.set_ylabel("Magnitude")
