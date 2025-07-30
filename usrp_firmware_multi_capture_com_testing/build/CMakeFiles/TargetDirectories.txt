@@ -1,0 +1,7 @@
+/home/usrp/Desktop/masters/usrp_firmware_multi_capture_com_testing/build/CMakeFiles/utility_library.dir
+/home/usrp/Desktop/masters/usrp_firmware_multi_capture_com_testing/build/CMakeFiles/hardware_config.dir
+/home/usrp/Desktop/masters/usrp_firmware_multi_capture_com_testing/build/CMakeFiles/test_types_library.dir
+/home/usrp/Desktop/masters/usrp_firmware_multi_capture_com_testing/build/CMakeFiles/processing_library.dir
+/home/usrp/Desktop/masters/usrp_firmware_multi_capture_com_testing/build/CMakeFiles/N210_FIRMWARE.dir
+/home/usrp/Desktop/masters/usrp_firmware_multi_capture_com_testing/build/CMakeFiles/edit_cache.dir
+/home/usrp/Desktop/masters/usrp_firmware_multi_capture_com_testing/build/CMakeFiles/rebuild_cache.dir

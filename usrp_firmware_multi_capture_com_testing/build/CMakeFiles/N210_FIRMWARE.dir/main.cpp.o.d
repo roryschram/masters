@@ -1,5 +1,5 @@
 CMakeFiles/N210_FIRMWARE.dir/main.cpp.o: \
- /home/usrp/Desktop/masters/usrp_firmware_multi_capture/main.cpp \
+ /home/usrp/Desktop/masters/usrp_firmware_multi_capture_com_testing/main.cpp \
  /usr/include/stdc-predef.h /usr/local/include/uhd/utils/thread.hpp \
  /usr/local/include/uhd/config.hpp /usr/include/boost/config.hpp \
  /usr/include/boost/config/user.hpp \
@@ -1456,12 +1456,12 @@ CMakeFiles/N210_FIRMWARE.dir/main.cpp.o: \
  /usr/local/include/uhd/types/serial.hpp \
  /usr/local/include/uhd/usrp/gpio_defs.hpp /usr/include/c++/13/chrono \
  /usr/local/include/uhd/usrp/subdev_spec.hpp \
- /home/usrp/Desktop/masters/usrp_firmware_multi_capture/inc/utilities/config_constants.hpp \
- /home/usrp/Desktop/masters/usrp_firmware_multi_capture/inc/utilities/config_reader.hpp \
- /home/usrp/Desktop/masters/usrp_firmware_multi_capture/inc/hardware/TX_config.hpp \
- /home/usrp/Desktop/masters/usrp_firmware_multi_capture/inc/hardware/RX_config.hpp \
- /home/usrp/Desktop/masters/usrp_firmware_multi_capture/inc/test_types/transmit_tests.hpp \
- /home/usrp/Desktop/masters/usrp_firmware_multi_capture/inc/test_types/receive_tests.hpp \
+ /home/usrp/Desktop/masters/usrp_firmware_multi_capture_com_testing/inc/utilities/config_constants.hpp \
+ /home/usrp/Desktop/masters/usrp_firmware_multi_capture_com_testing/inc/utilities/config_reader.hpp \
+ /home/usrp/Desktop/masters/usrp_firmware_multi_capture_com_testing/inc/hardware/TX_config.hpp \
+ /home/usrp/Desktop/masters/usrp_firmware_multi_capture_com_testing/inc/hardware/RX_config.hpp \
+ /home/usrp/Desktop/masters/usrp_firmware_multi_capture_com_testing/inc/test_types/transmit_tests.hpp \
+ /home/usrp/Desktop/masters/usrp_firmware_multi_capture_com_testing/inc/test_types/receive_tests.hpp \
  /usr/include/c++/13/fstream \
  /usr/include/x86_64-linux-gnu/c++/13/bits/basic_file.h \
  /usr/include/x86_64-linux-gnu/c++/13/bits/c++io.h \

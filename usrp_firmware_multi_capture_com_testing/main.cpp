@@ -373,7 +373,7 @@ int UHD_SAFE_MAIN(int argc, char *argv[]) {
         receive_thread.join();
 
 
-        saveComplexDataToFile("../../../masters_large_data/final_testing/classification_testing/raw_captures/receive"+capture_number+".dat",received_data);
+        saveComplexDataToFile("../../../masters_large_data/final_testing/com_testing/raw_captures/receive"+capture_number+".dat",received_data);
     }
 
     return EXIT_SUCCESS;
