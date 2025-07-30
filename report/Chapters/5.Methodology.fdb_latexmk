@@ -1,16 +1,18 @@
 # Fdb version 4
-["bibtex 5.Methodology"] 1753369961.06672 "5.Methodology.aux" "5.Methodology.bbl" "5.Methodology" 1753370272.057 0
+["bibtex 5.Methodology"] 1753887378.1675 "5.Methodology.aux" "5.Methodology.bbl" "5.Methodology" 1753887380.12898 0
   "../Bibliography/References.bib" 1753200452.04017 5385 97dd8b54eaf71d890512d193687301fc ""
   "/usr/local/texlive/2024/texmf-dist/bibtex/bst/ieeetran/IEEEtran.bst" 1440712899 57748 7c8250ecf02814ce6ddc0cdbb63df1dd ""
-  "5.Methodology.aux" 1753370271.72576 2213 2a4bde2eff1a8aad688c7fe21a4f2dd9 "pdflatex"
+  "5.Methodology.aux" 1753887379.801 3259 fd8dfc400720acd35708bd805cf5b076 "pdflatex"
   (generated)
   "5.Methodology.bbl"
   "5.Methodology.blg"
   (rewritten before read)
-["pdflatex"] 1753370270.08845 "/Users/roryschram/Documents/Work/masters/report/Chapters/5.Methodology.tex" "5.Methodology.pdf" "5.Methodology" 1753370272.05716 0
+["pdflatex"] 1753887378.34095 "/Users/roryschram/Documents/Work/masters/report/Chapters/5.Methodology.tex" "5.Methodology.pdf" "5.Methodology" 1753887380.12916 0
   "../FrontMatter/Glossary.tex" 1753369936.22946 1882 971264c1bccb022163ce75a16b5faec3 ""
+  "../Images/Methodology/10_db_attenuator.jpeg" 1753880488.76209 31114 7d6977c8dfb6c899e7ac69fa207c633f ""
+  "../Images/Methodology/1_db_attenuator.jpeg" 1753880477.08068 30358 7e0b76584645110f56c2ca71020b0878 ""
   "../Style/ChapterStyle.tex" 1753198799.02207 5625 7be81ffc6f54fb7450cf978a26610fe4 ""
-  "/Users/roryschram/Documents/Work/masters/report/Chapters/5.Methodology.tex" 1753370269.82994 4071 78d2aaeadd7742d95ba23f82d1fbdc68 ""
+  "/Users/roryschram/Documents/Work/masters/report/Chapters/5.Methodology.tex" 1753887375.97664 8225 44261e225f0b39b344bca05513381bca ""
   "/usr/local/texlive/2024/texmf-dist/fonts/enc/dvips/lm/lm-ec.enc" 1254269338 2375 baa924870cfb487815765f9094cf3728 ""
   "/usr/local/texlive/2024/texmf-dist/fonts/map/fontname/texfonts.map" 1577235249 3524 cb3e574dea2d1052e39280babc910dc8 ""
   "/usr/local/texlive/2024/texmf-dist/fonts/tfm/public/amsfonts/symbols/msam10.tfm" 1246382020 916 f87d7c45f9c908e672703b83b72241a3 ""
@@ -316,10 +318,10 @@
   "/usr/local/texlive/2024/texmf-var/fonts/map/pdftex/updmap/pdftex.map" 1713964744.45909 5467645 128b85b7cde5f5edc5cb7f1dd7ff8736 ""
   "/usr/local/texlive/2024/texmf-var/web2c/pdftex/pdflatex.fmt" 1713964673 8221420 075d0d7ec4e6c59b794d875121c8322c ""
   "/usr/local/texlive/2024/texmf.cnf" 1710266656 577 e590dabc9e28c5b61546e15f63eebcdf ""
-  "5.Methodology.aux" 1753370271.72576 2213 2a4bde2eff1a8aad688c7fe21a4f2dd9 "pdflatex"
-  "5.Methodology.bbl" 1753369961.26852 4037 bdd50891419ebae9a3f7aae8060b9824 "bibtex 5.Methodology"
-  "5.Methodology.out" 1753370271.72674 1007 0a85b8cf304031bacdf4d498c1acbf0e "pdflatex"
-  "5.Methodology.tex" 1753370269.82994 4071 78d2aaeadd7742d95ba23f82d1fbdc68 ""
+  "5.Methodology.aux" 1753887379.801 3259 fd8dfc400720acd35708bd805cf5b076 "pdflatex"
+  "5.Methodology.bbl" 1753887378.33111 4037 bdd50891419ebae9a3f7aae8060b9824 "bibtex 5.Methodology"
+  "5.Methodology.out" 1753887379.8019 1386 2c6e8bc649a7d195c9d50458d922add3 "pdflatex"
+  "5.Methodology.tex" 1753887375.97664 8225 44261e225f0b39b344bca05513381bca ""
   (generated)
   "5.Methodology.aux"
   "5.Methodology.log"

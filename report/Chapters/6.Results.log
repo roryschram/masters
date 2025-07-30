@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.26 (TeX Live 2024) (preloaded format=pdflatex 2024.4.24)  4 NOV 2024 12:15
+This is pdfTeX, Version 3.141592653-2.6-1.40.26 (TeX Live 2024) (preloaded format=pdflatex 2024.4.24)  30 JUL 2025 17:01
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -554,7 +554,7 @@ Package: nextpage 2009/09/03 v1.1a additional page commands
 \epigraphrule=\skip65
 )
 
-Package xcolor Warning: Package option `usenames' is obsolete and ignored on input line 64.
+Package xcolor Warning: Package option `usenames' is obsolete and ignored on input line 69.
 
 (/usr/local/texlive/2024/texmf-dist/tex/latex/hyperref/hyperref.sty
 Package: hyperref 2024-01-20 v7.01h Hypertext links for LaTeX
@@ -658,7 +658,7 @@ Package: hypcap 2016/05/16 v1.12 Adjusting the anchors of captions (HO)
  (/usr/local/texlive/2024/texmf-dist/tex/latex/letltxmacro/letltxmacro.sty
 Package: letltxmacro 2019/12/03 v1.6 Let assignment for LaTeX macros (HO)
 ))
-Package hyperref Info: Option `colorlinks' set `true' on input line 75.
+Package hyperref Info: Option `colorlinks' set `true' on input line 80.
  (/usr/local/texlive/2024/texmf-dist/tex/latex/csquotes/csquotes.sty
 Package: csquotes 2022-09-14 v5.2n context-sensitive quotations (JAW)
 \csq@reset=\count348
@@ -1185,10 +1185,18 @@ Chapter 1.
 
 LaTeX Warning: Reference `ch:methodology' on page 1 undefined on input line 10.
 
+
+LaTeX Warning: Reference `ch:discussion' on page 1 undefined on input line 10.
+
+<../Images/Results/coms/test.png, id=47, 722.7pt x 433.62pt>
+File: ../Images/Results/coms/test.png Graphic file (type png)
+<use ../Images/Results/coms/test.png>
+Package pdftex.def Info: ../Images/Results/coms/test.png  used on input line 18.
+(pdftex.def)             Requested size: 483.69687pt x 290.21953pt.
 (./6.Results.bbl [1
 
 
-{/usr/local/texlive/2024/texmf-var/fonts/map/pdftex/updmap/pdftex.map}{/usr/local/texlive/2024/texmf-dist/fonts/enc/dvips/lm/lm-ec.enc}]
+{/usr/local/texlive/2024/texmf-var/fonts/map/pdftex/updmap/pdftex.map}{/usr/local/texlive/2024/texmf-dist/fonts/enc/dvips/lm/lm-ec.enc} <../Images/Results/coms/test.png>] [2]
 LaTeX Font Info:    Trying to load font information for OT1+lmr on input line 25.
  (/usr/local/texlive/2024/texmf-dist/tex/latex/lm/ot1lmr.fd
 File: ot1lmr.fd 2015/05/01 v1.6.1 Font defs for Latin Modern
@@ -1226,13 +1234,13 @@ File: mt-msb.cfg 2005/06/01 v1.0 microtype config. file: AMS symbols (b) (RS)
 LaTeX Font Info:    Trying to load font information for U+rsfs on input line 25.
  (/usr/local/texlive/2024/texmf-dist/tex/latex/jknapltx/ursfs.fd
 File: ursfs.fd 1998/03/24 rsfs font definition file (jk)
-)) [2
+)) [3
 
 ]
 
-Package glossaries Warning: Empty glossary for \printnoidxglossary[type={main}]. Rerun may be required (or you may have forgotten to use commands like \gls) on input line 30.
+Package glossaries Warning: Empty glossary for \printnoidxglossary[type={main}]. Rerun may be required (or you may have forgotten to use commands like \gls) on input line 42.
 
-[3
+[4
 
 
 ] (./6.Results.aux)
@@ -1245,21 +1253,21 @@ L3 programming layer <2024-02-20>
 LaTeX Warning: There were undefined references.
 
 Package rerunfilecheck Info: File `6.Results.out' has not changed.
-(rerunfilecheck)             Checksum: 294721C62F8E96A78FA48ACACEF4D2CE;1043.
+(rerunfilecheck)             Checksum: 7C71913D2837AA4EB6F2E162F19BF9C5;1445.
  ) 
 Here is how much of TeX's memory you used:
- 54968 strings out of 474116
- 1225540 string characters out of 5743682
- 1931187 words of memory out of 5000000
- 76431 multiletter control sequences out of 15000+600000
- 597139 words of font info for 86 fonts, out of 8000000 for 9000
+ 55478 strings out of 474116
+ 1233792 string characters out of 5743682
+ 1938187 words of memory out of 5000000
+ 76898 multiletter control sequences out of 15000+600000
+ 608757 words of font info for 103 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 114i,5n,120p,2491b,1087s stack positions out of 10000i,1000n,20000p,200000b,200000s
-</usr/local/texlive/2024/texmf-dist/fonts/type1/public/lm/lmbx10.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/lm/lmbx12.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/lm/lmr10.pfb>
-Output written on 6.Results.pdf (3 pages, 82114 bytes).
+ 114i,11n,120p,2491b,1085s stack positions out of 10000i,1000n,20000p,200000b,200000s
+</usr/local/texlive/2024/texmf-dist/fonts/type1/public/lm/lmbx10.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/lm/lmbx12.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/lm/lmr10.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/lm/lmri10.pfb>
+Output written on 6.Results.pdf (4 pages, 334163 bytes).
 PDF statistics:
- 85 PDF objects out of 1000 (max. 8388607)
- 73 compressed objects within 1 object stream
- 15 named destinations out of 1000 (max. 500000)
- 22613 words of extra memory for PDF output out of 24883 (max. 10000000)
+ 128 PDF objects out of 1000 (max. 8388607)
+ 110 compressed objects within 2 object streams
+ 29 named destinations out of 1000 (max. 500000)
+ 28770 words of extra memory for PDF output out of 29859 (max. 10000000)
 

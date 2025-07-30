@@ -7,19 +7,19 @@
 \begin{document}
 % ----------------------------------------------------
 \chapter{Methodology \label{ch:methodology}}
-In the following chapter, I would like to highlight my testing procedure, but more importantly the reasoning behind why I make the specific choices that I do as it pertains to experimental setup. The aim of the experiments that are detailed in this chapter is to validate theoretical work, and to ensure that said theoretical work works.
+In the following chapter, I would like to highlight my testing procedure, but more importantly the reasoning behind why I make the specific choices that I do as it pertains to experimental setup. The aim of the experiments that are detailed in this chapter is to validate theoretical work, and to ensure that the theoretical development is practically achieved in the real world.
 
 \section{Experimental Design}
 \subsection{Overview}
-Since the classification capabilities of my RADAR system are based on the principles of OFDM based communication signals, it felt incomplete to do tests which pertain only to the classification capabilities of the designed system. Therefore, I have come up with three completely separate sections of testing, which are listed below:
+The overall workings of the RADAR system can be split into three distinct sections of operation. The first section involves the ability of the system to act as a communication system. The second section of operation is the ability of the RADAR to detect objects at different ranges. The third area of operation of the RADAR is the ability of the RADAR to perform target classification. Due to this separation of operations, the testing of the system has been divided into three separate testing sections. The various testing categories are listed below. 
 
 \begin{enumerate}
-    \item \textbf{Communication Testing}: This test is all about how well the system can operate as a bare-bones communication system. The reason I have decided to include this as a test is because, as mentioned before, my entire classification pipeline is built upon OFDM communication principles (namely the use of pilot symbols in determining channel estimation data), and since these OFDM principles are so vital to my project, I thought it would be fitting to make sure that my system can actually operate as a data transmission system. This is also a good way to validate that my channel response, and therefore my equalization principles, are properly working.
-    \item \textbf{Range Testing}: The purpose of the range test will be to determine if the RADAR system can operate as just that, a simple RADAR. This test will be simple, I want to determine if the system can detect object at set distances away from the antenna setup.
-    \item \textbf{Classification Testing}: This is the main testing that will take place for my RADAR system. The idea is that I will take multiple captures of different targets in a specific scene, and try to correctly classify the objects based on their channel responses. 
+    \item \textbf{Communication Testing}: This test is all about how well the system can operate as a bare-bones communication system. The reason I have decided to include this as a test is because, as mentioned before, my entire classification pipeline is built upon OFDM communication principles (namely the use of pilot symbols in determining channel estimation data), and since these OFDM principles are so vital to my project, it is fitting to make sure that the system can actually operate as a data transmission system. This is necessary to show, since the broad category of RADAR that this system falls into could be considered "communication RADAR", or in essence, a RADAR that can use the same signal within communication operations and normal RADAR operations.
+    \item \textbf{Range Testing}: The purpose of the range test will be to determine if the RADAR system can operate as just that, a simple RADAR. The main aim is to determine if the system can detect objects at various distances from the transmitter and receiver setup.
+    \item \textbf{Classification Testing}: This is the main testing that will take place for my RADAR system. This testing setup will thoroughly analyze the ability of the RADAR system to classify various targets in a scene. The tests will also try to determine the viability of this concept in a real world use case scenario.
 \end{enumerate}
 
-In the following sections, I want to go into detail about the exact testing procedure for each test.
+Following on from the above listed broad testing structures, the exact testing procedure of each testing category will now be explained below.
 
 \subsection{Communication Test}
 The communication testing procedure will be paramount in determining if my system is working properly as a communication system, and therefore it is important to check the communication ability to determine if the calculated channel responses are valid.
@@ -27,6 +27,56 @@ The communication testing procedure will be paramount in determining if my syste
 As mentioned in chapter \ref{ch:systemdesign}, one frame of my OFDM based signal is 32768 samples long. That means that there are 4384 samples either side of my "signal block" that have values equal to zero. These are my guard bands. That leaves 24000 samples for data and pilot symbols. I made my signal have 4000 pilots and 20000 data carriers. Based on this setup, I can transmit 40000 bits at a time. On the reception side, I am able to read ingest raw data, which I can then decode and get my transmitted bits out of. Bearing this in mind, since I have the bits that I transmitted, and the bits that I have received, I am able to compute a BER for the transmission. The performance of the system changes drastically as the overall \gls{snr} of the transmission changes.
 
 To try and manipulate the SNR of the transmission, I want to perform multiple tests at various amplification levels. At severely low amplification levels, one can deduce that there will be very little signal being transmitted through the system.
+
+\subsubsection{Test 1: Communication System Characterization via Loopback}
+Since my communication tool chain has the ability to calculate the SNR of each and every capture that it processes, test 1 will work with this understanding. I wanted to design a test that shows, as good as possible, the overall communication system performance. One way that this can be shown, is by measuring the performance of the system under different stress conditions. So, for a communication system, that would involve measuring the performance of the system under varying SNR conditions. A varying SNR is a good choice of system stress conditions to determine real world raw communication performance. This is because it simulates the real world conditions that most signals (at least those operating in a free spectral band) have to deal with.
+
+Unfortunately, there is no way to directly control the SNR in a real world test like this, as opposed to a simulation. Therefore, it is necessary to control another aspect of the signal which directly affects the SNR. In this test's case, the best way to do that is to control the level above the noise floor that the signal exists on the received side of the system. The best way to achieve this, is to attach an attenuator between the transmit and receive ports of the system. Then, from there, one can adjust the level of attenuation, which in turn, raises and lowers the level that the transmitted signal sits above the noise floor.
+
+In my experience with the USRP-N210 paired with the SBX daughterboard, the noise floor tends to hover around -100 dBV. The minimum level of attenuation that I have been using to test my system is roughly 15dB. Therefore, for this test of the communication, I will transmit the same communication signal through an attenuator, and step the attenuator from 100dB to 15dB of attenuation.
+
+I have access to the following attenuators in my capacity as a UCT student, the Keysight 8496B, and the Keysight 8494B. These are pictured in figure \ref{fig:attenuators} below:
+
+\begin{figure}[H]
+\centering
+\begin{subfigure}{0.49\textwidth}
+    \centering
+    \includegraphics[width = \linewidth]{../Images/Methodology/10_db_attenuator.jpeg}
+    \subcaption{Keysight 8496B}
+    \label{fig:keysight8496b}
+\end{subfigure}
+\hfill
+\begin{subfigure}{0.49\textwidth}
+    \centering
+    \includegraphics[width = \linewidth]{../Images/Methodology/1_db_attenuator.jpeg}
+    \subcaption{Keysight 8494B}
+    \label{fig:keysight8494b}
+\end{subfigure}
+\caption{Keysight Attenuators}
+\label{fig:attenuators}
+\end{figure}
+
+While the attenuators pictured above come in the same package, they are anything but the same. The differences are listed below.
+
+\begin{table}[H]
+\centering
+\begin{tabular}{c|c|c|}
+\cline{2-3}
+                                                 & \textbf{Keysight 8496B} & \textbf{Keysight 8494B} \\ \hline
+\multicolumn{1}{|c|}{\textbf{Frequency Range}}   & DC to 18 GHz            & DC to 18 GHz            \\ \hline
+\multicolumn{1}{|c|}{\textbf{Steps}}             & 10 dB                   & 1 dB                    \\ \hline
+\multicolumn{1}{|c|}{\textbf{Attenuation Range}} & 0 dB - 110 dB           & 0 dB - 11 dB            \\ \hline
+\end{tabular}
+\caption{Keysight 8496B and 8494B Attenuator Charateristics}
+\label{tab:attenuators}
+\end{table}
+
+Importantly, both attenuators operate from 0 Hz to 18 GHz, which is more than enough bandwidth for testing this system, since this system is limited to operations within the bandwidth of the SBX daughterboard of the USRP-N210, which is 400 MHz to 4.4 GHz. More over, during the system design, I settled on doing tests in the part of the spectrum from around 2 GHz to 3 GHz.
+
+
+
+
+
 
 \subsection{Range Test Tests}
 

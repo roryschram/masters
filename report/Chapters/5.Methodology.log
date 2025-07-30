@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.26 (TeX Live 2024) (preloaded format=pdflatex 2024.4.24)  24 JUL 2025 17:17
+This is pdfTeX, Version 3.141592653-2.6-1.40.26 (TeX Live 2024) (preloaded format=pdflatex 2024.4.24)  30 JUL 2025 16:56
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -1189,49 +1189,59 @@ Chapter 1.
 
 LaTeX Warning: Reference `ch:systemdesign' on page 2 undefined on input line 27.
 
-(./5.Methodology.bbl [2]
-LaTeX Font Info:    Trying to load font information for OT1+lmr on input line 25.
+[2]
+<../Images/Methodology/10_db_attenuator.jpeg, id=61, 479.7925pt x 270.00874pt>
+File: ../Images/Methodology/10_db_attenuator.jpeg Graphic file (type jpg)
+<use ../Images/Methodology/10_db_attenuator.jpeg>
+Package pdftex.def Info: ../Images/Methodology/10_db_attenuator.jpeg  used on input line 44.
+(pdftex.def)             Requested size: 237.01411pt x 133.38487pt.
+<../Images/Methodology/1_db_attenuator.jpeg, id=62, 479.7925pt x 270.00874pt>
+File: ../Images/Methodology/1_db_attenuator.jpeg Graphic file (type jpg)
+<use ../Images/Methodology/1_db_attenuator.jpeg>
+Package pdftex.def Info: ../Images/Methodology/1_db_attenuator.jpeg  used on input line 51.
+(pdftex.def)             Requested size: 237.01411pt x 133.38487pt.
+LaTeX Font Info:    Trying to load font information for OT1+lmr on input line 63.
  (/usr/local/texlive/2024/texmf-dist/tex/latex/lm/ot1lmr.fd
 File: ot1lmr.fd 2015/05/01 v1.6.1 Font defs for Latin Modern
 )
-LaTeX Font Info:    Trying to load font information for OML+lmm on input line 25.
+LaTeX Font Info:    Trying to load font information for OML+lmm on input line 63.
  (/usr/local/texlive/2024/texmf-dist/tex/latex/lm/omllmm.fd
 File: omllmm.fd 2015/05/01 v1.6.1 Font defs for Latin Modern
 )
-LaTeX Font Info:    Trying to load font information for OMS+lmsy on input line 25.
+LaTeX Font Info:    Trying to load font information for OMS+lmsy on input line 63.
  (/usr/local/texlive/2024/texmf-dist/tex/latex/lm/omslmsy.fd
 File: omslmsy.fd 2015/05/01 v1.6.1 Font defs for Latin Modern
 )
-LaTeX Font Info:    Trying to load font information for OMX+lmex on input line 25.
+LaTeX Font Info:    Trying to load font information for OMX+lmex on input line 63.
  (/usr/local/texlive/2024/texmf-dist/tex/latex/lm/omxlmex.fd
 File: omxlmex.fd 2015/05/01 v1.6.1 Font defs for Latin Modern
 )
 LaTeX Font Info:    External font `lmex10' loaded for size
-(Font)              <10.95> on input line 25.
+(Font)              <10.95> on input line 63.
 LaTeX Font Info:    External font `lmex10' loaded for size
-(Font)              <8> on input line 25.
+(Font)              <8> on input line 63.
 LaTeX Font Info:    External font `lmex10' loaded for size
-(Font)              <6> on input line 25.
-LaTeX Font Info:    Trying to load font information for U+msa on input line 25.
+(Font)              <6> on input line 63.
+LaTeX Font Info:    Trying to load font information for U+msa on input line 63.
  (/usr/local/texlive/2024/texmf-dist/tex/latex/amsfonts/umsa.fd
 File: umsa.fd 2013/01/14 v3.01 AMS symbols A
 ) (/usr/local/texlive/2024/texmf-dist/tex/latex/microtype/mt-msa.cfg
 File: mt-msa.cfg 2006/02/04 v1.1 microtype config. file: AMS symbols (a) (RS)
 )
-LaTeX Font Info:    Trying to load font information for U+msb on input line 25.
+LaTeX Font Info:    Trying to load font information for U+msb on input line 63.
  (/usr/local/texlive/2024/texmf-dist/tex/latex/amsfonts/umsb.fd
 File: umsb.fd 2013/01/14 v3.01 AMS symbols B
 ) (/usr/local/texlive/2024/texmf-dist/tex/latex/microtype/mt-msb.cfg
 File: mt-msb.cfg 2005/06/01 v1.0 microtype config. file: AMS symbols (b) (RS)
 )
-LaTeX Font Info:    Trying to load font information for U+rsfs on input line 25.
+LaTeX Font Info:    Trying to load font information for U+rsfs on input line 63.
  (/usr/local/texlive/2024/texmf-dist/tex/latex/jknapltx/ursfs.fd
 File: ursfs.fd 1998/03/24 rsfs font definition file (jk)
-))
+) (./5.Methodology.bbl [3 <../Images/Methodology/10_db_attenuator.jpeg> <../Images/Methodology/1_db_attenuator.jpeg>])
 Using TeX to sort glossary entries---this may take a while
-[3
+[4
 
-] [4
+] [5
 
 
 ] (./5.Methodology.aux)
@@ -1244,21 +1254,21 @@ L3 programming layer <2024-02-20>
 LaTeX Warning: There were undefined references.
 
 Package rerunfilecheck Info: File `5.Methodology.out' has not changed.
-(rerunfilecheck)             Checksum: 0A85B8CF304031BACDF4D498C1ACBF0E;1007.
+(rerunfilecheck)             Checksum: 2C6E8BC649A7D195C9D50458D922ADD3;1386.
  ) 
 Here is how much of TeX's memory you used:
- 55492 strings out of 474116
- 1233919 string characters out of 5743682
+ 55556 strings out of 474116
+ 1235483 string characters out of 5743682
  1938187 words of memory out of 5000000
- 76891 multiletter control sequences out of 15000+600000
- 609598 words of font info for 113 fonts, out of 8000000 for 9000
+ 76933 multiletter control sequences out of 15000+600000
+ 613335 words of font info for 123 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
  114i,11n,120p,2495b,1099s stack positions out of 10000i,1000n,20000p,200000b,200000s
 </usr/local/texlive/2024/texmf-dist/fonts/type1/public/lm/lmbx10.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/lm/lmbx12.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/lm/lmr10.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/lm/lmri10.pfb>
-Output written on 5.Methodology.pdf (4 pages, 114244 bytes).
+Output written on 5.Methodology.pdf (5 pages, 183717 bytes).
 PDF statistics:
- 121 PDF objects out of 1000 (max. 8388607)
- 105 compressed objects within 2 object streams
- 30 named destinations out of 1000 (max. 500000)
- 28749 words of extra memory for PDF output out of 29859 (max. 10000000)
+ 135 PDF objects out of 1000 (max. 8388607)
+ 116 compressed objects within 2 object streams
+ 34 named destinations out of 1000 (max. 500000)
+ 30815 words of extra memory for PDF output out of 35830 (max. 10000000)
 
