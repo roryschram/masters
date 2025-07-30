@@ -190,7 +190,7 @@ std::vector<std::complex<double>> receive_vector(uhd::usrp::multi_usrp::sptr rx_
 
     // Set additional key-value options
 
-    stream_args.args["underflow_policy"] = "next_packet";           // Drop on overflow (if supported)
+    stream_args.args["underflow_policy"] = "next_burst";           // Drop on overflow (if supported)
 
 
 
