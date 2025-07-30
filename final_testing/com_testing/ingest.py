@@ -95,9 +95,12 @@ def channelEstimate(OFDM_demod):
     # Perform interpolation between the pilot carriers to get an estimate
     # of the channel in the data carriers. Here, we interpolate absolute value and phase 
     # separately
-    Hest_abs = interpolate.interp1d(pilot_indices, np.abs(Hest_at_pilots),kind="linear")(allCarriers)
+    Hest_real = interpolate.interp1d(pilot_indices, np.real(Hest_at_pilots),kind="linear")(allCarriers)
+    Hest_imag = interpolate.interp1d(pilot_indices, np.imag(Hest_at_pilots),kind="linear")(allCarriers)
+    
+    
     Hest_phase = interpolate.interp1d(pilot_indices, np.angle(Hest_at_pilots),kind="linear")(allCarriers)
-    Hest = Hest_abs * np.exp(1j*Hest_phase)
+    Hest = Hest_real + 1j*Hest_imag
     
     # plt.stem(pilotCarriers, np.fft.fftshift(abs(Hest_at_pilots)), label='Pilot estimates')
     # plt.plot(allCarriers, np.abs(Hest), label='Estimated channel via interpolation')
@@ -302,7 +305,7 @@ if graphs :
 
 
     ax = axes[6]
-    ax.plot(Hest)
+    ax.plot(np.abs(Hest))
     ax.set_title("Channel Estimate")
     ax.set_xlabel("FFT Bins")
     ax.set_ylabel("Magnitude")
