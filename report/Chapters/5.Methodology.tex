@@ -4,6 +4,8 @@
 \documentclass[class=report,11pt,crop=false]{standalone}
 \input{../Style/ChapterStyle.tex}
 \input{../FrontMatter/Glossary.tex}
+
+
 \begin{document}
 % ----------------------------------------------------
 \chapter{Methodology \label{ch:methodology}}
@@ -71,7 +73,43 @@ While the attenuators pictured above come in the same package, they are anything
 \label{tab:attenuators}
 \end{table}
 
-Importantly, both attenuators operate from 0 Hz to 18 GHz, which is more than enough bandwidth for testing this system, since this system is limited to operations within the bandwidth of the SBX daughterboard of the USRP-N210, which is 400 MHz to 4.4 GHz. More over, during the system design, I settled on doing tests in the part of the spectrum from around 2 GHz to 3 GHz.
+Importantly, both attenuators operate from 0 Hz to 18 GHz, which is more than enough bandwidth for testing this system, since this system is limited to operations within the bandwidth of the SBX daughterboard of the USRP-N210, which can transmit signals on a carrier wave of 400 MHz to 4.4 GHz. More over, during the system design, I settled on doing tests in the portion of the spectrum from around 2 GHz to 3 GHz.
+
+Using both attenuators, daisy-chained together, gave me the ability to control attenuation in the range from 0 dB to 121 dB in steps of 1 dB. The setup for this loopback test can be seen in the diagram presented in fig \ref{fig:com_test_1} below:
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width = 0.9\linewidth]{../Images/Methodology/com_test_1.png}
+    \caption{Communication Loopback Test}
+    \label{fig:com_test_1}
+\end{figure}
+
+With this testing setup, as mentioned before, I have control over the attenuation of the overall signal propagation, effectively giving me indirect control over how high above the noise floor the transmitted signal sits, or in other word, the SNR. For the test, I will transmit a known communication signal, with known bits embedded into the signal. On the reception side, I can get a channel estimation, equalize the signal and demodulate the signal to extract data bits from the signal. I will do this for each attenuation level, varying from 100 dB to 15 dB of attenuation. For each signal that is received and demodulated, I am able to get an SNR and a BER. To ensure thorough characterization of the communication tool chain, I will perform 50 transmissions for each attenuation level. I will take all 50 SNR and BER values per attenuation level, and average them. This should give some very good insight into the performance of the system. The raw data format of the extracted data from this test will be in the format as shown below in table \ref{tab:com_test_1_data_format}:
+
+
+\begin{table}[H]
+\centering
+\begin{tabular}{|c|c|c|c|c|c|c|c|} 
+\hline
+\textbf{Attenuation} & \begin{tabular}[c]{@{}c@{}}$\boldsymbol{SNR}_{\boldsymbol{1}}$ \\ (dB)\end{tabular} & \begin{tabular}[c]{@{}c@{}}$\boldsymbol{BER}_{\boldsymbol{1}}$ \\ (\%)\end{tabular} & . & \begin{tabular}[c]{@{}c@{}}$\boldsymbol{SNR}_{\boldsymbol{50}}$ \\ (dB)\end{tabular} & \begin{tabular}[c]{@{}c@{}}$\boldsymbol{BER}_{\boldsymbol{50}}$ \\ (\%)\end{tabular} & \begin{tabular}[c]{@{}c@{}}$\boldsymbol{Avg. SNR}$ \\ (dB)\end{tabular} & \begin{tabular}[c]{@{}c@{}}$\boldsymbol{Avg. BER}$ \\ (\%)\end{tabular}       \\ \hline
+100 dB                     & $x_{1}$                 & $y_{1}$                 & .                  & $x_{50}$                 & $y_{50}$                 & . & . \\ \hline
+99 dB                      & $x_{1}$                 & $y_{1}$                 & .                  & $x_{50}$                 & $y_{50}$                 & . & . \\ \hline
+.                        & $x_{1}$                 & $y_{1}$                 & .                  & $x_{50}$                 & $y_{50}$                & $\bar{x} = \frac{1}{n} \sum_{i=1}^{50} x_i$ & $\bar{y} = \frac{1}{n} \sum_{i=1}^{50} y_i$ \\ \hline
+16 dB                      & $x_{1}$                 & $y_{1}$                 & .                  & $x_{50}$                 & $y_{50}$                 & . & . \\ \hline
+15 dB                      & $x_{1}$                 & $y_{1}$                 & .                 & $x_{50}$                 & $y_{50}$                 & . & . \\ \hline
+\end{tabular}
+\caption{Communication Test 1 Data Format}
+\label{tab:com_test_1_data_format}
+\end{table}
+
+Something that must be noted however, is that since my system calculates an SNR value for a received signal after said signal has propagated through a noisy environment, it will struggle to measure the true SNR of the signal below a certain attenuation level. My system will not be able to truly calculate the SNR from the received signal when the embedded signal is below the noise floor. This is not such a large problem however, since one can determine the SNR values achieved for low values of SNR by extrapolating the values at high SNR values to the low SNR values. This can only be done because we are in complete control of the attenuation level of the loopback system.
+
+\subsubsection{Test 2: Long Cable Loopback Test}
+After completing a complete communication tool-chain characterization test as outlined in the previous section, it is now important to show that the system can actually perform it's required tasks in the real world. This entails two more tests. However, it must be noted that the next two tests will not be as thorough as test 1, since test 1 mainly dealt with characterization of the communication system. Test 2 and 3 will primarily to ascertain whether or not the system can operate under non-ideal (real-world) conditions. Test 2 will be another loopback test, however this one will make use of a particularly long coaxial cable. This allows one to examine the performance of the communication system in a slightly more real world operational conditions, namely, the fact that the coaxial is exposed to more real-world environmental noise since it is longer than the shorter loopback test.
+
+\subsubsection{Test 3: Real World Antenna Test}
+The third and final test will involve a demonstration that the system can work while transmitting data over a real-world channel, namely, that of the air between two separate antennas. The goal with this test, much like the second test, will be to demonstrate that the system can indeed work in non-ideal conditions. test 12bh3bhub eu
+
 
 
 
