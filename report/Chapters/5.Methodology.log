@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.26 (TeX Live 2024) (preloaded format=pdflatex 2024.4.24)  31 JUL 2025 18:40
+This is pdfTeX, Version 3.141592653-2.6-1.40.26 (TeX Live 2024) (preloaded format=pdflatex 2024.4.24)  4 AUG 2025 17:44
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -97,7 +97,15 @@ LaTeX Font Info:    Overwriting math alphabet `\mathit' in version `bold'
 (Font)                  OT1/cmr/bx/it --> OT1/lmr/bx/it on input line 37.
 LaTeX Font Info:    Overwriting math alphabet `\mathtt' in version `bold'
 (Font)                  OT1/cmtt/m/n --> OT1/lmtt/m/n on input line 38.
-) (/usr/local/texlive/2024/texmf-dist/tex/latex/lipsum/lipsum.sty (/usr/local/texlive/2024/texmf-dist/tex/latex/l3packages/l3keys2e/l3keys2e.sty (/usr/local/texlive/2024/texmf-dist/tex/latex/l3kernel/expl3.sty
+) (/usr/local/texlive/2024/texmf-dist/tex/latex/tools/xr.sty
+Package: xr 2023-07-04 v5.06 eXternal References (DPC)
+)
+Package xr Info: IMPORTING LABELS FROM ../main/Main.aux on input line 9.
+
+
+LaTeX Warning: Label `fig:keysight8496b' multiply defined.
+
+(/usr/local/texlive/2024/texmf-dist/tex/latex/lipsum/lipsum.sty (/usr/local/texlive/2024/texmf-dist/tex/latex/l3packages/l3keys2e/l3keys2e.sty (/usr/local/texlive/2024/texmf-dist/tex/latex/l3kernel/expl3.sty
 Package: expl3 2024-02-20 L3 programming layer (loader) 
  (/usr/local/texlive/2024/texmf-dist/tex/latex/l3backend/l3backend-pdftex.def
 File: l3backend-pdftex.def 2024-02-20 L3 backend support: PDF output (pdfTeX)
@@ -554,7 +562,7 @@ Package: nextpage 2009/09/03 v1.1a additional page commands
 \epigraphrule=\skip65
 )
 
-Package xcolor Warning: Package option `usenames' is obsolete and ignored on input line 69.
+Package xcolor Warning: Package option `usenames' is obsolete and ignored on input line 71.
 
 (/usr/local/texlive/2024/texmf-dist/tex/latex/hyperref/hyperref.sty
 Package: hyperref 2024-01-20 v7.01h Hypertext links for LaTeX
@@ -658,7 +666,7 @@ Package: hypcap 2016/05/16 v1.12 Adjusting the anchors of captions (HO)
  (/usr/local/texlive/2024/texmf-dist/tex/latex/letltxmacro/letltxmacro.sty
 Package: letltxmacro 2019/12/03 v1.6 Let assignment for LaTeX macros (HO)
 ))
-Package hyperref Info: Option `colorlinks' set `true' on input line 80.
+Package hyperref Info: Option `colorlinks' set `true' on input line 82.
  (/usr/local/texlive/2024/texmf-dist/tex/latex/csquotes/csquotes.sty
 Package: csquotes 2022-09-14 v5.2n context-sensitive quotations (JAW)
 \csq@reset=\count348
@@ -1060,7 +1068,68 @@ Package tocbibind Info: The document has chapter divisions on input line 50.
 
 Package tocbibind Note: Using chapter style headings, unless overridden.
 
-)) (../FrontMatter/Glossary.tex) (./5.Methodology.aux)
+)) (../FrontMatter/Glossary.tex) (./5.Methodology.aux
+
+LaTeX Warning: Label `ch:methodology' multiply defined.
+
+
+LaTeX Warning: Label `fig:keysight8496b' multiply defined.
+
+
+LaTeX Warning: Label `sub@fig:keysight8496b' multiply defined.
+
+
+LaTeX Warning: Label `fig:keysight8494b' multiply defined.
+
+
+LaTeX Warning: Label `sub@fig:keysight8494b' multiply defined.
+
+
+LaTeX Warning: Label `fig:attenuators' multiply defined.
+
+
+LaTeX Warning: Label `tab:attenuators' multiply defined.
+
+
+LaTeX Warning: Label `fig:com_test_1' multiply defined.
+
+
+LaTeX Warning: Label `tab:com_test_1_data_format' multiply defined.
+
+
+LaTeX Warning: Label `christian_wolff_physical_2024' multiply defined.
+
+
+LaTeX Warning: Label `wright_what_nodate' multiply defined.
+
+
+LaTeX Warning: Label `skolnik_radar_2024' multiply defined.
+
+
+LaTeX Warning: Label `weinstein_history_2009' multiply defined.
+
+
+LaTeX Warning: Label `Design_and_Demonstration_of_an_OFDM_Based_RadCom_System' multiply defined.
+
+
+LaTeX Warning: Label `lellouch_waveform_2015' multiply defined.
+
+
+LaTeX Warning: Label `christian_wolff_classification_nodate' multiply defined.
+
+
+LaTeX Warning: Label `everythingrf_what_2022' multiply defined.
+
+
+LaTeX Warning: Label `mishra_radar_2024' multiply defined.
+
+
+LaTeX Warning: Label `computer_science_lessons_ofdm' multiply defined.
+
+
+LaTeX Warning: Label `rfwirelessworld_ofdm_advantages_disadvantages' multiply defined.
+
+)
 \openout1 = `5.Methodology.aux'.
 
 LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 9.
@@ -1185,63 +1254,59 @@ Chapter 1.
 [1
 
 
-{/usr/local/texlive/2024/texmf-var/fonts/map/pdftex/updmap/pdftex.map}{/usr/local/texlive/2024/texmf-dist/fonts/enc/dvips/lm/lm-ec.enc}]
-
-LaTeX Warning: Reference `ch:systemdesign' on page 2 undefined on input line 29.
-
-[2]
-<../Images/Methodology/10_db_attenuator.jpeg, id=69, 479.7925pt x 270.00874pt>
+{/usr/local/texlive/2024/texmf-var/fonts/map/pdftex/updmap/pdftex.map}{/usr/local/texlive/2024/texmf-dist/fonts/enc/dvips/lm/lm-ec.enc}] [2]
+<../Images/Methodology/10_db_attenuator.jpeg, id=71, 479.7925pt x 270.00874pt>
 File: ../Images/Methodology/10_db_attenuator.jpeg Graphic file (type jpg)
 <use ../Images/Methodology/10_db_attenuator.jpeg>
-Package pdftex.def Info: ../Images/Methodology/10_db_attenuator.jpeg  used on input line 46.
+Package pdftex.def Info: ../Images/Methodology/10_db_attenuator.jpeg  used on input line 47.
 (pdftex.def)             Requested size: 237.01411pt x 133.38487pt.
-<../Images/Methodology/1_db_attenuator.jpeg, id=70, 479.7925pt x 270.00874pt>
+<../Images/Methodology/1_db_attenuator.jpeg, id=72, 479.7925pt x 270.00874pt>
 File: ../Images/Methodology/1_db_attenuator.jpeg Graphic file (type jpg)
 <use ../Images/Methodology/1_db_attenuator.jpeg>
-Package pdftex.def Info: ../Images/Methodology/1_db_attenuator.jpeg  used on input line 53.
+Package pdftex.def Info: ../Images/Methodology/1_db_attenuator.jpeg  used on input line 54.
 (pdftex.def)             Requested size: 237.01411pt x 133.38487pt.
-LaTeX Font Info:    Trying to load font information for OT1+lmr on input line 65.
+LaTeX Font Info:    Trying to load font information for OT1+lmr on input line 66.
  (/usr/local/texlive/2024/texmf-dist/tex/latex/lm/ot1lmr.fd
 File: ot1lmr.fd 2015/05/01 v1.6.1 Font defs for Latin Modern
 )
-LaTeX Font Info:    Trying to load font information for OML+lmm on input line 65.
+LaTeX Font Info:    Trying to load font information for OML+lmm on input line 66.
  (/usr/local/texlive/2024/texmf-dist/tex/latex/lm/omllmm.fd
 File: omllmm.fd 2015/05/01 v1.6.1 Font defs for Latin Modern
 )
-LaTeX Font Info:    Trying to load font information for OMS+lmsy on input line 65.
+LaTeX Font Info:    Trying to load font information for OMS+lmsy on input line 66.
  (/usr/local/texlive/2024/texmf-dist/tex/latex/lm/omslmsy.fd
 File: omslmsy.fd 2015/05/01 v1.6.1 Font defs for Latin Modern
 )
-LaTeX Font Info:    Trying to load font information for OMX+lmex on input line 65.
+LaTeX Font Info:    Trying to load font information for OMX+lmex on input line 66.
  (/usr/local/texlive/2024/texmf-dist/tex/latex/lm/omxlmex.fd
 File: omxlmex.fd 2015/05/01 v1.6.1 Font defs for Latin Modern
 )
 LaTeX Font Info:    External font `lmex10' loaded for size
-(Font)              <10.95> on input line 65.
+(Font)              <10.95> on input line 66.
 LaTeX Font Info:    External font `lmex10' loaded for size
-(Font)              <8> on input line 65.
+(Font)              <8> on input line 66.
 LaTeX Font Info:    External font `lmex10' loaded for size
-(Font)              <6> on input line 65.
-LaTeX Font Info:    Trying to load font information for U+msa on input line 65.
+(Font)              <6> on input line 66.
+LaTeX Font Info:    Trying to load font information for U+msa on input line 66.
  (/usr/local/texlive/2024/texmf-dist/tex/latex/amsfonts/umsa.fd
 File: umsa.fd 2013/01/14 v3.01 AMS symbols A
 ) (/usr/local/texlive/2024/texmf-dist/tex/latex/microtype/mt-msa.cfg
 File: mt-msa.cfg 2006/02/04 v1.1 microtype config. file: AMS symbols (a) (RS)
 )
-LaTeX Font Info:    Trying to load font information for U+msb on input line 65.
+LaTeX Font Info:    Trying to load font information for U+msb on input line 66.
  (/usr/local/texlive/2024/texmf-dist/tex/latex/amsfonts/umsb.fd
 File: umsb.fd 2013/01/14 v3.01 AMS symbols B
 ) (/usr/local/texlive/2024/texmf-dist/tex/latex/microtype/mt-msb.cfg
 File: mt-msb.cfg 2005/06/01 v1.0 microtype config. file: AMS symbols (b) (RS)
 )
-LaTeX Font Info:    Trying to load font information for U+rsfs on input line 65.
+LaTeX Font Info:    Trying to load font information for U+rsfs on input line 66.
  (/usr/local/texlive/2024/texmf-dist/tex/latex/jknapltx/ursfs.fd
 File: ursfs.fd 1998/03/24 rsfs font definition file (jk)
 )
-<../Images/Methodology/com_test_1.png, id=72, 721.9773pt x 294.8616pt>
+<../Images/Methodology/com_test_1.png, id=74, 721.9773pt x 294.8616pt>
 File: ../Images/Methodology/com_test_1.png Graphic file (type png)
 <use ../Images/Methodology/com_test_1.png>
-Package pdftex.def Info: ../Images/Methodology/com_test_1.png  used on input line 82.
+Package pdftex.def Info: ../Images/Methodology/com_test_1.png  used on input line 83.
 (pdftex.def)             Requested size: 435.32422pt x 177.79117pt.
  [3 <../Images/Methodology/10_db_attenuator.jpeg> <../Images/Methodology/1_db_attenuator.jpeg> <../Images/Methodology/com_test_1.png>] [4{/usr/local/texlive/2024/texmf-dist/fonts/enc/dvips/lm/lm-mathit.enc}{/usr/local/texlive/2024/texmf-dist/fonts/enc/dvips/lm/lm-rm.enc}{/usr/local/texlive/2024/texmf-dist/fonts/enc/dvips/lm/lm-mathex.enc}] (./5.Methodology.bbl [5])
 Using TeX to sort glossary entries---this may take a while
@@ -1257,24 +1322,27 @@ L3 programming layer <2024-02-20>
  ***********
 
 
-LaTeX Warning: There were undefined references.
+LaTeX Warning: There were multiply-defined labels.
 
 Package rerunfilecheck Info: File `5.Methodology.out' has not changed.
 (rerunfilecheck)             Checksum: 50EA5F756153D2BE4860773B7B708050;1875.
  ) 
 Here is how much of TeX's memory you used:
- 55623 strings out of 474116
- 1236641 string characters out of 5743682
+ 55688 strings out of 474116
+ 1237898 string characters out of 5743682
  1945187 words of memory out of 5000000
- 76962 multiletter control sequences out of 15000+600000
+ 77020 multiletter control sequences out of 15000+600000
  625080 words of font info for 143 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
  114i,19n,120p,2495b,1101s stack positions out of 10000i,1000n,20000p,200000b,200000s
+
+pdfTeX warning (dest): name{chapter.3} has been referenced but does not exist, replaced by a fixed one
+
 </usr/local/texlive/2024/texmf-dist/fonts/type1/public/lm/lmbx10.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/lm/lmbx12.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/lm/lmbx8.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/lm/lmex10.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/lm/lmmi10.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/lm/lmmi8.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/lm/lmmib10.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/lm/lmr10.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/lm/lmr8.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/lm/lmri10.pfb>
-Output written on 5.Methodology.pdf (7 pages, 354778 bytes).
+Output written on 5.Methodology.pdf (7 pages, 354646 bytes).
 PDF statistics:
- 199 PDF objects out of 1000 (max. 8388607)
- 163 compressed objects within 2 object streams
- 40 named destinations out of 1000 (max. 500000)
+ 201 PDF objects out of 1000 (max. 8388607)
+ 165 compressed objects within 2 object streams
+ 41 named destinations out of 1000 (max. 500000)
  36980 words of extra memory for PDF output out of 42996 (max. 10000000)
 

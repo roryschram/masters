@@ -40,6 +40,11 @@ INPUT /usr/local/texlive/2024/texmf-dist/tex/generic/iftex/ifvtex.sty
 INPUT /usr/local/texlive/2024/texmf-dist/tex/generic/iftex/ifvtex.sty
 INPUT /usr/local/texlive/2024/texmf-dist/tex/latex/lm/lmodern.sty
 INPUT /usr/local/texlive/2024/texmf-dist/tex/latex/lm/lmodern.sty
+INPUT /usr/local/texlive/2024/texmf-dist/tex/latex/tools/xr.sty
+INPUT /usr/local/texlive/2024/texmf-dist/tex/latex/tools/xr.sty
+INPUT ../main/Main.tex
+INPUT ../main/Main.tex
+INPUT ../main/Main.aux
 INPUT /usr/local/texlive/2024/texmf-dist/tex/latex/lipsum/lipsum.sty
 INPUT /usr/local/texlive/2024/texmf-dist/tex/latex/lipsum/lipsum.sty
 INPUT /usr/local/texlive/2024/texmf-dist/tex/latex/l3packages/l3keys2e/l3keys2e.sty

@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.26 (TeX Live 2024) (preloaded format=pdflatex 2024.4.24)  24 JUL 2025 15:43
+This is pdfTeX, Version 3.141592653-2.6-1.40.26 (TeX Live 2024) (preloaded format=pdflatex 2024.4.24)  4 AUG 2025 17:40
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -97,7 +97,114 @@ LaTeX Font Info:    Overwriting math alphabet `\mathit' in version `bold'
 (Font)                  OT1/cmr/bx/it --> OT1/lmr/bx/it on input line 37.
 LaTeX Font Info:    Overwriting math alphabet `\mathtt' in version `bold'
 (Font)                  OT1/cmtt/m/n --> OT1/lmtt/m/n on input line 38.
-) (/usr/local/texlive/2024/texmf-dist/tex/latex/lipsum/lipsum.sty (/usr/local/texlive/2024/texmf-dist/tex/latex/l3packages/l3keys2e/l3keys2e.sty (/usr/local/texlive/2024/texmf-dist/tex/latex/l3kernel/expl3.sty
+) (/usr/local/texlive/2024/texmf-dist/tex/latex/tools/xr.sty
+Package: xr 2023-07-04 v5.06 eXternal References (DPC)
+)
+Package xr Info: IMPORTING LABELS FROM ../main/Main.aux on input line 9.
+
+
+LaTeX Warning: Label `skolnik_radar_2024' multiply defined.
+
+
+LaTeX Warning: Label `christian_wolff_physical_2024' multiply defined.
+
+
+LaTeX Warning: Label `everythingrf_what_2022' multiply defined.
+
+
+LaTeX Warning: Label `christian_wolff_classification_nodate' multiply defined.
+
+
+LaTeX Warning: Label `mishra_radar_2024' multiply defined.
+
+
+LaTeX Warning: Label `computer_science_lessons_ofdm' multiply defined.
+
+
+LaTeX Warning: Label `weinstein_history_2009' multiply defined.
+
+
+LaTeX Warning: Label `wright_what_nodate' multiply defined.
+
+
+LaTeX Warning: Label `rfwirelessworld_ofdm_advantages_disadvantages' multiply defined.
+
+
+LaTeX Warning: Label `Design_and_Demonstration_of_an_OFDM_Based_RadCom_System' multiply defined.
+
+
+LaTeX Warning: Label `lellouch_waveform_2015' multiply defined.
+
+
+LaTeX Warning: Label `skolnik_radar_2024' multiply defined.
+
+
+LaTeX Warning: Label `christian_wolff_physical_2024' multiply defined.
+
+
+LaTeX Warning: Label `everythingrf_what_2022' multiply defined.
+
+
+LaTeX Warning: Label `christian_wolff_classification_nodate' multiply defined.
+
+
+LaTeX Warning: Label `mishra_radar_2024' multiply defined.
+
+
+LaTeX Warning: Label `computer_science_lessons_ofdm' multiply defined.
+
+
+LaTeX Warning: Label `weinstein_history_2009' multiply defined.
+
+
+LaTeX Warning: Label `wright_what_nodate' multiply defined.
+
+
+LaTeX Warning: Label `rfwirelessworld_ofdm_advantages_disadvantages' multiply defined.
+
+
+LaTeX Warning: Label `Design_and_Demonstration_of_an_OFDM_Based_RadCom_System' multiply defined.
+
+
+LaTeX Warning: Label `lellouch_waveform_2015' multiply defined.
+
+
+LaTeX Warning: Label `fig:keysight8496b' multiply defined.
+
+
+LaTeX Warning: Label `skolnik_radar_2024' multiply defined.
+
+
+LaTeX Warning: Label `christian_wolff_physical_2024' multiply defined.
+
+
+LaTeX Warning: Label `everythingrf_what_2022' multiply defined.
+
+
+LaTeX Warning: Label `christian_wolff_classification_nodate' multiply defined.
+
+
+LaTeX Warning: Label `mishra_radar_2024' multiply defined.
+
+
+LaTeX Warning: Label `computer_science_lessons_ofdm' multiply defined.
+
+
+LaTeX Warning: Label `weinstein_history_2009' multiply defined.
+
+
+LaTeX Warning: Label `wright_what_nodate' multiply defined.
+
+
+LaTeX Warning: Label `rfwirelessworld_ofdm_advantages_disadvantages' multiply defined.
+
+
+LaTeX Warning: Label `Design_and_Demonstration_of_an_OFDM_Based_RadCom_System' multiply defined.
+
+
+LaTeX Warning: Label `lellouch_waveform_2015' multiply defined.
+
+(/usr/local/texlive/2024/texmf-dist/tex/latex/lipsum/lipsum.sty (/usr/local/texlive/2024/texmf-dist/tex/latex/l3packages/l3keys2e/l3keys2e.sty (/usr/local/texlive/2024/texmf-dist/tex/latex/l3kernel/expl3.sty
 Package: expl3 2024-02-20 L3 programming layer (loader) 
  (/usr/local/texlive/2024/texmf-dist/tex/latex/l3backend/l3backend-pdftex.def
 File: l3backend-pdftex.def 2024-02-20 L3 backend support: PDF output (pdfTeX)
@@ -554,7 +661,7 @@ Package: nextpage 2009/09/03 v1.1a additional page commands
 \epigraphrule=\skip65
 )
 
-Package xcolor Warning: Package option `usenames' is obsolete and ignored on input line 69.
+Package xcolor Warning: Package option `usenames' is obsolete and ignored on input line 71.
 
 (/usr/local/texlive/2024/texmf-dist/tex/latex/hyperref/hyperref.sty
 Package: hyperref 2024-01-20 v7.01h Hypertext links for LaTeX
@@ -658,7 +765,7 @@ Package: hypcap 2016/05/16 v1.12 Adjusting the anchors of captions (HO)
  (/usr/local/texlive/2024/texmf-dist/tex/latex/letltxmacro/letltxmacro.sty
 Package: letltxmacro 2019/12/03 v1.6 Let assignment for LaTeX macros (HO)
 ))
-Package hyperref Info: Option `colorlinks' set `true' on input line 80.
+Package hyperref Info: Option `colorlinks' set `true' on input line 82.
  (/usr/local/texlive/2024/texmf-dist/tex/latex/csquotes/csquotes.sty
 Package: csquotes 2022-09-14 v5.2n context-sensitive quotations (JAW)
 \csq@reset=\count348
@@ -1060,7 +1167,53 @@ Package tocbibind Info: The document has chapter divisions on input line 50.
 
 Package tocbibind Note: Using chapter style headings, unless overridden.
 
-)) (../FrontMatter/Glossary.tex) (./3.SystemDesign.aux)
+)) (../FrontMatter/Glossary.tex) (./3.SystemDesign.aux
+
+LaTeX Warning: Label `ch:systemdesign' multiply defined.
+
+
+LaTeX Warning: Label `subsec:systemreqs' multiply defined.
+
+
+LaTeX Warning: Label `subsec:systemspecs' multiply defined.
+
+
+LaTeX Warning: Label `sec:softwaredesign' multiply defined.
+
+
+LaTeX Warning: Label `christian_wolff_physical_2024' multiply defined.
+
+
+LaTeX Warning: Label `wright_what_nodate' multiply defined.
+
+
+LaTeX Warning: Label `skolnik_radar_2024' multiply defined.
+
+
+LaTeX Warning: Label `weinstein_history_2009' multiply defined.
+
+
+LaTeX Warning: Label `Design_and_Demonstration_of_an_OFDM_Based_RadCom_System' multiply defined.
+
+
+LaTeX Warning: Label `lellouch_waveform_2015' multiply defined.
+
+
+LaTeX Warning: Label `christian_wolff_classification_nodate' multiply defined.
+
+
+LaTeX Warning: Label `everythingrf_what_2022' multiply defined.
+
+
+LaTeX Warning: Label `mishra_radar_2024' multiply defined.
+
+
+LaTeX Warning: Label `computer_science_lessons_ofdm' multiply defined.
+
+
+LaTeX Warning: Label `rfwirelessworld_ofdm_advantages_disadvantages' multiply defined.
+
+)
 \openout1 = `3.SystemDesign.aux'.
 
 LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 7.
@@ -1227,7 +1380,7 @@ File: ursfs.fd 1998/03/24 rsfs font definition file (jk)
 
 ]
 
-Package glossaries Warning: Empty glossary for \printnoidxglossary[type={main}]. Rerun may be required (or you may have forgotten to use commands like \gls) on input line 51.
+Package glossaries Warning: Empty glossary for \printnoidxglossary[type={main}]. Rerun may be required (or you may have forgotten to use commands like \gls) on input line 59.
 
 [3
 
@@ -1237,19 +1390,23 @@ Package glossaries Warning: Empty glossary for \printnoidxglossary[type={main}].
 LaTeX2e <2023-11-01> patch level 1
 L3 programming layer <2024-02-20>
  ***********
+
+
+LaTeX Warning: There were multiply-defined labels.
+
 Package rerunfilecheck Info: File `3.SystemDesign.out' has not changed.
 (rerunfilecheck)             Checksum: 8047612D10F921B0AC38E44F5D9DE948;1981.
  ) 
 Here is how much of TeX's memory you used:
- 55419 strings out of 474116
- 1232867 string characters out of 5743682
+ 55527 strings out of 474116
+ 1234791 string characters out of 5743682
  1938187 words of memory out of 5000000
- 76848 multiletter control sequences out of 15000+600000
- 605397 words of font info for 98 fonts, out of 8000000 for 9000
+ 76948 multiletter control sequences out of 15000+600000
+ 605480 words of font info for 99 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
  114i,5n,120p,2496b,1087s stack positions out of 10000i,1000n,20000p,200000b,200000s
 </usr/local/texlive/2024/texmf-dist/fonts/type1/public/lm/lmbx12.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/lm/lmr10.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/lm/lmri10.pfb>
-Output written on 3.SystemDesign.pdf (3 pages, 87316 bytes).
+Output written on 3.SystemDesign.pdf (3 pages, 87480 bytes).
 PDF statistics:
  123 PDF objects out of 1000 (max. 8388607)
  110 compressed objects within 2 object streams
