@@ -1,0 +1,570 @@
+\documentclass[11pt]{report}
+\input{Style/ChapterStyle.tex}
+\input{FrontMatter/Glossary.tex}
+
+\begin{document}
+
+\pagenumbering{roman}
+\input{FrontMatter/1.Title}
+\input{FrontMatter/2.Declaration}
+\input{FrontMatter/3.Acknowledgements}
+\input{FrontMatter/4.Abstract}
+\glsresetall
+
+\tableofcontents
+\listoffigures
+\listoftables
+
+\gls{ofdm}
+\printnoidxglossary[type=\acronymtype,nonumberlist,title={Acronyms}]
+\newpage
+
+\pagenumbering{arabic}
+
+
+% ----------------------------------------------------
+% Introduction
+% ----------------------------------------------------
+% ----------------------------------------------------
+\chapter{Introduction}\label{ch:Introduction}
+%\epigraph{Everyday we wake up in a world of infinite possibility. %Therefore boredom cannot exist.}%
+%    {\emph{---Daniel Jones}}
+%\vspace{0.5cm}
+% ----------------------------------------------------
+In our ever evolving technological world, new ways of solving problems are being developed at a rapidly increasing rate. There is much to be said about developing brand-new methods in solving existing problems, however, in this report I propose the combination of two, fairly well-thought-out existing technologies, to try and solve a useful problem in the world of \gls{radar}. 
+
+This report outlines the thought process, design, and implementation of a single pulse RADAR system, combined with an \gls{ofdm} based signal, to achieve the goal of target classification from a scene. RADAR systems in today's world can perform certain tasks extremely well (in the right conditions), however, there still seems to be a lack of RADAR systems that can identify/classify what objects might be sound in a scene of interest, without the utilization of complex image processing techniques. 
+
+In this paper, I will outline the process that was gone through to build a working prototype system, that uses the combination of a single pulse RADAR, and an OFDM based signal, to try and classify objects in a scene.
+
+This report will consist of the following loose structure. Firstly, a literature review of the related works to do with the fundamentals of the project, namely, single pulse RADARs, OFDM, and the mixture of the two. Next, a theory section that concerns the workings behind the project will be presented. Thirdly, the design of the surrounding system to transmit and receive data, process the data, and analyze the results is presented. Following this, an experimental design is laid out and explained in detail. This is followed by the performing of real world testing which is then analyzed in the results section. Lastly, there will be some discussion of results and further steps that could be implemented.
+
+
+\section{Background}
+RADAR technology has unlocked the ability for humans to be able to see the world around us with a new perspective. This ability to be able to see objects and more specifically, to see information such as position and velocity about 
+these objects has helped with the development of devices and services that are of paramount importance to society. All the current use cases of RADAR do however lack the ability to determine exactly what object is being seen by the overall RADAR system. That is where the use of the OFDM waveform in a RADAR system becomes useful.
+
+
+
+\section{Problem Statement}
+Current RADAR technology works very well when determining the distance and direction of an object, however, it does not cope well with specific object classification tasks. One of the reasons for this is that current RADAR utilize either a pulse, continuous wave, or chirp waveform, which does not allow for object detection through statistical analysis due to the simple nature of the waveform. This is a drawback of using RADAR systems, since if object  classification is desired, then a combination of radar and some other technology such as cameras would have to be used which increases the cost and complexity of the system as a whole.
+
+\section{Objectives}
+The goal of this project is to build a RADAR system that can simultaneously act as a normal RADAR which can determine the distance and direction of an object, as well as classify the specific object that it is looking at when compared to other example objects. The aim is to implement an OFDM based waveform into a RADAR system that would give the flexibility to analyze the returned signal statistically and determine what exactly the object is. The goal is to make a non-realtime system, that can distinguish between three different objects.
+
+
+\section{System Requirements}
+The RADAR project has the following requirements:
+
+\subsection{Hardware Requirements}
+The main hardware for the project should be widely available computer scientific equipment. The availability of computer equipment is generally larger than most of the other required equipment such as the \gls{sdr} equipment. The SDR equipment is much less widely available due to the high price of the equipment itself. This is fine however, since the \gls{uct} has in their control multiple \gls{usrp} N210 devices designed and manufactured by Ettus research which will be perfect for my project.
+
+test 1234
+
+\begin{enumerate}
+    \item Be able to operate as a normal RADAR. This entails determining range, azimuth, and elevation. 
+    \item Be able to classify between three separate reflectors/scatterers.
+\end{enumerate}
+
+\section{Scope and Limitations}
+The scope of this project has been set to not include design of RADAR hardware specifically. This is because design of RADAR hardware is a complex task that would probably encompass an entire masters project in and of itself. Therefore, the RADAR hardware portion of the project will be handled by a \gls{sdr}. This extrapolates the complex RADAR hardware design aspect away from the project and allows me to focus on the data collection and processing aspect of the project.
+
+% ----------------------------------------------------
+% ----------------------------------------------------
+
+
+
+
+% ----------------------------------------------------
+% Literature Review
+% ----------------------------------------------------
+\chapter{Literature Review}\label{ch:Literature}
+In this chapter, I aim to explore the existing literature that delves into the fundamentals of the various elements involved within this project, starting with \gls{radar}, and more specifically, \gls{ar}. Then I delve into \gls{ofdm}, followed by \gls{sdr} and it's working and uses within the world of RADAR. Then, I look into OFDM based AR, and finally, I look into OFDM based classification RADAR. My aim for this review of the literature is to add context to the broader paper, and hopefully give you, the reader, a more in depth understanding of the core concepts one has to understand to fully grasp the overall workings of the project. Especially as we move towards the latter parts of the project, where classification is involved, it is important to grasp the fundamentals.
+
+I will separate the literature review into distinct sections, where I will explore the history behind each concept and the theory involved within. I will also explore and analyze the advantages and disadvantages of each topic and then finally, provide a critique of the literature towards the end.
+
+
+
+\section{Classical RADAR}
+\subsection{Brief History}
+The fundamental idea behind RADAR systems and the technology itself were first theorized during the classical electromagnetic radiation experiments of the 1880s performed by Heinrich Hertz \cite{skolnik_radar_2024}. These experiments set out to prove the previous theoretical work achieved by James Clerk Maxwell. Maxwell came up with the formulae that described electromagnetic fields, and he hypothesized that this formula would apply to both light and radio waves since they were both examples of electromagnetic radiation just at vastly different frequencies. This has obviously since been proved, with visible light roughly falling into the 400THz to 700THz frequency range. The work done by Maxwell led to the discovery that electromagnetic waves can be reflected by metallic objects and refracted by a dielectric medium, just like light can \cite{skolnik_radar_2024}. This work did not go unnoticed and a patent for an "an obstacle detector and ship navigation device" was issued in 1904 to Christian Hülsmeyer, a German engineer \cite{skolnik_radar_2024}. Work on RADAR then slowed down due to a lack of interest from governmental authorities until the early 1930s, when the development of long-range bombers prompted the major powers of the world to develop technologies which could detect these hostile aircraft, which would be useful for the coming second world war.
+
+
+
+\subsection{RADAR Workings}
+At its core, a RADAR is defined as an instrument that can detect surrounding objects using radio waves. To achieve this, there are multiple different setups of RADAR systems, which will be discussed later. These RADAR setups however all rely on the following fundamental laws of physics which are listed below \cite{christian_wolff_physical_2024}:
+
+\begin{enumerate}
+    \item \textbf{Reflection of electromagnetic waves}: This rule describes how a radio wave will be reflected back towards a transmitter of said radio wave if the object is placed directly in front of the transmitter. This reflection indicates that the object is in front of the transmitter.
+    \item \textbf{Electromagnetic energy travels through air at a constant speed}: This rule describes how the electromagnetic waves transmitted by an antenna propagate through the transmission medium, usually air for our earth's use cases, at roughly the speed of light, $c$. This velocity $c$ equates to 299,792,458 $m.s^{-1}$ 
+    \item \textbf{Electromagnetic energy normally travels through space in a straight line}: This describes how the energy transmitted by an antenna in a radar system propagates through space in a straight line. This is important because it means that the energy of the RADAR system can be directed in a specific direction by the antenna system, which means that the reflecting object's direction (azimuth and elevation) can be determined.
+\end{enumerate}
+
+In a classic pulsed RADAR, essentially the most simple kind of RADAR that is used today, by using the above-mentioned physical properties, the distance, azimuth, and elevation of the object that is being observed by the radar system can be determined. The best example of this sort of RADAR system is an airport RADAR. An \gls{asr} is used at airports to determine the presence and position of aircraft in the vicinity of an airport. Typically, ASR systems are capable of reliably detecting and tracking aircraft at altitudes below 25,000 feet (7,620 meters) and within 40 to 60 nautical miles (75 to 110 km) of the airport \cite{everythingrf_what_2022}.
+
+Classical RADAR systems can be separated into a few different categories \cite{christian_wolff_classification_nodate}. Broadly, you get primary and secondary RADARs that are separated into imaging and non-imaging RADARs. An imaging RADAR is one which desires to draw an image, such as a weather RADAR, and a non-imaging RADAR is one which does not draw an image but rather infers information about a target based on processing techniques. Primary RADARs rely on echos from a target that come from it's own transmitted pulse, whereas a secondary radar relies on a RADAR response signal from a target. Sometimes, the ASR systems mentioned previously have secondary radar systems built-in which allow the aircraft being detected to broadcast vital information to aid with air traffic control. This is usually only possible for "friendly" targets. The various catagorizations of RADAR types can be seen in figure \ref{fig:classification_of_radar_systems} below:
+
+
+
+\begin{figure}[H]
+\centering
+\includegraphics[width = 0.7\linewidth]{Images/Literature/classification_of_radar.png}
+\caption{Classification of Radar Systems \cite{christian_wolff_classification_nodate}}
+\label{fig:classification_of_radar_systems}
+\end{figure}
+
+\textbf{\textcolor{red}{Note to self, I don't think I like this image}}
+
+
+
+
+
+\subsection{Advantages and Disadvantages of RADAR}
+Since RADAR utilizes the electromagnetic spectrum, there are distinct advantages concerning the use of RADAR systems \cite{christian_wolff_physical_2024}. The main advantage is that, unlike humans, RADAR systems can operate day and night, 24/7, over far distances, in good or bad weather. Compared to human eyes, this is obviously a lot better. Some other advantages of classic RADAR is that it can generally "see" through insulators, and it can also distinguish the difference between fixed and moving targets \cite{mishra_radar_2024}. Some disadvantages however, are that classical RADAR systems generally struggle to resolve targets that are very close to the transmitter, and they cannot penetrate water very well \cite{mishra_radar_2024}. Classical RADAR systems also fail to distinguish between shapes of object that they are looking at.
+
+
+
+
+
+
+\section{OFDM}
+\subsection{Brief History}
+The general working principles, and the mathematics required for OFDM were originally described by Robert Chang in 1966 while he was working at Bell Labs \cite{computer_science_lessons_ofdm}. While the idea of OFDM was smart, it didn't become popular until sufficiently cheap microprocessors entered the market \cite{computer_science_lessons_ofdm}. OFDM was never implemented in commercial communication channels until the appearance of mass market applications coincided with the availability of efficient software and electronic technologies \cite{weinstein_history_2009}.
+
+\subsubsection{Previous Transmission Techniques}
+Before OFDM there was \gls{fdm}. FDM system innovation was driven out of necessity due to telegraph companies hoping to increase the amount of users that could utilize their transmission lines to increase profits from their systems \cite{weinstein_history_2009}. Transmission companies were in search of a method to have multiple messages being sent on the same transmission line at simultaneously. Other methods had been used such as \gls{tdm}, and \gls{tdma}. These methods were however limited by burst speed which was itself limited by inter-symbol interference. Around the 1920s, FDM became the main carrier system for telephone companies. The first major company to deploy the system was \gls{att}. This initial deployment of the system used 8kHz subchannels with 4kHz allocated to each channel. This form of transmission system later developed into systems that had more subcarrier channels with less subcarrier spacing. There were however some drawbacks to FDM, which are highlighted below:
+
+\begin{enumerate}
+    \item \textbf{Waste of frequency}: Due to the large subcarrier spacing, FDM wasted a lot of precious frequency spectrum to these so-called "guard" bands on either side of the carrier. As the frequency spectrum became more crowded throughout the years, these guard bands became a liability due to demand for spectrum being to high, and the guard bands were not effciently using the spectrum.
+    \item \textbf{Using different modulators for the various sub-channels}: In the old systems, each sub-channel had a separate modulator in the up-mixing process. This multiplication process became tedious once there were multiple sub-carriers.
+\end{enumerate}
+
+To compensate for this inefficient use of the frequency spectrum, OFDM was introduced. What made OFDM different to FDM was that each subcarrier overlapped some of the other carriers in signal. This was able to be done because each carrier was spaced in such a way that it was orthogonal to the other carriers in the signal \cite{weinstein_history_2009}.
+
+
+\subsubsection{OFDM}
+As mentioned before, \gls{ofdm} is a transmission method that uses the spectrum in a more efficient manor to transmit as much information as possible over a single transmission line. The transmission of information is commonly done using various modulation schemes such as QAM encoding that breaks information into bit chunks that are sent in parallel over multiple channels \cite{wright_what_nodate}. The OFDM transmission scheme builds upon FDM where multiple channels are created over a specific bandwidth, and bits of information are sent on each channel in parallel. The main difference between FDM and OFDM is therefore the orthogonality of the OFDM signal. I have created a crude example below in figure \ref{fig:ofdmandfdmwaveforms}. In fig 1.2a, a crude mockup of an OFDM signal can be seen in the frequency domain. As can be seen, all the peaks of the OFDM waveform have zero interference with any other part of the signal. This is due to the various carriers being orthogonal to each other. Conversely, with the FDM waveform, the peaks have significant interference from the other channels since the channels are not spaced orthogonally in regard to each other.
+
+\begin{figure}[H]
+\centering
+\begin{subfigure}{0.49\textwidth}
+    \centering
+    \includegraphics[width = \linewidth]{Images/Literature/ofdm.png}
+    \subcaption{OFDM}
+    \label{fig:ofdmwaveform}
+\end{subfigure}
+\hfill
+\begin{subfigure}{0.49\textwidth}
+    \centering
+    \includegraphics[width = \linewidth]{Images/Literature/fdm.png}
+    \subcaption{FDM}
+    \label{fig:fdmwaveform}
+\end{subfigure}
+\caption{OFDM and FDM Waveforms}
+\label{fig:ofdmandfdmwaveforms}
+\end{figure}
+
+I want to touch on the idea of orthogonality. In practice, all it means is that in a signal with multiple sinusoidal carriers, each carrier has a frequency that is a whole number multiple of some fundamental frequency \cite{computer_science_lessons_ofdm}. The time domain voltage signal of an OFDM signal can be described by equation \ref{eq:ofdmequation} below:
+
+\begin{equation}
+    v(t) = \sum_{k=0}^{N-1} X_k e^{\frac{\mathrm{j} 2 \pi k t}{T}}\quad,\quad0 \leqq t < T   \label{eq:ofdmequation}
+\end{equation}
+
+
+\[
+\textbf{where} \quad
+\begin{aligned}
+N & = \text{Number of subcarriers} \\
+X_k & = \text{Data symbols in the frequency domain} \\
+T & = \text{OFDM symbol time (s)}
+\end{aligned}
+\]
+
+The subcarrier spacing of \(\frac{1}{T}\) ensures carrier orthogonality over the OFDM frame, or symbol. In practice, real world implementations of OFDM signals will have vastly more complex components added on concerning error correction and data modulation techniques in general. The base signal however will still revolve around the idea of orthogonal carriers.
+
+\subsection{Advantages and Disadvantages of OFDM}
+As can be seen in the above sections, OFDM is a very useful and versatile transmission technique that is used in a variety of real world applications. While OFDM is a widely used and very good transmission technique, is does come with some pros and cons \cite{rfwirelessworld_ofdm_advantages_disadvantages}. The biggest pro for OFDM, particularly with its use within the telecommunications industry, is the spectral efficiency that can be achieved. Real world OFDM system are also resistant to multipath fading due to the cyclic prefix that these systems implement. Modern OFDM systems can allow for easy equalization with embedded pilot symbols. Equalization is much harder to achieve in a single carrier system. Some cons of OFDM systems however include the following. Firstly, an OFDM transmission can have a high \gls{papr}. This is due to an OFDM signal's noise-like amplitude with a large dynamic range \cite{rfwirelessworld_ofdm_advantages_disadvantages}. Another problem is that OFDM systems are susceptible to carrier frequency offset due to local oscillators not being able to perfectly operate at the same frequency on the transmitter and receiver. 
+
+
+
+\section{OFDM based RADAR}
+\subsection{Brief History of OFDM based RADAR}
+\subsection{Implementation of OFDM based RADAR}
+There is an ever evolving area of RADAR research that involves the combination of RADAR systems and telecommunication systems. This is colloquially known as \gls{radcom}. Radcom aims to combine radar and telecommunications because this could potentially lead to system that are more spectrally efficient, and lightweight. In essence, one could imagine a RADAR system that can communicate with other base stations, as well as performing usual RADAR tasks, all from a single system. An attempt at creating a system like this was attempted by Dr Stephen Paine and Grant Norrie in \cite{Design_and_Demonstration_of_an_OFDM_Based_RadCom_System}. They set out to create a RADAR system that utilizes the previously mentioned OFDM signal structure in a radcom setup. They wanted to base the system around an OFDM signal because of the ever-increasing popularity of OFDM signals in communication networks. They mention that communication signals are often used in passive RADARs, by exploiting \gls{ioo}. An IOO is a transmitter that is not intended for RADAR purposes, but rather other applications, with the most popular being telecommunications purposes. They pose the question, if a passive RADAR system can use existing communication signals to detect objects, why can an active system not do the same?
+
+They explored the use of the OFDM based \gls{dab} modulation scheme as the backbone of the system. Part of the reason for this, is the fact that DAB is a very popular and well-defined. They designed and documented an entire toolchain that consisted of the following parts.
+
+\begin{enumerate}
+    \item Signal Generation Chain: This entailed the building of the signal that was to be transmitted by their receiver.
+    \item Hardware Testbed: This was the physical hardware that was used to implement the theoretical in the real world. This consisted of dual Ettus USRP N210 SDRs.
+    \item Radar Processing Chain: Everything to do with processing of the signal on the reception side of things to verify the operation of the system as a RADAR. The main objective of this toolchain was to generate a range-doppler graph to visualize the output of the overall RADAR system.
+    \item Communications Processing Chain: This toolchain was in place to verify and perform the necessary operations to facilitate a working communication link between the transmitter and the receiver.
+\end{enumerate}
+
+The SDR platform had specific configuration characteristics that were used for the tests performed by \cite{Design_and_Demonstration_of_an_OFDM_Based_RadCom_System}. These settings are summarized in table \ref{tab:sdr_platform_parameters} below:
+
+\begin{table}[H]
+\centering
+\begin{tabular}{|c|c|}
+\hline
+\textbf{Parameter} & \textbf{Value} \\ \hline
+Tx Gain            & 0 dB           \\ \hline
+Rx Gain            & 0 dB           \\ \hline
+Tx Bandwidth       & 1.1 MHz        \\ \hline
+Rx Bandwidth       & 1.1 MHz        \\ \hline
+Sampling Rate      & 5 MHz          \\ \hline
+Carrier Frequency  & 2.45 GHz       \\ \hline
+\end{tabular}
+\caption{SDR Toolchain Parameters}
+\label{tab:sdr_platform_parameters}
+\end{table}
+
+Multiple tests were performed to test the capability of the system. These tests were a communication test, a static range test, and a range-doppler test, which involved a moving target. The communication test was fairly basic, and it aimed to eliminate antenna/system feed through, and then measured the \gls{ber} upon transmission from the transmit antenna to the reception antenna from a distance of 5 meters away. The BER was confirmed to be 0\% and then the test was deemed to be a success.
+
+Then a static range test was performed with an object 100m away from the RADAR. After pulse cancellation with adjusted dynamic range, and clutter map removal, a range-doppler map was generated as shown below in figure \ref{fig:norrie_paine_static_test}:
+
+
+\begin{figure}[H]
+\centering
+\includegraphics[width = 0.8\linewidth]{Images/Literature/norrie_paine_static_test.png}
+\caption{Range-doppler map of object at 100m}
+\label{fig:norrie_paine_static_test}
+\end{figure}
+
+
+This figure showed that the object was detectable at 100m, specifically, the object could be seen in the 109m range bin. Lastly, a moving target test was performed, which was able to successfully detect a moving car. The ground truth of the moving object was as follows, it was 30m away from the RADAR and was moving at a velocity of 7.2 $m.s^{-1}$ and 7.0 $m.s^{-1}$ as measured by a \gls{gps} and the odometer respectively. The measured range and velocity was determined to be 36m and -7.4 $m.s^{-1}$. The negative velocity is due to the object moving away from the RADAR system.
+
+In \cite{lellouch_waveform_2015}, Gabriel Lellouch
+
+
+
+
+\subsection{Advantages and Disadvantages of OFDM based RADAR}
+
+
+
+
+\section{Critique of Literature}
+Notes to self \\
+....In Stephen Paine and Norrie paper, the communication test is quite trivial...
+
+
+% ----------------------------------------------------
+% ----------------------------------------------------
+
+
+
+
+
+% ----------------------------------------------------
+% Overall System Architecture
+% ----------------------------------------------------
+% ----------------------------------------------------
+\chapter{System Design \label{ch:systemdesign}}
+% ----------------------------------------------------
+This chapter aims to outline the thought process that went into the design of my radar system. As my requirements for the radar system have been spoken about previously in this report, but not in extreme detail, I will start this chapter by doing a requirement analysis for my problem, and then build on from there.
+
+\section{Requirement and Specification Analysis}
+\subsection{System Requirements}\label{subsec:systemreqs}
+Since the classification capabilities of my RADAR system are based on the principles of OFDM based communication signals, it felt necessary to do more tests 
+
+
+\subsection{System Specifications}\label{subsec:systemspecs}
+
+
+
+
+
+
+
+
+
+
+
+\section{Modules and Sub-modules}
+
+\section{Transmission Module Component Selection}
+
+
+
+\section{Receive Module Component Selection}
+
+
+
+\section{Hardware Interface Design}
+
+
+
+
+\section{Software Design}\label{sec:softwaredesign}
+
+
+
+\section{PCB Design}
+
+
+
+
+
+% ----------------------------------------------------
+% ----------------------------------------------------
+
+
+
+% ----------------------------------------------------
+% Validation and Simulation
+% ----------------------------------------------------
+
+\chapter{Validation and Simulation \label{ch:simulation}}
+
+
+\cite{christian_wolff_physical_2024}
+\section{Validation}
+
+\subsection{Transmitter Validation}
+\subsubsection{Power Module}
+
+\subsubsection{Microcontroller}
+
+\subsubsection{Sensor Modules}
+
+\subsubsection{LoRa module and Display and Control Module}
+
+\subsection{Receiver Validation}
+
+\section{Simulation}
+
+
+% ----------------------------------------------------
+% ----------------------------------------------------
+
+
+
+% ----------------------------------------------------
+% Methodology
+% ----------------------------------------------------
+% ----------------------------------------------------
+\chapter{Methodology \label{ch:methodology}}
+In the following chapter, I would like to highlight my testing procedure, but more importantly the reasoning behind why I make the specific choices that I do as it pertains to experimental setup. The aim of the experiments that are detailed in this chapter is to validate theoretical work, and to ensure that the theoretical development is practically achieved in the real world.
+
+\section{Experimental Design}
+\subsection{Overview}
+The overall workings of the RADAR system can be split into three distinct sections of operation. The first section involves the ability of the system to act as a communication system. The second section of operation is the ability of the RADAR to detect objects at different ranges. The third area of operation of the RADAR is the ability of the RADAR to perform target classification. Due to this separation of operations, the testing of the system has been divided into three separate testing sections. The various testing categories are listed below. 
+
+\begin{enumerate}
+    \item \textbf{Communication Testing}: This test is all about how well the system can operate as a bare-bones communication system. The reason I have decided to include this as a test is because, as mentioned before, my entire classification pipeline is built upon OFDM communication principles (namely the use of pilot symbols in determining channel estimation data), and since these OFDM principles are so vital to my project, it is fitting to make sure that the system can actually operate as a data transmission system. This is necessary to show, since the broad category of RADAR that this system falls into could be considered "communication RADAR", or in essence, a RADAR that can use the same signal within communication operations and normal RADAR operations.
+    \item \textbf{Range Testing}: The purpose of the range test will be to determine if the RADAR system can operate as just that, a simple RADAR. The main aim is to determine if the system can detect objects at various distances from the transmitter and receiver setup.
+    \item \textbf{Classification Testing}: This is the main testing that will take place for my RADAR system. This testing setup will thoroughly analyze the ability of the RADAR system to classify various targets in a scene. The tests will also try to determine the viability of this concept in a real world use case scenario.
+\end{enumerate}
+
+Following on from the above listed broad testing structures, the exact testing procedure of each testing category will now be explained below.
+
+\subsection{Communication Test}
+The communication testing procedure will be paramount in determining if my system is working properly as a communication system, and therefore it is important to check the communication ability to determine if the calculated channel responses are valid.
+
+As mentioned in chapter \ref{ch:systemdesign}, one frame of my OFDM based signal is 32768 samples long. That means that there are 4384 samples either side of my "signal block" that have values equal to zero. These are my guard bands. That leaves 24000 samples for data and pilot symbols. I made my signal have 4000 pilots and 20000 data carriers. Based on this setup, I can transmit 40000 bits at a time. On the reception side, I am able to read ingest raw data, which I can then decode and get my transmitted bits out of. Bearing this in mind, since I have the bits that I transmitted, and the bits that I have received, I am able to compute a BER for the transmission. The performance of the system changes drastically as the overall \gls{snr} of the transmission changes.
+
+To try and manipulate the SNR of the transmission, I want to perform multiple tests at various amplification levels. At severely low amplification levels, one can deduce that there will be very little signal being transmitted through the system.
+
+\subsubsection{Test 1: Communication System Characterization via Loopback}
+Since my communication tool chain has the ability to calculate the SNR of each and every capture that it processes, test 1 will work with this understanding. I wanted to design a test that shows, as good as possible, the overall communication system performance. One way that this can be shown, is by measuring the performance of the system under different stress conditions. So, for a communication system, that would involve measuring the performance of the system under varying SNR conditions. A varying SNR is a good choice of system stress conditions to determine real world raw communication performance. This is because it simulates the real world conditions that most signals (at least those operating in a free spectral band) have to deal with.
+
+Unfortunately, there is no way to directly control the SNR in a real world test like this, as opposed to a simulation. Therefore, it is necessary to control another aspect of the signal which directly affects the SNR. In this test's case, the best way to do that is to control the level above the noise floor that the signal exists on the received side of the system. The best way to achieve this, is to attach an attenuator between the transmit and receive ports of the system. Then, from there, one can adjust the level of attenuation, which in turn, raises and lowers the level that the transmitted signal sits above the noise floor.
+
+In my experience with the USRP-N210 paired with the SBX daughterboard, the noise floor tends to hover around -100 dBV. The minimum level of attenuation that I have been using to test my system is roughly 15dB. Therefore, for this test of the communication, I will transmit the same communication signal through an attenuator, and step the attenuator from 100dB to 15dB of attenuation.
+
+I have access to the following attenuators in my capacity as a UCT student, the Keysight 8496B, and the Keysight 8494B. These are pictured in figure \ref{fig:attenuators} below:
+
+\begin{figure}[H]
+\centering
+\begin{subfigure}{0.49\textwidth}
+    \centering
+    \includegraphics[width = \linewidth]{Images/Methodology/10_db_attenuator.jpeg}
+    \subcaption{Keysight 8496B}
+    \label{fig:keysight8496b}
+\end{subfigure}
+\hfill
+\begin{subfigure}{0.49\textwidth}
+    \centering
+    \includegraphics[width = \linewidth]{Images/Methodology/1_db_attenuator.jpeg}
+    \subcaption{Keysight 8494B}
+    \label{fig:keysight8494b}
+\end{subfigure}
+\caption{Keysight Attenuators}
+\label{fig:attenuators}
+\end{figure}
+
+While the attenuators pictured above come in the same package, they are anything but the same. The differences are listed below.
+
+\begin{table}[H]
+\centering
+\begin{tabular}{c|c|c|}
+\cline{2-3}
+                                                 & \textbf{Keysight 8496B} & \textbf{Keysight 8494B} \\ \hline
+\multicolumn{1}{|c|}{\textbf{Frequency Range}}   & DC to 18 GHz            & DC to 18 GHz            \\ \hline
+\multicolumn{1}{|c|}{\textbf{Steps}}             & 10 dB                   & 1 dB                    \\ \hline
+\multicolumn{1}{|c|}{\textbf{Attenuation Range}} & 0 dB - 110 dB           & 0 dB - 11 dB            \\ \hline
+\end{tabular}
+\caption{Keysight 8496B and 8494B Attenuator Charateristics}
+\label{tab:attenuators}
+\end{table}
+
+Importantly, both attenuators operate from 0 Hz to 18 GHz, which is more than enough bandwidth for testing this system, since this system is limited to operations within the bandwidth of the SBX daughterboard of the USRP-N210, which can transmit signals on a carrier wave of 400 MHz to 4.4 GHz. More over, during the system design, I settled on doing tests in the portion of the spectrum from around 2 GHz to 3 GHz.
+
+Using both attenuators, daisy-chained together, gave me the ability to control attenuation in the range from 0 dB to 121 dB in steps of 1 dB. The setup for this loopback test can be seen in the diagram presented in fig \ref{fig:com_test_1} below:
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width = 0.9\linewidth]{Images/Methodology/com_test_1.png}
+    \caption{Communication Loopback Test}
+    \label{fig:com_test_1}
+\end{figure}
+
+With this testing setup, as mentioned before, I have control over the attenuation of the overall signal propagation, effectively giving me indirect control over how high above the noise floor the transmitted signal sits, or in other word, the SNR. For the test, I will transmit a known communication signal, with known bits embedded into the signal. On the reception side, I can get a channel estimation, equalize the signal and demodulate the signal to extract data bits from the signal. I will do this for each attenuation level, varying from 100 dB to 15 dB of attenuation. For each signal that is received and demodulated, I am able to get an SNR and a BER. To ensure thorough characterization of the communication tool chain, I will perform 50 transmissions for each attenuation level. I will take all 50 SNR and BER values per attenuation level, and average them. This should give some very good insight into the performance of the system. The raw data format of the extracted data from this test will be in the format as shown below in table \ref{tab:com_test_1_data_format}:
+
+
+\begin{table}[H]
+\centering
+\begin{tabular}{|c|c|c|c|c|c|c|c|} 
+\hline
+\textbf{Attenuation} & \begin{tabular}[c]{@{}c@{}}$\boldsymbol{SNR}_{\boldsymbol{1}}$ \\ (dB)\end{tabular} & \begin{tabular}[c]{@{}c@{}}$\boldsymbol{BER}_{\boldsymbol{1}}$ \\ (\%)\end{tabular} & . & \begin{tabular}[c]{@{}c@{}}$\boldsymbol{SNR}_{\boldsymbol{50}}$ \\ (dB)\end{tabular} & \begin{tabular}[c]{@{}c@{}}$\boldsymbol{BER}_{\boldsymbol{50}}$ \\ (\%)\end{tabular} & \begin{tabular}[c]{@{}c@{}}$\boldsymbol{Avg. SNR}$ \\ (dB)\end{tabular} & \begin{tabular}[c]{@{}c@{}}$\boldsymbol{Avg. BER}$ \\ (\%)\end{tabular}       \\ \hline
+100 dB                     & $x_{1}$                 & $y_{1}$                 & .                  & $x_{50}$                 & $y_{50}$                 & . & . \\ \hline
+99 dB                      & $x_{1}$                 & $y_{1}$                 & .                  & $x_{50}$                 & $y_{50}$                 & . & . \\ \hline
+.                        & $x_{1}$                 & $y_{1}$                 & .                  & $x_{50}$                 & $y_{50}$                & $\bar{x} = \frac{1}{n} \sum_{i=1}^{50} x_i$ & $\bar{y} = \frac{1}{n} \sum_{i=1}^{50} y_i$ \\ \hline
+16 dB                      & $x_{1}$                 & $y_{1}$                 & .                  & $x_{50}$                 & $y_{50}$                 & . & . \\ \hline
+15 dB                      & $x_{1}$                 & $y_{1}$                 & .                 & $x_{50}$                 & $y_{50}$                 & . & . \\ \hline
+\end{tabular}
+\caption{Communication Test 1 Data Format}
+\label{tab:com_test_1_data_format}
+\end{table}
+
+Something that must be noted however, is that since my system calculates an SNR value for a received signal after said signal has propagated through a noisy environment, it will struggle to measure the true SNR of the signal below a certain attenuation level. My system will not be able to truly calculate the SNR from the received signal when the embedded signal is below the noise floor. This is not such a large problem however, since one can determine the SNR values achieved for low values of SNR by extrapolating the values at high SNR values to the low SNR values. This can only be done because we are in complete control of the attenuation level of the loopback system.
+
+\subsubsection{Test 2: Long Cable Loopback Test}
+After completing a complete communication tool-chain characterization test as outlined in the previous section, it is now important to show that the system can actually perform it's required tasks in the real world. This entails two more tests. However, it must be noted that the next two tests will not be as thorough as test 1, since test 1 mainly dealt with characterization of the communication system. Test 2 and 3 will primarily to ascertain whether or not the system can operate under non-ideal (real-world) conditions. Test 2 will be another loopback test, however this one will make use of a particularly long coaxial cable. This allows one to examine the performance of the communication system in a slightly more real world operational conditions, namely, the fact that the coaxial is exposed to more real-world environmental noise since it is longer than the shorter loopback test.
+
+\subsubsection{Test 3: Real World Antenna Test}
+The third and final test will involve a demonstration that the system can work while transmitting data over a real-world channel, namely, that of the air between two separate antennas. The goal with this test, much like the second test, will be to demonstrate that the system can indeed work in non-ideal conditions.
+
+
+
+
+
+
+
+\subsection{Range Test Tests}
+
+\subsection{Classification Test}
+
+\cite{christian_wolff_classification_nodate}
+
+% ----------------------------------------------------
+% ----------------------------------------------------
+
+
+
+
+
+% ----------------------------------------------------
+% Results
+% ----------------------------------------------------
+% ----------------------------------------------------
+\chapter{Results \label{ch:results}}
+In the following section, the results obtained by performing the experiments described in chapter \ref{ch:methodology} will be presented. Minimal discussion for the presented results will be discussed, as discussion will be predominantly saved for chapter \ref{ch:discussion}. The following results were obtained for each of the tests performed.
+
+\section{Communication Testing}
+\subsection{Test 1: Communication System Characterization via Loopback}
+The following graph can be compiled for the results obtained.
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width = \linewidth]{Images/Results/coms/test.png}
+    \caption{Keysight 8496B}
+    \label{fig:graph}
+\end{figure}
+
+
+
+\section{100m Test}
+
+
+\section{300m Test}
+
+\section{500m Test}
+
+\section{20km Test}
+
+\section{Average RSSI Values with Distance}
+
+
+% ----------------------------------------------------
+% ----------------------------------------------------
+
+
+
+
+
+% ----------------------------------------------------
+% Discussion
+% ----------------------------------------------------
+% ----------------------------------------------------
+\chapter{Discussion \label{ch:discussion}}
+
+\cite{christian_wolff_physical_2024}
+
+\section{RSSI Values with Distance}
+
+\section{Overall Testing Performance}
+
+
+\section{Determining the Optimal Packet Structure}\label{sec:optimalpacketstructure}
+
+
+\section{Determining the Optimal LoRa Parameters}
+
+
+% ----------------------------------------------------
+% ----------------------------------------------------
+
+
+
+% ----------------------------------------------------
+% Conclusion and Recommendations
+% ----------------------------------------------------
+% ----------------------------------------------------
+\chapter{Conclusion and Recommendations\label{ch:conclusionandrecommendations}}
+\cite{christian_wolff_physical_2024}
+
+% ----------------------------------------------------
+% ----------------------------------------------------
+
+
+
+\newpage
+\bibliography{Bibliography/References.bib}
+
+
+% ----------------------------------------------------
+% Appendix
+% ----------------------------------------------------
+% ----------------------------------------------------
+\chapter{Appendix \label{ch:appendix}}
+
+\cite{christian_wolff_physical_2024}
+\section{Full Transmitter Circuit Schematic}\label{appendix:fulltransmitterschematic}
+
+
+\section{Full Receiver Circuit Schematic}\label{appendix:fullreceiverschematic}
+
+
+\section{Long Range Test Interference}\label{appendix:longrangetestinterferance}
+
+\section{GitHub Link}\label{appendix:githublink}
+
+\section{Ethics Clearance}\label{sec:ethicsclearance}
+
+
+% ----------------------------------------------------
+% ----------------------------------------------------
+
+\end{document}
