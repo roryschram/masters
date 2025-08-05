@@ -8,54 +8,49 @@ Reallocated singl_function (elt_size=4) to 100 items from 50.
 Reallocated wiz_functions (elt_size=4) to 6000 items from 3000.
 Reallocated singl_function (elt_size=4) to 100 items from 50.
 Database file #1: ../Bibliography/References.bib
-Warning--entry type for "lellouch_waveform_2015" isn't style-file defined
---line 68 of file ../Bibliography/References.bib
 -- IEEEtran.bst version 1.14 (2015/08/26) by Michael Shell.
 -- http://www.michaelshell.org/tex/ieeetran/bibtex/
 -- See the "IEEEtran_bst_HOWTO.pdf" manual for usage information.
-Warning--empty journal in weinstein_history_2009
-Warning--empty year in weinstein_history_2009
 
 Done.
 You've used 11 entries,
             4087 wiz_defined-function locations,
-            870 strings with 9259 characters,
-and the built_in function-call counts, 4028 in all, are:
-= -- 286
+            873 strings with 9297 characters,
+and the built_in function-call counts, 4152 in all, are:
+= -- 316
 > -- 52
 < -- 4
 + -- 26
 - -- 12
-* -- 126
-:= -- 743
+* -- 132
+:= -- 791
 add.period$ -- 24
 call.type$ -- 11
 change.case$ -- 13
 chr.to.int$ -- 9
-cite$ -- 13
-duplicate$ -- 324
-empty$ -- 401
+cite$ -- 11
+duplicate$ -- 327
+empty$ -- 399
 format.name$ -- 13
-if$ -- 875
+if$ -- 903
 int.to.chr$ -- 0
 int.to.str$ -- 11
 missing$ -- 79
 newline$ -- 74
 num.names$ -- 11
-pop$ -- 249
+pop$ -- 237
 preamble$ -- 1
 purify$ -- 0
 quote$ -- 2
-skip$ -- 300
+skip$ -- 311
 stack$ -- 0
 substring$ -- 28
-swap$ -- 174
+swap$ -- 185
 text.length$ -- 1
 text.prefix$ -- 0
 top$ -- 5
 type$ -- 11
-warning$ -- 2
+warning$ -- 0
 while$ -- 14
 width$ -- 13
-write$ -- 121
-(There were 3 warnings)
+write$ -- 126
