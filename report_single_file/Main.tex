@@ -37,36 +37,29 @@ This report outlines the thought process, design, and implementation of a single
 
 In this paper, I will outline the process that was gone through to build a working prototype system, that uses the combination of a single pulse RADAR, and an OFDM based signal, to try and classify objects in a scene.
 
-This report will consist of the following loose structure. Firstly, a literature review of the related works to do with the fundamentals of the project, namely, single pulse RADARs, OFDM, and the mixture of the two. Next, a theory section that concerns the workings behind the project will be presented. Thirdly, the design of the surrounding system to transmit and receive data, process the data, and analyze the results is presented. Following this, an experimental design is laid out and explained in detail. This is followed by the performing of real world testing which is then analyzed in the results section. Lastly, there will be some discussion of results and further steps that could be implemented.
+This report will consist of the following loose structure. Firstly, a literature review of the related works to do with the fundamentals of the project, namely, single pulse RADARs, OFDM, and the mixture of the two. Next, a theory section that concerns the workings behind the project will be presented. The reason a separate theory section is included in this report is due to necessity of having a section dedicated towards fundamentals behind the system which I am aiming to design. Next, the design of the surrounding system to transmit and receive data, process the data, and analyze the results is presented. Following this, an experimental design is laid out and explained in detail. This is followed by the performing of real world testing which is then analyzed in the results section. Lastly, there will be some discussion of results and further steps that could be implemented.
 
 
 \section{Background}
-RADAR technology has unlocked the ability for humans to be able to see the world around us with a new perspective. This ability to be able to see objects and more specifically, to see information such as position and velocity about 
-these objects has helped with the development of devices and services that are of paramount importance to society. All the current use cases of RADAR do however lack the ability to determine exactly what object is being seen by the overall RADAR system. That is where the use of the OFDM waveform in a RADAR system becomes useful.
+Throughout the years, humans have sought out better ways to sense and detect objects that exist in the physical world, using methods that differ from our natural senses. Naturally, RADAR technology has unlocked the ability for humans to be able to see the world around us with a new perspective. This ability to be able to see objects and more specifically, to see information such as position and velocity about these objects has helped with the development of devices and services that are of paramount importance to society, be it from a defense perspective, a safety perspective, or even in the operation of consumer products. All the current use cases of RADAR do however lack the ability to determine exactly what object is being seen by the overall RADAR system. That is where the use of the OFDM waveform in a RADAR system becomes useful.
 
 
 
 \section{Problem Statement}
-Current RADAR technology works very well when determining the distance and direction of an object, however, it does not cope well with specific object classification tasks. One of the reasons for this is that current RADAR utilize either a pulse, continuous wave, or chirp waveform, which does not allow for object detection through statistical analysis due to the simple nature of the waveform. This is a drawback of using RADAR systems, since if object  classification is desired, then a combination of radar and some other technology such as cameras would have to be used which increases the cost and complexity of the system as a whole.
+With the current state of pulsed (and single pulse) RADAR systems worldwide, the ability to infer the following about point targets (and multiple point targets for that matter) becomes possible, firstly, the distance that and object is from the receiver and transmitter setup can be inferred, then, the direction (elevation and azimuth) of the object can be inferred via multiple different methods, although in a simple pulse or pulsed RADAR, direction calculations usually come from the direction that an antenna is pointing, lastly, one can determine the relative velocity of an object. While these inferred properties of objects is useful, modern system break down when it comes to target classification. Target classification would greatly benefit society to help determine more precisly what targets in a RADAR scene are. There exists a gap in the research in regard to target classification abilities of simple RADAR systems.
+
 
 \section{Objectives}
-The goal of this project is to build a RADAR system that can simultaneously act as a normal RADAR which can determine the distance and direction of an object, as well as classify the specific object that it is looking at when compared to other example objects. The aim is to implement an OFDM based waveform into a RADAR system that would give the flexibility to analyze the returned signal statistically and determine what exactly the object is. The goal is to make a non-realtime system, that can distinguish between three different objects.
+The main objective of this project is to demonstrate the design process that has gone into the realization of a simple single pulse RADAR system that can simultaneously act as a normal RADAR system which can determine the distance and rough direction of an object, as well as be able to perform target classification on objects contained within a scene. The goal of target classification should be done by implementing a custom \gls{ofdm} based transmit and receive tool chain. This OFDM based system should have the capability to transmit and receive data, perform simple RADAR tasks, and be able to perform the desired classification objectives. This system will not be real-time, as real-time implementation of RADAR processing techniques in the software domain take momentous amounts of compute.
 
-
-\section{System Requirements}
-The RADAR project has the following requirements:
-
-\subsection{Hardware Requirements}
-The main hardware for the project should be widely available computer scientific equipment. The availability of computer equipment is generally larger than most of the other required equipment such as the \gls{sdr} equipment. The SDR equipment is much less widely available due to the high price of the equipment itself. This is fine however, since the \gls{uct} has in their control multiple \gls{usrp} N210 devices designed and manufactured by Ettus research which will be perfect for my project.
-
-test 1234
-
-\begin{enumerate}
-    \item Be able to operate as a normal RADAR. This entails determining range, azimuth, and elevation. 
-    \item Be able to classify between three separate reflectors/scatterers.
-\end{enumerate}
 
 \section{Scope and Limitations}
+The RADAR space is an extraordinarily broad and complex space that has much research emanating from multiple institutions every year. Following on from this, the same can be said for communications systems, especially when dealing with modulation techniques such as \gls{qam} and \gls{ofdm}. This allows for a research space that can easily become overly complicated in nature.
+
+
+
+
+
 The scope of this project has been set to not include design of RADAR hardware specifically. This is because design of RADAR hardware is a complex task that would probably encompass an entire masters project in and of itself. Therefore, the RADAR hardware portion of the project will be handled by a \gls{sdr}. This extrapolates the complex RADAR hardware design aspect away from the project and allows me to focus on the data collection and processing aspect of the project.
 
 % ----------------------------------------------------
@@ -253,20 +246,46 @@ Notes to self \\
 % ----------------------------------------------------
 
 
+% ----------------------------------------------------
+% Overall System Architecture
+% ----------------------------------------------------
+\chapter{Theory}\label{ch:Theory}
+Test 
 
+
+
+
+% ----------------------------------------------------
+% ----------------------------------------------------
 
 
 % ----------------------------------------------------
 % Overall System Architecture
 % ----------------------------------------------------
 % ----------------------------------------------------
-\chapter{System Design \label{ch:systemdesign}}
+\chapter{System Design}\label{ch:systemdesign}
 % ----------------------------------------------------
 This chapter aims to outline the thought process that went into the design of my radar system. As my requirements for the radar system have been spoken about previously in this report, but not in extreme detail, I will start this chapter by doing a requirement analysis for my problem, and then build on from there.
 
 \section{Requirement and Specification Analysis}
 \subsection{System Requirements}\label{subsec:systemreqs}
 Since the classification capabilities of my RADAR system are based on the principles of OFDM based communication signals, it felt necessary to do more tests 
+
+
+
+
+
+The main hardware for the project should be widely available computer scientific equipment. The availability of computer equipment is generally larger than most of the other required equipment such as the \gls{sdr} equipment. The SDR equipment is much less widely available due to the high price of the equipment itself. This is fine however, since the \gls{uct} has in their control multiple \gls{usrp} N210 devices designed and manufactured by Ettus research which will be perfect for my project.
+
+test 1234
+
+\begin{enumerate}
+    \item Be able to operate as a normal RADAR. This entails determining range, azimuth, and elevation. 
+    \item Be able to classify between three separate reflectors/scatterers.
+\end{enumerate}
+
+
+
 
 
 \subsection{System Specifications}\label{subsec:systemspecs}
@@ -315,7 +334,7 @@ Since the classification capabilities of my RADAR system are based on the princi
 % Validation and Simulation
 % ----------------------------------------------------
 
-\chapter{Validation and Simulation \label{ch:simulation}}
+\chapter{Validation and Simulation}\label{ch:simulation}
 
 
 \cite{christian_wolff_physical_2024}
@@ -344,7 +363,7 @@ Since the classification capabilities of my RADAR system are based on the princi
 % Methodology
 % ----------------------------------------------------
 % ----------------------------------------------------
-\chapter{Methodology \label{ch:methodology}}
+\chapter{Methodology}\label{ch:methodology}
 In the following chapter, I would like to highlight my testing procedure, but more importantly the reasoning behind why I make the specific choices that I do as it pertains to experimental setup. The aim of the experiments that are detailed in this chapter is to validate theoretical work, and to ensure that the theoretical development is practically achieved in the real world.
 
 \section{Experimental Design}
@@ -469,7 +488,7 @@ The third and final test will involve a demonstration that the system can work w
 % Results
 % ----------------------------------------------------
 % ----------------------------------------------------
-\chapter{Results \label{ch:results}}
+\chapter{Results}\label{ch:results}
 In the following section, the results obtained by performing the experiments described in chapter \ref{ch:methodology} will be presented. Minimal discussion for the presented results will be discussed, as discussion will be predominantly saved for chapter \ref{ch:discussion}. The following results were obtained for each of the tests performed.
 
 \section{Communication Testing}
@@ -508,7 +527,7 @@ The following graph can be compiled for the results obtained.
 % Discussion
 % ----------------------------------------------------
 % ----------------------------------------------------
-\chapter{Discussion \label{ch:discussion}}
+\chapter{Discussion}\label{ch:discussion}
 
 \cite{christian_wolff_physical_2024}
 
@@ -532,8 +551,7 @@ The following graph can be compiled for the results obtained.
 % Conclusion and Recommendations
 % ----------------------------------------------------
 % ----------------------------------------------------
-\chapter{Conclusion and Recommendations\label{ch:conclusionandrecommendations}}
-\cite{christian_wolff_physical_2024}
+\chapter{Conclusion and Recommendations}\label{ch:conclusionandrecommendations}
 
 % ----------------------------------------------------
 % ----------------------------------------------------
@@ -548,20 +566,19 @@ The following graph can be compiled for the results obtained.
 % Appendix
 % ----------------------------------------------------
 % ----------------------------------------------------
-\chapter{Appendix \label{ch:appendix}}
+\chapter{Appendix}\label{ch:appendix}
 
-\cite{christian_wolff_physical_2024}
-\section{Full Transmitter Circuit Schematic}\label{appendix:fulltransmitterschematic}
-
-
-\section{Full Receiver Circuit Schematic}\label{appendix:fullreceiverschematic}
+\section{Full Transmitter Circuit Schematic}
 
 
-\section{Long Range Test Interference}\label{appendix:longrangetestinterferance}
+\section{Full Receiver Circuit Schematic}
 
-\section{GitHub Link}\label{appendix:githublink}
 
-\section{Ethics Clearance}\label{sec:ethicsclearance}
+\section{Long Range Test Interference}
+
+\section{GitHub Link}
+
+\section{Ethics Clearance}
 
 
 % ----------------------------------------------------
