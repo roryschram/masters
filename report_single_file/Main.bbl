@@ -71,4 +71,7 @@ G.~Norrie and S.~Paine, ``Design and demonstration of an ofdm based radcom syste
 \bibitem{lellouch_waveform_2015}
 G.~Lellouch, ``{WAVEFORM} {DESIGN} {AND} {PROCESSING} {TECHNIQUES} {IN} {OFDM} {RADAR},'' phdthesis, University of Cape Town, 2015.
 
+\bibitem{Software_Defined_Radio_for_Engineers}
+{Travis F. Collins, Robin Getz, Di Pu, and Alexander M. Wyglinski}, \emph{Software-Defined Radio for Engineers}.\hskip 1em plus 0.5em minus 0.4em\relax Norwood, Massachusetts: Artech House, 2018.
+
 \end{thebibliography}

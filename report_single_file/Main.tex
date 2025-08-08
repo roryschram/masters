@@ -250,7 +250,31 @@ Notes to self \\
 % Overall System Architecture
 % ----------------------------------------------------
 \chapter{Theory}\label{ch:Theory}
-Test 
+My project can be broken into two sections, the theoretical side, and the practical side. To be able to fully understand the practical implementation of my single pulse RADAR system, I feel that it is important that one most first have a firm understanding of the theoretical principles that are being utilized by the RADAR system to achieve the desired goals of the project, before moving onto the practical system design outlined in chapter \ref{ch:systemdesign}. For this reason, I have included this theory section, which will dive into the important components that have a need to be understood in my project. This will hopefully give you the reader the ability to better understand the sections that follow, as a solid grounding will have been set up.
+
+\section{Software Defined Radios}
+Not to many years ago, when a team was working on a RADAR or radio system, they would be split up into various different boxes. Someone would work on the RF frontend, perhaps another on the amplification, and another on the \gls{adc}. This was the old way of doing things \cite{Software_Defined_Radio_for_Engineers}. Today however, with the speed at which new systems, specifically in the realm of communications systems, have been progressing, it has become necessary to come up with better ways to prototype with radio frequency based systems. There has been an explosion in SDRs that give engineers the ability to implement baseband functionality in software, while also having the ability to control the RF frontend via software. "An SDR system is a complex device that performs several complicated tasks simultaneously in order to enable the seamless transmission and reception of data" \cite{Software_Defined_Radio_for_Engineers}.
+
+\subsection{Theory of Operation}
+To understand how and SDR works, let's imagine a simple SDR system, with the humble goal of capturing some raw analog data from the RF domain, and converting that into the analog baseband domain, and then from that into IQ samples, which one can work with in a software package. There are three main components that go into this in order for this to work, which I have listed below:
+
+\begin{enumerate}
+    \item \textbf{RF Frontend}: This is the system's ability to sample 
+\end{enumerate}
+
+
+
+\subsection{Bandwidth}
+\subsection{Sampling Rate}
+\subsection{Tuning Frequency}
+
+
+\section{Orthogonal Frequency Division Multiplexing}
+
+\subsection{Basic Operating Principles}
+\subsection{Data Modulation}
+\subsection{Channel Estimation}
+\subsection{Equalization}
 
 
 
