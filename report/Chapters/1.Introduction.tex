@@ -11,7 +11,14 @@
 %    {\emph{---Daniel Jones}}
 %\vspace{0.5cm}
 % ----------------------------------------------------
-This report outlines the design and implementation of a single pulse classification \gls{radar} that uses an \gls{ofdm} based signal with a flat top spectra. A literature review of RADAR and OFDM is presented, followed by the literature concerned with using OFDM signals in classification RADARs. Next, the design of the surrounding system to transmit and receive data, process the data, and analyse the results is presented. Following this, an experimental design is layed out and explained in detail. Next a simulation is performed and then the real world testing is performed. The results and comparison of the simulation and real world experiment are then discussed.
+In our ever evolving technological world, new ways of solving problems are being developed at a rapidly increasing rate. There is much to be said about developing brand-new methods in solving existing problems, however, in this report I propose the combination of two, fairly well-thought-out existing technologies, to try and solve a useful problem in the world of \gls{radar}. 
+
+This report outlines the thought process, design, and implementation of a single pulse RADAR system, combined with an \gls{ofdm} based signal, to achieve the goal of target classification from a scene. RADAR systems in today's world can perform certain tasks extremely well (in the right conditions), however, there still seems to be a lack of RADAR systems that can identify/classify what objects might be sound in a scene of interest, without the utilization of complex image processing techniques. 
+
+In this paper, I will outline the process that was gone through to build a working prototype system, that uses the combination of a single pulse RADAR, and an OFDM based signal, to try and classify objects in a scene.
+
+This report will consist of the following loose structure. Firstly, a literature review of the related works to do with the fundamentals of the project, namely, single pulse RADARs, OFDM, and the mixture of the two. Next, a theory section that concerns the workings behind the project will be presented. Thirdly, the design of the surrounding system to transmit and receive data, process the data, and analyze the results is presented. Following this, an experimental design is laid out and explained in detail. This is followed by the performing of real world testing which is then analyzed in the results section. Lastly, there will be some discussion of results and further steps that could be implemented.
+
 
 \section{Background}
 RADAR technology has unlocked the ability for humans to be able to see the world around us with a new perspective. This ability to be able to see objects and more specifically, to see information such as position and velocity about 

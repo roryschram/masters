@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.26 (TeX Live 2024) (preloaded format=pdflatex 2024.4.24)  24 JUL 2025 15:37
+This is pdfTeX, Version 3.141592653-2.6-1.40.26 (TeX Live 2024) (preloaded format=pdflatex 2024.4.24)  5 AUG 2025 18:21
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -80,7 +80,11 @@ LaTeX Font Info:    Overwriting math alphabet `\mathit' in version `bold'
 (Font)                  OT1/cmr/bx/it --> OT1/lmr/bx/it on input line 37.
 LaTeX Font Info:    Overwriting math alphabet `\mathtt' in version `bold'
 (Font)                  OT1/cmtt/m/n --> OT1/lmtt/m/n on input line 38.
-) (/usr/local/texlive/2024/texmf-dist/tex/latex/lipsum/lipsum.sty (/usr/local/texlive/2024/texmf-dist/tex/latex/l3packages/l3keys2e/l3keys2e.sty (/usr/local/texlive/2024/texmf-dist/tex/latex/l3kernel/expl3.sty
+) (/usr/local/texlive/2024/texmf-dist/tex/latex/tools/xr.sty
+Package: xr 2023-07-04 v5.06 eXternal References (DPC)
+)
+Package xr Info: IMPORTING LABELS FROM ../main/Main.aux on input line 9.
+ (/usr/local/texlive/2024/texmf-dist/tex/latex/lipsum/lipsum.sty (/usr/local/texlive/2024/texmf-dist/tex/latex/l3packages/l3keys2e/l3keys2e.sty (/usr/local/texlive/2024/texmf-dist/tex/latex/l3kernel/expl3.sty
 Package: expl3 2024-02-20 L3 programming layer (loader) 
  (/usr/local/texlive/2024/texmf-dist/tex/latex/l3backend/l3backend-pdftex.def
 File: l3backend-pdftex.def 2024-02-20 L3 backend support: PDF output (pdfTeX)
@@ -160,28 +164,7 @@ Package: varwidth 2009/03/30 ver 0.92;  Variable-width minipages
 \sift@deathcycles=\count273
 \@vwid@loff=\dimen163
 \@vwid@roff=\dimen164
-)) (/usr/local/texlive/2024/texmf-dist/tex/latex/xcolor/xcolor.sty
-Package: xcolor 2023/11/15 v3.01 LaTeX color extensions (UK)
- (/usr/local/texlive/2024/texmf-dist/tex/latex/graphics-cfg/color.cfg
-File: color.cfg 2016/01/02 v1.6 sample color configuration
-)
-
-Package xcolor Warning: Package option `usenames' is obsolete and ignored on input line 266.
-
-Package xcolor Info: Driver file: pdftex.def on input line 274.
-(/usr/local/texlive/2024/texmf-dist/tex/latex/graphics/mathcolor.ltx)
-Package xcolor Info: Model `cmy' substituted by `cmy0' on input line 1350.
-Package xcolor Info: Model `hsb' substituted by `rgb' on input line 1354.
-Package xcolor Info: Model `RGB' extended on input line 1366.
-Package xcolor Info: Model `HTML' substituted by `rgb' on input line 1368.
-Package xcolor Info: Model `Hsb' substituted by `hsb' on input line 1369.
-Package xcolor Info: Model `tHsb' substituted by `hsb' on input line 1370.
-Package xcolor Info: Model `HSB' substituted by `hsb' on input line 1371.
-Package xcolor Info: Model `Gray' substituted by `gray' on input line 1372.
-Package xcolor Info: Model `wave' substituted by `hsb' on input line 1373.
-) (/usr/local/texlive/2024/texmf-dist/tex/latex/graphics/dvipsnam.def
-File: dvipsnam.def 2016/06/17 v3.0m Driver-dependent file (DPC,SPQR)
-) (/usr/local/texlive/2024/texmf-dist/tex/latex/pgf/frontendlayer/tikz.sty (/usr/local/texlive/2024/texmf-dist/tex/latex/pgf/basiclayer/pgf.sty (/usr/local/texlive/2024/texmf-dist/tex/latex/pgf/utilities/pgfrcs.sty (/usr/local/texlive/2024/texmf-dist/tex/generic/pgf/utilities/pgfutil-common.tex
+)) (/usr/local/texlive/2024/texmf-dist/tex/latex/pgf/frontendlayer/tikz.sty (/usr/local/texlive/2024/texmf-dist/tex/latex/pgf/basiclayer/pgf.sty (/usr/local/texlive/2024/texmf-dist/tex/latex/pgf/utilities/pgfrcs.sty (/usr/local/texlive/2024/texmf-dist/tex/generic/pgf/utilities/pgfutil-common.tex
 \pgfutil@everybye=\toks23
 \pgfutil@tempdima=\dimen165
 \pgfutil@tempdimb=\dimen166
@@ -233,7 +216,23 @@ File: pgfsyssoftpath.code.tex 2023-01-15 v3.1.10 (3.1.10)
 \pgfsyssoftpath@bigbuffer@items=\count280
 ) (/usr/local/texlive/2024/texmf-dist/tex/generic/pgf/systemlayer/pgfsysprotocol.code.tex
 File: pgfsysprotocol.code.tex 2023-01-15 v3.1.10 (3.1.10)
-)) (/usr/local/texlive/2024/texmf-dist/tex/generic/pgf/basiclayer/pgfcore.code.tex
+)) (/usr/local/texlive/2024/texmf-dist/tex/latex/xcolor/xcolor.sty
+Package: xcolor 2023/11/15 v3.01 LaTeX color extensions (UK)
+ (/usr/local/texlive/2024/texmf-dist/tex/latex/graphics-cfg/color.cfg
+File: color.cfg 2016/01/02 v1.6 sample color configuration
+)
+Package xcolor Info: Driver file: pdftex.def on input line 274.
+ (/usr/local/texlive/2024/texmf-dist/tex/latex/graphics/mathcolor.ltx)
+Package xcolor Info: Model `cmy' substituted by `cmy0' on input line 1350.
+Package xcolor Info: Model `hsb' substituted by `rgb' on input line 1354.
+Package xcolor Info: Model `RGB' extended on input line 1366.
+Package xcolor Info: Model `HTML' substituted by `rgb' on input line 1368.
+Package xcolor Info: Model `Hsb' substituted by `hsb' on input line 1369.
+Package xcolor Info: Model `tHsb' substituted by `hsb' on input line 1370.
+Package xcolor Info: Model `HSB' substituted by `hsb' on input line 1371.
+Package xcolor Info: Model `Gray' substituted by `gray' on input line 1372.
+Package xcolor Info: Model `wave' substituted by `hsb' on input line 1373.
+) (/usr/local/texlive/2024/texmf-dist/tex/generic/pgf/basiclayer/pgfcore.code.tex
 Package: pgfcore 2023-01-15 v3.1.10 (3.1.10)
  (/usr/local/texlive/2024/texmf-dist/tex/generic/pgf/math/pgfmath.code.tex (/usr/local/texlive/2024/texmf-dist/tex/generic/pgf/math/pgfmathutil.code.tex) (/usr/local/texlive/2024/texmf-dist/tex/generic/pgf/math/pgfmathparser.code.tex
 \pgfmath@dimen=\dimen177
@@ -543,11 +542,7 @@ Package: nextpage 2009/09/03 v1.1a additional page commands
 \afterepigraphskip=\skip63
 \epigraphwidth=\skip64
 \epigraphrule=\skip65
-)
-
-Package xcolor Warning: Package option `usenames' is obsolete and ignored on input line 69.
-
-(/usr/local/texlive/2024/texmf-dist/tex/latex/hyperref/hyperref.sty
+) (/usr/local/texlive/2024/texmf-dist/tex/latex/hyperref/hyperref.sty
 Package: hyperref 2024-01-20 v7.01h Hypertext links for LaTeX
  (/usr/local/texlive/2024/texmf-dist/tex/generic/kvdefinekeys/kvdefinekeys.sty
 Package: kvdefinekeys 2019-12-19 v1.6 Define keys (HO)
@@ -1071,27 +1066,169 @@ Package: gincltex 2011/09/04 v0.3 Include external LaTeX files like graphics
 \gincltex@box=\box98
 ) (/usr/local/texlive/2024/texmf-dist/tex/latex/filemod/filemod-expmin.sty
 Package: filemod-expmin 2011/09/19 v1.2 Get and compare file modification times (expandable; minimal)
-)) (../FrontMatter/Glossary.tex) (./Main.aux)
+)) (../FrontMatter/Glossary.tex) (./Main.aux
+
+LaTeX Warning: Label `ch:Introduction' multiply defined.
+
+
+LaTeX Warning: Label `ch:Literature' multiply defined.
+
+
+LaTeX Warning: Label `fig:classification_of_radar_systems' multiply defined.
+
+
+LaTeX Warning: Label `fig:ofdmwaveform' multiply defined.
+
+
+LaTeX Warning: Label `sub@fig:ofdmwaveform' multiply defined.
+
+
+LaTeX Warning: Label `fig:fdmwaveform' multiply defined.
+
+
+LaTeX Warning: Label `sub@fig:fdmwaveform' multiply defined.
+
+
+LaTeX Warning: Label `fig:ofdmandfdmwaveforms' multiply defined.
+
+
+LaTeX Warning: Label `eq:ofdmequation' multiply defined.
+
+
+LaTeX Warning: Label `tab:sdr_platform_parameters' multiply defined.
+
+
+LaTeX Warning: Label `fig:norrie_paine_static_test' multiply defined.
+
+
+LaTeX Warning: Label `ch:systemdesign' multiply defined.
+
+
+LaTeX Warning: Label `subsec:systemreqs' multiply defined.
+
+
+LaTeX Warning: Label `subsec:systemspecs' multiply defined.
+
+
+LaTeX Warning: Label `sec:softwaredesign' multiply defined.
+
+
+LaTeX Warning: Label `ch:simulation' multiply defined.
+
+
+LaTeX Warning: Label `ch:methodology' multiply defined.
+
+
+LaTeX Warning: Label `fig:keysight8496b' multiply defined.
+
+
+LaTeX Warning: Label `sub@fig:keysight8496b' multiply defined.
+
+
+LaTeX Warning: Label `fig:keysight8494b' multiply defined.
+
+
+LaTeX Warning: Label `sub@fig:keysight8494b' multiply defined.
+
+
+LaTeX Warning: Label `fig:attenuators' multiply defined.
+
+
+LaTeX Warning: Label `tab:attenuators' multiply defined.
+
+
+LaTeX Warning: Label `fig:com_test_1' multiply defined.
+
+
+LaTeX Warning: Label `tab:com_test_1_data_format' multiply defined.
+
+
+LaTeX Warning: Label `ch:results' multiply defined.
+
+
+LaTeX Warning: Label `fig:graph' multiply defined.
+
+
+LaTeX Warning: Label `ch:discussion' multiply defined.
+
+
+LaTeX Warning: Label `sec:optimalpacketstructure' multiply defined.
+
+
+LaTeX Warning: Label `ch:conclusionandrecommendations' multiply defined.
+
+
+LaTeX Warning: Label `christian_wolff_classification_nodate' multiply defined.
+
+
+LaTeX Warning: Label `skolnik_radar_2024' multiply defined.
+
+
+LaTeX Warning: Label `christian_wolff_physical_2024' multiply defined.
+
+
+LaTeX Warning: Label `everythingrf_what_2022' multiply defined.
+
+
+LaTeX Warning: Label `mishra_radar_2024' multiply defined.
+
+
+LaTeX Warning: Label `computer_science_lessons_ofdm' multiply defined.
+
+
+LaTeX Warning: Label `weinstein_history_2009' multiply defined.
+
+
+LaTeX Warning: Label `wright_what_nodate' multiply defined.
+
+
+LaTeX Warning: Label `rfwirelessworld_ofdm_advantages_disadvantages' multiply defined.
+
+
+LaTeX Warning: Label `Design_and_Demonstration_of_an_OFDM_Based_RadCom_System' multiply defined.
+
+
+LaTeX Warning: Label `lellouch_waveform_2015' multiply defined.
+
+
+LaTeX Warning: Label `ch:appendix' multiply defined.
+
+
+LaTeX Warning: Label `appendix:fulltransmitterschematic' multiply defined.
+
+
+LaTeX Warning: Label `appendix:fullreceiverschematic' multiply defined.
+
+
+LaTeX Warning: Label `appendix:longrangetestinterferance' multiply defined.
+
+
+LaTeX Warning: Label `appendix:githublink' multiply defined.
+
+
+LaTeX Warning: Label `sec:ethicsclearance' multiply defined.
+
+)
 \openout1 = `Main.aux'.
 
-LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 10.
-LaTeX Font Info:    ... okay on input line 10.
-LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 10.
-LaTeX Font Info:    ... okay on input line 10.
-LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 10.
-LaTeX Font Info:    ... okay on input line 10.
-LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 10.
-LaTeX Font Info:    ... okay on input line 10.
-LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 10.
-LaTeX Font Info:    ... okay on input line 10.
-LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 10.
-LaTeX Font Info:    ... okay on input line 10.
-LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 10.
-LaTeX Font Info:    ... okay on input line 10.
-LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 10.
-LaTeX Font Info:    ... okay on input line 10.
-LaTeX Font Info:    Checking defaults for PU/pdf/m/n on input line 10.
-LaTeX Font Info:    ... okay on input line 10.
+LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 15.
+LaTeX Font Info:    ... okay on input line 15.
+LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 15.
+LaTeX Font Info:    ... okay on input line 15.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 15.
+LaTeX Font Info:    ... okay on input line 15.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 15.
+LaTeX Font Info:    ... okay on input line 15.
+LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 15.
+LaTeX Font Info:    ... okay on input line 15.
+LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 15.
+LaTeX Font Info:    ... okay on input line 15.
+LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 15.
+LaTeX Font Info:    ... okay on input line 15.
+LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 15.
+LaTeX Font Info:    ... okay on input line 15.
+LaTeX Font Info:    Checking defaults for PU/pdf/m/n on input line 15.
+LaTeX Font Info:    ... okay on input line 15.
 
 *geometry* driver: auto-detecting
 *geometry* detected driver: pdftex
@@ -1148,29 +1285,29 @@ File: epstopdf-sys.cfg 2010/07/13 v1.3 Configuration of (r)epstopdf for TeX Live
 ))
 Package pgfplots notification 'compat/show suggested version=true': document has been generated with the most recent feature set (\pgfplotsset{compat=1.18}).
 
-Package hyperref Info: Link coloring ON on input line 10.
+Package hyperref Info: Link coloring ON on input line 15.
 (./Main.out) (./Main.out)
 \@outlinefile=\write4
 \openout4 = `Main.out'.
 
-Package csquotes Info: Making character " active on input line 10.
+Package csquotes Info: Making character " active on input line 15.
  (/usr/local/texlive/2024/texmf-dist/tex/latex/translations/translations-basic-dictionary-english.trsl
 File: translations-basic-dictionary-english.trsl (english translation file `translations-basic-dictionary')
 )
-Package translations Info: loading dictionary `translations-basic-dictionary' for `english'. on input line 10.
-LaTeX Info: Redefining \microtypecontext on input line 10.
-Package microtype Info: Applying patch `item' on input line 10.
-Package microtype Info: Applying patch `toc' on input line 10.
-Package microtype Info: Applying patch `eqnum' on input line 10.
-Package microtype Info: Applying patch `footnote' on input line 10.
-Package microtype Info: Applying patch `verbatim' on input line 10.
+Package translations Info: loading dictionary `translations-basic-dictionary' for `english'. on input line 15.
+LaTeX Info: Redefining \microtypecontext on input line 15.
+Package microtype Info: Applying patch `item' on input line 15.
+Package microtype Info: Applying patch `toc' on input line 15.
+Package microtype Info: Applying patch `eqnum' on input line 15.
+Package microtype Info: Applying patch `footnote' on input line 15.
+Package microtype Info: Applying patch `verbatim' on input line 15.
 Package microtype Info: Generating PDF output.
 Package microtype Info: Character protrusion enabled (level 2).
 Package microtype Info: Using default protrusion set `alltext'.
 Package microtype Info: Automatic font expansion enabled (level 2),
 (microtype)             stretch: 20, shrink: 20, step: 1, non-selected.
 Package microtype Info: Using default expansion set `alltext-nott'.
-LaTeX Info: Redefining \showhyphens on input line 10.
+LaTeX Info: Redefining \showhyphens on input line 15.
 Package microtype Info: No adjustment of tracking.
 Package microtype Info: No adjustment of interword spacing.
 Package microtype Info: No adjustment of character kerning.
@@ -1186,7 +1323,7 @@ Package: ltcaption 2021/01/08 v1.4c longtable captions (AR)
 Package caption Info: supertabular package is loaded.
 Package caption Info: End \AtBeginDocument code.
  (../FrontMatter/1.Title.tex
-<../FrontMatter/UCT_logo.png, id=284, 1554.80875pt x 1578.89874pt>
+<../FrontMatter/UCT_logo.png, id=304, 1554.80875pt x 1578.89874pt>
 File: ../FrontMatter/UCT_logo.png Graphic file (type png)
 <use ../FrontMatter/UCT_logo.png>
 Package pdftex.def Info: ../FrontMatter/UCT_logo.png  used on input line 15.
@@ -1194,21 +1331,11 @@ Package pdftex.def Info: ../FrontMatter/UCT_logo.png  used on input line 15.
 ) (../FrontMatter/2.Declaration.tex [1
 
 {/usr/local/texlive/2024/texmf-var/fonts/map/pdftex/updmap/pdftex.map}{/usr/local/texlive/2024/texmf-dist/fonts/enc/dvips/lm/lm-ec.enc} <../FrontMatter/UCT_logo.png>]
-<../Images/signiture.png, id=294, 193.72375pt x 112.42pt>
+<../Images/signiture.png, id=314, 193.72375pt x 112.42pt>
 File: ../Images/signiture.png Graphic file (type png)
 <use ../Images/signiture.png>
-Package pdftex.def Info: ../Images/signiture.png  used on input line 21.
+Package pdftex.def Info: ../Images/signiture.png  used on input line 20.
 (pdftex.def)             Requested size: 145.11053pt x 84.21014pt.
-
-Underfull \hbox (badness 10000) in paragraph at lines 23--28
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 23--28
-
- []
-
 ) (../FrontMatter/3.Acknowledgements.tex [2
 
  <../Images/signiture.png>]) (../FrontMatter/4.Abstract.tex [3
@@ -1255,15 +1382,15 @@ LaTeX Font Info:    Trying to load font information for U+rsfs on input line 6.
 File: ursfs.fd 1998/03/24 rsfs font definition file (jk)
 ) [5
 
-])
+] [6])
 \tf@toc=\write5
 \openout5 = `Main.toc'.
 
- [6] (./Main.lof)
+ [7] (./Main.lof)
 \tf@lof=\write6
 \openout6 = `Main.lof'.
 
- [7
+ [8
 
 ] (./Main.lot)
 \tf@lot=\write7
@@ -1271,9 +1398,9 @@ File: ursfs.fd 1998/03/24 rsfs font definition file (jk)
 
 
 Using TeX to sort glossary entries---this may take a while
-[8
+[9
 
-] [9
+] [10
 
 
 ] (../Chapters/1.Introduction.tex
@@ -1285,24 +1412,24 @@ Chapter 2.
 [3
 
 ]
-<../Images/Literature/classification_of_radar.png, id=478, 846.16125pt x 380.42125pt>
+<../Images/Literature/classification_of_radar.png, id=518, 846.16125pt x 380.42125pt>
 File: ../Images/Literature/classification_of_radar.png Graphic file (type png)
 <use ../Images/Literature/classification_of_radar.png>
 Package pdftex.def Info: ../Images/Literature/classification_of_radar.png  used on input line 41.
 (pdftex.def)             Requested size: 338.58632pt x 152.21803pt.
  [4{/usr/local/texlive/2024/texmf-dist/fonts/enc/dvips/lm/lm-mathit.enc}{/usr/local/texlive/2024/texmf-dist/fonts/enc/dvips/lm/lm-mathsy.enc}{/usr/local/texlive/2024/texmf-dist/fonts/enc/dvips/lm/lm-rm.enc}] [5 <../Images/Literature/classification_of_radar.png>]
-<../Images/Literature/ofdm.png, id=518, 578.16pt x 433.62pt>
+<../Images/Literature/ofdm.png, id=557, 578.16pt x 433.62pt>
 File: ../Images/Literature/ofdm.png Graphic file (type png)
 <use ../Images/Literature/ofdm.png>
 Package pdftex.def Info: ../Images/Literature/ofdm.png  used on input line 82.
 (pdftex.def)             Requested size: 237.01411pt x 177.75888pt.
-<../Images/Literature/fdm.png, id=519, 578.16pt x 433.62pt>
+<../Images/Literature/fdm.png, id=558, 578.16pt x 433.62pt>
 File: ../Images/Literature/fdm.png Graphic file (type png)
 <use ../Images/Literature/fdm.png>
 Package pdftex.def Info: ../Images/Literature/fdm.png  used on input line 89.
 (pdftex.def)             Requested size: 237.01411pt x 177.75888pt.
  [6] [7{/usr/local/texlive/2024/texmf-dist/fonts/enc/dvips/lm/lm-mathex.enc} <../Images/Literature/ofdm.png> <../Images/Literature/fdm.png>] [8]
-<../Images/Literature/norrie_paine_static_test.png, id=568, 970.12437pt x 526.46687pt>
+<../Images/Literature/norrie_paine_static_test.png, id=608, 970.12437pt x 526.46687pt>
 File: ../Images/Literature/norrie_paine_static_test.png Graphic file (type png)
 <use ../Images/Literature/norrie_paine_static_test.png>
 Package pdftex.def Info: ../Images/Literature/norrie_paine_static_test.png  used on input line 159.
@@ -1317,47 +1444,72 @@ Chapter 4.
 
 ]
 Chapter 5.
-) (../Chapters/6.Results.tex [13
+[13
 
-]
+] [14]
+<../Images/Methodology/10_db_attenuator.jpeg, id=646, 479.7925pt x 270.00874pt>
+File: ../Images/Methodology/10_db_attenuator.jpeg Graphic file (type jpg)
+<use ../Images/Methodology/10_db_attenuator.jpeg>
+Package pdftex.def Info: ../Images/Methodology/10_db_attenuator.jpeg  used on input line 46.
+(pdftex.def)             Requested size: 237.01411pt x 133.38487pt.
+<../Images/Methodology/1_db_attenuator.jpeg, id=647, 479.7925pt x 270.00874pt>
+File: ../Images/Methodology/1_db_attenuator.jpeg Graphic file (type jpg)
+<use ../Images/Methodology/1_db_attenuator.jpeg>
+Package pdftex.def Info: ../Images/Methodology/1_db_attenuator.jpeg  used on input line 53.
+(pdftex.def)             Requested size: 237.01411pt x 133.38487pt.
+<../Images/Methodology/com_test_1.png, id=649, 721.9773pt x 294.8616pt>
+File: ../Images/Methodology/com_test_1.png Graphic file (type png)
+<use ../Images/Methodology/com_test_1.png>
+Package pdftex.def Info: ../Images/Methodology/com_test_1.png  used on input line 82.
+(pdftex.def)             Requested size: 435.32422pt x 177.79117pt.
+ [15 <../Images/Methodology/10_db_attenuator.jpeg> <../Images/Methodology/1_db_attenuator.jpeg>] [16 <../Images/Methodology/com_test_1.png>]) (../Chapters/6.Results.tex [17]
 Chapter 6.
-) (../Chapters/7.Discussion.tex [14
+<../Images/Results/coms/test.png, id=670, 722.7pt x 433.62pt>
+File: ../Images/Results/coms/test.png Graphic file (type png)
+<use ../Images/Results/coms/test.png>
+Package pdftex.def Info: ../Images/Results/coms/test.png  used on input line 18.
+(pdftex.def)             Requested size: 483.69687pt x 290.21953pt.
+) (../Chapters/7.Discussion.tex [18
 
-]
+ <../Images/Results/coms/test.png>] [19]
 Chapter 7.
-) (../Chapters/8.ConclusionAndRecommendations.tex [15
+) (../Chapters/8.ConclusionAndRecommendations.tex [20
 
 ]
 Chapter 8.
-) [16
+) [21
 
-] (./Main.bbl) (../Chapters/9.Appendix.tex [17
+] (./Main.bbl) (../Chapters/9.Appendix.tex [22
 
 ]
 Chapter 9.
-) [18
+) [23
 
 ] (./Main.aux)
  ***********
 LaTeX2e <2023-11-01> patch level 1
 L3 programming layer <2024-02-20>
  ***********
+
+
+LaTeX Warning: There were multiply-defined labels.
+
 Package rerunfilecheck Info: File `Main.out' has not changed.
-(rerunfilecheck)             Checksum: 41371DAE4B512C0CC55BCF67624EE9CF;11076.
+(rerunfilecheck)             Checksum: 2335847322784941B1705D012E837DBC;12500.
  ) 
 Here is how much of TeX's memory you used:
- 56214 strings out of 474116
- 1246906 string characters out of 5743682
- 1943187 words of memory out of 5000000
- 77331 multiletter control sequences out of 15000+600000
- 627236 words of font info for 150 fonts, out of 8000000 for 9000
+ 56351 strings out of 474116
+ 1249682 string characters out of 5743682
+ 1944187 words of memory out of 5000000
+ 77421 multiletter control sequences out of 15000+600000
+ 638873 words of font info for 168 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 114i,11n,120p,2482b,1245s stack positions out of 10000i,1000n,20000p,200000b,200000s
-</usr/local/texlive/2024/texmf-dist/fonts/type1/public/lm/lmbx10.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/lm/lmbx12.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/lm/lmex10.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/lm/lmmi10.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/lm/lmmi6.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/lm/lmmi8.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/lm/lmr10.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/lm/lmr12.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/lm/lmr17.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/lm/lmr6.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/lm/lmr8.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/lm/lmri10.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/lm/lmsy8.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/symbols/msam10.pfb>
-Output written on Main.pdf (27 pages, 972020 bytes).
+ 114i,21n,120p,2482b,1245s stack positions out of 10000i,1000n,20000p,200000b,200000s
+</usr/local/texlive/2024/texmf-dist/fonts/type1/public/lm/lmbx10.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/lm/lmbx12.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/lm/lmbx8.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/lm/lmex10.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/lm/lmmi10.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/lm/lmmi6.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/lm/lmmi8.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/lm/lmmib10.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/lm/lmr10.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/lm/lmr12.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/lm/lmr17.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/lm/lmr6.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/lm/lmr8.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/lm/lmri10.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/lm/lmsy8.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/symbols/msam10.pfb>
+Output written on Main.pdf (33 pages, 1418774 bytes).
 PDF statistics:
- 740 PDF objects out of 1000 (max. 8388607)
- 662 compressed objects within 7 object streams
- 152 named destinations out of 1000 (max. 500000)
- 39507 words of extra memory for PDF output out of 42996 (max. 10000000)
+ 829 PDF objects out of 1000 (max. 8388607)
+ 734 compressed objects within 8 object streams
+ 172 named destinations out of 1000 (max. 500000)
+ 45711 words of extra memory for PDF output out of 51595 (max. 10000000)
 
