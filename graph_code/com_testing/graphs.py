@@ -24,8 +24,8 @@ plt.plot(attenuation,ber)
 plt.scatter(attenuation[::1],ber[::1])
 
 
-for x,y,snr in zip(attenuation[::1],ber[::1],snr[::1]):
-    plt.text(x,y,str(snr))
+# for x,y,snr in zip(attenuation[::1],ber[::1],snr[::1]):
+#     plt.text(x,y,str(snr))
 
 
 plt.xlabel("Attenuation (dB)")
