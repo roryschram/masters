@@ -17,10 +17,7 @@ ingest_number = 200
 captures_per_target = 50
 
 # Labels
-labels_pre = ['Nothing','Me standing','Me standing again','Me and Khivvy']
-
-
-
+labels_pre = ['1','2','3','4']
 
 
 channel_ests = []
@@ -40,13 +37,13 @@ for i in range(1,ingest_number+1,1):
 
 
 
-channel_est_cutout = channel_ests[150:200]
-row_means = np.mean(channel_est_cutout, axis=1,keepdims=True)   # Step 1: Mean of each row
-overall_mean = np.mean(row_means)  # Step 2: Mean of the row means
+# channel_est_cutout = channel_ests[150:200]
+# row_means = np.mean(channel_est_cutout, axis=1,keepdims=True)   # Step 1: Mean of each row
+# overall_mean = np.mean(row_means)  # Step 2: Mean of the row means
 
 
-centered_arr = channel_est_cutout - row_means + overall_mean  # broadcasting handles dimensions
-# channel_ests[150:200] = centered_arr
+# centered_arr = channel_est_cutout - row_means + overall_mean  # broadcasting handles dimensions
+# # channel_ests[150:200] = centered_arr
 
 
 
