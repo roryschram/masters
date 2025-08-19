@@ -17,8 +17,7 @@ avg_BER = df["avg_BER"].astype(float).to_numpy()
 
 plt.style.use('seaborn-v0_8')  # or 'ggplot', 'classic', etc.
 plt.figure(figsize=(10, 6))
-plt.plot(attenuation,avg_BER)
-plt.scatter(attenuation[::1],avg_BER[::1])
+plt.plot(avg_snr_extrapolated,avg_BER)
 
 
 plt.tight_layout()
