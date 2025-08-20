@@ -12,13 +12,13 @@ import joblib
 # Settings for PCA
 
 # Number of captures to ingest
-ingest_number = 600
+ingest_number = 900
 
 # Number of captures per target
 captures_per_target = 300
 
 # Labels
-labels_pre = ['Standing','No Target']
+labels_pre = ['Standing','No Target','Standing with Speaker Stand']
 
 
 channel_ests = []

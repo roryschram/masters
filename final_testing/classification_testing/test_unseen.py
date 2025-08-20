@@ -18,11 +18,12 @@ def predict(channel_est):
 
     # Predict
     prediction = svm.predict(unseen_pca)
-    print("Predicted class (int):", prediction[0])
+    # print("Predicted class (int):", prediction[0])
     print("Predicted class (label):", int_to_label[prediction[0]])
 
 
-for i in range(1,10):
+for i in range(901,1001):
     # Example: load unseen channel estimation
-    est = np.load("../masters_large_data/final_testing/classification_testing/channel_ests/channel_est60"+str(i)+".npy")
+    print("Unseen: "+str(i))
+    est = np.load("../masters_large_data/final_testing/classification_testing/channel_ests/channel_est"+str(i)+".npy")
     predict(est)
