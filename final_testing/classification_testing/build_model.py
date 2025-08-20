@@ -11,22 +11,23 @@ import joblib
 
 # Settings for PCA
 
-# Number of captures to ingest
-ingest_number = 900
-
 # Number of captures per target
 captures_per_target = 300
 
-# Labels
-labels_pre = ['Standing','No Target','Standing with Speaker Stand']
+# Lower and upper bound for ingest
+lower, upper = 1,901
 
+# Labels
+labels_pre = ['No Target','Standing','Standing Arms Out']
+
+model_name = "nothing_then_standing_then_standing_arms_out"
 
 channel_ests = []
 
 
 # fig = plt.subplot()
 
-for i in range(1,ingest_number+1,1):
+for i in range(lower,upper,1):
     input = np.load("../masters_large_data/final_testing/classification_testing/channel_ests/channel_est"+str(i)+".npy")
     channel_ests.append(np.abs(input))
     # plt.plot(np.abs(input))
@@ -79,10 +80,8 @@ X_pca = pca.fit_transform(X_scaled)
 # print(pca.explained_variance_ratio_)
 
 
-
-
 # Split into train/test sets
-X_train, X_test, y_train, y_test = train_test_split(X_pca, int_labels, test_size=0.1, stratify=int_labels)
+X_train, X_test, y_train, y_test = train_test_split(X_pca, int_labels, test_size=0.01, stratify=int_labels)
 
 # Train SVM classifier
 svm = SVC(kernel='rbf', C=1.0, gamma='scale')
@@ -102,9 +101,9 @@ model_bundle = {
 }
 
 # Save the bundle
-joblib.dump(model_bundle, "final_testing/classification_testing/model/svm_bundle.pkl")
+joblib.dump(model_bundle, "final_testing/classification_testing/models/"+model_name+".pkl")
 
-print("Model, scaler, PCA, and labels saved to svm_bundle.pkl")
+print("Model, scaler, PCA, and labels saved to "+model_name+".pkl")
 
 
 
