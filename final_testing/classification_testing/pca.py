@@ -6,18 +6,19 @@ from sklearn.model_selection import train_test_split
 from sklearn.svm import SVC
 from sklearn.metrics import classification_report, confusion_matrix
 from mpl_toolkits.mplot3d import Axes3D
+import joblib
 
 
 # Settings for PCA
 
 # Number of captures to ingest
-ingest_number = 200
+ingest_number = 600
 
 # Number of captures per target
-captures_per_target = 50
+captures_per_target = 300
 
 # Labels
-labels_pre = ['1','2','3','4']
+labels_pre = ['Standing','No Target']
 
 
 channel_ests = []
@@ -81,7 +82,7 @@ X_pca = pca.fit_transform(X_scaled)
 
 
 # Split into train/test sets
-X_train, X_test, y_train, y_test = train_test_split(X_pca, int_labels, test_size=0.2, stratify=int_labels)
+X_train, X_test, y_train, y_test = train_test_split(X_pca, int_labels, test_size=0.1, stratify=int_labels)
 
 # Train SVM classifier
 svm = SVC(kernel='rbf', C=1.0, gamma='scale')
@@ -89,6 +90,22 @@ svm.fit(X_train, y_train)
 
 # Predict and evaluate
 y_pred = svm.predict(X_test)
+
+
+# Build a dictionary with everything needed for inference
+model_bundle = {
+    "svm": svm,
+    "scaler": scaler,
+    "pca": pca,
+    "label_to_int": label_to_int,
+    "int_to_label": {v: k for k, v in label_to_int.items()}
+}
+
+# Save the bundle
+joblib.dump(model_bundle, "final_testing/classification_testing/model/svm_bundle.pkl")
+
+print("Model, scaler, PCA, and labels saved to svm_bundle.pkl")
+
 
 
 print("Classification Report:")

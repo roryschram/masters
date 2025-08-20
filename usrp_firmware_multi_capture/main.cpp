@@ -18,6 +18,8 @@
 
 
 std::atomic<bool> isSetupComplete(false);
+int lower;
+int upper;
 
 std::vector<std::complex<double>> readComplexDataFromFile(const std::string& filename) {
     std::vector<std::complex<double>> complexData;
@@ -244,13 +246,20 @@ int setup(int argc, char *argv[]){
 
     //check to see if user gave config file
     std::string filepath;
-    if (argc != 2) {
-        std::cout << "Usage: " << argv[0] << " <filename>" << std::endl;
+
+    if (argc != 4) {
+        std::cout <<"Not enough args given!"<< std::endl;
         return -1; // return error code
     }
     else{
         filepath=argv[1];
         std::cout<<"Config file path:"<<filepath<<std::endl;
+
+        lower=std::stoi(argv[2]);
+        std::cout<<"lower:"<<lower<<std::endl;
+
+        upper=std::stoi(argv[3]);
+        std::cout<<"upper:"<<upper<<std::endl;
     }
 
     // read config
@@ -343,7 +352,7 @@ int UHD_SAFE_MAIN(int argc, char *argv[]) {
     received_data.reserve(CONFIG::NUM_SAMPS);
 
 
-    for (int i = 1; i < 201; i++) {
+    for (int i = lower; i < upper; i++) {
         auto capture_number = std::to_string(i);
 
 
