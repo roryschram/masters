@@ -12,15 +12,15 @@ import joblib
 # Settings for PCA
 
 # Number of captures per target
-captures_per_target = 300
+captures_per_target = 250
 
 # Lower and upper bound for ingest
-lower, upper = 1,901
+lower, upper = 4001,5501
 
 # Labels
-labels_pre = ['No Target','Standing','Standing Arms Out']
+labels_pre = ["No_Target","Di-Hedral","Tri-Hedral","Cylinder","Metal Plate","Just Cardboard Stand"]
 
-model_name = "nothing_then_standing_then_standing_arms_out"
+model_name = "No_Target_Di-Hedral_Tri-Hedral_Cylinder_Metal Plate_Just Cardboard Stand_6m_250_Captures_Per_Object"
 
 channel_ests = []
 
@@ -81,7 +81,7 @@ X_pca = pca.fit_transform(X_scaled)
 
 
 # Split into train/test sets
-X_train, X_test, y_train, y_test = train_test_split(X_pca, int_labels, test_size=0.01, stratify=int_labels)
+X_train, X_test, y_train, y_test = train_test_split(X_pca, int_labels, test_size=0.2, stratify=int_labels)
 
 # Train SVM classifier
 svm = SVC(kernel='rbf', C=1.0, gamma='scale')
