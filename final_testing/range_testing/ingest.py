@@ -14,6 +14,7 @@ pilot_value = 3+3j
 
 graphs = True
 
+ingest_num = 7006
 
 
 def read_complex_data_from_dat(filename):
@@ -30,8 +31,8 @@ def read_complex_data_from_dat(filename):
     return np.array(complex_data)
 
 # Get received usrp data
-received_data = read_complex_data_from_dat("../masters_large_data/received_data/receive.dat")
-# received_data = read_complex_data_from_dat("../masters_large_data/transmitted_data/transmit.dat")
+received_data = read_complex_data_from_dat("../masters_large_data/final_testing/range_testing/raw_captures/receive"+str(ingest_num)+".dat")
+
 transmitted_data = read_complex_data_from_dat("../masters_large_data/transmitted_data/transmit.dat")
 
 
@@ -50,6 +51,8 @@ print("Position of start of frame: "+str(pos_max))
 
 # Extract rough frame
 frame = np.array(received_data[pos_max-fft_bins:pos_max])
+
+frame = frame - np.mean(frame)
 
 
 # === Compute FFT of the OFDM signal (with CP) ===
@@ -74,6 +77,8 @@ print(str(len(pilot_indices)))
 print(str(len(pilot_symbols)))
 
 print(pilot_symbols)
+
+
 def channelEstimate(OFDM_demod):
     pilots = OFDM_demod[pilot_indices]  # extract the pilot values from the RX signal
     Hest_at_pilots = pilots / pilot_symbols # divide by the transmitted pilot values
@@ -81,9 +86,12 @@ def channelEstimate(OFDM_demod):
     # Perform interpolation between the pilot carriers to get an estimate
     # of the channel in the data carriers. Here, we interpolate absolute value and phase 
     # separately
-    Hest_abs = interpolate.interp1d(pilot_indices, np.abs(Hest_at_pilots),kind="linear")(allCarriers)
+    Hest_real = interpolate.interp1d(pilot_indices, np.real(Hest_at_pilots),kind="linear")(allCarriers)
+    Hest_imag = interpolate.interp1d(pilot_indices, np.imag(Hest_at_pilots),kind="linear")(allCarriers)
+    
+    
     Hest_phase = interpolate.interp1d(pilot_indices, np.angle(Hest_at_pilots),kind="linear")(allCarriers)
-    Hest = Hest_abs * np.exp(1j*Hest_phase)
+    Hest = Hest_real + 1j*Hest_imag
     
     # plt.stem(pilotCarriers, np.fft.fftshift(abs(Hest_at_pilots)), label='Pilot estimates')
     # plt.plot(allCarriers, np.abs(Hest), label='Estimated channel via interpolation')
@@ -154,6 +162,8 @@ def Demapping(QAM):
     return np.vstack([demapping_table[C] for C in hardDecision]), hardDecision
 
 PS_est, hardDecision = Demapping(QAM_est)
+
+QAM_est = np.delete(QAM_est, len(QAM_est)//2)
 
 print(str(len(PS_est)))
 

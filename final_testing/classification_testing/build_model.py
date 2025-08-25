@@ -15,12 +15,12 @@ import joblib
 captures_per_target = 250
 
 # Lower and upper bound for ingest
-lower, upper = 4001,5501
+lower, upper = 5501,7001
 
 # Labels
-labels_pre = ["No_Target","Di-Hedral","Tri-Hedral","Cylinder","Metal Plate","Just Cardboard Stand"]
+labels_pre = ["No_Target","Di-Hedral","Tri-Hedral","Cylinder","Metal Plate","Just Me"]
 
-model_name = "No_Target_Di-Hedral_Tri-Hedral_Cylinder_Metal Plate_Just Cardboard Stand_6m_250_Captures_Per_Object"
+model_name = "No_Target_Di-Hedral_Tri-Hedral_Cylinder_Metal Plate_Just Me_3m_250_Captures_Per_Object_Moving"
 
 channel_ests = []
 
@@ -77,7 +77,7 @@ X_scaled = scaler.fit_transform(X)
 pca = PCA(n_components=10)
 X_pca = pca.fit_transform(X_scaled)
 
-# print(pca.explained_variance_ratio_)
+print(pca.explained_variance_ratio_)
 
 
 # Split into train/test sets

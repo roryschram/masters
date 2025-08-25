@@ -1,7 +1,7 @@
 CMakeFiles/N210_FIRMWARE.dir/main.cpp.o: \
  /home/usrp/Desktop/masters/usrp_firmware_continuous_transmit/main.cpp \
- /usr/include/stdc-predef.h /usr/include/uhd/utils/thread.hpp \
- /usr/include/uhd/config.hpp /usr/include/boost/config.hpp \
+ /usr/include/stdc-predef.h /usr/local/include/uhd/utils/thread.hpp \
+ /usr/local/include/uhd/config.hpp /usr/include/boost/config.hpp \
  /usr/include/boost/config/user.hpp \
  /usr/include/boost/config/detail/select_compiler_config.hpp \
  /usr/include/boost/config/compiler/gcc.hpp /usr/include/c++/13/cstddef \
@@ -851,15 +851,18 @@ CMakeFiles/N210_FIRMWARE.dir/main.cpp.o: \
  /usr/include/boost/thread/pthread/shared_mutex.hpp \
  /usr/include/c++/13/thread /usr/include/c++/13/bits/std_thread.h \
  /usr/include/c++/13/bits/this_thread_sleep.h \
- /usr/include/uhd/utils/safe_main.hpp /usr/include/c++/13/iostream \
- /usr/include/uhd/usrp/multi_usrp.hpp /usr/include/uhd/device.hpp \
- /usr/include/uhd/property_tree.hpp \
- /usr/include/uhd/utils/noncopyable.hpp \
+ /usr/local/include/uhd/utils/safe_main.hpp /usr/include/c++/13/iostream \
+ /usr/local/include/uhd/usrp/multi_usrp.hpp \
+ /usr/local/include/uhd/device.hpp \
+ /usr/local/include/uhd/property_tree.hpp \
+ /usr/local/include/uhd/utils/noncopyable.hpp \
  /usr/include/boost/core/noncopyable.hpp \
- /usr/include/uhd/property_tree.ipp /usr/include/uhd/exception.hpp \
- /usr/include/uhd/stream.hpp /usr/include/uhd/rfnoc/actions.hpp \
- /usr/include/uhd/types/device_addr.hpp /usr/include/uhd/types/dict.hpp \
- /usr/include/uhd/types/dict.ipp /usr/include/boost/format.hpp \
+ /usr/local/include/uhd/property_tree.ipp \
+ /usr/local/include/uhd/exception.hpp /usr/local/include/uhd/stream.hpp \
+ /usr/local/include/uhd/rfnoc/actions.hpp \
+ /usr/local/include/uhd/types/device_addr.hpp \
+ /usr/local/include/uhd/types/dict.hpp \
+ /usr/local/include/uhd/types/dict.ipp /usr/include/boost/format.hpp \
  /usr/include/boost/format/detail/compat_workarounds.hpp \
  /usr/include/boost/format/detail/config_macros.hpp \
  /usr/include/boost/format/detail/workarounds_gcc-2_95.hpp \
@@ -1060,32 +1063,38 @@ CMakeFiles/N210_FIRMWARE.dir/main.cpp.o: \
  /usr/include/boost/core/cmath.hpp /usr/include/boost/integer.hpp \
  /usr/include/boost/integer_fwd.hpp \
  /usr/include/boost/detail/basic_pointerbuf.hpp \
- /usr/include/uhd/types/metadata.hpp /usr/include/uhd/types/time_spec.hpp \
- /usr/include/uhd/types/ranges.hpp /usr/include/uhd/types/stream_cmd.hpp \
- /usr/include/uhd/types/tune_request.hpp \
- /usr/include/uhd/types/tune_result.hpp \
- /usr/include/uhd/types/ref_vector.hpp \
- /usr/include/uhd/extension/extension.hpp \
- /usr/include/uhd/rfnoc/mb_controller.hpp \
- /usr/include/uhd/features/discoverable_feature_getter_iface.hpp \
- /usr/include/uhd/features/discoverable_feature.hpp \
- /usr/include/uhd/types/sensors.hpp \
- /usr/include/uhd/usrp/mboard_eeprom.hpp \
+ /usr/local/include/uhd/types/metadata.hpp \
+ /usr/local/include/uhd/types/time_spec.hpp \
+ /usr/local/include/uhd/types/ranges.hpp \
+ /usr/local/include/uhd/types/stream_cmd.hpp \
+ /usr/local/include/uhd/types/tune_request.hpp \
+ /usr/local/include/uhd/types/tune_result.hpp \
+ /usr/local/include/uhd/types/ref_vector.hpp \
+ /usr/local/include/uhd/extension/extension.hpp \
+ /usr/local/include/uhd/rfnoc/mb_controller.hpp \
+ /usr/local/include/uhd/features/discoverable_feature_getter_iface.hpp \
+ /usr/local/include/uhd/features/discoverable_feature.hpp \
+ /usr/local/include/uhd/types/sensors.hpp \
+ /usr/local/include/uhd/usrp/mboard_eeprom.hpp \
  /usr/include/c++/13/unordered_map \
  /usr/include/c++/13/bits/unordered_map.h \
  /usr/include/c++/13/bits/hashtable.h \
  /usr/include/c++/13/bits/hashtable_policy.h \
  /usr/include/c++/13/bits/enable_special_members.h \
- /usr/include/uhd/rfnoc/radio_control.hpp \
- /usr/include/uhd/rfnoc/noc_block_base.hpp \
- /usr/include/uhd/rfnoc/block_id.hpp /usr/include/uhd/rfnoc/defaults.hpp \
- /usr/include/uhd/rfnoc/node.hpp /usr/include/uhd/rfnoc/dirtifier.hpp \
- /usr/include/uhd/rfnoc/property.hpp \
- /usr/include/uhd/rfnoc/res_source_info.hpp \
- /usr/include/uhd/utils/cast.hpp /usr/include/c++/13/iomanip \
- /usr/include/uhd/utils/dirty_tracked.hpp \
- /usr/include/uhd/rfnoc/property.ipp /usr/include/uhd/utils/log.hpp \
- /usr/include/uhd/utils/scope_exit.hpp /usr/include/c++/13/unordered_set \
+ /usr/local/include/uhd/rfnoc/radio_control.hpp \
+ /usr/local/include/uhd/rfnoc/noc_block_base.hpp \
+ /usr/local/include/uhd/rfnoc/block_id.hpp \
+ /usr/local/include/uhd/rfnoc/defaults.hpp \
+ /usr/local/include/uhd/rfnoc/node.hpp \
+ /usr/local/include/uhd/rfnoc/dirtifier.hpp \
+ /usr/local/include/uhd/rfnoc/property.hpp \
+ /usr/local/include/uhd/rfnoc/res_source_info.hpp \
+ /usr/local/include/uhd/utils/cast.hpp /usr/include/c++/13/iomanip \
+ /usr/local/include/uhd/utils/dirty_tracked.hpp \
+ /usr/local/include/uhd/rfnoc/property.ipp \
+ /usr/local/include/uhd/utils/log.hpp \
+ /usr/local/include/uhd/utils/scope_exit.hpp \
+ /usr/include/c++/13/unordered_set \
  /usr/include/c++/13/bits/unordered_set.h \
  /usr/include/boost/graph/adjacency_list.hpp /usr/include/c++/13/set \
  /usr/include/c++/13/bits/stl_set.h \
@@ -1425,25 +1434,28 @@ CMakeFiles/N210_FIRMWARE.dir/main.cpp.o: \
  /usr/include/boost/typeof/decltype.hpp \
  /usr/include/boost/graph/detail/adj_list_edge_iterator.hpp \
  /usr/include/boost/graph/adjacency_iterator.hpp \
- /usr/include/uhd/rfnoc/node.ipp \
+ /usr/local/include/uhd/rfnoc/node.ipp \
  /usr/include/boost/units/detail/utility.hpp \
  /usr/include/boost/core/demangle.hpp /usr/include/c++/13/cxxabi.h \
  /usr/include/x86_64-linux-gnu/c++/13/bits/cxxabi_tweaks.h \
- /usr/include/uhd/rfnoc/register_iface_holder.hpp \
- /usr/include/uhd/rfnoc/register_iface.hpp \
- /usr/include/uhd/rfnoc/rfnoc_types.hpp \
- /usr/include/uhd/rfnoc/noc_block_make_args.hpp \
- /usr/include/uhd/rfnoc/rf_control/core_iface.hpp \
- /usr/include/uhd/rfnoc/rf_control/power_reference_iface.hpp \
- /usr/include/uhd/types/direction.hpp \
- /usr/include/uhd/utils/assert_has.hpp \
- /usr/include/uhd/utils/assert_has.ipp \
- /usr/include/uhd/utils/algorithm.hpp /usr/include/uhd/types/eeprom.hpp \
- /usr/include/uhd/utils/static.hpp /usr/include/uhd/types/filters.hpp \
- /usr/include/uhd/types/wb_iface.hpp \
- /usr/include/uhd/usrp/dboard_iface.hpp /usr/include/uhd/types/serial.hpp \
- /usr/include/uhd/usrp/gpio_defs.hpp /usr/include/c++/13/chrono \
- /usr/include/uhd/usrp/subdev_spec.hpp \
+ /usr/local/include/uhd/rfnoc/register_iface_holder.hpp \
+ /usr/local/include/uhd/rfnoc/register_iface.hpp \
+ /usr/local/include/uhd/rfnoc/rfnoc_types.hpp \
+ /usr/local/include/uhd/rfnoc/noc_block_make_args.hpp \
+ /usr/local/include/uhd/rfnoc/rf_control/core_iface.hpp \
+ /usr/local/include/uhd/rfnoc/rf_control/power_reference_iface.hpp \
+ /usr/local/include/uhd/types/direction.hpp \
+ /usr/local/include/uhd/utils/assert_has.hpp \
+ /usr/local/include/uhd/utils/assert_has.ipp \
+ /usr/local/include/uhd/utils/algorithm.hpp \
+ /usr/local/include/uhd/types/eeprom.hpp \
+ /usr/local/include/uhd/utils/static.hpp \
+ /usr/local/include/uhd/types/filters.hpp \
+ /usr/local/include/uhd/types/wb_iface.hpp \
+ /usr/local/include/uhd/usrp/dboard_iface.hpp \
+ /usr/local/include/uhd/types/serial.hpp \
+ /usr/local/include/uhd/usrp/gpio_defs.hpp /usr/include/c++/13/chrono \
+ /usr/local/include/uhd/usrp/subdev_spec.hpp \
  /home/usrp/Desktop/masters/usrp_firmware_continuous_transmit/inc/utilities/config_constants.hpp \
  /home/usrp/Desktop/masters/usrp_firmware_continuous_transmit/inc/utilities/config_reader.hpp \
  /home/usrp/Desktop/masters/usrp_firmware_continuous_transmit/inc/hardware/TX_config.hpp \

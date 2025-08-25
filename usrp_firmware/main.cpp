@@ -21,6 +21,8 @@
 std::atomic<bool> isTXsetupComplete(false);
 std::atomic<bool> isRXsetupComplete(false);
 
+int capture_num;
+
 std::vector<std::complex<double>> readComplexDataFromFile(const std::string& filename) {
     std::vector<std::complex<double>> complexData;
     std::ifstream file(filename, std::ios::binary);
@@ -302,13 +304,16 @@ int setup(int argc, char *argv[]){
 
     //check to see if user gave config file
     std::string filepath;
-    if (argc != 2) {
+    if (argc != 3) {
         std::cout << "Usage: " << argv[0] << " <filename>" << std::endl;
         return -1; // return error code
     }
     else{
         filepath=argv[1];
         std::cout<<"Config file path:"<<filepath<<std::endl;
+
+        capture_num=std::stoi(argv[2]);
+        std::cout<<"lower:"<<capture_num<<std::endl;
     }
 
     // read config
@@ -500,7 +505,8 @@ int UHD_SAFE_MAIN(int argc, char *argv[]) {
     // std::cout<<"\nFrac time of transmit first sample: "<<txMetaData.time_spec.get_full_secs() + txMetaData.time_spec.get_frac_secs();
     // std::cout<<"\n"<<rxMetaData.to_pp_string(false);
 
-    saveComplexDataToFile("../../../masters_large_data/received_data/receive.dat",received_data);
+    auto cap_num = std::to_string(capture_num);
+    saveComplexDataToFile("../../../masters_large_data/final_testing/range_testing/raw_captures/receive"+cap_num+".dat",received_data);
 
 
     return EXIT_SUCCESS;
