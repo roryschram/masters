@@ -15,10 +15,10 @@ import joblib
 captures_per_target = 250
 
 # Lower and upper bound for ingest
-lower, upper = 5501,7001
+lower, upper = 4001,5501
 
 # Labels
-labels_pre = ["No_Target","Di-Hedral","Tri-Hedral","Cylinder","Metal Plate","Just Me"]
+labels_pre = ["1","2","3","4","5","6"]
 
 model_name = "No_Target_Di-Hedral_Tri-Hedral_Cylinder_Metal Plate_Just Me_3m_250_Captures_Per_Object_Moving"
 
@@ -28,14 +28,33 @@ channel_ests = []
 # fig = plt.subplot()
 
 for i in range(lower,upper,1):
-    input = np.load("../masters_large_data/final_testing/classification_testing/channel_ests/channel_est"+str(i)+".npy")
+    input = np.load("../masters_large_data/final_testing/classification_testing/seminar_room/rotation_test/channel_ests/channel_est"+str(i)+".npy")
     channel_ests.append(np.abs(input))
     # plt.plot(np.abs(input))
 
-# plt.title("40 Channel Estimations")
-# plt.xlabel("Channels")
-# plt.ylabel("Channel Est")
-# plt.show()
+
+# lower, upper = 6001,6251
+# for i in range(lower,upper,1):
+#     input = np.load("../masters_large_data/final_testing/classification_testing/seminar_room/3m_moving_target_test/channel_ests/channel_est"+str(i)+".npy")
+#     channel_ests.append(np.abs(input))
+#     # plt.plot(np.abs(input))
+
+
+# lower, upper = 5751,6001
+# for i in range(lower,upper,1):
+#     input = np.load("../masters_large_data/final_testing/classification_testing/seminar_room/3m_moving_target_test/channel_ests/channel_est"+str(i)+".npy")
+#     channel_ests.append(np.abs(input))
+#     # plt.plot(np.abs(input))
+
+
+# lower, upper = 6501,6751
+# for i in range(lower,upper,1):
+#     input = np.load("../masters_large_data/final_testing/classification_testing/seminar_room/3m_moving_target_test/channel_ests/channel_est"+str(i)+".npy")
+#     channel_ests.append(np.abs(input))
+#     # plt.plot(np.abs(input))
+
+
+
 
 
 
