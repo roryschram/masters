@@ -290,7 +290,7 @@ To understand how and SDR works, let's imagine a simple SDR system, with the hum
 % ----------------------------------------------------
 In the following chapter, I will outline the exact thought process that went into designing my radar system. In order to make my explanation of the design process easier, and for continuity's sake, I have separated the overall system into three distinct modules. These modules all overlap in certain ways, however, it will be easier to explain the design process behind each module while assuming no overlap. The three modules are the following, firstly, a range radar module. This is the bare-bones part of the overall system that can determine the distance that objects are away from the transmitter and receiver. Secondly, there will be a part of the system that involves communications. This is the communication module. This is the part of the overall system that will demonstrate the ability of the system to perform basic operations as a communication system that sends data between and transmit and receive. Thirdly, there will be a classification module. This classification module will involve the prediction pipeline that is used to classify different shapes of objects in the frame of the radar. 
 
-This chapter aims to outline the thought process that went into the design of each of the modules highlighted above. Before any explanation of design thinking however, a requirement and specification analysis is outlined below. 
+This chapter aims to outline the thought process that went into the design of each of the modules highlighted above. Before any explanation of design thinking however, a requirement and specification analysis is outlined below.
 
 \section{Requirement and Specification Analysis}\label{sec:requirements_specifications}
 It is important to list out the specific system requirements and specifications for the overall system and the various submodules. This makes it easier to decide on the design decisions that must be made, and also makes designing of the validation, and the overall testing procedure easier.
@@ -331,9 +331,60 @@ It is important to list out the specific system requirements and specifications 
 \end{enumerate}
 
 
+\section{Modules and Submodules}
+As mentioned previously, the overall project is broken down into three distinct modules. Breaking down a big project such as this one into different "black boxes" helps dramatically with the design process by making daunting large parts of the overall project more manageable. The choice of broad submodules is shown below in fig \ref{fig:modules_submodules}.
 
+\begin{figure}[H]
+\centering
+\includegraphics[width = 0.75\linewidth]{Images/Methodology/modules_and_submodules.png}
+\caption{Modules and Submodules}
+\label{fig:modules_submodules}
+\end{figure}
 
+Once an overall picture of the modules and sub modules can be outlined, decisions about the components contained within can be made.
 
+\section{Component Selection}
+The components of the system can be broken into two broad categories, namely, the hardware, and the software.
+
+\subsection{Hardware}
+Apart from the custom carrying rig, the hardware for this project is entirely made up of off the shelf components. The main components that fall part of the hardware category are the computer, which forms the basis of the processing unit of the radar, the SDR system, which contains all the required equipment to transmit and receive RF signals, the antennas, the carrying case, and the other periphery equipment such as power management and external monitors, keyboard, and mouse. Following on from this, below is an explanation of each hardware component choice, and the reasoning behind each choice.
+
+\subsubsection{Computing Unit}
+The computing unit for this project needs to be powerful enough to handle development of the entire system. To keep things neat and tidy, I am doing all the development of the software, which will be addressed later, on the computing unit chosen for this project. Therefore, the unit must be able to compute vast amounts of data used within the project. This will be a CPU intensive task. As I plan on utilizing a multi-threaded approach to the processing pipelines of this system, a CPU with as many cores as achievable would be ideal. There is no plan to implement \gls{gpu} integration into the project. Based on this information, I chose the GMKtec NUCBOX as the computer for this project. This choice of computer can be seen below in fig \ref{fig:gmktec_nucbox}.
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width = 0.7\linewidth]{Images/System_design/gmktec_nucbox.jpg}
+    \caption{GMKtec NUCBOX}
+    \label{fig:gmktec_nucbox}
+\end{figure}
+
+This computer is a very well-rounded computing device, and has the following specifications outlined in table \ref{tab:gmktec_nucbox_specs} below.
+
+\begin{table}[H]
+\centering
+\begin{tabular}{|c|c|}
+\hline
+\textbf{CPU}            & AMD Ryzen 7 8845HS                                                                                                                                                                                              \\ \hline
+\textbf{CPU Clock Rate} & 5.10 GHz                                                                                                                                                                                                        \\ \hline
+\textbf{Cores}          & 8                                                                                                                                                                                                               \\ \hline
+\textbf{Threads}        & 16 (via Simultaneous Multithreading)                                                                                                                                                                            \\ \hline
+\textbf{GPU}            & Radeon 780M RDNA3                                                                                                                                                                                               \\ \hline
+\textbf{RAM}            & 32 GB DDR5-5600MHz                                                                                                                                                                                              \\ \hline
+\textbf{Storage}        & 1TB M.2                                                                                                                                                                                                         \\ \hline
+\textbf{Networking}     & \begin{tabular}[c]{@{}c@{}}2x Intel I226V 2.5 Gigabit Ethernet RJ-45 LAN\\ Intel AX200 WiFi 6 Adapter\\ Bluetooth 5.2\end{tabular}                                                                              \\ \hline
+\textbf{Peripherals}    & \begin{tabular}[c]{@{}c@{}}2x USB 4.0 Type-C\\ 2x USB 3.2 Gen 2 Type-A\\ 2x USB 2.0 Type-A1x HDMI 2.1(8K@60Hz)\\ 1x DisplayPort 2.1 (8K@60Hz)\\ 1x 3.5mm Headphone Jack\\ 1x Oculink (PCIe 4.0 x4)\end{tabular} \\ \hline
+\end{tabular}
+\caption{GMKtec NUCBOX Specifications}
+\label{tab:gmktec_nucbox_specs}
+\end{table}
+
+\subsubsection{Software Defined Radios}
+\subsubsection{Antennas}
+\subsubsection{Carrying Rig}
+\subsubsection{Periphery Devices}
+
+\subsection{Software}
 
 \section{Range Radar Pipeline Design}
 \section{Communication Radar Pipeline Design}
@@ -409,28 +460,10 @@ In light of the aforementioned requirements and specifications in section \ref{s
 
 \section{Experimental Design}
 \subsection{Overview}
-As mentioned in chapter \ref{ch:systemdesign}, the overall radar system can be separated into three distinct modules. These modules are highlighted in figure \ref{fig:modules_submodules} below.
-
-
-\begin{figure}[H]
-\centering
-
-\includegraphics[width = 0.8\linewidth]{Images/Methodology/modules_and_submodules.png}
-
-\caption{Modules and Submodules}
-\label{fig:modules_submodules}
-\end{figure}
-
-
-
-
-
-
-
-the range radar module, followed by the communication module, followed finally by the classification module. As mentioned previously, the first module involves the ability of the system to act as a simple range radar with the ability to determine the distance of object within a scene. The second module is involved with the ability of the overall system to communicate data from a transmission antenna to a reception antenna. The third and last module handles the classification ability of the radar with respect to the ability to differentiate between various targets in a scene. Due to this separation of module, the testing of the system has been divided into three separate testing sections. Listed below are the various overall testing categories.
+As mentioned in chapter \ref{ch:systemdesign}, the overall radar system can be separated into three distinct modules. The overall system contains the range radar module, followed by the communication module, followed finally by the classification module. As mentioned previously, the first module involves the ability of the system to act as a simple range radar with the ability to determine the distance of object within a scene. The second module is involved with the ability of the overall system to communicate data from a transmission antenna to a reception antenna. The third and last module handles the classification ability of the radar with respect to the ability to differentiate between various targets in a scene. Due to this separation of modules, the testing of the system has been divided into three separate testing sections. Listed below are the various overall testing categories.
 
 \begin{enumerate}
-    \item \textbf{Range Testing}: The purpose of the range test will be to determine if the RADAR system can operate as just that, a simple RADAR. The main aim is to determine if the system can detect objects at various distances from the transmitter and receiver setup.
+    \item \textbf{Range Testing}: The purpose of the range test will be to determine if the RADAR system can operate as just that, a simple RADAR. The main aim is to determine if the system can detect objects at various distances from the transmitter and receiver setup in accorance with the specification and ATPs.
     \item \textbf{Communication Testing}: This test is all about how well the system can operate as a bare-bones communication system. The reason I have decided to include this as a test is because, as mentioned before, my entire classification pipeline is built upon OFDM communication principles (namely the use of pilot symbols in determining channel estimation data), and since these OFDM principles are so vital to my project, it is fitting to make sure that the system can actually operate as a data transmission system. This is necessary to show, since the broad category of RADAR that this system falls into could be considered "communication RADAR", or in essence, a RADAR that can use the same signal within communication operations and normal RADAR operations.
     \item \textbf{Classification Testing}: This is the main testing that will take place for my RADAR system. This testing setup will thoroughly analyze the ability of the RADAR system to classify various targets in a scene. The tests will also try to determine the viability of this concept in a real world use case scenario.
 \end{enumerate}
@@ -438,7 +471,7 @@ the range radar module, followed by the communication module, followed finally b
 Of these three major testing categories, where reasonably needed, it was attempted to perform each test indoors and outdoors. Following on from the above listed broad testing structures, the exact testing procedure of each testing category will now be explained below.
 
 \subsection{Communication Test}
-The communication testing procedure will be paramount in determining if my system is working properly as a communication system, and therefore it is important to check the communication ability to determine if the calculated channel responses are valid.
+The testing procedure followed for this module has a main purpose of characterizing the performance of the communication channel for various SNR values. Doing this characterization will be paramount in determining if the communication system works properly and meets the specifications and ATPs defined for said module. Determining that the communication channel works properly has the by product effect of ensuring that the channel estimations used for the classification module are working as intended.
 
 As mentioned in chapter \ref{ch:systemdesign}, one frame of my OFDM based signal is 32768 samples long. That means that there are 4384 samples either side of my "signal block" that have values equal to zero. These are my guard bands. That leaves 24000 samples for data and pilot symbols. I made my signal have 4000 pilots and 20000 data carriers. Based on this setup, I can transmit 40000 bits at a time. On the reception side, I am able to read ingest raw data, which I can then decode and get my transmitted bits out of. Bearing this in mind, since I have the bits that I transmitted, and the bits that I have received, I am able to compute a BER for the transmission. The performance of the system changes drastically as the overall \gls{snr} of the transmission changes.
 
