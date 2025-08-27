@@ -609,11 +609,11 @@ INPUT ./Images/Literature/norrie_paine_static_test.png
 INPUT ./Images/Literature/norrie_paine_static_test.png
 INPUT ./Images/Literature/norrie_paine_static_test.png
 INPUT ./Images/Literature/norrie_paine_static_test.png
-INPUT /usr/local/texlive/2024/texmf-dist/tex/latex/lm/ts1lmr.fd
-INPUT /usr/local/texlive/2024/texmf-dist/tex/latex/lm/ts1lmr.fd
-INPUT /usr/local/texlive/2024/texmf-dist/tex/latex/lm/ts1lmr.fd
-INPUT /usr/local/texlive/2024/texmf-dist/fonts/tfm/public/lm/ts1-lmr10.tfm
-INPUT /usr/local/texlive/2024/texmf-dist/fonts/enc/dvips/lm/lm-ts1.enc
+INPUT ./Images/Methodology/modules_and_submodules.png
+INPUT ./Images/Methodology/modules_and_submodules.png
+INPUT ./Images/Methodology/modules_and_submodules.png
+INPUT ./Images/Methodology/modules_and_submodules.png
+INPUT ./Images/Methodology/modules_and_submodules.png
 INPUT ./Images/Methodology/10_db_attenuator.jpeg
 INPUT ./Images/Methodology/10_db_attenuator.jpeg
 INPUT ./Images/Methodology/10_db_attenuator.jpeg

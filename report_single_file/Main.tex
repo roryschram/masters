@@ -292,7 +292,7 @@ In the following chapter, I will outline the exact thought process that went int
 
 This chapter aims to outline the thought process that went into the design of each of the modules highlighted above. Before any explanation of design thinking however, a requirement and specification analysis is outlined below. 
 
-\section{Requirement and Specification Analysis}
+\section{Requirement and Specification Analysis}\label{sec:requirements_specifications}
 It is important to list out the specific system requirements and specifications for the overall system and the various submodules. This makes it easier to decide on the design decisions that must be made, and also makes designing of the validation, and the overall testing procedure easier.
 
 \subsection{System Requirements}
@@ -304,31 +304,33 @@ It is important to list out the specific system requirements and specifications 
     \item \textbf{Classification Module}: The classification module should be able to observe a scene, and be able to determine the difference between basic shapes placed in a scene. The basic shapes in question will be limited to objects present within the UCT radar group's possession. The classification pipeline should be able to classify objects that are stationary and moving, and as well as this it should be able to classify multiple objects within a single scene.
 \end{enumerate}
 
-\subsection{System Specifications}
+\subsection{System Specifications}\label{sec:system_specifications}
 
 \begin{enumerate}
     \item \textbf{Overall System}: 
-    \begin{itemize}
+    \begin{enumerate}
         \item In sticking to the aforementioned requirements, the first specification for the overall system is that all components, consumer and/or scientific should be available through two independent suppliers.
         \item Secondly, the overall system should have three distinct modes of operation. Each mode of operation should take no less than 20 seconds to switch to, and finally, each mode should seamlessly integrate with the other modes, so as not to degrade the system's stability, meaning no crashes and data corruption etc.
-    \end{itemize}
+    \end{enumerate}
     \item \textbf{Range Radar Module}: 
-    \begin{itemize}
+    \begin{enumerate}
         \item The range radar should have a minimum range resolution of below 20m. This has been chosen as a good starting point for this radar because this is a single pulsed radar, not a \gls{fmcw} radar. FMCW radars typically has much better range resolution capabilities, and does not rely on simple pulse compression in determining the distance of objects away from the transmitter and receiver, which this range radar does.
         \item The radar should be able to reliably detect objects at distances greater than 10m. 
-    \end{itemize}
+    \end{enumerate}
     \item \textbf{Communication Module}:
-    \begin{itemize}
+    \begin{enumerate}
         \item The communication pipeline should be characterized by a BER versus SNR, and should be able to achieve a near zero BER for high SNR values.
         \item The communication system should be able to transmit data at a meaningful data rate that could be useful in a real world operation. To be able to operate in the real world, the module should be able to transmit at a rate of or above 1 000 000 bits/s, or 1 Mbps.
-    \end{itemize}
+    \end{enumerate}
     \item \textbf{Classification Module}:
-    \begin{itemize}
+    \begin{enumerate}
         \item The classification module should have shape classification abilities, or in other words, be able to classify or separate between distinctly differently shaped objects. The module should be able to correctly classify a minimum of three objects in any given scene.
         \item The classification module should be able to handle basic motion, such as an object rotating along a single axis, and advanced motion, such as a target moving along multiples axes at various velocities.
         \item The module should be able to handle a minimum of two targets with both at different distances away from the radar, while still maintaining the ability to classify said targets accurately.
-    \end{itemize}
+    \end{enumerate}
 \end{enumerate}
+
+
 
 
 
@@ -373,11 +375,59 @@ It is important to list out the specific system requirements and specifications 
 % ----------------------------------------------------
 % ----------------------------------------------------
 \chapter{Methodology}\label{ch:methodology}
-In the chapter that follows, I will highlight the testing procedure that was followed for the system. Importantly, I will also explain the reasoning behind why I made the specific choices that I do as it pertains to the testing environment setup. The aim of the experiments detailed is to validate the previous system design work done for this thesis.
+In this chapter that follows, I will highlight the testing procedure that was followed for the system. Importantly, I will also explain the reasoning behind why I made the specific choices that I do as it pertains to the testing environment setup. The aim of the experiments detailed is to validate the previous system design work done for this thesis.
+
+
+\section{Acceptance Test Protocols}
+In light of the aforementioned requirements and specifications in section \ref{sec:requirements_specifications}, the following \gls{atps} are derived to ensure that the specifications for the system have been met. The ATPs can be broken into three sections for the overall system, the range radar module, the communication module, and the classification module. The various ATPs for the different modules and the overall system are highlighted below. These ATPs have been derived in part using the specifications mentioned in section \ref{sec:system_specifications}.
+
+\begin{enumerate}
+    \item \textbf{Overall System}:
+    \begin{enumerate}
+        \item Ensure that the system follows the purchasing rules in regard to off the shelf scientific and consumer hardware outlined in specification 1(a).
+        \item Following from that, specification 1(b) should be achieved by testing whether the system can switch casually between modes of operation as described.
+    \end{enumerate}
+    \item \textbf{Range Radar Module}:
+    \begin{enumerate}
+        \item The range resolution shall be measured by placing multiple different distance objects in a single frame to determine how accurately the radar can separate the objects based on their distances.
+        \item Object testing at distances greater than 10m must be performed.
+    \end{enumerate}
+    \item \textbf{Communication Module}:
+    \begin{enumerate}
+        \item The communication module's performance shall be classified by testing the performance of the system over a wide range of SNR values. The system shall be characterized in a single graph outlining the performance at different SNR values.
+        \item The transmission scheme shall be analyzed to determine theoretical bit rates of the transmission system, ensuring that the transmission rate of the system satisfies specification 3(b), by making sure the transmission rate is at or above 1 Mbps.
+    \end{enumerate}
+    \item \textbf{Classification Module}:
+    \begin{enumerate}
+        \item As outlined in specification 4(a), it must be shown that this classification module can successfully differentiate between a minimum of three targets in a scene.
+        \item Test the ability of the system to handle the classification of objects in motion.
+        \item Viability of object detection and classification at various distances away form the radar shall be examined.
+    \end{enumerate}
+\end{enumerate}
+
+
 
 \section{Experimental Design}
 \subsection{Overview}
-As mentioned in chapter \ref{ch:systemdesign}, the overall radar system can be separated into three distinct modules. These modules are, the range radar module, followed by the communication module, followed finally by the classification module. As mentioned previously, the first module involves the ability of the system to act as a simple range radar with the ability to determine the distance of object within a scene. The second module is involved with the ability of the overall system to communicate data from a transmission antenna to a reception antenna. The third and last module handles the classification ability of the radar with respect to the ability to differentiate between various targets in a scene. Due to this separation of module, the testing of the system has been divided into three separate testing sections. Listed below are the various overall testing categories.
+As mentioned in chapter \ref{ch:systemdesign}, the overall radar system can be separated into three distinct modules. These modules are highlighted in figure \ref{fig:modules_submodules} below.
+
+
+\begin{figure}[H]
+\centering
+
+\includegraphics[width = 0.8\linewidth]{Images/Methodology/modules_and_submodules.png}
+
+\caption{Modules and Submodules}
+\label{fig:modules_submodules}
+\end{figure}
+
+
+
+
+
+
+
+the range radar module, followed by the communication module, followed finally by the classification module. As mentioned previously, the first module involves the ability of the system to act as a simple range radar with the ability to determine the distance of object within a scene. The second module is involved with the ability of the overall system to communicate data from a transmission antenna to a reception antenna. The third and last module handles the classification ability of the radar with respect to the ability to differentiate between various targets in a scene. Due to this separation of module, the testing of the system has been divided into three separate testing sections. Listed below are the various overall testing categories.
 
 \begin{enumerate}
     \item \textbf{Range Testing}: The purpose of the range test will be to determine if the RADAR system can operate as just that, a simple RADAR. The main aim is to determine if the system can detect objects at various distances from the transmitter and receiver setup.

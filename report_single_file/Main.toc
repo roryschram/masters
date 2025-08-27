@@ -51,33 +51,34 @@
 \contentsline {subsection}{\numberline {5.1.2}Receiver Validation}{16}{subsection.5.1.2}%
 \contentsline {section}{\numberline {5.2}Simulation}{16}{section.5.2}%
 \contentsline {chapter}{\numberline {6}Methodology}{17}{chapter.6}%
-\contentsline {section}{\numberline {6.1}Experimental Design}{17}{section.6.1}%
-\contentsline {subsection}{\numberline {6.1.1}Overview}{17}{subsection.6.1.1}%
-\contentsline {subsection}{\numberline {6.1.2}Communication Test}{18}{subsection.6.1.2}%
-\contentsline {subsubsection}{\numberline {6.1.2.1}Test 1: Communication System Characterization via Loopback}{18}{subsubsection.6.1.2.1}%
-\contentsline {subsubsection}{\numberline {6.1.2.2}Test 2: Long Cable Loopback Test}{21}{subsubsection.6.1.2.2}%
-\contentsline {subsubsection}{\numberline {6.1.2.3}Test 3: Real World Antenna Test}{21}{subsubsection.6.1.2.3}%
-\contentsline {subsection}{\numberline {6.1.3}Range Test Tests}{21}{subsection.6.1.3}%
-\contentsline {subsubsection}{\numberline {6.1.3.1}Test 1: }{21}{subsubsection.6.1.3.1}%
-\contentsline {subsection}{\numberline {6.1.4}Classification Test}{21}{subsection.6.1.4}%
-\contentsline {chapter}{\numberline {7}Results}{22}{chapter.7}%
-\contentsline {section}{\numberline {7.1}Communication Testing}{22}{section.7.1}%
-\contentsline {subsection}{\numberline {7.1.1}Test 1: Communication System Characterization via Loopback}{22}{subsection.7.1.1}%
-\contentsline {section}{\numberline {7.2}100m Test}{23}{section.7.2}%
-\contentsline {section}{\numberline {7.3}300m Test}{23}{section.7.3}%
-\contentsline {section}{\numberline {7.4}500m Test}{23}{section.7.4}%
-\contentsline {section}{\numberline {7.5}20km Test}{23}{section.7.5}%
-\contentsline {section}{\numberline {7.6}Average RSSI Values with Distance}{23}{section.7.6}%
-\contentsline {chapter}{\numberline {8}Discussion}{24}{chapter.8}%
-\contentsline {section}{\numberline {8.1}RSSI Values with Distance}{24}{section.8.1}%
-\contentsline {section}{\numberline {8.2}Overall Testing Performance}{24}{section.8.2}%
-\contentsline {section}{\numberline {8.3}Determining the Optimal Packet Structure}{24}{section.8.3}%
-\contentsline {section}{\numberline {8.4}Determining the Optimal LoRa Parameters}{24}{section.8.4}%
-\contentsline {chapter}{\numberline {9}Conclusion and Recommendations}{25}{chapter.9}%
-\contentsline {chapter}{Bibliography}{26}{chapter*.18}%
-\contentsline {chapter}{\numberline {10}Appendix}{27}{chapter.10}%
-\contentsline {section}{\numberline {10.1}Full Transmitter Circuit Schematic}{27}{section.10.1}%
-\contentsline {section}{\numberline {10.2}Full Receiver Circuit Schematic}{27}{section.10.2}%
-\contentsline {section}{\numberline {10.3}Long Range Test Interference}{27}{section.10.3}%
-\contentsline {section}{\numberline {10.4}GitHub Link}{27}{section.10.4}%
-\contentsline {section}{\numberline {10.5}Ethics Clearance}{27}{section.10.5}%
+\contentsline {section}{\numberline {6.1}Acceptance Test Protocols}{17}{section.6.1}%
+\contentsline {section}{\numberline {6.2}Experimental Design}{18}{section.6.2}%
+\contentsline {subsection}{\numberline {6.2.1}Overview}{18}{subsection.6.2.1}%
+\contentsline {subsection}{\numberline {6.2.2}Communication Test}{19}{subsection.6.2.2}%
+\contentsline {subsubsection}{\numberline {6.2.2.1}Test 1: Communication System Characterization via Loopback}{19}{subsubsection.6.2.2.1}%
+\contentsline {subsubsection}{\numberline {6.2.2.2}Test 2: Long Cable Loopback Test}{22}{subsubsection.6.2.2.2}%
+\contentsline {subsubsection}{\numberline {6.2.2.3}Test 3: Real World Antenna Test}{22}{subsubsection.6.2.2.3}%
+\contentsline {subsection}{\numberline {6.2.3}Range Test Tests}{22}{subsection.6.2.3}%
+\contentsline {subsubsection}{\numberline {6.2.3.1}Test 1: }{23}{subsubsection.6.2.3.1}%
+\contentsline {subsection}{\numberline {6.2.4}Classification Test}{23}{subsection.6.2.4}%
+\contentsline {chapter}{\numberline {7}Results}{24}{chapter.7}%
+\contentsline {section}{\numberline {7.1}Communication Testing}{24}{section.7.1}%
+\contentsline {subsection}{\numberline {7.1.1}Test 1: Communication System Characterization via Loopback}{24}{subsection.7.1.1}%
+\contentsline {section}{\numberline {7.2}100m Test}{25}{section.7.2}%
+\contentsline {section}{\numberline {7.3}300m Test}{25}{section.7.3}%
+\contentsline {section}{\numberline {7.4}500m Test}{25}{section.7.4}%
+\contentsline {section}{\numberline {7.5}20km Test}{25}{section.7.5}%
+\contentsline {section}{\numberline {7.6}Average RSSI Values with Distance}{25}{section.7.6}%
+\contentsline {chapter}{\numberline {8}Discussion}{26}{chapter.8}%
+\contentsline {section}{\numberline {8.1}RSSI Values with Distance}{26}{section.8.1}%
+\contentsline {section}{\numberline {8.2}Overall Testing Performance}{26}{section.8.2}%
+\contentsline {section}{\numberline {8.3}Determining the Optimal Packet Structure}{26}{section.8.3}%
+\contentsline {section}{\numberline {8.4}Determining the Optimal LoRa Parameters}{26}{section.8.4}%
+\contentsline {chapter}{\numberline {9}Conclusion and Recommendations}{27}{chapter.9}%
+\contentsline {chapter}{Bibliography}{28}{chapter*.19}%
+\contentsline {chapter}{\numberline {10}Appendix}{29}{chapter.10}%
+\contentsline {section}{\numberline {10.1}Full Transmitter Circuit Schematic}{29}{section.10.1}%
+\contentsline {section}{\numberline {10.2}Full Receiver Circuit Schematic}{29}{section.10.2}%
+\contentsline {section}{\numberline {10.3}Long Range Test Interference}{29}{section.10.3}%
+\contentsline {section}{\numberline {10.4}GitHub Link}{29}{section.10.4}%
+\contentsline {section}{\numberline {10.5}Ethics Clearance}{29}{section.10.5}%
