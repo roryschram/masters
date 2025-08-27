@@ -619,6 +619,19 @@ INPUT ./Images/System_design/gmktec_nucbox.jpg
 INPUT ./Images/System_design/gmktec_nucbox.jpg
 INPUT ./Images/System_design/gmktec_nucbox.jpg
 INPUT ./Images/System_design/gmktec_nucbox.jpg
+INPUT /usr/local/texlive/2024/texmf-dist/fonts/tfm/public/lm/ec-lmr9.tfm
+INPUT /usr/local/texlive/2024/texmf-dist/fonts/tfm/public/lm/rm-lmr9.tfm
+INPUT /usr/local/texlive/2024/texmf-dist/fonts/tfm/public/lm/rm-lmr5.tfm
+INPUT /usr/local/texlive/2024/texmf-dist/fonts/tfm/public/lm/lmmi9.tfm
+INPUT /usr/local/texlive/2024/texmf-dist/fonts/tfm/public/lm/lmmi5.tfm
+INPUT /usr/local/texlive/2024/texmf-dist/fonts/tfm/public/lm/lmsy9.tfm
+INPUT /usr/local/texlive/2024/texmf-dist/fonts/tfm/public/lm/lmsy5.tfm
+INPUT /usr/local/texlive/2024/texmf-dist/fonts/tfm/public/amsfonts/symbols/msam10.tfm
+INPUT /usr/local/texlive/2024/texmf-dist/fonts/tfm/public/amsfonts/symbols/msam5.tfm
+INPUT /usr/local/texlive/2024/texmf-dist/fonts/tfm/public/amsfonts/symbols/msbm10.tfm
+INPUT /usr/local/texlive/2024/texmf-dist/fonts/tfm/public/amsfonts/symbols/msbm5.tfm
+INPUT /usr/local/texlive/2024/texmf-dist/fonts/tfm/public/rsfs/rsfs10.tfm
+INPUT /usr/local/texlive/2024/texmf-dist/fonts/tfm/public/rsfs/rsfs5.tfm
 INPUT ./Images/Methodology/10_db_attenuator.jpeg
 INPUT ./Images/Methodology/10_db_attenuator.jpeg
 INPUT ./Images/Methodology/10_db_attenuator.jpeg
@@ -668,6 +681,7 @@ INPUT /usr/local/texlive/2024/texmf-dist/fonts/type1/public/lm/lmr12.pfb
 INPUT /usr/local/texlive/2024/texmf-dist/fonts/type1/public/lm/lmr17.pfb
 INPUT /usr/local/texlive/2024/texmf-dist/fonts/type1/public/lm/lmr6.pfb
 INPUT /usr/local/texlive/2024/texmf-dist/fonts/type1/public/lm/lmr8.pfb
+INPUT /usr/local/texlive/2024/texmf-dist/fonts/type1/public/lm/lmr9.pfb
 INPUT /usr/local/texlive/2024/texmf-dist/fonts/type1/public/lm/lmri10.pfb
 INPUT /usr/local/texlive/2024/texmf-dist/fonts/type1/public/lm/lmsy8.pfb
 INPUT /usr/local/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/symbols/msam10.pfb
