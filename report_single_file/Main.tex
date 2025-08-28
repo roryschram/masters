@@ -354,7 +354,7 @@ The computing unit for this project needs to be powerful enough to handle develo
 
 \begin{figure}[H]
     \centering
-    \includegraphics[width = 0.7\linewidth]{Images/System_design/gmktec_nucbox.jpg}
+    \includegraphics[width = 0.6\linewidth]{Images/System_design/gmktec_nucbox.jpg}
     \caption{GMKtec NUCBOX}
     \label{fig:gmktec_nucbox}
 \end{figure}
@@ -374,6 +374,7 @@ This computer is a very well-rounded computing device, and has the following spe
 \textbf{Storage}        & 1TB M.2                                                                                                                                                                                                         \\ \hline
 \textbf{Networking}     & \begin{tabular}[c]{@{}c@{}}2x Intel I226V 2.5 Gigabit Ethernet RJ-45 LAN\\ Intel AX200 WiFi 6 Adapter\\ Bluetooth 5.2\end{tabular}                                                                              \\ \hline
 \textbf{Peripherals}    & \begin{tabular}[c]{@{}c@{}}2x USB 4.0 Type-C\\ 2x USB 3.2 Gen 2 Type-A\\ 2x USB 2.0 Type-A1x HDMI 2.1(8K@60Hz)\\ 1x DisplayPort 2.1 (8K@60Hz)\\ 1x 3.5mm Headphone Jack\\ 1x Oculink (PCIe 4.0 x4)\end{tabular} \\ \hline
+\textbf{Dimensions}     & 132mm x 125mm x 58mm   \\ \hline
 \textbf{Cost}           & R12 000.00 \footnotemark                                                                                                                                                                                                      \\ \hline
 \end{tabular}
 \caption{GMKtec NUCBOX Specifications}
@@ -381,12 +382,86 @@ This computer is a very well-rounded computing device, and has the following spe
 \end{table}
 \footnotetext{At the time of writing this, Aug 2025} 
 
-As can be seen, this is a very well-rounded computing unit that offers many features one may find useful for a project such as this one. Particularly useful to this project is the fact that the unit offers 8 cores that can effectively handle 16 simultaneous threads when processing data. The unit also offers a large amount of RAM which can prove useful for processing large amounts of data. The final selling point of this specific unit is the dual ethernet RJ45 ports. This proves useful for interfacing with the SDR devices, outlined later, while simultaneously accessing another network, possibly for data transfer purposes, or potentially remote control of the radar rig. With all this in mind, I am confident that the GMKtec NUCBOX is a good choice of equipment for this project.
-
-
+As can be seen, this is a very well-rounded computing unit that offers many features one may find useful for a project such as this one. Particularly useful to this project is the fact that the unit offers 8 cores that can effectively handle 16 simultaneous threads when processing data. The unit also offers a large amount of RAM which can prove useful for processing large amounts of data. As will be explained in later sections of this chapter, a large amount of RAM is necessary for this project, because a large part of the processing for the system utilizes correlation calculations, which is a numerically intensive operation. Another selling point of this specific unit is the dual ethernet RJ45 ports. This proves useful for interfacing with the SDR devices, outlined later, while simultaneously accessing another network, possibly for data transfer purposes, or potentially remote control of the radar rig. The NUCBOX is also usefully small in physical size, with the dimensions listed in table \ref{tab:gmktec_nucbox_specs} as 132mm x 125mm x 58mm. This eventually allows for the computing unit to be mounted to a rig, without taking up a disproportionately large amount of space. This is important because for testing purposes, having a smaller overall system makes testing said system dramatically easier. With all of this in mind, I am confident that the GMKtec NUCBOX is a good choice of equipment for this project.
 
 \subsubsection{Software Defined Radios}
+Once a computing unit has been chosen, the next most important, or some may argue, the most important component of the system, is the SDRs. The SDRs form the backbone of the entire transmit and receive RF tool-chain. Without them, the system cannot work at all. My exact choice of SDRs was somewhat limited by the following factors. Firstly, SDRs, especially research grade SDRs, can end up being fairly expensive. 
+
+\textcolor{red}{I think I should add a little section here explaining the options that I had with regards to SDR choice (basically what SDRs the radar group has)}
+
+After assessing all the available options, I settled on the \gls{ni} Ettus N210 SDR. Specifically, I settled on the NI Ettus USRP N210 motherboard, paired with the NI SBX-40 daughter board. The NI Ettus USRP N210 has hot-swappable daughter board slots which allow for use with various daughter boards designed and manufactured by NI Ettus. Over the years, many daughter boards have been built by NI Ettus for various different purposes. The various examples of the different choices a consumer could face regarding the daughterboards available can be seen below in table \ref{tab:ni_ettus_daughterboards}. This information in the table is adapted from \cite{Addressing_Next_generation_Wireless_Challenges_with_Commercial_Software_defined_Radio_Platforms}.
+
+\begin{table}[H]
+\centering
+\begin{tabular}{|c|c|c|c|c|}
+\hline
+\textbf{Daughterboard} & \textbf{Function} & \textbf{Low Frequency}                                    & \textbf{High Frequency}                                   & \textbf{\begin{tabular}[c]{@{}c@{}}Max RF Bandwidth\\ per Channel\end{tabular}} \\ \hline
+UBX    \footnotemark[2]                & Transceiver       & 10 MHz                                                    & 6 GHz                                                     & \begin{tabular}[c]{@{}c@{}}40 MHz\\ 160 MHz\end{tabular}                        \\ \hline
+WBX     \footnotemark[2]              & Transceiver       & 50 MHz                                                    & 2.2 GHz                                                   & \begin{tabular}[c]{@{}c@{}}40 MHz\\ 120 MHz\end{tabular}                        \\ \hline
+CBX    \footnotemark[2]                & Transceiver       & 1.2 GHz                                                   & 6.0 GHz                                                   & \begin{tabular}[c]{@{}c@{}}40 MHz\\ 120 MHz\end{tabular}                        \\ \hline
+SBX    \footnotemark[2]                & Transceiver       & 400 MHz                                                   & 4.4 GHz                                                   & \begin{tabular}[c]{@{}c@{}}40 MHz\\ 120 MHz\end{tabular}                        \\ \hline
+XCVR                   & Transceiver       & \begin{tabular}[c]{@{}c@{}}2.4 GHz\\ 4.9 GHz\end{tabular} & \begin{tabular}[c]{@{}c@{}}2.5 GHz\\ 5.9 GHz\end{tabular} & \begin{tabular}[c]{@{}c@{}}36 MHz (RX)\\ 48 MHz (TX)\end{tabular}               \\ \hline
+Basic RX               & Receiver          & 1 MHz                                                     & 250 MHz                                                   & 100 MHz                                                                         \\ \hline
+Basic TX               & Transmitter       & 1 MHz                                                     & 250 MHz                                                   & 100 MHz                                                                         \\ \hline
+LFRX                   & Receiver          & DC                                                        & 30 MHz                                                    & 30 MHz                                                                          \\ \hline
+LFTX                   & Transmitter       & DC                                                        & 30 MHz                                                    & 30 MHz                                                                          \\ \hline
+DBSRX2                 & Receiver          & 800 MHz                                                   & 2.3 GHz                                                   & 60 MHz                                                                          \\ \hline
+TVRX2                  & Receiver          & 50 MHz                                                    & 860 MHz                                                   & 10 MHz                                                                          \\ \hline
+\end{tabular}
+\caption{Description of various commercially available daughterboards for the NI Ettus USRP N210}
+\label{tab:ni_ettus_daughterboards}
+\end{table}
+
+\footnotetext[2]{The N-series family of USRPs is compatible only with 40 MHz bandwidth daughterboards, while the X-series can support both 40 MHz and 120/160 MHz daughterboards.}
+
+Owing to the fact that I want to build a radar system with two SDRs, one for handling transmit capabilities, and the other for handling receive capabilities, I needed two motherboards, and two daughterboards. Luckily for me, the UCT \gls{rrsg} has access to multiple USRP devices. Therefore, I settled on using the SBX-40 daughterboard. This daughterboard is a powerful multipurpose board with a very wide range of tunable frequencies, which is great because it allows for operating the radar system at multiple different center frequencies if needed. Pictured below is the SBX-40.
+
+
+\begin{figure}[H]
+\centering
+\includegraphics[width = 0.6\linewidth]{Images/System_design/sbx-40.jpg}
+\caption{SBX-40 Daughterboard}
+\label{fig:sbx-40_daughterboard}
+\end{figure}
+
+
+Apart from the highlighted features in table \ref{tab:ni_ettus_daughterboards} above, the SBX-40 has the following specifications listed below in table \ref{tab:sbx-40_specs}.
+
+\begin{table}[H]
+\centering
+\begin{tabular}{|c|c|}
+\hline
+\textbf{Frontends}              & 2 quadrature frontends (1 transmit, 1 receive)                                                                                                                                                                                                                              \\ \hline
+\textbf{Local Oscillator}       & \begin{tabular}[c]{@{}c@{}}Independent receive and transmit LO's\\ and synthesizers.\\ Allows for full-duplex operation on different transmit\\ and receive frequencies.\end{tabular}                                                                                       \\ \hline
+\textbf{Antennas}               & \begin{tabular}[c]{@{}c@{}}Transmit: TX/RX\\ Receive: TX/RX or RX2\end{tabular}                                                                                                                                                                                             \\ \hline
+\textbf{Gain}                   & \begin{tabular}[c]{@{}c@{}}Transmit Gains: PGA0, Range: 0-31.5dB\\ Receive Gains: PGA0, Range: 0-31.5dB\end{tabular}                                                                                                                                                        \\ \hline
+\textbf{Bandwidth}              & 40 MHz, RX \& TX                                                                                                                                                                                                                                                            \\ \hline
+\textbf{Sensors}                & lo\_locked: boolean for LO lock state                                                                                                                                                                                                                                       \\ \hline
+\textbf{MIMO Capability}        & Yes                                                                                                                                                                                                                                                                         \\ \hline
+\textbf{LEDs}                   & \begin{tabular}[c]{@{}c@{}}All LEDs flash when daughterboard control is initialized\\ TX LD: Transmit Synthesizer Lock Detect\\ TX/RX: Receiver on TX/RX antenna port (No TX)\\ RX LD: Receive Synthesizer Lock Detect\\ RX1/RX2: Receiver on RX2 antenna port\end{tabular} \\ \hline
+\textbf{Freq Range}             & 400MHz - 4.4GHz                                                                                                                                                                                                                                                             \\ \hline
+\textbf{Noise Figure}           & \begin{tabular}[c]{@{}c@{}}4 - 5 dB @ (400MHz $\sim$1.5GHz)\\ 5 - 7 dB @ (1.5GHz $\sim$3GHz)\\ 7 - 12dB @ (3GHz $\sim$4.4GHz)\end{tabular}                                                                                                                                  \\ \hline
+\textbf{RX IIP3 (Max)}          & 16 $\sim$22 dBm                                                                                                                                                                                                                                                             \\ \hline
+\textbf{RX IQ Imbalance}        & \begin{tabular}[c]{@{}c@{}}-20 dBc @ (400MHz $\sim$600MHz)\\ -30dBc @ (600MHz $\sim$4.4GHz)\end{tabular}                                                                                                                                                                    \\ \hline
+\textbf{TX Power (Max)}         & \begin{tabular}[c]{@{}c@{}}20 dBm @ (400MHz $\sim$3.5GHz)\\ 18 - 20dBm @ (3.5GHz $\sim$4.4GHz)\end{tabular}                                                                                                                                                                 \\ \hline
+\textbf{TX OIP3}                & \begin{tabular}[c]{@{}c@{}}26 - 30dBm @ (400MHz $\sim$1.5GHz)\\ 30 dBm @ (1.5GHz $\sim$4.4GHz)\end{tabular}                                                                                                                                                                 \\ \hline
+\textbf{TX IQ Imbalance}        & \begin{tabular}[c]{@{}c@{}}-20 dBc @ (400MHz $\sim$600MHz)\\ -30dBc @ (600MHz $\sim$4.4GHz)\end{tabular}                                                                                                                                                                    \\ \hline
+\textbf{Input/Output Impedance} & \begin{tabular}[c]{@{}c@{}}All RF Ports are matched to 50 Ohm with -10dB\\ or better return loss generally.\end{tabular}                                                                                                                                                    \\ \hline
+\textbf{Input Power Levels}     & The maximum input power for the SBX is -15 dBm.                                                                                                                                                                                                                             \\ \hline
+\end{tabular}
+\caption{Specifications of SBX-40 Daughterboard}
+\label{tab:sbx-40_specs}
+\end{table}
+
+Since the SBX-40 meets all the required specifications that might be needed, particularly the fact that it is commercially available, it makes for a good choice to fall part of the SDR section of the system.
+
 \subsubsection{Antennas}
+The next component of the system which has to be chosen is the antennas. The antennas are important parts of the system as they directly handle any transmitted and received RF signals for the system as a whole. Antennas play a crucial role in the performance of the system, and there are a lot of potential choices to be made. Much like the SDR choice that had to be made in the previous section, I made my decision of antenna based on the availability of antennas under control of the UCT RRSG. In lou of this, I chose the H-1498 manufactured by \gls{ael}, partially because the total operating frequency range of the antenna falls within the desired range I have for my system, and partially because there were not to many other options available. AEL has changed ownership throughout the years, and is now owned by \gls{cds}.
+
+
+
+
+
 \subsubsection{Carrying Rig}
 \subsubsection{Periphery Devices}
 
