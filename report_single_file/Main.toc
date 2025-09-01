@@ -84,7 +84,7 @@
 \contentsline {section}{\numberline {8.3}Determining the Optimal Packet Structure}{31}{section.8.3}%
 \contentsline {section}{\numberline {8.4}Determining the Optimal LoRa Parameters}{31}{section.8.4}%
 \contentsline {chapter}{\numberline {9}Conclusion and Recommendations}{32}{chapter.9}%
-\contentsline {chapter}{Bibliography}{33}{chapter*.24}%
+\contentsline {chapter}{Bibliography}{33}{chapter*.25}%
 \contentsline {chapter}{\numberline {10}Appendix}{34}{chapter.10}%
 \contentsline {section}{\numberline {10.1}Full Transmitter Circuit Schematic}{34}{section.10.1}%
 \contentsline {section}{\numberline {10.2}Full Receiver Circuit Schematic}{34}{section.10.2}%

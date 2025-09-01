@@ -456,13 +456,27 @@ Apart from the highlighted features in table \ref{tab:ni_ettus_daughterboards} a
 Since the SBX-40 meets all the required specifications that might be needed, particularly the fact that it is commercially available, it makes for a good choice to fall part of the SDR section of the system.
 
 \subsubsection{Antennas}
-The next component of the system which has to be chosen is the antennas. The antennas are important parts of the system as they directly handle any transmitted and received RF signals for the system as a whole. Antennas play a crucial role in the performance of the system, and there are a lot of potential choices to be made. Much like the SDR choice that had to be made in the previous section, I made my decision of antenna based on the availability of antennas under control of the UCT RRSG. In lou of this, I chose the H-1498 manufactured by \gls{ael}, partially because the total operating frequency range of the antenna falls within the desired range I have for my system, and partially because there were not to many other options available. AEL has changed ownership throughout the years, and is now owned by \gls{cds}.
+The next component of the system which has to be chosen is the antennas. The antennas are important parts of the system as they directly handle any transmitted and received RF signals for the system as a whole. Antennas play a crucial role in the performance of the system, and there are a lot of potential choices to be made. Much like the SDR choice that had to be made in the previous section, I made my decision of antenna based on the availability of antennas under control of the UCT RRSG. In lou of this, I chose the H-1498 manufactured by \gls{ael}, partially because the total operating frequency range of the antenna falls within the desired range I have for my system, and partially because there were not to many other options available. AEL has changed ownership throughout the years, and is now owned by \gls{cds}. This antenna has the following specifications.
 
+\begin{table}[H]
+\centering
+\begin{tabular}{|c|c|}
+\hline
+\textbf{Frequency Range}        & 2-18 GHz                                                                                    \\ \hline
+\textbf{Gain}                   & \begin{tabular}[c]{@{}c@{}}2 GHZ = 6 dBiL\\ 9 GHz = 11 dBiL\\ 18 GHz = 11 dBiL\end{tabular} \\ \hline
+\textbf{Power (Contiuous Wave)} & 50 W                                                                                        \\ \hline
+\end{tabular}
+\caption{H-1498 Antenna Specifications}
+\label{tab:H-1498_specs}
+\end{table}
 
-
-
+As you can see, this antenna is a good choice for my project because the gain at the operating frequency of the system, roughly 2.7 GHz, is decent, and, more importantly, the antenna has been designed to operate from 2-18 GHz, which includes the frequency of the system. I am not an antenna design expert, and therefore I will not focus too much energy on the optimal antenna setup, and will rather focus my energy on the design of the system as a whole.
 
 \subsubsection{Carrying Rig}
+
+
+
+
 \subsubsection{Periphery Devices}
 
 \subsection{Software}
