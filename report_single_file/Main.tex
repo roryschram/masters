@@ -274,10 +274,12 @@ To understand how and SDR works, let's imagine a simple SDR system, with the hum
 \subsection{Equalization}
 
 
+\section{Principal Component Analysis}
 
 
-% ----------------------------------------------------
-% ----------------------------------------------------
+
+
+
 
 
 % ----------------------------------------------------
@@ -286,68 +288,203 @@ To understand how and SDR works, let's imagine a simple SDR system, with the hum
 % ----------------------------------------------------
 \chapter{System Design}\label{ch:systemdesign}
 % ----------------------------------------------------
-This chapter aims to outline the thought process that went into the design of my radar system. As my requirements for the radar system have been spoken about previously in this report, but not in extreme detail, I will start this chapter by doing a requirement analysis for my problem, and then build on from there.
+In the following chapter, I will outline the exact thought process that went into designing my radar system. In order to make my explanation of the design process easier, and for continuity's sake, I have separated the overall system into three distinct modules. These modules all overlap in certain ways, however, it will be easier to explain the design process behind each module while assuming no overlap. The three modules are the following, firstly, a range radar module. This is the bare-bones part of the overall system that can determine the distance that objects are away from the transmitter and receiver. Secondly, there will be a part of the system that involves communications. This is the communication module. This is the part of the overall system that will demonstrate the ability of the system to perform basic operations as a communication system that sends data between and transmit and receive. Thirdly, there will be a classification module. This classification module will involve the prediction pipeline that is used to classify different shapes of objects in the frame of the radar. 
 
-\section{Requirement and Specification Analysis}
-\subsection{System Requirements}\label{subsec:systemreqs}
-Since the classification capabilities of my RADAR system are based on the principles of OFDM based communication signals, it felt necessary to do more tests 
+This chapter aims to outline the thought process that went into the design of each of the modules highlighted above. Before any explanation of design thinking however, a requirement and specification analysis is outlined below.
 
+\section{Requirement and Specification Analysis}\label{sec:requirements_specifications}
+It is important to list out the specific system requirements and specifications for the overall system and the various submodules. This makes it easier to decide on the design decisions that must be made, and also makes designing of the validation, and the overall testing procedure easier.
 
-
-
-
-The main hardware for the project should be widely available computer scientific equipment. The availability of computer equipment is generally larger than most of the other required equipment such as the \gls{sdr} equipment. The SDR equipment is much less widely available due to the high price of the equipment itself. This is fine however, since the \gls{uct} has in their control multiple \gls{usrp} N210 devices designed and manufactured by Ettus research which will be perfect for my project.
-
-test 1234
+\subsection{System Requirements}
 
 \begin{enumerate}
-    \item Be able to operate as a normal RADAR. This entails determining range, azimuth, and elevation. 
-    \item Be able to classify between three separate reflectors/scatterers.
+    \item \textbf{Overall System}: The main requirement of the entire system is that it be designed with widely available components, either consumer or scientific. Naturally, some scientific equipment will be fairly expensive, however, as long as this equipment is readily available, then that is adequate. The system should be able to seamlessly switch modes of operation so as to highlight the various operational capabilities of the three separate modules. 
+    \item \textbf{Range Radar Module}: The range module should be able to detect the distance of basic objects positioned in a scene. It should be able to determine the distance of these object as accurately as possible within the bounds of the hardware and software implemented.
+    \item \textbf{Communication Module}: The communication module should be able to perform basic data transfer via RF signals sent between the transmission and receive section of the overall system. This communication system does not have to include any advanced error correction, however, basic channel equalization must be implemented to make recovery of basic signals possible.
+    \item \textbf{Classification Module}: The classification module should be able to observe a scene, and be able to determine the difference between basic shapes placed in a scene. The basic shapes in question will be limited to objects present within the UCT radar group's possession. The classification pipeline should be able to classify objects that are stationary and moving, and as well as this it should be able to classify multiple objects within a single scene.
+\end{enumerate}
+
+\subsection{System Specifications}\label{sec:system_specifications}
+
+\begin{enumerate}
+    \item \textbf{Overall System}: 
+    \begin{enumerate}
+        \item In sticking to the aforementioned requirements, the first specification for the overall system is that all components, consumer and/or scientific should be available through two independent suppliers.
+        \item Secondly, the overall system should have three distinct modes of operation. Each mode of operation should take no less than 20 seconds to switch to, and finally, each mode should seamlessly integrate with the other modes, so as not to degrade the system's stability, meaning no crashes and data corruption etc.
+    \end{enumerate}
+    \item \textbf{Range Radar Module}: 
+    \begin{enumerate}
+        \item The range radar should have a minimum range resolution of below 20m. This has been chosen as a good starting point for this radar because this is a single pulsed radar, not a \gls{fmcw} radar. FMCW radars typically has much better range resolution capabilities, and does not rely on simple pulse compression in determining the distance of objects away from the transmitter and receiver, which this range radar does.
+        \item The radar should be able to reliably detect objects at distances greater than 10m. 
+    \end{enumerate}
+    \item \textbf{Communication Module}:
+    \begin{enumerate}
+        \item The communication pipeline should be characterized by a BER versus SNR, and should be able to achieve a near zero BER for high SNR values.
+        \item The communication system should be able to transmit data at a meaningful data rate that could be useful in a real world operation. To be able to operate in the real world, the module should be able to transmit at a rate of or above 1 000 000 bits/s, or 1 Mbps.
+    \end{enumerate}
+    \item \textbf{Classification Module}:
+    \begin{enumerate}
+        \item The classification module should have shape classification abilities, or in other words, be able to classify or separate between distinctly differently shaped objects. The module should be able to correctly classify a minimum of three objects in any given scene.
+        \item The classification module should be able to handle basic motion, such as an object rotating along a single axis, and advanced motion, such as a target moving along multiples axes at various velocities.
+        \item The module should be able to handle a minimum of two targets with both at different distances away from the radar, while still maintaining the ability to classify said targets accurately.
+    \end{enumerate}
 \end{enumerate}
 
 
+\section{Modules and Submodules}
+As mentioned previously, the overall project is broken down into three distinct modules. Breaking down a big project such as this one into different "black boxes" helps dramatically with the design process by making daunting large parts of the overall project more manageable. The choice of broad submodules is shown below in fig \ref{fig:modules_submodules}.
+
+\begin{figure}[H]
+\centering
+\includegraphics[width = 0.75\linewidth]{Images/Methodology/modules_and_submodules.png}
+\caption{Modules and Submodules}
+\label{fig:modules_submodules}
+\end{figure}
+
+Once an overall picture of the modules and sub modules can be outlined, decisions about the components contained within can be made.
+
+\section{Component Selection}
+The components of the system can be broken into two broad categories, namely, the hardware, and the software.
+
+\subsection{Hardware}
+Apart from the custom carrying rig, the hardware for this project is entirely made up of off the shelf components. The main components that fall part of the hardware category are the computer, which forms the basis of the processing unit of the radar, the SDR system, which contains all the required equipment to transmit and receive RF signals, the antennas, the carrying case, and the other periphery equipment such as power management and external monitors, keyboard, and mouse. Following on from this, below is an explanation of each hardware component choice, and the reasoning behind each choice.
+
+\subsubsection{Computing Unit}
+The computing unit for this project needs to be powerful enough to handle development of the entire system. To keep things neat and tidy, I am doing all the development of the software, which will be addressed later, on the computing unit chosen for this project. Therefore, the unit must be able to compute vast amounts of data used within the project. This will be a CPU intensive task. As I plan on utilizing a multi-threaded approach to the processing pipelines of this system, a CPU with as many cores as achievable would be ideal. There is no plan to implement \gls{gpu} integration into the project. Based on this information, I chose the GMKtec NUCBOX as the computer for this project. This choice of computer can be seen below in fig \ref{fig:gmktec_nucbox}.
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width = 0.6\linewidth]{Images/System_design/gmktec_nucbox.jpg}
+    \caption{GMKtec NUCBOX}
+    \label{fig:gmktec_nucbox}
+\end{figure}
+
+This computer is a very well-rounded computing device, and has the following specifications outlined in table \ref{tab:gmktec_nucbox_specs} below.
+
+\begin{table}[H]
+\centering
+\begin{tabular}{|c|c|}
+\hline
+\textbf{CPU}            & AMD Ryzen 7 8845HS                                                                                                                                                                                              \\ \hline
+\textbf{CPU Clock Rate} & 5.10 GHz                                                                                                                                                                                                        \\ \hline
+\textbf{Cores}          & 8                                                                                                                                                                                                               \\ \hline
+\textbf{Threads}        & 16 (via Simultaneous Multithreading)                                                                                                                                                                            \\ \hline
+\textbf{GPU}            & Radeon 780M RDNA3                                                                                                                                                                                               \\ \hline
+\textbf{RAM}            & 32 GB DDR5-5600MHz                                                                                                                                                                                              \\ \hline
+\textbf{Storage}        & 1TB M.2                                                                                                                                                                                                         \\ \hline
+\textbf{Networking}     & \begin{tabular}[c]{@{}c@{}}2x Intel I226V 2.5 Gigabit Ethernet RJ-45 LAN\\ Intel AX200 WiFi 6 Adapter\\ Bluetooth 5.2\end{tabular}                                                                              \\ \hline
+\textbf{Peripherals}    & \begin{tabular}[c]{@{}c@{}}2x USB 4.0 Type-C\\ 2x USB 3.2 Gen 2 Type-A\\ 2x USB 2.0 Type-A1x HDMI 2.1(8K@60Hz)\\ 1x DisplayPort 2.1 (8K@60Hz)\\ 1x 3.5mm Headphone Jack\\ 1x Oculink (PCIe 4.0 x4)\end{tabular} \\ \hline
+\textbf{Dimensions}     & 132mm x 125mm x 58mm   \\ \hline
+\textbf{Cost}           & R12 000.00 \footnotemark                                                                                                                                                                                                      \\ \hline
+\end{tabular}
+\caption{GMKtec NUCBOX Specifications}
+\label{tab:gmktec_nucbox_specs}
+\end{table}
+\footnotetext{At the time of writing this, Aug 2025} 
+
+As can be seen, this is a very well-rounded computing unit that offers many features one may find useful for a project such as this one. Particularly useful to this project is the fact that the unit offers 8 cores that can effectively handle 16 simultaneous threads when processing data. The unit also offers a large amount of RAM which can prove useful for processing large amounts of data. As will be explained in later sections of this chapter, a large amount of RAM is necessary for this project, because a large part of the processing for the system utilizes correlation calculations, which is a numerically intensive operation. Another selling point of this specific unit is the dual ethernet RJ45 ports. This proves useful for interfacing with the SDR devices, outlined later, while simultaneously accessing another network, possibly for data transfer purposes, or potentially remote control of the radar rig. The NUCBOX is also usefully small in physical size, with the dimensions listed in table \ref{tab:gmktec_nucbox_specs} as 132mm x 125mm x 58mm. This eventually allows for the computing unit to be mounted to a rig, without taking up a disproportionately large amount of space. This is important because for testing purposes, having a smaller overall system makes testing said system dramatically easier. With all of this in mind, I am confident that the GMKtec NUCBOX is a good choice of equipment for this project.
+
+\subsubsection{Software Defined Radios}
+Once a computing unit has been chosen, the next most important, or some may argue, the most important component of the system, is the SDRs. The SDRs form the backbone of the entire transmit and receive RF tool-chain. Without them, the system cannot work at all. My exact choice of SDRs was somewhat limited by the following factors. Firstly, SDRs, especially research grade SDRs, can end up being fairly expensive. 
+
+\textcolor{red}{I think I should add a little section here explaining the options that I had with regards to SDR choice (basically what SDRs the radar group has)}
+
+After assessing all the available options, I settled on the \gls{ni} Ettus N210 SDR. Specifically, I settled on the NI Ettus USRP N210 motherboard, paired with the NI SBX-40 daughter board. The NI Ettus USRP N210 has hot-swappable daughter board slots which allow for use with various daughter boards designed and manufactured by NI Ettus. Over the years, many daughter boards have been built by NI Ettus for various different purposes. The various examples of the different choices a consumer could face regarding the daughterboards available can be seen below in table \ref{tab:ni_ettus_daughterboards}. This information in the table is adapted from \cite{Addressing_Next_generation_Wireless_Challenges_with_Commercial_Software_defined_Radio_Platforms}.
+
+\begin{table}[H]
+\centering
+\begin{tabular}{|c|c|c|c|c|}
+\hline
+\textbf{Daughterboard} & \textbf{Function} & \textbf{Low Frequency}                                    & \textbf{High Frequency}                                   & \textbf{\begin{tabular}[c]{@{}c@{}}Max RF Bandwidth\\ per Channel\end{tabular}} \\ \hline
+UBX    \footnotemark[2]                & Transceiver       & 10 MHz                                                    & 6 GHz                                                     & \begin{tabular}[c]{@{}c@{}}40 MHz\\ 160 MHz\end{tabular}                        \\ \hline
+WBX     \footnotemark[2]              & Transceiver       & 50 MHz                                                    & 2.2 GHz                                                   & \begin{tabular}[c]{@{}c@{}}40 MHz\\ 120 MHz\end{tabular}                        \\ \hline
+CBX    \footnotemark[2]                & Transceiver       & 1.2 GHz                                                   & 6.0 GHz                                                   & \begin{tabular}[c]{@{}c@{}}40 MHz\\ 120 MHz\end{tabular}                        \\ \hline
+SBX    \footnotemark[2]                & Transceiver       & 400 MHz                                                   & 4.4 GHz                                                   & \begin{tabular}[c]{@{}c@{}}40 MHz\\ 120 MHz\end{tabular}                        \\ \hline
+XCVR                   & Transceiver       & \begin{tabular}[c]{@{}c@{}}2.4 GHz\\ 4.9 GHz\end{tabular} & \begin{tabular}[c]{@{}c@{}}2.5 GHz\\ 5.9 GHz\end{tabular} & \begin{tabular}[c]{@{}c@{}}36 MHz (RX)\\ 48 MHz (TX)\end{tabular}               \\ \hline
+Basic RX               & Receiver          & 1 MHz                                                     & 250 MHz                                                   & 100 MHz                                                                         \\ \hline
+Basic TX               & Transmitter       & 1 MHz                                                     & 250 MHz                                                   & 100 MHz                                                                         \\ \hline
+LFRX                   & Receiver          & DC                                                        & 30 MHz                                                    & 30 MHz                                                                          \\ \hline
+LFTX                   & Transmitter       & DC                                                        & 30 MHz                                                    & 30 MHz                                                                          \\ \hline
+DBSRX2                 & Receiver          & 800 MHz                                                   & 2.3 GHz                                                   & 60 MHz                                                                          \\ \hline
+TVRX2                  & Receiver          & 50 MHz                                                    & 860 MHz                                                   & 10 MHz                                                                          \\ \hline
+\end{tabular}
+\caption{Description of various commercially available daughterboards for the NI Ettus USRP N210}
+\label{tab:ni_ettus_daughterboards}
+\end{table}
+
+\footnotetext[2]{The N-series family of USRPs is compatible only with 40 MHz bandwidth daughterboards, while the X-series can support both 40 MHz and 120/160 MHz daughterboards.}
+
+Owing to the fact that I want to build a radar system with two SDRs, one for handling transmit capabilities, and the other for handling receive capabilities, I needed two motherboards, and two daughterboards. Luckily for me, the UCT \gls{rrsg} has access to multiple USRP devices. Therefore, I settled on using the SBX-40 daughterboard. This daughterboard is a powerful multipurpose board with a very wide range of tunable frequencies, which is great because it allows for operating the radar system at multiple different center frequencies if needed. Pictured below is the SBX-40.
+
+
+\begin{figure}[H]
+\centering
+\includegraphics[width = 0.6\linewidth]{Images/System_design/sbx-40.jpg}
+\caption{SBX-40 Daughterboard}
+\label{fig:sbx-40_daughterboard}
+\end{figure}
+
+
+Apart from the highlighted features in table \ref{tab:ni_ettus_daughterboards} above, the SBX-40 has the following specifications listed below in table \ref{tab:sbx-40_specs}.
+
+\begin{table}[H]
+\centering
+\begin{tabular}{|c|c|}
+\hline
+\textbf{Frontends}              & 2 quadrature frontends (1 transmit, 1 receive)                                                                                                                                                                                                                              \\ \hline
+\textbf{Local Oscillator}       & \begin{tabular}[c]{@{}c@{}}Independent receive and transmit LO's\\ and synthesizers.\\ Allows for full-duplex operation on different transmit\\ and receive frequencies.\end{tabular}                                                                                       \\ \hline
+\textbf{Antennas}               & \begin{tabular}[c]{@{}c@{}}Transmit: TX/RX\\ Receive: TX/RX or RX2\end{tabular}                                                                                                                                                                                             \\ \hline
+\textbf{Gain}                   & \begin{tabular}[c]{@{}c@{}}Transmit Gains: PGA0, Range: 0-31.5dB\\ Receive Gains: PGA0, Range: 0-31.5dB\end{tabular}                                                                                                                                                        \\ \hline
+\textbf{Bandwidth}              & 40 MHz, RX \& TX                                                                                                                                                                                                                                                            \\ \hline
+\textbf{Sensors}                & lo\_locked: boolean for LO lock state                                                                                                                                                                                                                                       \\ \hline
+\textbf{MIMO Capability}        & Yes                                                                                                                                                                                                                                                                         \\ \hline
+\textbf{LEDs}                   & \begin{tabular}[c]{@{}c@{}}All LEDs flash when daughterboard control is initialized\\ TX LD: Transmit Synthesizer Lock Detect\\ TX/RX: Receiver on TX/RX antenna port (No TX)\\ RX LD: Receive Synthesizer Lock Detect\\ RX1/RX2: Receiver on RX2 antenna port\end{tabular} \\ \hline
+\textbf{Freq Range}             & 400MHz - 4.4GHz                                                                                                                                                                                                                                                             \\ \hline
+\textbf{Noise Figure}           & \begin{tabular}[c]{@{}c@{}}4 - 5 dB @ (400MHz $\sim$1.5GHz)\\ 5 - 7 dB @ (1.5GHz $\sim$3GHz)\\ 7 - 12dB @ (3GHz $\sim$4.4GHz)\end{tabular}                                                                                                                                  \\ \hline
+\textbf{RX IIP3 (Max)}          & 16 $\sim$22 dBm                                                                                                                                                                                                                                                             \\ \hline
+\textbf{RX IQ Imbalance}        & \begin{tabular}[c]{@{}c@{}}-20 dBc @ (400MHz $\sim$600MHz)\\ -30dBc @ (600MHz $\sim$4.4GHz)\end{tabular}                                                                                                                                                                    \\ \hline
+\textbf{TX Power (Max)}         & \begin{tabular}[c]{@{}c@{}}20 dBm @ (400MHz $\sim$3.5GHz)\\ 18 - 20dBm @ (3.5GHz $\sim$4.4GHz)\end{tabular}                                                                                                                                                                 \\ \hline
+\textbf{TX OIP3}                & \begin{tabular}[c]{@{}c@{}}26 - 30dBm @ (400MHz $\sim$1.5GHz)\\ 30 dBm @ (1.5GHz $\sim$4.4GHz)\end{tabular}                                                                                                                                                                 \\ \hline
+\textbf{TX IQ Imbalance}        & \begin{tabular}[c]{@{}c@{}}-20 dBc @ (400MHz $\sim$600MHz)\\ -30dBc @ (600MHz $\sim$4.4GHz)\end{tabular}                                                                                                                                                                    \\ \hline
+\textbf{Input/Output Impedance} & \begin{tabular}[c]{@{}c@{}}All RF Ports are matched to 50 Ohm with -10dB\\ or better return loss generally.\end{tabular}                                                                                                                                                    \\ \hline
+\textbf{Input Power Levels}     & The maximum input power for the SBX is -15 dBm.                                                                                                                                                                                                                             \\ \hline
+\end{tabular}
+\caption{Specifications of SBX-40 Daughterboard}
+\label{tab:sbx-40_specs}
+\end{table}
+
+Since the SBX-40 meets all the required specifications that might be needed, particularly the fact that it is commercially available, it makes for a good choice to fall part of the SDR section of the system.
+
+\subsubsection{Antennas}
+The next component of the system which has to be chosen is the antennas. The antennas are important parts of the system as they directly handle any transmitted and received RF signals for the system as a whole. Antennas play a crucial role in the performance of the system, and there are a lot of potential choices to be made. Much like the SDR choice that had to be made in the previous section, I made my decision of antenna based on the availability of antennas under control of the UCT RRSG. In lou of this, I chose the H-1498 manufactured by \gls{ael}, partially because the total operating frequency range of the antenna falls within the desired range I have for my system, and partially because there were not to many other options available. AEL has changed ownership throughout the years, and is now owned by \gls{cds}. This antenna has the following specifications.
+
+\begin{table}[H]
+\centering
+\begin{tabular}{|c|c|}
+\hline
+\textbf{Frequency Range}        & 2-18 GHz                                                                                    \\ \hline
+\textbf{Gain}                   & \begin{tabular}[c]{@{}c@{}}2 GHZ = 6 dBiL\\ 9 GHz = 11 dBiL\\ 18 GHz = 11 dBiL\end{tabular} \\ \hline
+\textbf{Power (Contiuous Wave)} & 50 W                                                                                        \\ \hline
+\end{tabular}
+\caption{H-1498 Antenna Specifications}
+\label{tab:H-1498_specs}
+\end{table}
+
+As you can see, this antenna is a good choice for my project because the gain at the operating frequency of the system, roughly 2.7 GHz, is decent, and, more importantly, the antenna has been designed to operate from 2-18 GHz, which includes the frequency of the system. I am not an antenna design expert, and therefore I will not focus too much energy on the optimal antenna setup, and will rather focus my energy on the design of the system as a whole.
+
+\subsubsection{Carrying Rig}
 
 
 
-\subsection{System Specifications}\label{subsec:systemspecs}
 
+\subsubsection{Periphery Devices}
 
+\subsection{Software}
 
+\section{Range Radar Pipeline Design}
+\section{Communication Radar Pipeline Design}
+\section{Range Radar Pipeline Design}
 
-
-
-
-
-
-
-
-\section{Modules and Sub-modules}
-
-\section{Transmission Module Component Selection}
-
-
-
-\section{Receive Module Component Selection}
-
-
-
-\section{Hardware Interface Design}
-
-
-
-
-\section{Software Design}\label{sec:softwaredesign}
-
-
-
-\section{PCB Design}
-
-
-
-
-
-% ----------------------------------------------------
-% ----------------------------------------------------
 
 
 
@@ -355,10 +492,9 @@ test 1234
 % Validation and Simulation
 % ----------------------------------------------------
 
-\chapter{Validation and Simulation}\label{ch:simulation}
+\chapter{Validation and Simulation}
 
 
-\cite{christian_wolff_physical_2024}
 \section{Validation}
 
 \subsection{Transmitter Validation}
@@ -385,22 +521,52 @@ test 1234
 % ----------------------------------------------------
 % ----------------------------------------------------
 \chapter{Methodology}\label{ch:methodology}
-In the following chapter, I would like to highlight my testing procedure, but more importantly the reasoning behind why I make the specific choices that I do as it pertains to experimental setup. The aim of the experiments that are detailed in this chapter is to validate theoretical work, and to ensure that the theoretical development is practically achieved in the real world.
+In this chapter that follows, I will highlight the testing procedure that was followed for the system. Importantly, I will also explain the reasoning behind why I made the specific choices that I do as it pertains to the testing environment setup. The aim of the experiments detailed is to validate the previous system design work done for this thesis.
+
+
+\section{Acceptance Test Protocols}
+In light of the aforementioned requirements and specifications in section \ref{sec:requirements_specifications}, the following \gls{atps} are derived to ensure that the specifications for the system have been met. The ATPs can be broken into three sections for the overall system, the range radar module, the communication module, and the classification module. The various ATPs for the different modules and the overall system are highlighted below. These ATPs have been derived in part using the specifications mentioned in section \ref{sec:system_specifications}.
+
+\begin{enumerate}
+    \item \textbf{Overall System}:
+    \begin{enumerate}
+        \item Ensure that the system follows the purchasing rules in regard to off the shelf scientific and consumer hardware outlined in specification 1(a).
+        \item Following from that, specification 1(b) should be achieved by testing whether the system can switch casually between modes of operation as described.
+    \end{enumerate}
+    \item \textbf{Range Radar Module}:
+    \begin{enumerate}
+        \item The range resolution shall be measured by placing multiple different distance objects in a single frame to determine how accurately the radar can separate the objects based on their distances.
+        \item Object testing at distances greater than 10m must be performed.
+    \end{enumerate}
+    \item \textbf{Communication Module}:
+    \begin{enumerate}
+        \item The communication module's performance shall be classified by testing the performance of the system over a wide range of SNR values. The system shall be characterized in a single graph outlining the performance at different SNR values.
+        \item The transmission scheme shall be analyzed to determine theoretical bit rates of the transmission system, ensuring that the transmission rate of the system satisfies specification 3(b), by making sure the transmission rate is at or above 1 Mbps.
+    \end{enumerate}
+    \item \textbf{Classification Module}:
+    \begin{enumerate}
+        \item As outlined in specification 4(a), it must be shown that this classification module can successfully differentiate between a minimum of three targets in a scene.
+        \item Test the ability of the system to handle the classification of objects in motion.
+        \item Viability of object detection and classification at various distances away form the radar shall be examined.
+    \end{enumerate}
+\end{enumerate}
+
+
 
 \section{Experimental Design}
 \subsection{Overview}
-The overall workings of the RADAR system can be split into three distinct sections of operation. The first section involves the ability of the system to act as a communication system. The second section of operation is the ability of the RADAR to detect objects at different ranges. The third area of operation of the RADAR is the ability of the RADAR to perform target classification. Due to this separation of operations, the testing of the system has been divided into three separate testing sections. The various testing categories are listed below. 
+As mentioned in chapter \ref{ch:systemdesign}, the overall radar system can be separated into three distinct modules. The overall system contains the range radar module, followed by the communication module, followed finally by the classification module. As mentioned previously, the first module involves the ability of the system to act as a simple range radar with the ability to determine the distance of object within a scene. The second module is involved with the ability of the overall system to communicate data from a transmission antenna to a reception antenna. The third and last module handles the classification ability of the radar with respect to the ability to differentiate between various targets in a scene. Due to this separation of modules, the testing of the system has been divided into three separate testing sections. Listed below are the various overall testing categories.
 
 \begin{enumerate}
+    \item \textbf{Range Testing}: The purpose of the range test will be to determine if the RADAR system can operate as just that, a simple RADAR. The main aim is to determine if the system can detect objects at various distances from the transmitter and receiver setup in accorance with the specification and ATPs.
     \item \textbf{Communication Testing}: This test is all about how well the system can operate as a bare-bones communication system. The reason I have decided to include this as a test is because, as mentioned before, my entire classification pipeline is built upon OFDM communication principles (namely the use of pilot symbols in determining channel estimation data), and since these OFDM principles are so vital to my project, it is fitting to make sure that the system can actually operate as a data transmission system. This is necessary to show, since the broad category of RADAR that this system falls into could be considered "communication RADAR", or in essence, a RADAR that can use the same signal within communication operations and normal RADAR operations.
-    \item \textbf{Range Testing}: The purpose of the range test will be to determine if the RADAR system can operate as just that, a simple RADAR. The main aim is to determine if the system can detect objects at various distances from the transmitter and receiver setup.
     \item \textbf{Classification Testing}: This is the main testing that will take place for my RADAR system. This testing setup will thoroughly analyze the ability of the RADAR system to classify various targets in a scene. The tests will also try to determine the viability of this concept in a real world use case scenario.
 \end{enumerate}
 
-Following on from the above listed broad testing structures, the exact testing procedure of each testing category will now be explained below.
+Of these three major testing categories, where reasonably needed, it was attempted to perform each test indoors and outdoors. Following on from the above listed broad testing structures, the exact testing procedure of each testing category will now be explained below.
 
 \subsection{Communication Test}
-The communication testing procedure will be paramount in determining if my system is working properly as a communication system, and therefore it is important to check the communication ability to determine if the calculated channel responses are valid.
+The testing procedure followed for this module has a main purpose of characterizing the performance of the communication channel for various SNR values. Doing this characterization will be paramount in determining if the communication system works properly and meets the specifications and ATPs defined for said module. Determining that the communication channel works properly has the by product effect of ensuring that the channel estimations used for the classification module are working as intended.
 
 As mentioned in chapter \ref{ch:systemdesign}, one frame of my OFDM based signal is 32768 samples long. That means that there are 4384 samples either side of my "signal block" that have values equal to zero. These are my guard bands. That leaves 24000 samples for data and pilot symbols. I made my signal have 4000 pilots and 20000 data carriers. Based on this setup, I can transmit 40000 bits at a time. On the reception side, I am able to read ingest raw data, which I can then decode and get my transmitted bits out of. Bearing this in mind, since I have the bits that I transmitted, and the bits that I have received, I am able to compute a BER for the transmission. The performance of the system changes drastically as the overall \gls{snr} of the transmission changes.
 
