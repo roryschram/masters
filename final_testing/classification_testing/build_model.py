@@ -15,20 +15,21 @@ import joblib
 captures_per_target = 250
 
 # Lower and upper bound for ingest
-lower, upper = 5501,7001
+lower, upper = 7051, 8301
 
 # Labels
-labels_pre = ["No_Target","Di-Hedral","Tri-Hedral","Cylinder","Metal Plate","Just Me"]
+labels_pre = ["Tri-Hedral","Di-Hedral","Cylinder","Metal Plate","Nothing"]
 
 model_name = "No_Target_Di-Hedral_Tri-Hedral_Cylinder_Metal Plate_Just Me_3m_250_Captures_Per_Object_Moving"
 
 channel_ests = []
 
+file_path = "../final_testing/classification_testing/field/12m/"
 
 # fig = plt.subplot()
 
 for i in range(lower,upper,1):
-    input = np.load("../masters_large_data/final_testing/classification_testing/channel_ests/channel_est"+str(i)+".npy")
+    input = np.load(file_path+"channel_ests/channel_est"+str(i)+".npy")
     channel_ests.append(np.abs(input))
     # plt.plot(np.abs(input))
 
