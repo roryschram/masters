@@ -18,6 +18,8 @@ graphs = False
 
 capture_number = 1
 
+file_path = "../final_testing/classification_testing/field/multiple_targets/"
+
 
 
 def read_complex_data_from_dat(filename):
@@ -53,16 +55,16 @@ def read_complex_data_from_dat(filename):
 
 
 # Get the original transmitted clean pulse
-transmitted_data = np.array(read_complex_data_from_dat("../masters_large_data/transmitted_data/transmit.dat"))
+transmitted_data = np.array(read_complex_data_from_dat(file_path+"transmit.dat"))
 
 
 def process_ingest(i):
     print(f"Processing capture {i}")
 
     # Get received usrp data
-    received_data = read_complex_data_from_dat("../masters_large_data/final_testing/classification_testing/raw_captures/receive"+str(i)+".dat")
+    received_data = read_complex_data_from_dat(file_path+"raw_captures/receive"+str(i)+".dat")
     # received_data = read_complex_data_from_dat("../masters_large_data/transmitted_data/transmit.dat")
-    transmitted_data = read_complex_data_from_dat("../masters_large_data/transmitted_data/transmit.dat")
+    transmitted_data = read_complex_data_from_dat(file_path+"transmit.dat")
 
 
     received_data = received_data[1000000:]
@@ -90,7 +92,7 @@ def process_ingest(i):
     freq_axis = np.linspace(-fs/2, fs/2, fft_bins) / 1e6
 
 
-    pilot_indices_shifted = np.load("../masters_large_data/final_testing/classification_testing/pilot_indices_shifted.npy")
+    pilot_indices_shifted = np.load(file_path+"pilot_indices_shifted.npy")
 
 
     # print(pilot_indices_shifted)
@@ -98,9 +100,9 @@ def process_ingest(i):
 
     # print(allCarriers)
 
-    pilot_symbols = np.load("../masters_large_data/final_testing/classification_testing/pilot_symbols.npy")
-    pilot_indices_shifted = np.load("../masters_large_data/final_testing/classification_testing/pilot_indices_shifted.npy")
-    pilot_indices = np.load("../masters_large_data/final_testing/classification_testing/pilot_indices.npy")
+    pilot_symbols = np.load(file_path+"pilot_symbols.npy")
+    pilot_indices_shifted = np.load(file_path+"pilot_indices_shifted.npy")
+    pilot_indices = np.load(file_path+"pilot_indices.npy")
 
     # print(pilot_indices)
     # print(pilot_indices_shifted)
@@ -130,12 +132,12 @@ def process_ingest(i):
         
         return Hest
 
-    all_carriers_shifted = np.load("../masters_large_data/final_testing/classification_testing/all_carriers_shifted.npy")
+    all_carriers_shifted = np.load(file_path+"all_carriers_shifted.npy")
 
     temp = spectrum[all_carriers_shifted]
     Hest = channelEstimate(temp)
 
-    np.save("../masters_large_data/final_testing/classification_testing/channel_ests/channel_est"+str(i)+".npy",Hest)
+    np.save(file_path+"channel_ests/channel_est"+str(i)+".npy",Hest)
 
 
     def equalize(OFDM_demod, Hest):
@@ -199,7 +201,7 @@ def process_ingest(i):
 
     # Removed the bit error calc because ti took lots of compute
 
-    bits = np.load("../masters_large_data/final_testing/classification_testing/bits.npy")
+    bits = np.load(file_path+"bits.npy")
 
 
 
@@ -238,7 +240,8 @@ def process_ingest(i):
 # Main multiprocessing block
 if __name__ == "__main__":
     with ProcessPoolExecutor(max_workers=16) as executor:
-        results = list(executor.map(process_ingest, range(5501, 7001)))
+        results = list(executor.map(process_ingest, range(9551, 10301)))
+    
 
     # Print results
     for res in results:
