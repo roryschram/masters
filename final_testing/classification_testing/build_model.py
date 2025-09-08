@@ -99,6 +99,11 @@ X_scaled = scaler.fit_transform(X)
 pca = PCA(n_components=10)
 X_pca = pca.fit_transform(X_scaled)
 
+# Exclude PC1 (column 0), keep the rest
+X_pca_no_pc1 = X_pca[:, 1:]
+
+X_pca = X_pca_no_pc1
+
 print(pca.explained_variance_ratio_)
 
 
