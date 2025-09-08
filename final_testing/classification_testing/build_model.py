@@ -15,17 +15,19 @@ import joblib
 captures_per_target = 250
 
 # Lower and upper bound for ingest
-lower, upper = 7051,8301
+lower, upper = 8301,9551
 
 # Labels
-labels_pre = ["Tri-Hedral","Di-Hedral","Cylinder","Metal Plate","Nothing"]
+# labels_pre = ["Tri-Hedral","Di-Hedral","Cylinder","Metal Plate","Nothing"]
+
+labels_pre = ["Tri-Hedral","Di-Hedral","Cylinder","Metal Plate","No Target"]
 
 
 model_name = "No_Target_Di-Hedral_Tri-Hedral_Cylinder_Metal Plate_Just Me_3m_250_Captures_Per_Object_Moving"
 
 channel_ests = []
 
-file_path = "../final_testing/classification_testing/field/12m/"
+file_path = "../final_testing/classification_testing/field/6m/"
 
 # fig = plt.subplot()
 
