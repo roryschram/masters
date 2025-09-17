@@ -25,6 +25,21 @@
 {Christian Wolff}. Classification of radar systems (1). [Online]. Available: \url{https://www.radartutorial.eu/02.basics/Classification%20of%20Radar%20systems%20%281%29.en.html}
 \BIBentrySTDinterwordspacing
 
+\bibitem{A_Framework_for_Improving_Search_and_Rescue_Operations_Through_SDR-Based_FMCW_Radar_and_LPWAN_Technology}
+K.~Tariq, H.~Ahmad, S.~Liaquat, F.~Butt, I.~Naqvi, N.~Mahyuddin, S.~Alawsh, and A.~Muqaibel, ``A framework for improving search and rescue operations through sdr-based fmcw radar and lpwan technology,'' 07 2024, pp. 1--6.
+
+\bibitem{Passive_ionospheric_radar_builds_with_USRP_N210}
+L.~Rejfek, D.~Kouba, Z.~Mošna, P.~Knizova, P.~Tran, and C.~Dong, ``Passive ionospheric radar builds with usrp n210,'' \emph{Journal of Electrical Engineering}, vol.~70, pp. 159--164, 04 2019.
+
+\bibitem{GNU_Radio_based_software-defined_FMCW_radar_for_weather_surveillance_application}
+A.~Prabaswara, A.~Munir, and A.~Suksmono, ``Gnu radio based software-defined fmcw radar for weather surveillance application,'' 10 2011.
+
+\bibitem{tigrek_thesis}
+R.~Tigrek, ``A processing technique for ofdm-modulated wideband radar signals,'' phdthesis, Middle East Technical University, 2010.
+
+\bibitem{Software_Defined_Radio_for_Engineers}
+{Travis F. Collins, Robin Getz, Di Pu, and Alexander M. Wyglinski}, \emph{Software-Defined Radio for Engineers}.\hskip 1em plus 0.5em minus 0.4em\relax Norwood, Massachusetts: Artech House, 2018.
+
 \bibitem{skolnik_radar_2024}
 \BIBentryALTinterwordspacing
 M.~Skolnik. Radar - detection, military, technology {\textbar} britannica. [Online]. Available: \url{https://www.britannica.com/technology/radar/History-of-radar}
@@ -69,10 +84,7 @@ R.~W. World. Ofdm: Advantages and disadvantages of orthogonal frequency division
 G.~Norrie and S.~Paine, ``Design and demonstration of an ofdm based radcom system,'' in \emph{2023 IEEE Radar Conference (RadarConf23)}, 2023, pp. 1--6.
 
 \bibitem{lellouch_waveform_2015}
-G.~Lellouch, ``{WAVEFORM} {DESIGN} {AND} {PROCESSING} {TECHNIQUES} {IN} {OFDM} {RADAR},'' phdthesis, University of Cape Town, 2015.
-
-\bibitem{Software_Defined_Radio_for_Engineers}
-{Travis F. Collins, Robin Getz, Di Pu, and Alexander M. Wyglinski}, \emph{Software-Defined Radio for Engineers}.\hskip 1em plus 0.5em minus 0.4em\relax Norwood, Massachusetts: Artech House, 2018.
+G.~Lellouch, ``Waveform design and processing techniques in ofdm radar,'' phdthesis, University of Cape Town, 2015.
 
 \bibitem{Addressing_Next_generation_Wireless_Challenges_with_Commercial_Software_defined_Radio_Platforms}
 G.~Sklivanitis, A.~Gannon, S.~Batalama, and D.~Pados, ``Addressing next-generation wireless challenges with commercial software-defined radio platforms,'' \emph{IEEE Communications Magazine}, vol.~54, 01 2016.
