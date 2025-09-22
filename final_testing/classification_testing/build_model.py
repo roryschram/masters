@@ -153,9 +153,9 @@ print(confusion_matrix(y_test, y_pred))
 
 
 
-# Plotting
-fig = plt.figure()
-ax = fig.add_subplot(projection='3d')
+# # Plotting
+# fig = plt.figure()
+# ax = fig.add_subplot(projection='3d')
 
 # Define a list of color codes (as many as you need)
 colors = ['r', 'g', 'b', 'c', 'm', 'y', 'k']  # red, green, blue, cyan, magenta, yellow, black
@@ -173,7 +173,10 @@ color_map = {label: colors[idx] for idx, label in enumerate(unique_labels)}
 
 
 
-plt.style.use('seaborn-v0_8')
+# plt.style.use('seaborn-v0_8')
+fig = plt.figure()  # control figure size
+ax = fig.add_subplot(projection='3d')
+
 for i in range(len(X_pca)):
     ax.scatter(X_pca[i, 0], X_pca[i, 1], X_pca[i, 2],
                color=color_map[labels[i]],
@@ -185,4 +188,7 @@ ax.set_zlabel('PC3')
 ax.set_title("PCA Space")
 # ax.view_init(elev=, azim=0)  # ← change perspective to top-down
 ax.legend()
+
 plt.show()
+
+
