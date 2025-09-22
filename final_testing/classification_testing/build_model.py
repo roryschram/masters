@@ -35,7 +35,7 @@ model_name = "No_Target_Di-Hedral_Tri-Hedral_Cylinder_Metal Plate_Just Me_3m_250
 
 channel_ests = []
 
-file_path = "../masters_large_data/final_testing_no_raw/classification/field/3m_moving_target_test/"
+file_path = "../final_testing/classification/field/3m_moving_target_test/"
 
 
 # fig = plt.subplot()
@@ -173,11 +173,11 @@ color_map = {label: colors[idx] for idx, label in enumerate(unique_labels)}
 
 
 
-
+plt.style.use('seaborn-v0_8')
 for i in range(len(X_pca)):
     ax.scatter(X_pca[i, 0], X_pca[i, 1], X_pca[i, 2],
                color=color_map[labels[i]],
-               label=labels[i] if i % captures_per_target == 0 else "",s=5, marker=".", alpha=0.7)  # Avoid repeated labels
+               label=labels[i] if i % captures_per_target == 0 else "",s=10, marker=".", alpha=0.7)  # Avoid repeated labels
 
 ax.set_xlabel('PC1')
 ax.set_ylabel('PC2')
