@@ -77,8 +77,14 @@
 \contentsline {section}{\numberline {7.1}Communication Testing}{30}{section.7.1}%
 \contentsline {section}{\numberline {7.2}Range Testing}{31}{section.7.2}%
 \contentsline {subsection}{\numberline {7.2.1}Indoor Testing}{31}{subsection.7.2.1}%
+\contentsline {subsubsection}{\numberline {7.2.1.1}6m Test}{31}{subsubsection.7.2.1.1}%
+\contentsline {subsubsection}{\numberline {7.2.1.2}12m Test}{31}{subsubsection.7.2.1.2}%
 \contentsline {subsection}{\numberline {7.2.2}Outdoor Testing}{31}{subsection.7.2.2}%
+\contentsline {subsubsection}{\numberline {7.2.2.1}6m Test}{31}{subsubsection.7.2.2.1}%
+\contentsline {subsubsection}{\numberline {7.2.2.2}12m Test}{31}{subsubsection.7.2.2.2}%
 \contentsline {section}{\numberline {7.3}Classification Testing}{31}{section.7.3}%
+\contentsline {subsection}{\numberline {7.3.1}Indoor Testing}{31}{subsection.7.3.1}%
+\contentsline {subsection}{\numberline {7.3.2}Outdoor Testing}{31}{subsection.7.3.2}%
 \contentsline {chapter}{\numberline {8}Discussion}{32}{chapter.8}%
 \contentsline {section}{\numberline {8.1}RSSI Values with Distance}{32}{section.8.1}%
 \contentsline {section}{\numberline {8.2}Overall Testing Performance}{32}{section.8.2}%
