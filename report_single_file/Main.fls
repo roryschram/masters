@@ -661,11 +661,11 @@ INPUT /usr/local/texlive/2024/texmf-dist/fonts/tfm/public/lm/lmmib7.tfm
 INPUT /usr/local/texlive/2024/texmf-dist/fonts/tfm/public/lm/lmbsy10.tfm
 INPUT /usr/local/texlive/2024/texmf-dist/fonts/tfm/public/lm/lmbsy10.tfm
 INPUT /usr/local/texlive/2024/texmf-dist/fonts/tfm/public/lm/lmbsy7.tfm
-INPUT ./Images/Results/coms/test.png
-INPUT ./Images/Results/coms/test.png
-INPUT ./Images/Results/coms/test.png
-INPUT ./Images/Results/coms/test.png
-INPUT ./Images/Results/coms/test.png
+INPUT ./Images/Results/coms/loopback_snr_vs_ber.png
+INPUT ./Images/Results/coms/loopback_snr_vs_ber.png
+INPUT ./Images/Results/coms/loopback_snr_vs_ber.png
+INPUT ./Images/Results/coms/loopback_snr_vs_ber.png
+INPUT ./Images/Results/coms/loopback_snr_vs_ber.png
 INPUT ./Main.bbl
 INPUT ./Main.bbl
 INPUT Main.bbl
