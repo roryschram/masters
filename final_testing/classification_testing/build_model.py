@@ -8,6 +8,12 @@ from sklearn.metrics import classification_report, confusion_matrix
 from mpl_toolkits.mplot3d import Axes3D
 import joblib
 
+# import plotly.express as px
+# import pandas as pd
+
+# import plotly.io as pio
+# pio.renderers.default = "browser"
+
 
 # Settings for PCA
 
@@ -22,14 +28,15 @@ lower, upper = 15001,16251
 
 # labels_pre = ["Tri-Hedral","Di-Hedral","Cylinder","Metal Plate","No Target"]
 
-labels_pre = ["1","2","3","4","5"]
+labels_pre = ["Nothing","Di-Hedral","Tri-Hedral","Cylinder","Sheet"]
 
 
 model_name = "No_Target_Di-Hedral_Tri-Hedral_Cylinder_Metal Plate_Just Me_3m_250_Captures_Per_Object_Moving"
 
 channel_ests = []
 
-file_path = "../final_testing/classification_testing/field/3m_moving_target_test/"
+file_path = "../masters_large_data/final_testing_no_raw/classification/field/3m_moving_target_test/"
+
 
 # fig = plt.subplot()
 
@@ -104,9 +111,9 @@ pca = PCA(n_components=10)
 X_pca = pca.fit_transform(X_scaled)
 
 # Exclude PC1 (column 0), keep the rest
-# X_pca_no_pc1 = X_pca[:, 1:]
+X_pca_no_pc1 = X_pca[:, 1:]
 
-# X_pca = X_pca_no_pc1
+X_pca = X_pca_no_pc1
 
 print(pca.explained_variance_ratio_)
 
@@ -159,11 +166,18 @@ unique_labels = labels_pre
 # Create the color map
 color_map = {label: colors[idx] for idx, label in enumerate(unique_labels)}
 
+# df = pd.DataFrame(dict(x=X_pca[:, 0], y=X_pca[:, 1], z=X_pca[:, 2]))
+# fig = px.scatter_3d(df, x="x", y="y", z="z")
+# fig.show()
+
+
+
+
 
 for i in range(len(X_pca)):
     ax.scatter(X_pca[i, 0], X_pca[i, 1], X_pca[i, 2],
                color=color_map[labels[i]],
-               label=labels[i] if i % captures_per_target == 0 else "")  # Avoid repeated labels
+               label=labels[i] if i % captures_per_target == 0 else "",s=5, marker=".", alpha=0.7)  # Avoid repeated labels
 
 ax.set_xlabel('PC1')
 ax.set_ylabel('PC2')
