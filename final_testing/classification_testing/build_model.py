@@ -7,6 +7,60 @@ from sklearn.svm import SVC
 from sklearn.metrics import classification_report, confusion_matrix
 from mpl_toolkits.mplot3d import Axes3D
 import joblib
+import seaborn as sns
+
+
+def plot_confusion_matrix(y_true, y_pred, labels, title='Confusion Matrix', 
+                         figsize=(10, 8), cmap='Blues', normalize=None):
+    """
+    Create a beautiful confusion matrix plot
+    
+    Parameters:
+    y_true: true labels
+    y_pred: predicted labels  
+    labels: list of label names
+    title: plot title
+    figsize: figure size
+    cmap: colormap
+    normalize: 'true', 'pred', 'all' or None
+    """
+    
+    # Compute confusion matrix
+    cm = confusion_matrix(y_true, y_pred)
+    
+    if normalize:
+        if normalize == 'true':
+            cm = cm.astype('float') / cm.sum(axis=1)[:, np.newaxis]
+            fmt = '.2%'
+        elif normalize == 'pred':
+            cm = cm.astype('float') / cm.sum(axis=0)
+            fmt = '.2%'
+        elif normalize == 'all':
+            cm = cm.astype('float') / cm.sum()
+            fmt = '.2%'
+    else:
+        fmt = 'd'
+    
+    # Create figure
+    plt.figure(figsize=figsize)
+    
+    # Plot heatmap
+    sns.heatmap(cm, annot=True, fmt=fmt, cmap=cmap, 
+                xticklabels=labels, yticklabels=labels,
+                cbar_kws={'label': 'Count' if not normalize else 'Proportion'},
+                square=True, linewidths=0.5)
+    
+    plt.title(title, fontsize=16, fontweight='bold', pad=20)
+    plt.xlabel('Predicted Label', fontsize=14, fontweight='bold')
+    plt.ylabel('True Label', fontsize=14, fontweight='bold')
+    
+    # Rotate labels for better readability
+    plt.xticks(rotation=45, ha='right')
+    plt.yticks(rotation=0)
+    
+    plt.tight_layout()
+    return plt.gca()
+
 
 # import plotly.express as px
 # import pandas as pd
@@ -110,10 +164,10 @@ X_scaled = scaler.fit_transform(X)
 pca = PCA(n_components=10)
 X_pca = pca.fit_transform(X_scaled)
 
-# Exclude PC1 (column 0), keep the rest
-X_pca_no_pc1 = X_pca[:, 1:]
+# # Exclude PC1 (column 0), keep the rest
+# X_pca_no_pc1 = X_pca[:, 1:]
 
-X_pca = X_pca_no_pc1
+# X_pca = X_pca_no_pc1
 
 print(pca.explained_variance_ratio_)
 
@@ -149,6 +203,11 @@ print("Classification Report:")
 print(classification_report(y_test, y_pred, target_names=label_to_int.keys()))
 print("Confusion Matrix:")
 print(confusion_matrix(y_test, y_pred))
+
+plot_confusion_matrix(y_test, y_pred, labels_pre, 
+                     title='PCA-SVM Target Classification Results',
+                     figsize=(10, 6), cmap='Blues')
+plt.show()
 
 
 
