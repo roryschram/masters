@@ -89,7 +89,7 @@ model_name = "No_Target_Di-Hedral_Tri-Hedral_Cylinder_Metal Plate_Just Me_3m_250
 
 channel_ests = []
 
-file_path = "../final_testing/classification/field/3m_moving_target_test/"
+file_path = "../masters_large_data/final_testing_no_raw/classification/field/3m_moving_target_test/"
 
 
 # fig = plt.subplot()
