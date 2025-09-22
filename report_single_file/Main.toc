@@ -76,11 +76,8 @@
 \contentsline {chapter}{\numberline {7}Results}{30}{chapter.7}%
 \contentsline {section}{\numberline {7.1}Communication Testing}{30}{section.7.1}%
 \contentsline {subsection}{\numberline {7.1.1}Test 1: Communication System Characterization via Loopback}{30}{subsection.7.1.1}%
-\contentsline {section}{\numberline {7.2}100m Test}{31}{section.7.2}%
-\contentsline {section}{\numberline {7.3}300m Test}{31}{section.7.3}%
-\contentsline {section}{\numberline {7.4}500m Test}{31}{section.7.4}%
-\contentsline {section}{\numberline {7.5}20km Test}{31}{section.7.5}%
-\contentsline {section}{\numberline {7.6}Average RSSI Values with Distance}{31}{section.7.6}%
+\contentsline {section}{\numberline {7.2}Range Testing}{31}{section.7.2}%
+\contentsline {section}{\numberline {7.3}Classfication Testing}{31}{section.7.3}%
 \contentsline {chapter}{\numberline {8}Discussion}{32}{chapter.8}%
 \contentsline {section}{\numberline {8.1}RSSI Values with Distance}{32}{section.8.1}%
 \contentsline {section}{\numberline {8.2}Overall Testing Performance}{32}{section.8.2}%

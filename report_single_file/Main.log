@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.26 (TeX Live 2024) (preloaded format=pdflatex 2024.4.24)  16 SEP 2025 17:43
+This is pdfTeX, Version 3.141592653-2.6-1.40.26 (TeX Live 2024) (preloaded format=pdflatex 2024.4.24)  22 SEP 2025 16:39
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -1131,7 +1131,7 @@ Package: ltcaption 2021/01/08 v1.4c longtable captions (AR)
 Package caption Info: supertabular package is loaded.
 Package caption Info: End \AtBeginDocument code.
  (./FrontMatter/1.Title.tex
-<Images/../FrontMatter/UCT_logo.png, id=388, 1554.80875pt x 1578.89874pt>
+<Images/../FrontMatter/UCT_logo.png, id=376, 1554.80875pt x 1578.89874pt>
 File: Images/../FrontMatter/UCT_logo.png Graphic file (type png)
 <use Images/../FrontMatter/UCT_logo.png>
 Package pdftex.def Info: Images/../FrontMatter/UCT_logo.png  used on input line 15.
@@ -1139,7 +1139,7 @@ Package pdftex.def Info: Images/../FrontMatter/UCT_logo.png  used on input line 
 ) (./FrontMatter/2.Declaration.tex [1
 
 {/usr/local/texlive/2024/texmf-var/fonts/map/pdftex/updmap/pdftex.map}{/usr/local/texlive/2024/texmf-dist/fonts/enc/dvips/lm/lm-ec.enc} <./Images/../FrontMatter/UCT_logo.png>]
-<Images/../Images/signiture.png, id=398, 193.72375pt x 112.42pt>
+<Images/../Images/signiture.png, id=386, 193.72375pt x 112.42pt>
 File: Images/../Images/signiture.png Graphic file (type png)
 <use Images/../Images/signiture.png>
 Package pdftex.def Info: Images/../Images/signiture.png  used on input line 20.
@@ -1224,24 +1224,24 @@ Chapter 3.
 [5
 
 ] [6]
-<Images/Literature/classification_of_radar.png, id=674, 846.16125pt x 380.42125pt>
+<Images/Literature/classification_of_radar.png, id=659, 846.16125pt x 380.42125pt>
 File: Images/Literature/classification_of_radar.png Graphic file (type png)
 <use Images/Literature/classification_of_radar.png>
 Package pdftex.def Info: Images/Literature/classification_of_radar.png  used on input line 153.
 (pdftex.def)             Requested size: 338.58632pt x 152.21803pt.
  [7{/usr/local/texlive/2024/texmf-dist/fonts/enc/dvips/lm/lm-mathit.enc}{/usr/local/texlive/2024/texmf-dist/fonts/enc/dvips/lm/lm-mathsy.enc}{/usr/local/texlive/2024/texmf-dist/fonts/enc/dvips/lm/lm-rm.enc}] [8 <./Images/Literature/classification_of_radar.png>]
-<Images/Literature/ofdm.png, id=714, 578.16pt x 433.62pt>
+<Images/Literature/ofdm.png, id=699, 578.16pt x 433.62pt>
 File: Images/Literature/ofdm.png Graphic file (type png)
 <use Images/Literature/ofdm.png>
 Package pdftex.def Info: Images/Literature/ofdm.png  used on input line 194.
 (pdftex.def)             Requested size: 237.01411pt x 177.75888pt.
-<Images/Literature/fdm.png, id=715, 578.16pt x 433.62pt>
+<Images/Literature/fdm.png, id=700, 578.16pt x 433.62pt>
 File: Images/Literature/fdm.png Graphic file (type png)
 <use Images/Literature/fdm.png>
 Package pdftex.def Info: Images/Literature/fdm.png  used on input line 201.
 (pdftex.def)             Requested size: 237.01411pt x 177.75888pt.
  [9] [10{/usr/local/texlive/2024/texmf-dist/fonts/enc/dvips/lm/lm-mathex.enc} <./Images/Literature/ofdm.png> <./Images/Literature/fdm.png>] [11]
-<Images/Literature/norrie_paine_static_test.png, id=766, 970.12437pt x 526.46687pt>
+<Images/Literature/norrie_paine_static_test.png, id=751, 970.12437pt x 526.46687pt>
 File: Images/Literature/norrie_paine_static_test.png Graphic file (type png)
 <use Images/Literature/norrie_paine_static_test.png>
 Package pdftex.def Info: Images/Literature/norrie_paine_static_test.png  used on input line 271.
@@ -1251,13 +1251,13 @@ Chapter 4.
 [14
 
 ] [15]
-<Images/Methodology/modules_and_submodules.png, id=806, 861.2175pt x 459.21562pt>
+<Images/Methodology/modules_and_submodules.png, id=791, 861.2175pt x 459.21562pt>
 File: Images/Methodology/modules_and_submodules.png Graphic file (type png)
 <use Images/Methodology/modules_and_submodules.png>
 Package pdftex.def Info: Images/Methodology/modules_and_submodules.png  used on input line 353.
 (pdftex.def)             Requested size: 362.77264pt x 193.43681pt.
  [16 <./Images/Methodology/modules_and_submodules.png (PNG copy)>]
-<Images/System_design/gmktec_nucbox.jpg, id=815, 1204.5pt x 892.33376pt>
+<Images/System_design/gmktec_nucbox.jpg, id=800, 1204.5pt x 892.33376pt>
 File: Images/System_design/gmktec_nucbox.jpg Graphic file (type jpg)
 <use Images/System_design/gmktec_nucbox.jpg>
 Package pdftex.def Info: Images/System_design/gmktec_nucbox.jpg  used on input line 371.
@@ -1271,7 +1271,7 @@ Overfull \hbox (0.89763pt too wide) in paragraph at lines 410--425
  [][] 
  []
 
-<Images/System_design/sbx-40.jpg, id=840, 120.45pt x 69.861pt>
+<Images/System_design/sbx-40.jpg, id=825, 120.45pt x 69.861pt>
 File: Images/System_design/sbx-40.jpg Graphic file (type jpg)
 <use Images/System_design/sbx-40.jpg>
 Package pdftex.def Info: Images/System_design/sbx-40.jpg  used on input line 436.
@@ -1285,27 +1285,27 @@ Chapter 6.
 [24
 
 ] [25] [26]
-<Images/Methodology/10_db_attenuator.jpeg, id=910, 479.7925pt x 270.00874pt>
+<Images/Methodology/10_db_attenuator.jpeg, id=895, 479.7925pt x 270.00874pt>
 File: Images/Methodology/10_db_attenuator.jpeg Graphic file (type jpg)
 <use Images/Methodology/10_db_attenuator.jpeg>
 Package pdftex.def Info: Images/Methodology/10_db_attenuator.jpeg  used on input line 602.
 (pdftex.def)             Requested size: 237.01411pt x 133.38487pt.
-<Images/Methodology/1_db_attenuator.jpeg, id=911, 479.7925pt x 270.00874pt>
+<Images/Methodology/1_db_attenuator.jpeg, id=896, 479.7925pt x 270.00874pt>
 File: Images/Methodology/1_db_attenuator.jpeg Graphic file (type jpg)
 <use Images/Methodology/1_db_attenuator.jpeg>
 Package pdftex.def Info: Images/Methodology/1_db_attenuator.jpeg  used on input line 609.
 (pdftex.def)             Requested size: 237.01411pt x 133.38487pt.
-<Images/Methodology/com_test_1.png, id=913, 721.9773pt x 294.8616pt>
+<Images/Methodology/com_test_1.png, id=898, 721.9773pt x 294.8616pt>
 File: Images/Methodology/com_test_1.png Graphic file (type png)
 <use Images/Methodology/com_test_1.png>
 Package pdftex.def Info: Images/Methodology/com_test_1.png  used on input line 638.
 (pdftex.def)             Requested size: 435.32422pt x 177.79117pt.
  [27 <./Images/Methodology/10_db_attenuator.jpeg> <./Images/Methodology/1_db_attenuator.jpeg>] [28 <./Images/Methodology/com_test_1.png>] [29]
 Chapter 7.
-<Images/Results/coms/test.png, id=933, 722.7pt x 433.62pt>
+<Images/Results/coms/test.png, id=918, 722.7pt x 433.62pt>
 File: Images/Results/coms/test.png Graphic file (type png)
 <use Images/Results/coms/test.png>
-Package pdftex.def Info: Images/Results/coms/test.png  used on input line 703.
+Package pdftex.def Info: Images/Results/coms/test.png  used on input line 695.
 (pdftex.def)             Requested size: 483.69687pt x 290.21953pt.
 [30
 
@@ -1329,13 +1329,13 @@ LaTeX2e <2023-11-01> patch level 1
 L3 programming layer <2024-02-20>
  ***********
 Package rerunfilecheck Info: File `Main.out' has not changed.
-(rerunfilecheck)             Checksum: 8E55000D29CDB1358F88C85395F5F184;15821.
+(rerunfilecheck)             Checksum: 477A23DCE9A0C15A391AECBB498B3626;15463.
  ) 
 Here is how much of TeX's memory you used:
- 55371 strings out of 474116
- 1229642 string characters out of 5743682
+ 55365 strings out of 474116
+ 1229570 string characters out of 5743682
  1945187 words of memory out of 5000000
- 76421 multiletter control sequences out of 15000+600000
+ 76418 multiletter control sequences out of 15000+600000
  650922 words of font info for 189 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
  114i,21n,110p,2486b,1444s stack positions out of 10000i,1000n,20000p,200000b,200000s
@@ -1352,10 +1352,10 @@ pdfTeX warning (dest): name{Hfootnote.3} has been referenced but does not exist,
 pdfTeX warning (dest): name{Hfootnote.2} has been referenced but does not exist, replaced by a fixed one
 
 </usr/local/texlive/2024/texmf-dist/fonts/type1/public/lm/lmbx10.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/lm/lmbx12.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/lm/lmbx8.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/lm/lmex10.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/lm/lmmi10.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/lm/lmmi6.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/lm/lmmi8.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/lm/lmmib10.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/lm/lmr10.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/lm/lmr12.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/lm/lmr17.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/lm/lmr6.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/lm/lmr8.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/lm/lmr9.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/lm/lmri10.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/lm/lmsy10.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/lm/lmsy8.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/symbols/msam10.pfb>
-Output written on Main.pdf (47 pages, 1722056 bytes).
+Output written on Main.pdf (47 pages, 1721498 bytes).
 PDF statistics:
- 1129 PDF objects out of 1200 (max. 8388607)
- 1008 compressed objects within 11 object streams
- 260 named destinations out of 1000 (max. 500000)
- 52038 words of extra memory for PDF output out of 61914 (max. 10000000)
+ 1112 PDF objects out of 1200 (max. 8388607)
+ 992 compressed objects within 10 object streams
+ 257 named destinations out of 1000 (max. 500000)
+ 52014 words of extra memory for PDF output out of 61914 (max. 10000000)
 
