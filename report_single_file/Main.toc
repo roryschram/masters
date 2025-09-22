@@ -76,6 +76,8 @@
 \contentsline {chapter}{\numberline {7}Results}{30}{chapter.7}%
 \contentsline {section}{\numberline {7.1}Communication Testing}{30}{section.7.1}%
 \contentsline {section}{\numberline {7.2}Range Testing}{31}{section.7.2}%
+\contentsline {subsection}{\numberline {7.2.1}Indoor Testing}{31}{subsection.7.2.1}%
+\contentsline {subsection}{\numberline {7.2.2}Outdoor Testing}{31}{subsection.7.2.2}%
 \contentsline {section}{\numberline {7.3}Classification Testing}{31}{section.7.3}%
 \contentsline {chapter}{\numberline {8}Discussion}{32}{chapter.8}%
 \contentsline {section}{\numberline {8.1}RSSI Values with Distance}{32}{section.8.1}%
