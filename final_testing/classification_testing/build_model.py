@@ -15,19 +15,21 @@ import joblib
 captures_per_target = 250
 
 # Lower and upper bound for ingest
-lower, upper = 8301,9551
+lower, upper = 15001,16251
 
 # Labels
 # labels_pre = ["Tri-Hedral","Di-Hedral","Cylinder","Metal Plate","Nothing"]
 
-labels_pre = ["Tri-Hedral","Di-Hedral","Cylinder","Metal Plate","No Target"]
+# labels_pre = ["Tri-Hedral","Di-Hedral","Cylinder","Metal Plate","No Target"]
+
+labels_pre = ["1","2","3","4","5"]
 
 
 model_name = "No_Target_Di-Hedral_Tri-Hedral_Cylinder_Metal Plate_Just Me_3m_250_Captures_Per_Object_Moving"
 
 channel_ests = []
 
-file_path = "../final_testing/classification_testing/field/6m/"
+file_path = "../final_testing/classification_testing/field/3m_moving_target_test/"
 
 # fig = plt.subplot()
 
@@ -102,9 +104,9 @@ pca = PCA(n_components=10)
 X_pca = pca.fit_transform(X_scaled)
 
 # Exclude PC1 (column 0), keep the rest
-X_pca_no_pc1 = X_pca[:, 1:]
+# X_pca_no_pc1 = X_pca[:, 1:]
 
-X_pca = X_pca_no_pc1
+# X_pca = X_pca_no_pc1
 
 print(pca.explained_variance_ratio_)
 

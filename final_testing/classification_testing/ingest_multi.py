@@ -18,7 +18,7 @@ graphs = False
 
 capture_number = 1
 
-file_path = "../final_testing/classification_testing/field/multiple_targets/"
+file_path = "../final_testing/classification_testing/field/3m_moving_target_test/"
 
 
 
@@ -240,7 +240,7 @@ def process_ingest(i):
 # Main multiprocessing block
 if __name__ == "__main__":
     with ProcessPoolExecutor(max_workers=16) as executor:
-        results = list(executor.map(process_ingest, range(9551, 10301)))
+        results = list(executor.map(process_ingest, range(15001, 16251)))
     
 
     # Print results
