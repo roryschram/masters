@@ -34,7 +34,6 @@ std::vector<std::complex<double>> readComplexDataFromFile(const std::string& fil
 
     while (!file.eof()) {
         double i, q;
-
         // Read 64-bit double I (real part)
         file.read(reinterpret_cast<char*>(&i), sizeof(double));
 
@@ -46,7 +45,6 @@ std::vector<std::complex<double>> readComplexDataFromFile(const std::string& fil
             complexData.emplace_back(i, q);  // Add to vector as std::complex<float>
         }
     }
-
     file.close();
     return complexData;
 }
