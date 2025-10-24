@@ -105,42 +105,37 @@ void transmit_vector(uhd::usrp::multi_usrp::sptr tx_usrp, std::vector<std::compl
     uhd::stream_args_t stream_args("fc64","sc16");
 
     // Set additional key-value options
-    stream_args.args["underflow_policy"] = "next_packet";           // Drop on overflow (if supported)
+    stream_args.args["underflow_policy"] = "next_packet";
 
-
-
-
+    // Setup tx streamer
     uhd::tx_streamer::sptr tx_stream = tx_usrp->get_tx_stream(stream_args);
     
-        
+    // Setup metadata
     uhd::tx_metadata_t md;
     md.has_time_spec = true;
     md.end_of_burst = false;
     md.time_spec = uhd::time_spec_t(secondsInFuture);
     md.start_of_burst = true;
 
-    size_t maxTransmitSize=tx_stream->get_max_num_samps(); //not entirely sure where this comes from
-    //std::cout<<"Max Transmit Buffer Size: "<<maxTransmitSize<<"\n";
+    // Get buffer sizes
+    size_t maxTransmitSize=tx_stream->get_max_num_samps();
     size_t fullBufferLength=buffers.size();
 
-    //std::cout<<"full buffer length "<<fullBufferLength<<"\n";
-
+    // Set atmoic boolean true to indicate complete setup
     isTXsetupComplete.store(true);
 
+    // Transmit data with timed commands
     while (!isRXsetupComplete) {
 
     }
 
     if(fullBufferLength<=maxTransmitSize){
-        // std::cout<<"OUT OF WHILE LOOP: "<<maxTransmitSize<<"\n";
         std::vector<std::complex<double>*> pBuffs(1,&buffers.front());
         tx_stream->send(pBuffs,buffers.size(),md,0.1);
         md.end_of_burst=true;
         tx_stream->send("",0,md, 0.1);
-
         return;
     }else{
-        //std::cout<<"IN WHILE LOOP: "<<maxTransmitSize<<"\n";
         size_t numSent=0;
         while (numSent<fullBufferLength)
         {
@@ -152,13 +147,11 @@ void transmit_vector(uhd::usrp::multi_usrp::sptr tx_usrp, std::vector<std::compl
             std::vector<std::complex<double>*> pBuffs(1,&smallbuffer.front());
             tx_stream->send(pBuffs,smallbuffer.size(),md,0.1);
             numSent+=smallBufferSize;
-            md.has_time_spec=false; //dont want subsequent packets to wait
+            md.has_time_spec=false;
             md.start_of_burst=false;
-            //std::cout<<"Samps Tramsitted: "<<numSent<<"\n";
         }
         md.end_of_burst=true;
         tx_stream->send("",0,md,0.1);
-        // std::cout<<"Time of first transmitted sample: "<<md.time_spec.get_full_secs() + md.time_spec.get_frac_secs()<<"\n";
         return;
     }
 }
