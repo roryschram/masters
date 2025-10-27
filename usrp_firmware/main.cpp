@@ -474,7 +474,7 @@ int UHD_SAFE_MAIN(int argc, char *argv[]) {
     // std::cout<<"\n"<<rxMetaData.to_pp_string(false);
 
     auto cap_num = std::to_string(capture_num);
-    saveComplexDataToFile("../../../masters_large_data/final_testing/range_testing/raw_captures/receive"+cap_num+".dat",received_data);
+    saveComplexDataToFile("../../../masters_large_data/received_data/receive"+cap_num+".dat",received_data);
 
 
     return EXIT_SUCCESS;
