@@ -75,21 +75,22 @@ def plot_confusion_matrix(y_true, y_pred, labels, title='Confusion Matrix',
 captures_per_target = 250
 
 # Lower and upper bound for ingest
-lower, upper = 15001,16251
+lower, upper = 7050,8300
 
 # Labels
 # labels_pre = ["Tri-Hedral","Di-Hedral","Cylinder","Metal Plate","Nothing"]
 
 # labels_pre = ["Tri-Hedral","Di-Hedral","Cylinder","Metal Plate","No Target"]
 
-labels_pre = ["Nothing","Di-Hedral","Tri-Hedral","Cylinder","Sheet"]
+labels_pre = ["Tri-Hedral","Di-Hedral","Cylinder","Sheet","Nothing"]
 
 
 model_name = "No_Target_Di-Hedral_Tri-Hedral_Cylinder_Metal Plate_Just Me_3m_250_Captures_Per_Object_Moving"
 
 channel_ests = []
 
-file_path = "../masters_large_data/final_testing_no_raw/classification/field/3m_moving_target_test/"
+# file_path = "../masters_large_data/final_testing_no_raw/classification/field/3m_moving_target_test/"
+file_path = "../masters_large_data/final_testing_no_raw/classification/field/12m/"
 
 
 # fig = plt.subplot()
