@@ -11,7 +11,7 @@ import seaborn as sns
 
 
 def plot_confusion_matrix(y_true, y_pred, labels, title='Confusion Matrix', 
-                         figsize=(10, 8), cmap='Blues', normalize=None):
+                         figsize=(7, 7), cmap='Blues', normalize=None):
     """
     Create a beautiful confusion matrix plot
     
@@ -50,9 +50,9 @@ def plot_confusion_matrix(y_true, y_pred, labels, title='Confusion Matrix',
                 cbar_kws={'label': 'Count' if not normalize else 'Proportion'},
                 square=True, linewidths=0.5)
     
-    plt.title(title, fontsize=16, fontweight='bold', pad=20)
-    plt.xlabel('Predicted Label', fontsize=14, fontweight='bold')
-    plt.ylabel('True Label', fontsize=14, fontweight='bold')
+    # plt.title(title, fontsize=16, pad=20)
+    plt.xlabel('Predicted Label', fontsize=16)
+    plt.ylabel('True Label', fontsize=16)
     
     # Rotate labels for better readability
     plt.xticks(rotation=45, ha='right')
@@ -75,14 +75,14 @@ def plot_confusion_matrix(y_true, y_pred, labels, title='Confusion Matrix',
 captures_per_target = 250
 
 # Lower and upper bound for ingest
-lower, upper = 7050,8300
+lower, upper = 1,1501
 
 # Labels
 # labels_pre = ["Tri-Hedral","Di-Hedral","Cylinder","Metal Plate","Nothing"]
 
 # labels_pre = ["Tri-Hedral","Di-Hedral","Cylinder","Metal Plate","No Target"]
 
-labels_pre = ["Tri-Hedral","Di-Hedral","Cylinder","Sheet","Nothing"]
+labels_pre = ["Target 1","Target 2","Target 3","Target 4","Target 5","Target 6"]
 
 
 model_name = "No_Target_Di-Hedral_Tri-Hedral_Cylinder_Metal Plate_Just Me_3m_250_Captures_Per_Object_Moving"
@@ -90,7 +90,7 @@ model_name = "No_Target_Di-Hedral_Tri-Hedral_Cylinder_Metal Plate_Just Me_3m_250
 channel_ests = []
 
 # file_path = "../masters_large_data/final_testing_no_raw/classification/field/3m_moving_target_test/"
-file_path = "../masters_large_data/final_testing_no_raw/classification/field/12m/"
+file_path = "../masters_large_data/final_testing_no_raw/classification/seminar_room/3m_test/"
 
 
 # fig = plt.subplot()
@@ -234,20 +234,20 @@ color_map = {label: colors[idx] for idx, label in enumerate(unique_labels)}
 
 
 # plt.style.use('seaborn-v0_8')
-fig = plt.figure()  # control figure size
+fig = plt.figure(figsize=(7,7))  # control figure size
 ax = fig.add_subplot(projection='3d')
 
 for i in range(len(X_pca)):
     ax.scatter(X_pca[i, 0], X_pca[i, 1], X_pca[i, 2],
                color=color_map[labels[i]],
-               label=labels[i] if i % captures_per_target == 0 else "",s=10, marker=".", alpha=0.7)  # Avoid repeated labels
+               label=labels[i] if i % captures_per_target == 0 else "",s=50, marker=".", alpha=0.7)  # Avoid repeated labels
 
-ax.set_xlabel('PC1')
-ax.set_ylabel('PC2')
-ax.set_zlabel('PC3')
-ax.set_title("PCA Space")
+ax.set_xlabel('PC1',size=14)
+ax.set_ylabel('PC2',size=14)
+ax.set_zlabel('PC3',size=14)
+# ax.set_title("PCA Space")
 # ax.view_init(elev=, azim=0)  # ← change perspective to top-down
-ax.legend()
+ax.legend(loc='center left', bbox_to_anchor=(-0.2, 0.5), fontsize=12)
 
 plt.show()
 
