@@ -24,7 +24,7 @@ plt.plot(x, y3, label='Carrier 4')  # Plot the function and add a label
 plt.plot(x, y5, label='Carrier 5')  # Plot the function and add a label
 
 # Add labels and title
-plt.xlabel('Frequency Spectrum',fontsize=15)
+plt.xlabel('Frequency Spectrum',size=16)
 #plt.title('OFDM Waveform',fontsize=14)
 
 # Remove x-axis numbering (tick labels)
