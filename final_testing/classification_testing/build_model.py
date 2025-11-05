@@ -75,14 +75,14 @@ def plot_confusion_matrix(y_true, y_pred, labels, title='Confusion Matrix',
 captures_per_target = 250
 
 # Lower and upper bound for ingest
-lower, upper = 1,1501
+lower, upper = 15001,16251
 
 # Labels
 # labels_pre = ["Tri-Hedral","Di-Hedral","Cylinder","Metal Plate","Nothing"]
 
 # labels_pre = ["Tri-Hedral","Di-Hedral","Cylinder","Metal Plate","No Target"]
 
-labels_pre = ["Target 1","Target 2","Target 3","Target 4","Target 5","Target 6"]
+labels_pre = ["No Target","Dihedral","Trihedral","Cylinder","Metal Sheet"]
 
 
 model_name = "No_Target_Di-Hedral_Tri-Hedral_Cylinder_Metal Plate_Just Me_3m_250_Captures_Per_Object_Moving"
@@ -90,7 +90,7 @@ model_name = "No_Target_Di-Hedral_Tri-Hedral_Cylinder_Metal Plate_Just Me_3m_250
 channel_ests = []
 
 # file_path = "../masters_large_data/final_testing_no_raw/classification/field/3m_moving_target_test/"
-file_path = "../masters_large_data/final_testing_no_raw/classification/seminar_room/3m_test/"
+file_path = "../masters_large_data/final_testing_no_raw/classification/field/3m_moving_target_test/"
 
 
 # fig = plt.subplot()
@@ -100,6 +100,7 @@ for i in range(lower,upper,1):
 
     channel_ests.append(np.abs(input))
     # plt.plot(np.abs(input))
+
 
 
 # lower, upper = 6001,6251
@@ -156,6 +157,8 @@ int_labels = np.array([label_to_int[label] for label in labels])
 X = []
 X = np.array(channel_ests)
 
+print(X.shape)
+
 
 # Standardize features
 scaler = StandardScaler()
@@ -207,7 +210,7 @@ print(confusion_matrix(y_test, y_pred))
 
 plot_confusion_matrix(y_test, y_pred, labels_pre, 
                      title='PCA-SVM Target Classification Results',
-                     figsize=(10, 6), cmap='Blues')
+                     figsize=(7, 7), cmap='Blues')
 plt.show()
 
 
